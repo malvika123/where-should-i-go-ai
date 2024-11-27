@@ -1,0 +1,15 @@
+.trip-planner{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.header{
+font-size: 30px;
+text-align: left;
+}
+
+.box{
+    margin: 50px 25% 100px 25%;
+}

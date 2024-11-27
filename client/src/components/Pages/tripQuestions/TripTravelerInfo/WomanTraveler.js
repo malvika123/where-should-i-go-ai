@@ -1,0 +1,52 @@
+import "./style/trip.css";
+import "./style/pets.css";
+import { useContext, useEffect, useState } from "react";
+import { IoMdInformationCircleOutline } from "react-icons/io";
+import KidInfoTooltip from "./tooltips/KidInfoTooltip";
+import { AppContext } from "../../../context/AppContext";
+
+const WomanTraveler = () => {
+  const [showSelectedKidsOption, setSelectedKidsOption] = useState();
+  const [styleToolTip, setStyleToolTip] = useState({ display: "none" });
+  const { setHasFemale } = useContext(AppContext);
+
+  const setFemaleTravelerSelection = (e, option) => {
+    setHasFemale(option);
+    showSelectedKidsOption && showSelectedKidsOption.toggle("onClick");
+    setSelectedKidsOption(e.currentTarget.classList);
+  };
+
+  useEffect(() => {
+    showSelectedKidsOption && showSelectedKidsOption.add("onClick");
+  }, [showSelectedKidsOption]);
+  return (
+    <div className="kids">
+      <div className="header">
+        <h4>Are you travelling with female traveller?</h4>
+        <IoMdInformationCircleOutline
+          onMouseEnter={(e) => setStyleToolTip({ display: "block" })}
+          onMouseLeave={(e) => setStyleToolTip({ display: "none" })}
+        />
+        <div style={styleToolTip}>
+          <KidInfoTooltip />
+        </div>
+      </div>
+      <div className="options">
+        <h5
+          className="yes"
+          onClick={(e) => setFemaleTravelerSelection(e, true)}
+        >
+          Yes
+        </h5>
+        <h5
+          className="no"
+          onClick={(e) => setFemaleTravelerSelection(e, false)}
+        >
+          No
+        </h5>
+      </div>
+    </div>
+  );
+};
+
+export default WomanTraveler;

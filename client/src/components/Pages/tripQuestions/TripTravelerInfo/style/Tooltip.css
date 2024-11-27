@@ -1,0 +1,19 @@
+/* src/components/PetInfoTooltip.css */
+.tooltip-container {
+    position: absolute;
+    overflow: hidden;
+    background-color: #f9f9f9; /* Light gray background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the tooltip */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-family: Arial, sans-serif; /* Clean font */
+    font-size: 2px; /* Readable text size */
+    line-height: 1.5; /* Nice spacing between lines */
+    color: #333; /* Dark gray text */
+    max-width: 200px; /* Optional: restrict width */
+  }
+
+.text{
+    font-size: 10px;
+}

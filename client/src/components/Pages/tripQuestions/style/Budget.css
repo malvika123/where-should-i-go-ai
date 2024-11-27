@@ -1,0 +1,67 @@
+.price-sel{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.curr, .curr1{
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.min-budg-div, .max-budg-div{
+    display: flex;
+    overflow: hidden;
+    border-radius: 20px;
+    border: rgb(210, 206, 206) solid;
+    /* background-color: rgb(53, 112, 231); */
+}
+
+.curr1{
+    width: 15%;
+    font-size: 25px;
+}
+
+.curr{
+    font-size: 35px;
+    margin-top: 12px;
+    color: rgb(193, 189, 189);
+}
+
+.dash{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 50px;
+    margin-top: 8px;
+}
+
+.min-budg, .max-budg{
+    border: none;
+    width: 250px;
+    height: 60px;
+    font-size: 20px;
+    max-width: 300px;
+    outline: none;
+    padding-left: 20px;
+}
+.min-budg:hover, .max-budg:hover{
+    background-color: rgb(221, 219, 215);
+ }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.cash-icon{
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px;
+  /* color: white; */
+}
+
+
+

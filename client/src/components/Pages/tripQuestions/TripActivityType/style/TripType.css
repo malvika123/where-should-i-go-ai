@@ -1,0 +1,52 @@
+.trip-act{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+}
+
+.act-elt, .act-elt-add{
+    display: flex;
+    flex-direction: row;
+    border: 10;
+    font-size: 16px;
+    border: rgb(227, 223, 223) solid;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.plus1{
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+}
+
+.modal{
+    background-color: white;
+    position: absolute;
+    margin: 0 auto;
+    top: 31%;
+    left: 31%;
+    border: rgb(240, 236, 236) solid;
+    border-radius: 15px;
+}
+
+.selected,.act-elt:hover, .act-elt-add:hover{
+    background-color: rgb(38, 114, 202);
+    color: white;
+}
+
+.modal-background{
+    background-color: 100%;
+    top:0%;
+    left: 0%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    width:100vw;
+    height: 100vh;
+   
+}

@@ -1,0 +1,124 @@
+.search {
+    border: 1px solid rgb(224, 219, 219);
+    margin: 80px 20% 0px 20%;
+    padding: 10px 0 10px 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.search,
+.glass {
+    font-size: 1.2em;
+    color: #999;
+    border-radius: 20px;
+}
+
+.textbox {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 100%;
+    margin-left: 10px;
+    text-transform: capitalize;
+    color: black;
+}
+
+.state-brd {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 21%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.state {
+    font-size: 12px;
+    border: 1px solid rgb(160, 159, 159);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 15px;
+    padding: 3px 10px 3px 10px;
+}
+
+.state:hover {
+    background-color: rgb(38, 114, 202);
+    color: white;
+    cursor: pointer;
+}
+
+.error {
+    color: rgb(236, 143, 143);
+    font-size: 15px;
+}
+
+.sub-txt {
+    color: rgb(193, 186, 186);
+    font-size: 15px;
+}
+
+.tag-box {
+    border: 1px solid rgb(184, 172, 172);
+    min-height: 70px;
+    max-height: fit-content;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 21%;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.ech-st-box {
+    border: 1px solid rgb(236, 223, 223);
+    border-radius: 20px;
+    padding: 3px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(38, 114, 202);
+    color: white;
+    padding: 5px 8px 5px 8px;
+}
+
+.ech-st {
+    font-size: 15px;
+    display: flex;
+    margin-right: 10px;
+}
+
+.cross {
+    height: 22px;
+    width: 22px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    color: black;
+}
+
+.autocomlt {
+    border: 1px solid black;
+    margin: 0px 0px 0px 10%;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    background-color:whitesmoke;
+    width: 29.7%;
+}
+
+.auto-lst {
+    font-size: 15px;
+    text-align: left;
+    padding-left: 5.5%;
+}
+
+.auto-lst:hover {
+    background-color: rgb(38, 114, 202);
+    color: white;
+    
+}

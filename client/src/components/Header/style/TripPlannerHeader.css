@@ -1,0 +1,26 @@
+.header-top {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.header1{
+    margin-left: 30px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.backbutton{
+    font-weight: bolder;
+    size: 30px;
+}
+
+.backbutton:hover{
+    cursor: pointer;
+    color: rgb(97, 97, 230);
+}
+
+.trip-planner-header{
+    color: rgb(110, 110, 99);
+    margin-top: 50px;
+}

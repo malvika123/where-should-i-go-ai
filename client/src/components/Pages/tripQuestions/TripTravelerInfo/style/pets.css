@@ -1,0 +1,45 @@
+.options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.yes,
+.no {
+    margin: 10px;
+    border-radius: 30px;
+    border: rgb(225, 217, 217) solid;
+    padding: 10px;
+    width: 130px;
+    font-size: 1em;
+}
+
+.yes:hover,
+.no:hover {
+    background-color: rgb(38, 114, 202);
+    color: white;
+    transition: 0.5s;
+
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.onClick {
+    background-color: rgb(38, 114, 202);
+    color: white;
+    border: none;
+}
+
+.kids {
+    margin-top: 3%;
+}
+
+/* .txt {
+    width: 100%;
+    text-align: center;
+} */

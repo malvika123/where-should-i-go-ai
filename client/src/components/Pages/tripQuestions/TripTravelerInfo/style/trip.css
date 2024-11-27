@@ -1,0 +1,44 @@
+.trip-type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 3%;
+}
+
+.trip-type-sub{
+    border:  rgb(225, 217, 217) solid;
+    border-radius: 10px;
+    padding: 3%;
+    margin-right: 5%;
+}
+
+.trip-txt{
+    font-size: 1em;
+}
+
+.trip-type-sub:hover{
+    background-color: rgb(38, 114, 202);
+    color: white;
+    transition: 0.5s;
+}
+
+.icon{
+    width: 20%;
+    height: 20%;
+}
+
+.onClick{
+    background-color: rgb(38, 114, 202);
+    color: white;
+    transition: 0.5s;
+}
+
+.trip{
+    margin-top: 5%;
+}
+
+.sub-hdng{
+    color: rgb(165, 159, 159);
+}

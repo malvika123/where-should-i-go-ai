@@ -1,0 +1,55 @@
+.top-hdr{
+}
+
+.text-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.textarea{
+  height: 30vh;
+  font-size: 20px;
+  border: gray solid;
+  outline: none;
+  border-radius: 20px;
+  padding: 2% 1% 2% 1%;
+}
+
+.textbox-info{
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.char-info{
+    justify-content: left;
+    text-align: right;
+    margin-left: 60%;
+}
+
+.sbmt-btn{
+    background-color: black;
+    color: white;
+    padding: 1%;
+    border: none;
+    border-radius: 18px;
+    margin-left: 60%;
+    height: 1%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btns{
+    left: 0px;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.back-ftr{
+}

@@ -1,0 +1,51 @@
+.footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    margin-top: 1%;
+    margin-left: 30px;
+    /* margin: 0 10% 0 10%; */
+}
+
+.backbutton:hover {
+    cursor: pointer;
+    color: rgb(97, 97, 230);
+}
+
+.back {
+    text-decoration: underline;
+    font-size: 20px;
+
+}
+
+.back:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.next {
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    left: 0%;
+    right: 100%;
+}
+
+.next:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* .next-btn, .next-btn:hover {
+    background-color: rgb(197, 194, 194);
+    cursor: not-allowed;
+} */
+
+.hide-back{
+    visibility: hidden;
+}

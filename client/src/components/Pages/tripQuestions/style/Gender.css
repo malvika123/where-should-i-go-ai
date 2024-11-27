@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.gndr {
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .gndr-iden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%; 
+    max-width: 400px; 
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 50px;
+  }
+  
+  .gndr-iden p {
+    padding: 12px 24px; 
+    border: 2px solid rgb(210, 205, 205);
+    border-radius: 18px; 
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    min-width: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1; 
+  }
+   
+  .male {
+    margin-top: 8px;
+  }
+
+  .male, .female, .special{
+        padding: 12px 24px;
+        border: 2px solid black;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+        min-width: 120px; /* Set this based on longest label */
+        flex-grow: 1; /* Each button grows to take equal space */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  }
+
+.onClick,  .gndr-iden p:hover {
+    background-color: rgb(38, 114, 202);
+    color: white;
+}
