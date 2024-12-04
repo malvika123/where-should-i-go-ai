@@ -8,7 +8,7 @@ import { AppContext } from "../../../context/AppContext";
 const Kids = () => {
   const [showSelectedKidsOption, setSelectedKidsOption] = useState();
   const [styleToolTip, setStyleToolTip] = useState({ display: "none" });
-  const { setHasKids } = useContext(AppContext);
+  const { hasKids, setHasKids } = useContext(AppContext);
 
   const setKidsSelection = (e, option) => {
     setHasKids(option);
@@ -33,10 +33,16 @@ const Kids = () => {
         </div>
       </div>
       <div className="options">
-        <h5 className="yes" onClick={(e) => setKidsSelection(e, true)}>
+        <h5
+          className={"yes" + (hasKids ? " onClick" : "")}
+          onClick={(e) => setKidsSelection(e, true)}
+        >
           Yes
         </h5>
-        <h5 className="no" onClick={(e) => setKidsSelection(e, false)}>
+        <h5
+          className={"no" + (!hasKids ? " onClick" : "")}
+          onClick={(e) => setKidsSelection(e, false)}
+        >
           No
         </h5>
       </div>

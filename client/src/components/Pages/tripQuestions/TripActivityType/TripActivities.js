@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../context/AppContext";
 
-const TripActivities = ({ elt, key }) => {
+const TripActivities = ({ elt, key, selected }) => {
   const { slctdActsSet, setSlctdActsSet } = useContext(AppContext);
   const [slctedAct, setSlctdActs] = useState("");
   const updateSlectedActivities = (e) => {
@@ -20,12 +20,16 @@ const TripActivities = ({ elt, key }) => {
     }
   };
 
-  useEffect(() => {}, [slctedAct]);
+  useEffect(() => {
+    const nuArr = new Set(slctdActsSet);
+    nuArr.add(slctedAct);
+    setSlctdActsSet(nuArr);
+  }, [slctedAct]);
 
   return (
     <div>
       <p
-        className="act-elt"
+        className={"act-elt" + (selected ? " selected" : "")}
         id={key}
         onClick={(e) => updateSlectedActivities(e)}
       >

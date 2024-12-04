@@ -46,28 +46,36 @@ const Type = () => {
       <h5 className="sub-hdng">Select one.</h5>
       <div className="trip-type">
         <div
-          className="trip-type-sub"
+          className={
+            "trip-type-sub" + (tripType === "Solo Trip" ? " onClick" : null)
+          }
           onClick={(e) => settingTripType(e, "Solo Trip")}
         >
           <RxPerson className="icon" />
           <h5 className="trip-txt">Solo Trip</h5>
         </div>
         <div
-          className="trip-type-sub"
+          className={
+            "trip-type-sub" + (tripType === "Partner Trip" ? " onClick" : null)
+          }
           onClick={(e) => settingTripType(e, "Partner Trip")}
         >
           <BsPersonHearts className="icon" />
           <h5 className="trip-txt">Partner Trip</h5>
         </div>
         <div
-          className="trip-type-sub"
+          className={
+            "trip-type-sub" + (tripType === "Friends Trip" ? " onClick" : null)
+          }
           onClick={(e) => settingTripType(e, "Friends Trip")}
         >
           <LiaUserFriendsSolid className="icon" />
           <h5 className="trip-txt">Friends Trip</h5>
         </div>
         <div
-          className="trip-type-sub"
+          className={
+            "trip-type-sub" + (tripType === "Family Trip" ? " onClick" : null)
+          }
           onClick={(e) => settingTripType(e, "Family Trip")}
         >
           <MdFamilyRestroom className="icon" />

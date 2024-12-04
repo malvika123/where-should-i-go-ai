@@ -10,12 +10,12 @@ import "./style/LandingPage.css";
 import Typewriter from "typewriter-effect";
 import vid3 from "../images/3015510-hd_1920_1080_24fps.mp4";
 import { enableVideoInBackground } from "../Featureflags";
+import img from "../images/Screenshot 2024-12-04 at 1.11.21 PM.png";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   const NavigateTopath = ({ path }) => {
-    console.log(path);
     navigate(path);
   };
 
@@ -40,6 +40,7 @@ const LandingPage = () => {
             />
           </div>
         </div>
+
         <div className="searchbox">
           <input
             id="txtBox"
@@ -51,8 +52,11 @@ const LandingPage = () => {
             className="search-button"
             onClick={() => NavigateTopath({ path: tripPlannerPath })}
           >
-            AI
+            GO
           </button>
+        </div>
+        <div>
+          <img className="image-lp" src={img} />
         </div>
         <div>
           <p className="footer-text">{aboutTextLandingPage}</p>

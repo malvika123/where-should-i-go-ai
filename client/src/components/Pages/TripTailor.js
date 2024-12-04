@@ -9,8 +9,9 @@ import TripCountry from "./tripQuestions/Trip-country/TripCountry";
 import TripInfo from "./tripQuestions/TripTravelerInfo/TripInfo";
 import Budget from "./tripQuestions/TripBudget/Budget";
 import TripType from "./tripQuestions/TripActivityType/TripType";
-import Expectation from "./tripQuestions/ExtraInfo/Expectations";
 import { AppContext } from ".././context/AppContext";
+import ShowFinalInfo from "./tripQuestions/ShowFinalInfo/ShowFinalInfo";
+import AdditionalInfo from "./tripQuestions/ExtraInfo/AdditionalInfo";
 
 const TripTailor = () => {
   const [progress, setProgress] = useState(10);
@@ -20,7 +21,7 @@ const TripTailor = () => {
   const [mnth, setMnth] = useState("");
   const [gender, setGender] = useState("");
   const [country, setCountry] = useState("");
-  const [states, setStates] = useState([]);
+  const [selectedStates, setSelectedStates] = useState([]);
   const [tripType, setTripType] = useState("");
   const [pets, setPets] = useState(false);
   const [hasFemale, setHasFemale] = useState();
@@ -29,7 +30,9 @@ const TripTailor = () => {
   const [maxValue, setMaxValue] = useState();
   const [currency, setCurrency] = useState();
   const [modifiedCurrency, setModiefiedCurrency] = useState();
-  const [slctdActsSet, setSlctdActsSet] = useState();
+  const [slctdActsSet, setSlctdActsSet] = useState(new Set());
+  const [text, setText] = useState("");
+  const [states, setStates] = useState();
 
   return (
     <AppContext.Provider
@@ -48,8 +51,8 @@ const TripTailor = () => {
         setGender,
         country,
         setCountry,
-        states,
-        setStates,
+        selectedStates,
+        setSelectedStates,
         tripType,
         setTripType,
         pets,
@@ -68,11 +71,15 @@ const TripTailor = () => {
         setModiefiedCurrency,
         slctdActsSet,
         setSlctdActsSet,
+        text,
+        setText,
+        states,
+        setStates,
       }}
     >
       <div className="trip-planner">
         <TripPlannerHeader />
-        <h9>Page {page}/7</h9>
+        <h9>Page {page}/8</h9>
         <div className="box">
           <Progress.Line
             percent={progress}
@@ -94,7 +101,9 @@ const TripTailor = () => {
             ) : nextPath === "/tripType" ? (
               <TripType />
             ) : nextPath === "/expectBox" ? (
-              <Expectation />
+              <AdditionalInfo />
+            ) : nextPath === "/showFinalInfo" ? (
+              <ShowFinalInfo />
             ) : null}
           </div>
         </div>

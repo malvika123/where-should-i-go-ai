@@ -1,10 +1,19 @@
-import { useContext } from "react";
-import { AppContext } from "../../context/AppContext";
+import { useSelector } from "react-redux";
+import TripPlannerHeader from "../../Header/TripPlannerHeader";
 
 const TripResponse = () => {
-  const { page } = useContext(AppContext);
+  const userData = useSelector((state) => state?.data?.userData?.data);
 
-  return <h1>{page}hello about</h1>;
+  return (
+    <div className="trip-planner">
+      <div>
+        <TripPlannerHeader notshowSubHeader={true} />
+        <div>
+          <p>{userData}</p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default TripResponse;

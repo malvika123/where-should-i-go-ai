@@ -1,0 +1,51 @@
+.hding-showInfo {
+    margin-bottom: 50px;
+
+}
+
+.div-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+}
+
+.key {
+    color: rgb(115, 113, 113);
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: left;
+}
+
+.value {
+    color: #007bff;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-left: 50%;
+}
+
+.btns {
+    margin-top: 5%;
+}
+
+.spinner,
+.spinner-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+
+.spinner {
+    top: 40%;
+    left: 43%;
+}
+
+.spinner-header {
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0%;
+    left: 0%;
+    height: 100vh;
+    width: 100vw;
+}

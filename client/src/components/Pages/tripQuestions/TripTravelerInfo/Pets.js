@@ -7,7 +7,7 @@ import { AppContext } from "../../../context/AppContext";
 const Pets = () => {
   const [selectedOption, setSelectedOption] = useState();
   const [styleToolTip, setStyleToolTip] = useState({ display: "none" });
-  const { setPets } = useContext(AppContext);
+  const { pets, setPets } = useContext(AppContext);
 
   const setPetsSelection = (e, sel) => {
     setPets(sel);
@@ -31,10 +31,16 @@ const Pets = () => {
       </div>
 
       <div className="options">
-        <h5 className="yes" onClick={(e) => setPetsSelection(e, true)}>
+        <h5
+          className={"yes" + (pets ? " onClick" : "")}
+          onClick={(e) => setPetsSelection(e, true)}
+        >
           Yes
         </h5>
-        <h5 className="no" onClick={(e) => setPetsSelection(e, false)}>
+        <h5
+          className={"no" + (!pets ? " onClick" : "")}
+          onClick={(e) => setPetsSelection(e, false)}
+        >
           No
         </h5>
       </div>

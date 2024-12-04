@@ -2,15 +2,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 10px;
-    margin: 0px;
-
+    margin-left: 200px;
+    margin-top: 30px;
+    margin-right: 200px;
 }
 
 .login-pallet{
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
 }
 
 .login-pallet , h2 {
@@ -34,4 +35,15 @@
 
 .header-top{
     cursor: pointer;
+    font-size: 30px;
+}
+
+.logo{
+    width: 2vw;
+    height: 3.5vh;
+    border-radius: 100%;
+}
+
+.logo-header{
+    display: flex;
 }

@@ -46,7 +46,6 @@ const TripMonth = () => {
 
   useEffect(() => {
     if (mnth && days) {
-      console.log("rty", showNextButton);
       setShowNextButton(true);
     }
   }, [mnth, showNextButton]);
@@ -68,6 +67,10 @@ const TripMonth = () => {
     setMonth(nuMonth);
   }, [selectedId]);
 
+  const checkIfSelected = (elt) => {
+    return elt[0] === mnth;
+  };
+
   return (
     <div>
       <h5 className="Heading">{WHENYOUGOING}</h5>
@@ -79,6 +82,7 @@ const TripMonth = () => {
             id={key}
             clicked={clicked}
             setSelectedId={setSelectedId}
+            isChecked={checkIfSelected(elt)}
           />
         ))}
       </div>
@@ -105,7 +109,7 @@ const TripMonth = () => {
         nextPath={"/gender"}
         backPath={"/tripTailor"}
         setProgress={setProgress}
-        setProgressVal={28}
+        setProgressVal={24}
       />
     </div>
   );

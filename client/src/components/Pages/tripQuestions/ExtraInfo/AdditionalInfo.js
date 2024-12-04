@@ -5,30 +5,11 @@ import { AppContext } from "../../../context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { tripRecommendationPath } from "../../../common/constants";
 
-const Expectation = () => {
+const AdditionalInfo = () => {
   const [char, setChar] = useState(0);
-  const [text, setText] = useState("");
   const [showNextButton, setShowNextButton] = useState(false);
-  const {
-    setProgress,
-    setNextPath,
-    setPage,
-    days,
-    mnth,
-    gender,
-    states,
-    country,
-  } = useContext(AppContext);
-  const navigate = useNavigate();
-
-  const NavigateTopath = ({ path }) => {
-    console.log(path);
-    navigate(path);
-  };
-  const processData = () => {
-    console.log("data received:", days, mnth, gender, states, country);
-    NavigateTopath({ path: tripRecommendationPath });
-  };
+  const { setProgress, setNextPath, setPage, setText, text } =
+    useContext(AppContext);
 
   useEffect(() => {
     setPage(7);
@@ -44,11 +25,12 @@ const Expectation = () => {
       <div className="text-box">
         <textarea
           maxLength={50}
-          placeholder="Write what is in your mind"
+          placeholder="Addition info here ..."
           onChange={(e) => {
             setChar(e.target.value.length);
             setText(e.target.value);
           }}
+          value={text}
           className="textarea"
         ></textarea>
         <div className="textbox-info">
@@ -58,24 +40,20 @@ const Expectation = () => {
           <h9 className="char-info">{char}/50 max characters</h9>
         </div>
       </div>
-      <div className="btns">
-        <TripPlannerFooter
-          showNext={showNextButton}
-          setNextPath={setNextPath}
-          nextPath={"/tripInfo"}
-          setProgress={setProgress}
-          backPath={"/tripType"}
-          hideNext={true}
-          setProgressVal={100}
-          resetProgressVal={84}
-          className="back-ftr"
-        />
-        <button className="sbmt-btn" onClick={() => processData()}>
-          Submit
-        </button>
-      </div>
+
+      <TripPlannerFooter
+        showNext={showNextButton}
+        setNextPath={setNextPath}
+        nextPath={"/showFinalInfo"}
+        setProgress={setProgress}
+        backPath={"/tripType"}
+        hideNext={false}
+        setProgressVal={100}
+        resetProgressVal={84}
+        className="back-ftr"
+      />
     </div>
   );
 };
 
-export default Expectation;
+export default AdditionalInfo;

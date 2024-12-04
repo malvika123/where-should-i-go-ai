@@ -19,16 +19,23 @@ const TripType = () => {
     "Malls and Parks",
     "Landmarks",
   ];
-  const [tripType, setTripTypes] = useState([]);
   const [showNextButton, setShowNextButton] = useState(false);
   const [showAddInterestModal, setShowAddInterestModal] = useState(false);
   const [defaultTrip, setDefaultTrip] = useState(tripActivities);
   const { setProgress, setNextPath, setPage } = useContext(AppContext);
+  const { slctdActsSet } = useContext(AppContext);
 
   useEffect(() => {
     setPage(6);
   }, []);
 
+  const checkIfSelected = (elt) => {
+    const checkIfSelected = Array.from(slctdActsSet).some((sub) => {
+      return elt === sub;
+    });
+
+    return checkIfSelected;
+  };
   return (
     <div>
       <h4>What kind of activities are you interested in</h4>
@@ -36,7 +43,12 @@ const TripType = () => {
       <div className="trip-act">
         {defaultTrip.map((elt, id) => {
           return (
-            <TripActivities elt={elt} key={id} defaultTrip={defaultTrip} />
+            <TripActivities
+              elt={elt}
+              key={id}
+              defaultTrip={defaultTrip}
+              selected={checkIfSelected(elt)}
+            />
           );
         })}
         <p
@@ -47,6 +59,7 @@ const TripType = () => {
           Add more
         </p>
       </div>
+      {/* <p>{Array.from(slctdActsSet).map((elt) => elt)}</p> */}
       {showAddInterestModal && (
         <InfoModal
           className="modal"
@@ -60,8 +73,8 @@ const TripType = () => {
         nextPath={"/expectBox"}
         setProgress={setProgress}
         backPath={"/budget"}
-        resetProgressVal={70}
-        setProgressVal={100}
+        resetProgressVal={72}
+        setProgressVal={84}
       />
     </div>
   );

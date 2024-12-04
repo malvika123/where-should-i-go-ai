@@ -1,16 +1,29 @@
-import { landingPageHeader } from '../common/constants';
-import './style/Heading.css'
+import { landingPageHeader, POWEREDBYAI } from "../common/constants";
+import Logo from "./Logo";
+import "./style/Heading.css";
 
-const Heading =()=>{
-    return (
-       <div className="heading">
-        <h1 className='header-top' onClick={()=>document.location.assign('/')}>{landingPageHeader}</h1>
-        <div className='login-pallet'>
-            <h2 className='about-btn'>ABOUT</h2>
-            <h2 className='login-btn'>LOGIN/SIGNUP</h2>
+const Heading = () => {
+  return (
+    <div className="heading">
+      <div>
+        <div className="logo-header">
+          <Logo />
+          <h4
+            className="header-top"
+            onClick={() => document.location.assign("/")}
+          >
+            {landingPageHeader}
+          </h4>
         </div>
-       </div>
-    )
-    }
-    
-    export default Heading;
+        <h7> {POWEREDBYAI}</h7>
+      </div>
+
+      <div className="login-pallet">
+        <h2 className="about-btn">ABOUT</h2>
+        <h2 className="login-btn">LOGIN/SIGNUP</h2>
+      </div>
+    </div>
+  );
+};
+
+export default Heading;

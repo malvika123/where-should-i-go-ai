@@ -8,7 +8,7 @@ import { AppContext } from "../../../context/AppContext";
 const WomanTraveler = () => {
   const [showSelectedKidsOption, setSelectedKidsOption] = useState();
   const [styleToolTip, setStyleToolTip] = useState({ display: "none" });
-  const { setHasFemale } = useContext(AppContext);
+  const { hasFemale, setHasFemale } = useContext(AppContext);
 
   const setFemaleTravelerSelection = (e, option) => {
     setHasFemale(option);
@@ -33,13 +33,13 @@ const WomanTraveler = () => {
       </div>
       <div className="options">
         <h5
-          className="yes"
+          className={"yes" + (hasFemale ? " onClick" : "")}
           onClick={(e) => setFemaleTravelerSelection(e, true)}
         >
           Yes
         </h5>
         <h5
-          className="no"
+          className={"no" + (!hasFemale ? " onClick" : "")}
           onClick={(e) => setFemaleTravelerSelection(e, false)}
         >
           No

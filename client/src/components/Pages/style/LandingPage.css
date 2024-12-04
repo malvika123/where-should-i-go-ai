@@ -17,7 +17,7 @@
 }
 
 .header2 {
-    font-size: 10vmin;
+    font-size: 6vmin;
     font-weight: bolder;
 }
 
@@ -29,19 +29,20 @@ p {
 }
 
 .footer-text {
-    margin: 50px 50px 50px 50px;
+    margin: 10px 50px 50px 50px;
+    font-size: 25px;
 }
 
 .searchbox {
+    margin-top: 3%;
     display: flex;
     align-items: center;
-    /* Vertically centers the input and button */
-    border: 2px solid #000;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 600px;
+    width: 50%;
+    height: 700px;
     background-color: #fff;
     align-self: center;
+    box-shadow: 5px 5px 5px 5px #888888;
+    border-radius: 20px;
 }
 
 #txtBox {
@@ -52,6 +53,8 @@ p {
     flex: 1;
     font-weight: bolder;
     color: black;
+    height: 50px;
+    border-radius: 20px;
 }
 
 .search-button {
@@ -62,6 +65,8 @@ p {
     border: none;
     outline: none;
     cursor: pointer;
+    border-radius: 20px;
+    height: 50px;
 }
 
 .search-button:hover {
@@ -86,4 +91,12 @@ p {
         font-size: 10px;
         flex-wrap: wrap;
     }
+}
+
+.image-lp{
+  margin-top:3%;
+    margin-bottom: 2%;
+    width:60vw;
+    height:60vh;
+    border-radius: 20px;
 }

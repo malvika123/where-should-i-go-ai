@@ -21,7 +21,7 @@ const TripInfo = () => {
         nextPath={"/budget"}
         setProgress={setProgress}
         backPath={"/country"}
-        setProgressVal={70}
+        setProgressVal={60}
         resetProgressVal={56}
       />
     </div>

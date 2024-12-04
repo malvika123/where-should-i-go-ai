@@ -10,8 +10,10 @@ import TripCountry from "./components/Pages/tripQuestions/Trip-country/TripCount
 import Budget from "./components/Pages/tripQuestions/TripBudget/Budget";
 import TripInfo from "./components/Pages/tripQuestions/TripTravelerInfo/TripInfo";
 import TripType from "./components/Pages/tripQuestions/TripActivityType/TripType";
-import Expectation from "./components/Pages/tripQuestions/ExtraInfo/Expectations";
 import TripResponse from "./components/Pages/tripRecommendation.js/TripResponse";
+import ShowFinalInfo from "./components/Pages/tripQuestions/ShowFinalInfo/ShowFinalInfo";
+import AdditionalInfo from "./components/Pages/tripQuestions/ExtraInfo/AdditionalInfo";
+import { tripRecommendationPath } from "./components/common/constants";
 
 function App() {
   return (
@@ -27,8 +29,9 @@ function App() {
         <Route exact path="/tripInfo" element={<TripInfo />} />
         <Route exact path="/budget" element={<Budget />} />
         <Route exact path="/tripType" element={<TripType />} />
-        <Route exact path="/expectBox" element={<Expectation />} />
-        <Route exact path="/tripRecommen" element={<TripResponse />} />
+        <Route exact path="/expectBox" element={<AdditionalInfo />} />
+        <Route exact path={tripRecommendationPath} element={<TripResponse />} />
+        <Route exact path="/showFinalInfo" element={<ShowFinalInfo />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

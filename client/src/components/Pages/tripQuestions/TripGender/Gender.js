@@ -21,7 +21,6 @@ const Gender = () => {
 
   useEffect(() => {
     setShowNextButton(true);
-    console.log("iop");
   }, [gender]);
 
   useEffect(() => {
@@ -63,8 +62,8 @@ const Gender = () => {
         nextPath={"/country"}
         backPath={"/tripTailor"}
         setProgress={setProgress}
-        setProgressVal={42}
-        resetProgressVal={28}
+        setProgressVal={36}
+        resetProgressVal={24}
       />
     </div>
   );

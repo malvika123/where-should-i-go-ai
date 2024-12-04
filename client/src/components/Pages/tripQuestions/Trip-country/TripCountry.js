@@ -10,7 +10,6 @@ import { AppContext } from "../../../context/AppContext";
 const TripCountry = () => {
   const [countryList, setCountryList] = useState("");
   const [err, setErr] = useState("");
-  const [selectedStates, setSelectedStates] = useState();
   const [state, setState] = useState("");
   const [autoComplete, setAutoComplete] = useState([]);
   const [showNextButton, setShowNextButton] = useState(false);
@@ -20,6 +19,8 @@ const TripCountry = () => {
     setPage,
     country,
     setCountry,
+    selectedStates,
+    setSelectedStates,
     states,
     setStates,
   } = useContext(AppContext);
@@ -33,29 +34,31 @@ const TripCountry = () => {
 
   // Handle input change and update the country state immediately
   useEffect(() => {
-    const debounce = setTimeout(async () => {
-      try {
-        const data = await fetch("/loc/authz");
-        if (data.status !== 200) throw data;
-        const res = await data.json();
-        const countryData = await axios.post(
-          "/loc/country",
-          {
-            authz: res,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
+    if (autocmpltFeatureFlg) {
+      const debounce = setTimeout(async () => {
+        try {
+          const data = await fetch("/loc/authz");
+          if (data.status !== 200) throw data;
+          const res = await data.json();
+          const countryData = await axios.post(
+            "/loc/country",
+            {
+              authz: res,
             },
-          }
-        );
-        const countries = countryData.data;
-        setCountryList(countries);
-      } catch (error) {
-        setErr("internal server error");
-      }
-    }, 1000);
-    return () => clearTimeout(debounce);
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const countries = countryData.data;
+          setCountryList(countries);
+        } catch (error) {
+          setErr("internal server error");
+        }
+      }, 1000);
+      return () => clearTimeout(debounce);
+    }
   }, []);
 
   const handleChange = (e) => {
@@ -64,18 +67,20 @@ const TripCountry = () => {
 
   const handleStateClicked = (e) => {
     const selectedState = e.currentTarget.innerText;
-    if (selectedStates.size < 7 || selectedStates.length < 7) {
-      setState(selectedState);
-    } else {
+    if (selectedStates?.length >= 7 || selectedStates?.size >= 7) {
       setErr("Only 6 state selection allowed");
+    } else {
+      setState(selectedState);
     }
   };
   // Debounced API call inside useEffect
 
   useEffect(() => {
-    const nuArr = new Set(selectedStates);
-    nuArr.add(state);
-    setSelectedStates(nuArr);
+    if (state) {
+      const nuArr = new Set(selectedStates);
+      nuArr.add(state);
+      setSelectedStates(nuArr);
+    }
   }, [state]);
 
   useEffect(() => {
@@ -145,7 +150,7 @@ const TripCountry = () => {
             autoComplete.map((elt, id) => <p className="auto-lst">{elt}</p>)}
         </div>
       )}
-      {country && states && (
+      {country && states && states.length > 0 && (
         <h5 style={{ marginTop: "5%" }}>
           Please select any six states of your interest:{" "}
         </h5>
@@ -159,7 +164,7 @@ const TripCountry = () => {
           ))}
       </div>
 
-      {state && (
+      {states && selectedStates && (
         <div className="tag-box">
           {Array.from(selectedStates).map((elt, id) => {
             return (
@@ -179,8 +184,8 @@ const TripCountry = () => {
         nextPath={"/tripInfo"}
         setProgress={setProgress}
         backPath={"/gender"}
-        setProgressVal={56}
-        resetProgressVal={42}
+        setProgressVal={48}
+        resetProgressVal={36}
       />
     </div>
   );
