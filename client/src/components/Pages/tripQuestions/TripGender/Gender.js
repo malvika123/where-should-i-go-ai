@@ -2,19 +2,22 @@ import { useContext, useEffect, useState } from "react";
 import "../style/Gender.css";
 import TripPlannerFooter from "../../../Footer/TripPlannerFooter";
 import { AppContext } from "../../../context/AppContext";
+import { BiFemale } from "react-icons/bi";
+import { FaMale } from "react-icons/fa";
+import { RiUserHeartLine } from "react-icons/ri";
 
 const Gender = () => {
   const [genderMap, setGenderMap] = useState([
-    ["Male", false, "male"],
-    ["Female", false, "male"],
-    ["Special", false, "male"],
+    ["Male", false, "male", <FaMale />],
+    ["Female", false, "male", <BiFemale />],
+    ["Special", false, "male", <RiUserHeartLine />],
   ]);
   const [showNextButton, setShowNextButton] = useState(false);
   const { setProgress, setNextPath, setPage, gender, setGender } =
     useContext(AppContext);
 
-  const setUserGender = (e, elt) => {
-    setGender(elt[0]);
+  const setUserGender = (e, label) => {
+    setGender(label);
     setShowNextButton(true);
     setProgress(30);
   };
@@ -49,10 +52,13 @@ const Gender = () => {
       <div className="gndr">
         <h5>How do you identify yourself?</h5>
         <div className="gndr-iden">
-          {genderMap.map((elt, i) => (
-            <p className={elt[2]} onClick={(e) => setUserGender(e, elt)}>
-              {elt[0]}
-            </p>
+          {genderMap.map(([label, isSelected, value, Icon], index) => (
+            <div key={index}>
+              {Icon}
+              <p className={value} onClick={(e) => setUserGender(e, label)}>
+                {label}
+              </p>
+            </div>
           ))}
         </div>
       </div>

@@ -18,7 +18,7 @@
 
 .header2 {
     font-size: 6vmin;
-    font-weight: bolder;
+    font-weight:300;
 }
 
 p {
@@ -31,6 +31,9 @@ p {
 .footer-text {
     margin: 10px 50px 50px 50px;
     font-size: 25px;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-weight: lighter;
 }
 
 .searchbox {
@@ -42,7 +45,7 @@ p {
     background-color: #fff;
     align-self: center;
     box-shadow: 5px 5px 5px 5px #888888;
-    border-radius: 20px;
+    border-radius: 25px;
 }
 
 #txtBox {
@@ -51,7 +54,7 @@ p {
     font-size: 16px;
     outline: none;
     flex: 1;
-    font-weight: bolder;
+    font-weight: lighter;
     color: black;
     height: 50px;
     border-radius: 20px;
@@ -65,7 +68,7 @@ p {
     border: none;
     outline: none;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 25px;
     height: 50px;
 }
 
@@ -79,7 +82,6 @@ p {
 
 @media (max-width:800px) {
     .background {
-        background-color: rgba(0, 0, 0, 0.45);
         background-size: cover;
     }
 
@@ -98,5 +100,12 @@ p {
     margin-bottom: 2%;
     width:60vw;
     height:60vh;
-    border-radius: 20px;
+    border-radius: 30px;
+}
+
+.magGlass{
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    color: rgb(240, 212, 51);
 }

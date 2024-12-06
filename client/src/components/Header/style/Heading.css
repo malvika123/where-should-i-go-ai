@@ -20,6 +20,11 @@
 
 .about-btn{
     font-size: 20px;
+    margin-right: 20px;
+}
+
+.pipe{
+    color: gray;
 }
 
 .login-btn{
@@ -36,6 +41,7 @@
 .header-top{
     cursor: pointer;
     font-size: 30px;
+    font-weight: bolder;
 }
 
 .logo{

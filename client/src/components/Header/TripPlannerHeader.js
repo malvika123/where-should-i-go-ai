@@ -2,6 +2,7 @@ import { CgArrowLeft } from "react-icons/cg";
 import { landingPageHeader, TRIP_PLANNER } from "../common/constants";
 import "./style/TripPlannerHeader.css";
 import { useNavigate } from "react-router-dom";
+import Logo from "./Logo";
 
 const TripPlannerHeader = ({ notshowSubHeader }) => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const TripPlannerHeader = ({ notshowSubHeader }) => {
           <CgArrowLeft />
         </h3>
         <p className="header1" onClick={() => document.location.assign("/")}>
-          {landingPageHeader}
+          <Logo /> {landingPageHeader}
         </p>
       </div>
       {!notshowSubHeader && (

@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
         : hasKids
         ? " also kids are involved to take that in higher consideration from the perspective of safety"
         : ""
-    } I'm confused as to where should i go . Please assess all the provided details and give me answer strictly as first return the state in first line, then return name of the places i should visit as list then return list of places that are underhyped but are good`;
+    } I'm confused as to where should i go . give me an JSON in response as following, field one (name: state) - state, reason(name:reason) for the choice of this state, field two (name: places_to_visit")- places to visit in this state along with description, field 3 -(name:off_beat_places) off beat places with description and last field(name: precautions) precausions to be taken and this data should follow all the above given data`;
 
     const data = {
       model: "gpt-3.5-turbo",
@@ -54,12 +54,13 @@ router.post("/", async (req, res) => {
       temperature: 0.7,
     };
     //console.log(prompt);
-    //const result = await axios.post(url, data, { headers });
-    //onsole.log("kio", result?.data?.choices?.[0]?.message?.content);
-    //res.json({ res: result?.data?.choices?.[0]?.message?.content });
-    res.json({
-      res: "Federally Administered Tribal Area: 1. Peshawar - Visit the Peshawar Museum, Bala Hisar Fort, and Qissa Khwani Bazaar 2. Swat Valley - Explore Mingora, Malam Jabba Ski Resort, and Swat Museum Underhyped but good places: 1. Khyber Pass - Experience the historic passageway between Pakistan and Afghanistan 2. Mohenjo-Daro - Visit the ancient archaeological site in Sindh Please note that the Federally Administered Tribal Area may not be the safest choice for a family trip, especially with kids and females. Consider exploring other regions of Pakistan that may be more suitable for your travel preferences and safety concerns.",
-    });
+    const result = await axios.post(url, data, { headers });
+    console.log(result?.data?.choices);
+    const content = result?.data?.choices?.[0]?.message?.content;
+    console.log(content);
+    const obj = content?.replace(/\n/g, "");
+    const jsonObj = JSON.parse(obj);
+    res.json({ jsonObj });
   } catch (error) {
     console.log(error);
     return res.status(400).json({ message: "caught an error" });

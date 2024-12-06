@@ -13,7 +13,7 @@ const ShowFinalInfo = () => {
   const [showNextButton, setShowNextButton] = useState(false);
   const { setProgress, setNextPath, setPage } = useContext(AppContext);
   const [showSpinner, setShowSpinner] = useState(false);
-  const [processingData, setProcessData] = useState(true);
+  const [processingData, setProcessData] = useState(false);
   const dispatch = useDispatch();
 
   const {
@@ -79,7 +79,15 @@ const ShowFinalInfo = () => {
               },
             }
           );
-          dispatch(setUserData({ data: data?.data?.res }));
+          dispatch(
+            setUserData({
+              state: data?.data?.jsonObj?.state,
+              reasonForStateChoice: data?.data?.jsonObj?.reason,
+              area: data?.data?.jsonObj?.["places_to_visit"],
+              underhyped: data?.data?.jsonObj?.["off_beat_places"],
+              note: data?.data?.jsonObj?.["precautions"],
+            })
+          );
           setShowSpinner(false);
           setProcessData(false);
           NavigateTopath({ path: tripRecommendationPath });

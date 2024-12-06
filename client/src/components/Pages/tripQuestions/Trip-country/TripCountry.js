@@ -6,6 +6,8 @@ import SelectedState from "./SelectedState";
 import { enableAutoComplete } from "../../../Featureflags";
 import TripPlannerFooter from "../../../Footer/TripPlannerFooter";
 import { AppContext } from "../../../context/AppContext";
+import Spinner from "../ShowFinalInfo/Spinner";
+import CommonSpinner from "../../../common/CommonSpinner";
 
 const TripCountry = () => {
   const [countryList, setCountryList] = useState("");
@@ -149,6 +151,9 @@ const TripCountry = () => {
             autoComplete &&
             autoComplete.map((elt, id) => <p className="auto-lst">{elt}</p>)}
         </div>
+      )}
+      {country && !(states && states.length > 0) && (
+        <CommonSpinner color={"orange"} />
       )}
       {country && states && states.length > 0 && (
         <h5 style={{ marginTop: "5%" }}>

@@ -20,6 +20,7 @@ const Heading = () => {
 
       <div className="login-pallet">
         <h2 className="about-btn">ABOUT</h2>
+        <h2 className="pipe"> | </h2>
         <h2 className="login-btn">LOGIN/SIGNUP</h2>
       </div>
     </div>

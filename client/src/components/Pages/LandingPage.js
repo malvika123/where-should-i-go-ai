@@ -11,6 +11,7 @@ import Typewriter from "typewriter-effect";
 import vid3 from "../images/3015510-hd_1920_1080_24fps.mp4";
 import { enableVideoInBackground } from "../Featureflags";
 import img from "../images/Screenshot 2024-12-04 at 1.11.21 PM.png";
+import { FaMagnifyingGlassLocation } from "react-icons/fa6";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ const LandingPage = () => {
         </div>
 
         <div className="searchbox">
+          <FaMagnifyingGlassLocation className="magGlass" />
           <input
             id="txtBox"
             className=""
