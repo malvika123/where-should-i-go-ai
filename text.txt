@@ -1,0 +1,12 @@
+1. Footer next button - fix
+2. Page 6: Added interest are not coming when user comes back to the page
+3. Page 8 needs better formatting
+4. Add better fonts
+5. Add userid on every chatgpt call to bill them.
+6. On back button click - issue
+7. Change website name : add powered by AI
+8. Page 3 : needs spinner
+9. Make the site compatible for phone screens
+10. Add a drop down in page number 3
+11. Users country in search
+12. Retry on chatGpt call on bad req
