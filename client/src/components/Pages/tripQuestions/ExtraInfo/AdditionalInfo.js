@@ -24,7 +24,7 @@ const AdditionalInfo = () => {
       <h6>Jot down your idea below</h6>
       <div className="text-box">
         <textarea
-          maxLength={50}
+          maxLength={150}
           placeholder="Addition info here ..."
           onChange={(e) => {
             setChar(e.target.value.length);
@@ -34,10 +34,10 @@ const AdditionalInfo = () => {
           className="textarea"
         ></textarea>
         <div className="textbox-info">
-          {char === 50 && (
+          {char === 150 && (
             <h9 className="char-exceed">Reached character limit</h9>
           )}
-          <h9 className="char-info">{char}/50 max characters</h9>
+          <h9 className="char-info">{char}/150 max characters</h9>
         </div>
       </div>
 

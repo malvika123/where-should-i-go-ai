@@ -36,6 +36,7 @@ const ImgSlider = ({ place, showMultipleSlides }) => {
         }
       );
       const urls = data?.data?.urls;
+      console.log(urls);
       setImageArr(urls);
     };
     res();
@@ -61,14 +62,23 @@ const ImgSlider = ({ place, showMultipleSlides }) => {
           <div className="wrapper-img">
             {(() => {
               const elements = [];
-              for (let i = 0; i < 5; i++) {
+              for (
+                let i = 0;
+                i < showMultipleSlides &&
+                currIndex < imageArr.length - 3 &&
+                currIndex >= 0;
+                i++
+              ) {
                 elements.push(
-                  <a href={imageArr[i + currIndex]} target="_blank">
-                    <img
-                      className="images2"
-                      src={imageArr[i + currIndex]}
-                    ></img>
-                  </a>
+                  <div className="img-card">
+                    <a href={imageArr[i + currIndex]?.img} target="_blank">
+                      <img
+                        className="images2"
+                        src={imageArr[i + currIndex]?.img}
+                      ></img>
+                    </a>
+                    <p className="img-desc">{imageArr[i + currIndex]?.desc}</p>
+                  </div>
                 );
               }
               return elements;

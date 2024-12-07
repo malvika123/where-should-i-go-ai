@@ -1,0 +1,29 @@
+.div-sub {
+    margin-left: 10%;
+    margin-top: 4%;
+    text-align: left;
+}
+
+.state-name {
+    font-size: 33px;
+    display: flex;
+    align-items: center;
+}
+
+.sub-txt-days{
+    display: flex;
+    margin: auto;
+}
+
+.sub-txt-days{
+    font-size: 15px;
+    font-weight: lighter;
+    margin-bottom: 12px;
+    color: rgb(117, 110, 110);
+    align-items: center;
+}
+
+.dot{
+    width: 3%;
+    height: 3%;
+}

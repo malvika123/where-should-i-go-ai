@@ -14,6 +14,7 @@ import TripResponse from "./components/Pages/tripRecommendation.js/TripResponse"
 import ShowFinalInfo from "./components/Pages/tripQuestions/ShowFinalInfo/ShowFinalInfo";
 import AdditionalInfo from "./components/Pages/tripQuestions/ExtraInfo/AdditionalInfo";
 import { tripRecommendationPath } from "./components/common/constants";
+import Itinerary from "./components/Pages/tripRecommendation.js/Itenary";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/expectBox" element={<AdditionalInfo />} />
         <Route exact path={tripRecommendationPath} element={<TripResponse />} />
         <Route exact path="/showFinalInfo" element={<ShowFinalInfo />} />
+        <Route exact path="/itinerary" element={<Itinerary />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

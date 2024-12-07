@@ -9,3 +9,4 @@ export const NEXT = "Next";
 export const TRIP_PLANNER = "Trip Planner";
 export const tripRecommendationPath = "/tripRecommendation";
 export const POWEREDBYAI = "POWERED BY AI";
+export const itineraryPath = "/itinerary";

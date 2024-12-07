@@ -86,6 +86,21 @@ const ShowFinalInfo = () => {
               area: data?.data?.jsonObj?.["places_to_visit"],
               underhyped: data?.data?.jsonObj?.["off_beat_places"],
               note: data?.data?.jsonObj?.["precautions"],
+              days,
+              mnth,
+              gender,
+              selectedStates,
+              country,
+              tripType,
+              pets,
+              hasFemale,
+              hasKids,
+              minValue,
+              maxValue,
+              currency,
+              modifiedCurrency,
+              slctdActsSet,
+              text,
             })
           );
           setShowSpinner(false);
