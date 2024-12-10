@@ -10,7 +10,7 @@ import { TiWarning } from "react-icons/ti";
 import { RiEmotionHappyLine } from "react-icons/ri";
 import { RiScissors2Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-
+import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
   const reasonState = useSelector(
@@ -33,7 +33,11 @@ const TripResponse = () => {
           <div className="trip-res-sub-body-sub">
             <p className="sub-txt-res">Recommendation based on your choices</p>
             <p className="state-name">{state}</p>
+            {/* <video className="bg-vid-itnry" autoPlay loop muted>
+              <source src={vid} type="video/mp4" />
+            </video> */}
             <div className="line"></div>
+
             {state && <ImgSlider place={state} showMultipleSlides={4} />}
             <span className="state-reason">{reasonState}</span>
             <p className="idl-text">

@@ -17,10 +17,10 @@
 
 .backbutton:hover{
     cursor: pointer;
-    color: rgb(97, 97, 230);
+    color: rgb(39, 118, 191);
 }
 
 .trip-planner-header{
-    color: rgb(254, 213, 31);
+    color: rgb(39, 118, 191);
     margin-top: 50px;
 }
