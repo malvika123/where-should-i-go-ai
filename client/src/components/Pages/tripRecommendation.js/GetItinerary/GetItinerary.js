@@ -12,7 +12,8 @@ export const GetItinerary = ({ itineraryObjData, spinning }) => {
             {(() => {
               const elements = [];
               for (const key of Object.keys(itineraryObjData)) {
-                const keyData = itineraryObjData?.[key]?.["day"];
+                const keyData =
+                  itineraryObjData?.[key]?.["day"] || itineraryObjData?.key;
                 const keyDestination = itineraryObjData?.[key]?.["destination"];
                 const keyAfternoon = itineraryObjData?.[key]?.["afternoon"];
                 const keyMorning = itineraryObjData?.[key]?.["morning"];
