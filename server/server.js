@@ -11,6 +11,7 @@ const getCurrency = require("./routes/currency/currency");
 const getsuggestion = require("./routes/openapi/getsuggestion");
 const getImages = require("./routes/getImages/images-splash");
 const getItinerary = require("./routes/openapi/getItinerary");
+const postEmail = require("./routes/email/email");
 // Use routes
 app.use("/loc/authz", authzRoute);
 app.use("/loc/getState", getStateRoute);
@@ -19,6 +20,7 @@ app.use("/cur/currency", getCurrency);
 app.use("/openapi/getsuggestion", getsuggestion);
 app.use("/getImages/image", getImages);
 app.use("/openapi/itinerary", getItinerary);
+app.use("/email/sendEmail", postEmail);
 
 app.listen(PORT, () => {
   console.log("port running on port", PORT);

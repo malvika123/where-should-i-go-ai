@@ -7,12 +7,14 @@ export const PlacePallet = ({
   getItineraryCall,
   selectedPlace,
   setSelectedPlace,
+  setItineraryObjData,
+  setSpinning,
+  spinning,
 }) => {
   const allPlace = area.concat(underhyped).map((elt) => elt.name);
   const [place, setPlace] = useState(allPlace);
   const [selectedId, setSelectedId] = useState();
   const selectPlace = (e) => {
-    console.log("op", e.target.innerHTML, e.target.id);
     const value = e.target.innerHTML;
     const id = e.target.id;
     setSelectedPlace(value);
@@ -21,7 +23,8 @@ export const PlacePallet = ({
 
   const clickAction = () => {
     if (selectedPlace) {
-      console.log("op", selectedPlace);
+      setSpinning(true);
+
       getItineraryCall();
     }
   };

@@ -10,6 +10,7 @@ import { GetItinerary } from "./GetItinerary/GetItinerary";
 import vid from "../../images/12747491_1920_1080_24fps.mp4";
 import { PlacePallet } from "./GetItinerary/PlacePallet";
 import { MdPlace } from "react-icons/md";
+import { EmailSent } from "./EmailSent";
 
 const Itinerary = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -20,8 +21,40 @@ const Itinerary = () => {
   const month = useSelector((state) => state?.data?.userData?.mnth);
   const gender = useSelector((state) => state?.data?.userData?.gender);
   const [selectedPlace, setSelectedPlace] = useState("");
-
+  const [error, setError] = useState("");
+  const [spinning, setSpinning] = useState(false);
+  const [emailSent, setEmailSent] = useState("");
   const [itineraryObjData, setItineraryObjData] = useState();
+
+  useEffect(() => {
+    setTimeout(() => setError(""), 5000);
+  }, [error]);
+
+  useEffect(() => {
+    setTimeout(() => setEmailSent(""), 5000);
+  }, [emailSent]);
+
+  const SendEmail = () => {
+    const formData = {
+      name: "malvika",
+      email: "malvikasen555@gmail.com",
+      message: JSON.stringify(itineraryObjData),
+    };
+    fetch("/email/sendEmail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log("op");
+        setEmailSent("Email sent successfully!");
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        setEmailSent("Failed to send email.");
+      });
+  };
 
   const getItineraryCall = () => {
     const req = async () => {
@@ -42,9 +75,12 @@ const Itinerary = () => {
             },
           }
         );
-        //console.log("op", data?.data?.itinerary["day1"]);
         setItineraryObjData(data?.data?.itinerary);
-      } catch (e) {}
+      } catch (e) {
+        setError(e?.message);
+      } finally {
+        setSpinning(false);
+      }
     };
     req();
   };
@@ -83,12 +119,27 @@ const Itinerary = () => {
           getItineraryCall={getItineraryCall}
           selectedPlace={selectedPlace}
           setSelectedPlace={setSelectedPlace}
+          setItineraryObjData={setItineraryObjData}
+          setSpinning={setSpinning}
+          spinning={spinning}
         />
+
+        <span className="err-it">{error}</span>
         <GetItinerary
           itineraryObjData={itineraryObjData}
+          spinning={spinning}
           className="getItinerary"
         />
       </div>
+      {emailSent && <EmailSent text={emailSent} />}
+      {itineraryObjData && (
+        <div className="button-set">
+          <button className="btn" onClick={() => SendEmail()}>
+            Email me this Itinerary
+          </button>
+          <button className="btn">i need to add a lil more info</button>
+        </div>
+      )}
     </div>
   );
 };

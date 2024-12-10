@@ -58,52 +58,52 @@ router.post("/", async (req, res) => {
       messages: [{ role: "user", content: prompt }],
       temperature: 0.7,
     };
-    const result = await axios.post(url, data, { headers });
-    const content = result?.data?.choices?.[0]?.message?.content;
-    console.log(content);
-    let obj = content.replace(/```/g, "").replace(/json/g, "").trim();
+    // const result = await axios.post(url, data, { headers });
+    // const content = result?.data?.choices?.[0]?.message?.content;
+    // console.log(content);
+    // let obj = content.replace(/```/g, "").replace(/json/g, "").trim();
 
-    const jsonObj = JSON.parse(obj);
+    // const jsonObj = JSON.parse(obj);
 
-    // res.json({
-    //   jsonObj: {
-    //     state: "Fukui",
-    //     reason:
-    //       "Fukui offers a blend of cultural heritage, natural beauty, and safety, making it ideal for solo female travelers interested in museums, trekking, and sightseeing.",
-    //     places_to_visit: [
-    //       {
-    //         name: "Eiheiji Temple",
-    //         description:
-    //           "A serene Zen Buddhist temple set in an ancient forest, offering a peaceful retreat and insight into monastic life.",
-    //       },
-    //       {
-    //         name: "Fukui Prefectural Dinosaur Museum",
-    //         description:
-    //           "One of the best dinosaur museums in Japan, located in Katsuyama, showcasing a vast collection of dinosaur skeletons and fossils.",
-    //       },
-    //       {
-    //         name: "Maruoka Castle",
-    //         description:
-    //           "Known as the 'Mist Castle', this is one of the oldest surviving castles in Japan, offering a glimpse into Japan's feudal past and a panoramic view of the surrounding area.",
-    //       },
-    //     ],
-    //     off_beat_places: [
-    //       {
-    //         name: "Mikata Five Lakes",
-    //         description:
-    //           "A beautiful and less-visited series of lakes that offer stunning landscapes and opportunities for trekking and nature walks.",
-    //       },
-    //       {
-    //         name: "Tojinbo Cliffs",
-    //         description:
-    //           "Spectacular rugged cliffs along the Sea of Japan, offering dramatic views and a less touristy experience.",
-    //       },
-    //     ],
-    //     precautions:
-    //       "As a solo female traveler in Fukui, generally, Japan is considered very safe. However, always keep your belongings secure, be aware of your surroundings, and follow local customs and etiquette. It's advisable to have travel insurance, carry a bilingual map or GPS, and keep emergency numbers handy. Avoid isolated areas late at night and always inform someone of your travel itinerary for additional safety.",
-    //   },
-    // });
-    res.json({ jsonObj });
+    res.json({
+      jsonObj: {
+        state: "Fukui",
+        reason:
+          "Fukui offers a blend of cultural heritage, natural beauty, and safety, making it ideal for solo female travelers interested in museums, trekking, and sightseeing.",
+        places_to_visit: [
+          {
+            name: "Eiheiji Temple",
+            description:
+              "A serene Zen Buddhist temple set in an ancient forest, offering a peaceful retreat and insight into monastic life.",
+          },
+          {
+            name: "Fukui Prefectural Dinosaur Museum",
+            description:
+              "One of the best dinosaur museums in Japan, located in Katsuyama, showcasing a vast collection of dinosaur skeletons and fossils.",
+          },
+          {
+            name: "Maruoka Castle",
+            description:
+              "Known as the 'Mist Castle', this is one of the oldest surviving castles in Japan, offering a glimpse into Japan's feudal past and a panoramic view of the surrounding area.",
+          },
+        ],
+        off_beat_places: [
+          {
+            name: "Mikata Five Lakes",
+            description:
+              "A beautiful and less-visited series of lakes that offer stunning landscapes and opportunities for trekking and nature walks.",
+          },
+          {
+            name: "Tojinbo Cliffs",
+            description:
+              "Spectacular rugged cliffs along the Sea of Japan, offering dramatic views and a less touristy experience.",
+          },
+        ],
+        precautions:
+          "As a solo female traveler in Fukui, generally, Japan is considered very safe. However, always keep your belongings secure, be aware of your surroundings, and follow local customs and etiquette. It's advisable to have travel insurance, carry a bilingual map or GPS, and keep emergency numbers handy. Avoid isolated areas late at night and always inform someone of your travel itinerary for additional safety.",
+      },
+    });
+    //  res.json({ jsonObj });
   } catch (error) {
     console.log(error);
     return res.status(400).json({ message: "caught an error" });

@@ -4,7 +4,7 @@ import { CiCircleChevRight } from "react-icons/ci";
 import "./style/tripResponse.css";
 import axios from "axios";
 
-const ImgSlider = ({ place, showMultipleSlides }) => {
+const ImgSlider = ({ place, showMultipleSlides, classnm }) => {
   const [imageArr, setImageArr] = useState([]);
   const [currIndex, setCurrImgIndex] = useState(0);
   const [currImg, setCurrImg] = useState(imageArr[0]);
@@ -36,7 +36,6 @@ const ImgSlider = ({ place, showMultipleSlides }) => {
         }
       );
       const urls = data?.data?.urls;
-      console.log(urls);
       setImageArr(urls);
     };
     res();
@@ -56,9 +55,11 @@ const ImgSlider = ({ place, showMultipleSlides }) => {
         </div>
       ) : (
         <div className="ImgSlider">
-          <p onClick={() => decImgIndex()}>
-            <CiCircleChevLeft className="leftbutton" />
-          </p>
+          {showMultipleSlides > 1 && (
+            <p onClick={() => decImgIndex()}>
+              <CiCircleChevLeft className="leftbutton" />
+            </p>
+          )}
           <div className="wrapper-img">
             {(() => {
               const elements = [];
@@ -73,20 +74,26 @@ const ImgSlider = ({ place, showMultipleSlides }) => {
                   <div className="img-card">
                     <a href={imageArr[i + currIndex]?.img} target="_blank">
                       <img
-                        className="images2"
+                        className={classnm ? classnm : "images2"}
                         src={imageArr[i + currIndex]?.img}
                       ></img>
                     </a>
-                    <p className="img-desc">{imageArr[i + currIndex]?.desc}</p>
+                    {showMultipleSlides > 1 && (
+                      <p className="img-desc">
+                        {imageArr[i + currIndex]?.desc}
+                      </p>
+                    )}
                   </div>
                 );
               }
               return elements;
             })()}
           </div>
-          <p onClick={() => incImgIndex()}>
-            <CiCircleChevRight className="rightbutton" />
-          </p>
+          {showMultipleSlides > 1 && (
+            <p onClick={() => incImgIndex()}>
+              <CiCircleChevRight className="rightbutton" />
+            </p>
+          )}
         </div>
       )}
     </div>

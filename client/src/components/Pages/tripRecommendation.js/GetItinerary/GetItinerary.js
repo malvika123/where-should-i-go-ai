@@ -1,36 +1,59 @@
-export const GetItinerary = ({ itineraryObjData }) => {
-  console.log(itineraryObjData, "kio");
+import Spinner from "../../tripQuestions/ShowFinalInfo/Spinner";
+import ImgSlider from "../ImgSlider";
+import SpinnerItinerary from "./SpinnerItinerary";
+
+export const GetItinerary = ({ itineraryObjData, spinning }) => {
   return (
     <div className="getItinerary">
-      {itineraryObjData ? (
-        <div>
-          <h1>Itinerary</h1>
-          {(() => {
-            const elements = [];
-            for (const key of Object.keys(itineraryObjData)) {
-              const keyData = key;
-              const keyDestination = itineraryObjData.key?.destination;
-              const keyAfternoon = itineraryObjData?.[key]?.["afternoon"];
-              const keyMorning = itineraryObjData?.[key]?.["morning"];
-              const keyEvening = itineraryObjData?.[key]?.["evening"];
-              console.log("op", keyData, keyDestination);
-              elements.push(
-                <div className="it-key-main">
-                  <p className="it-key">
-                    {keyData} : {keyDestination}
-                  </p>
-                  <div className="it-sub">
-                    <p className="it-Morn">Morning: {keyMorning}</p>
-                    <p className="it-After">Afternoon: {keyAfternoon}</p>
-                    <p className="it-Eve">Evening: {keyEvening}</p>
+      {!spinning ? (
+        itineraryObjData && (
+          <div>
+            {/* <h1 className="it-headng">Itinerary</h1> */}
+            {(() => {
+              const elements = [];
+              for (const key of Object.keys(itineraryObjData)) {
+                const keyData = itineraryObjData?.[key]?.["day"];
+                const keyDestination = itineraryObjData?.[key]?.["destination"];
+                const keyAfternoon = itineraryObjData?.[key]?.["afternoon"];
+                const keyMorning = itineraryObjData?.[key]?.["morning"];
+                const keyEvening = itineraryObjData?.[key]?.["evening"];
+                elements.push(
+                  <div className="it-key-main">
+                    <p className="it-key">
+                      {keyData} :{" "}
+                      <span className="it-key-des">{keyDestination}</span>
+                    </p>
+                    <div className="it-sub-top">
+                      <ImgSlider
+                        place={keyDestination}
+                        showMultipleSlides={1}
+                        classnm="ImgSlider-it"
+                      />
+                      <div className="it-sub">
+                        <p className="it-Morn">
+                          <span className="heading-it">Morning</span>:{" "}
+                          <span className="heading-val">{keyMorning}</span>
+                        </p>
+                        <p className="it-After">
+                          <span className="heading-it">Afternoon</span>:{" "}
+                          <span className="heading-val">{keyAfternoon}</span>
+                        </p>
+                        <p className="it-Eve">
+                          <span className="heading-it">Evening</span>:{" "}
+                          <span className="heading-val">{keyEvening}</span>
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              );
-            }
-            return elements;
-          })()}
-        </div>
-      ) : null}
+                );
+              }
+              return elements;
+            })()}
+          </div>
+        )
+      ) : (
+        <SpinnerItinerary />
+      )}
     </div>
   );
 };

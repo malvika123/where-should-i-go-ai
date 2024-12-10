@@ -2,6 +2,11 @@
     margin-left: 10%;
     margin-top: 4%;
     text-align: left;
+   
+}
+
+.getItinerary {
+    margin-bottom: 10%;
 }
 
 .state-name {
@@ -110,7 +115,7 @@
 
 .getItinerary{
     text-align: left;
-   
+   padding-right: 10%;
 }
 
 .pallet-div{
@@ -132,6 +137,10 @@
 .it-key{
 font-size: 28px;
 text-transform: capitalize;
+background-color: rgb(244, 238, 238);
+padding: 1%;
+border-radius: 10px;
+margin-bottom: 1.7%;
 }
 
 .it-After,.it-Morn{
@@ -146,11 +155,71 @@ text-transform: capitalize;
     text-wrap: wrap;
 }
 
-.it-sub{
+.it-sub,.it-sub-top{
     margin-left: 3%;
+}
+
+.it-sub-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .it-key-main{
     margin-bottom: 2.5%;
     margin-top: 2.5%;
+}
+
+.heading-it{
+    color: rgb(234, 92, 234)
+    ;
+}
+
+.heading-val{
+    font-weight: lighter;
+}
+
+.it-headng{
+    text-decoration: solid;
+    text-transform:uppercase;
+    font-size: 35px;
+    color: rgb(29, 108, 203);
+}
+
+.err-it{
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(110, 29, 29);
+}
+
+.button-set{
+    margin-bottom: 2%;
+}
+
+.btn{
+    background-color: rgb(29, 108, 203);
+    color: white;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 1%;
+    font-size: 18px;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+.btn:hover{
+    background-color: yellow;
+    color: black;
+}
+
+.ImgSlider-it{
+    height: 22vh;
+    width: 22vh;
+    border-radius: 62px;
+    /* border: solid rgb(251, 251, 78) 8px; */
+}
+
+.it-key-des{
+    color: rgb(35, 89, 165)
 }

@@ -5,7 +5,8 @@ const { GET_STATE_TOKEN, email } = require("../../constant/const");
 
 router.post("/", async (req, res) => {
   const place = req?.body?.place;
-  const url = `https://api.unsplash.com/search/photos?query=${place}&per_page=30&client_id=tziSfprnh5dy5jMwfrGnbNXr7VWP1CofLABofuKx1kA`;
+  const page = "30" || req?.body?.page;
+  const url = `https://api.unsplash.com/search/photos?query=${place}&per_page=${page}&client_id=tziSfprnh5dy5jMwfrGnbNXr7VWP1CofLABofuKx1kA`;
   try {
     const result = await axios.get(url);
     // console.log(result?.data?.results);

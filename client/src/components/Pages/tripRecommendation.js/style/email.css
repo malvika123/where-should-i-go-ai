@@ -1,0 +1,16 @@
+.email{
+    position: absolute;
+
+   text-align: center;
+    background-color: black;
+    color: white;
+  font-size: 15px;
+   padding: 12px;
+   border-radius: 12px;
+   box-shadow: 7px 4px 7px 4px rgb(233, 219, 219);
+   left: 45%;
+   margin: auto; 
+   margin-bottom: 20px;
+
+}
+
