@@ -7,6 +7,7 @@
 
 .trip-res-sub-body-sub {
     margin-bottom: 5%;
+    margin-right: 10%;
 }
 
 .trip-res-sub-body {
@@ -19,7 +20,7 @@
     width: 60vw;
     height: 40vh;
     border-radius: 30px;
-
+    object-fit: cover;
 }
 
 .ImgSlider {
@@ -101,7 +102,7 @@
 
 .line {
     background-color: rgb(201, 187, 187);
-    width: 90%;
+    width: 100%;
     height: 1px;
     margin-bottom: 30px;
 }
@@ -120,7 +121,7 @@
     border-radius: 30px;
     margin-right: 10px;
     margin-left: 10px;
-
+    object-fit: cover;
 }
 
 .wrapper-img {
@@ -133,6 +134,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* object-fit: cover; */
 }
 
 .img-desc {
@@ -163,12 +165,31 @@
     font-size: 20px;
     padding: 1%;
     border-radius: 5px;
+    margin-right: 10%;
+    align-self: center;
+
 }
 
 .itnry:hover {
     background-color: rgb(49, 87, 164);
 }
 
-.it-key-des{
-    color: orange
+.res-img {
+    width: 13vw;
+    height: 20vh;
+    border-radius: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.res-img-txt {
+    font-size: 12px;
+    text-wrap: wrap;
+    color: rgb(126, 123, 123);
+    font-weight: 10px;
+    margin: auto;
+    padding: 2%;
+    text-align: center;
+    width: 13vw;
 }

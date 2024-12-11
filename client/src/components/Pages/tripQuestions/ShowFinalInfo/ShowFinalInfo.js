@@ -101,6 +101,7 @@ const ShowFinalInfo = () => {
               modifiedCurrency,
               slctdActsSet,
               text,
+              recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
             })
           );
           setShowSpinner(false);

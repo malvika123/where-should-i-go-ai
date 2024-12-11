@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import "./style/itinerary.css";
 import { LuDot } from "react-icons/lu";
@@ -11,6 +11,8 @@ import vid from "../../images/12747491_1920_1080_24fps.mp4";
 import { PlacePallet } from "./GetItinerary/PlacePallet";
 import { MdPlace } from "react-icons/md";
 import { EmailSent } from "./EmailSent";
+import { useNavigate } from "react-router-dom";
+import { setUserData } from "../../store/slices/dataSlice";
 
 const Itinerary = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -25,6 +27,13 @@ const Itinerary = () => {
   const [spinning, setSpinning] = useState(false);
   const [emailSent, setEmailSent] = useState("");
   const [itineraryObjData, setItineraryObjData] = useState();
+  const stateObj = useSelector((state) => state?.data?.userData);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onNavigate = ({ path }) => {
+    navigate(path);
+  };
 
   useEffect(() => {
     setTimeout(() => setError(""), 5000);
@@ -76,6 +85,19 @@ const Itinerary = () => {
           }
         );
         setItineraryObjData(data?.data?.itinerary);
+        const objStr = JSON.stringify(data?.data?.itinerary);
+        dispatch(
+          setUserData({
+            ...stateObj,
+            itinerary: `${objStr}`,
+          })
+        );
+        console.log(
+          "itineraryObjData",
+          objStr,
+          typeof objStr,
+          itineraryObjData
+        );
       } catch (e) {
         setError(e?.message);
       } finally {
@@ -137,7 +159,12 @@ const Itinerary = () => {
           <button className="btn" onClick={() => SendEmail()}>
             Email me this Itinerary
           </button>
-          <button className="btn">i need to add a lil more info</button>
+          <button
+            className="btn"
+            onClick={() => onNavigate({ path: "/ModifyReq?itinerary=true" })}
+          >
+            i need to add a lil more info
+          </button>
         </div>
       )}
     </div>

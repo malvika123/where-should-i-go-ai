@@ -11,7 +11,7 @@ export const PlacePallet = ({
   setSpinning,
   spinning,
 }) => {
-  const allPlace = area.concat(underhyped).map((elt) => elt.name);
+  const allPlace = area?.concat(underhyped)?.map((elt) => elt.name);
   const [place, setPlace] = useState(allPlace);
   const [selectedId, setSelectedId] = useState();
   const selectPlace = (e) => {
@@ -36,15 +36,18 @@ export const PlacePallet = ({
       </h3>
       <h5>Please select which applies</h5>
       <div className="pallet-sub">
-        {place.map((elt, key) => (
-          <p
-            id={key}
-            className={selectedId == key ? "elt-pallet-selected" : "elt-pallet"}
-            onClick={selectPlace}
-          >
-            {elt}
-          </p>
-        ))}
+        {place &&
+          place.map((elt, key) => (
+            <p
+              id={key}
+              className={
+                selectedId == key ? "elt-pallet-selected" : "elt-pallet"
+              }
+              onClick={selectPlace}
+            >
+              {elt}
+            </p>
+          ))}
       </div>
       <button className="continue-btn" onClick={() => clickAction(true)}>
         Continue

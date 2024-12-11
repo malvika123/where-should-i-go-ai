@@ -101,6 +101,7 @@ p {
     width:60vw;
     height:60vh;
     border-radius: 30px;
+    /* object-fit: cover; */
 }
 
 .magGlass{

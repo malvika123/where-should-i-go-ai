@@ -4,7 +4,7 @@ import { CiCircleChevRight } from "react-icons/ci";
 import "./style/tripResponse.css";
 import axios from "axios";
 
-const ImgSlider = ({ place, showMultipleSlides, classnm }) => {
+const ImgSlider = ({ place, showMultipleSlides, classnm, textClassnm }) => {
   const [imageArr, setImageArr] = useState([]);
   const [currIndex, setCurrImgIndex] = useState(0);
   const [currImg, setCurrImg] = useState(imageArr[0]);
@@ -79,7 +79,7 @@ const ImgSlider = ({ place, showMultipleSlides, classnm }) => {
                       ></img>
                     </a>
                     {showMultipleSlides > 1 && (
-                      <p className="img-desc">
+                      <p className={textClassnm ? textClassnm : "img-desc"}>
                         {imageArr[i + currIndex]?.desc}
                       </p>
                     )}

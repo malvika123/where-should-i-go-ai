@@ -38,7 +38,14 @@ const TripResponse = () => {
             </video> */}
             <div className="line"></div>
 
-            {state && <ImgSlider place={state} showMultipleSlides={4} />}
+            {state && (
+              <ImgSlider
+                place={state}
+                showMultipleSlides={5}
+                classnm="res-img"
+                textClassnm="res-img-txt"
+              />
+            )}
             <span className="state-reason">{reasonState}</span>
             <p className="idl-text">
               Ideal places to visit <GrMapLocation style={{ color: "pink" }} />
@@ -53,7 +60,12 @@ const TripResponse = () => {
                   <p className="idl-name">{elt.name} </p>
                   <p className="idl-desc">{elt.description}</p>
                   {elt.name && (
-                    <ImgSlider place={elt.name} showMultipleSlides={4} />
+                    <ImgSlider
+                      place={elt.name}
+                      showMultipleSlides={5}
+                      classnm="res-img"
+                      textClassnm="res-img-txt"
+                    />
                   )}
                 </div>
               );
@@ -70,7 +82,12 @@ const TripResponse = () => {
                   <p className="off-name">{elt.name} </p>
                   <p className="off-desc">{elt.description}</p>
                   {elt.name && (
-                    <ImgSlider place={elt.name} showMultipleSlides={4} />
+                    <ImgSlider
+                      place={elt.name}
+                      showMultipleSlides={5}
+                      classnm="res-img"
+                      textClassnm="res-img-txt"
+                    />
                   )}
                 </div>
               );
@@ -101,18 +118,12 @@ const TripResponse = () => {
             >
               Take me to my itinerary
             </button>
-          </div>
-          <div style={{ marginTop: "5%" }}>
-            <p>
-              Need a lil more tailoring? <RiScissors2Fill />
-            </p>
-            <p className="off-desc">
-              Not quite there yet? No worries! Let’s fine-tune your preferences
-              to find the perfect destination that matches your vision. Share a
-              little more about your needs, and we’ll ensure your next
-              suggestion is spot-on!
-            </p>
-            <button className="itnry">lets go</button>
+            <button
+              className="itnry"
+              onClick={() => NavigateTopath({ path: "/ModifyReq" })}
+            >
+              I need to add some more info
+            </button>
           </div>
         </div>
       </div>

@@ -15,6 +15,7 @@ import ShowFinalInfo from "./components/Pages/tripQuestions/ShowFinalInfo/ShowFi
 import AdditionalInfo from "./components/Pages/tripQuestions/ExtraInfo/AdditionalInfo";
 import { tripRecommendationPath } from "./components/common/constants";
 import Itinerary from "./components/Pages/tripRecommendation.js/Itenary";
+import { ModifyReq } from "./components/Pages/tripRecommendation.js/ModifyReq";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route exact path={tripRecommendationPath} element={<TripResponse />} />
         <Route exact path="/showFinalInfo" element={<ShowFinalInfo />} />
         <Route exact path="/itinerary" element={<Itinerary />} />
+        <Route exact path="/ModifyReq" element={<ModifyReq />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

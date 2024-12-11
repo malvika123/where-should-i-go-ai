@@ -1,0 +1,57 @@
+.sub-div-mod{
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-right: 10%;
+}
+
+.modify-req-head{
+    text-align: left;
+}
+
+.img-mod{
+    width: 80vw;
+    height: 33vh;
+    object-fit: cover !important;
+    border-radius: 25px !important;
+}
+
+.text-mod{
+    position: absolute;
+    left: 0;
+    margin-left: 12%;
+    margin-top: 30vh;
+    color: rgb(129, 21, 21);
+   
+    text-wrap: wrap;
+    margin-top: 20%;
+    margin-right: 15%;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-style: italic;
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.image-mod{
+    overflow: hidden;
+}
+
+.data-collection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    margin-top: 5%
+}
+
+
+.commonSpinner{
+    position: absolute;
+    left: 47%;
+    margin-top: 10%;
+}
+
+.commonSpinnerText{
+    display:block;
+}
