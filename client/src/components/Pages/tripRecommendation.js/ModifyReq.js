@@ -44,11 +44,9 @@ export const ModifyReq = () => {
   };
 
   const handleClick = () => {
-    console.log("cockr");
     if (addData) {
       setSpinning(true);
       if (itineraryPath) {
-        console.log("oppui");
         const res = async () => {
           try {
             const data = await axios.post(
@@ -82,7 +80,6 @@ export const ModifyReq = () => {
                 },
               }
             );
-            console.log("op", data?.data?.jsonObj);
             dispatch(
               setUserData({
                 ...stateObj,

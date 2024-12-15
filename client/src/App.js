@@ -1,7 +1,7 @@
 import "./App.css";
 import About from "./components/Pages/About";
 import { Route, Routes } from "react-router-dom";
-import Login from "./components/Pages/Login";
+import Login from "./components/Pages/Login/Login";
 import LandingPage from "./components/Pages/LandingPage";
 import PageNotFound from "./components/Pages/PageNotFound";
 import TripTailor from "./components/Pages/TripTailor";
@@ -16,6 +16,10 @@ import AdditionalInfo from "./components/Pages/tripQuestions/ExtraInfo/Additiona
 import { tripRecommendationPath } from "./components/common/constants";
 import Itinerary from "./components/Pages/tripRecommendation.js/Itenary";
 import { ModifyReq } from "./components/Pages/tripRecommendation.js/ModifyReq";
+import { ValidateEmail } from "./components/Pages/Login/ValidateEmail";
+import { Register } from "./components/Pages/Login/Register";
+import ForgotPassword from "./components/Pages/Login/fyp/Forgot-password";
+import ResetPassword from "./components/Pages/Login/fyp/ResetPassword";
 
 function App() {
   return (
@@ -36,6 +40,12 @@ function App() {
         <Route exact path="/showFinalInfo" element={<ShowFinalInfo />} />
         <Route exact path="/itinerary" element={<Itinerary />} />
         <Route exact path="/ModifyReq" element={<ModifyReq />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/validateEmail" element={<ValidateEmail />} />
+        <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+        <Route exact path="/ResetPassword" element={<ResetPassword />} />
+
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

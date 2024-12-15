@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
       messages: [{ role: "user", content: prompt }],
       temperature: 0.7,
     };
-    const flag = false;
+    const flag = true;
 
     if (flag) {
       const result = await axios.post(url, data, { headers });

@@ -1,0 +1,143 @@
+.login {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.login-box {
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+    margin-right: 29%;
+    margin-left: 29%;
+}
+
+.input-txt {
+    text-align: left;
+    font-size: 20px;
+}
+
+.input-field {
+    margin-bottom: 4%;
+    height: 5vh;
+    padding: 3%;
+    color: rgb(28, 79, 126);
+    font-weight: bold;
+    outline: none;
+    text-transform: capitalize;
+    border-radius: 12px;
+    border: solid black 2px;
+
+}
+.input-field-email {
+    margin-bottom: 4%;
+    height: 5vh;
+    padding: 3%;
+    color: rgb(28, 79, 126);
+    font-weight: bold;
+    outline: none;
+    text-transform: capitalize;
+    border-radius: 12px;
+    border: solid black 2px;
+}
+
+
+
+.button {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    font-weight: bolder;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.subtxt-login {
+    font-size: 20px;
+}
+
+.pin-box {
+    margin: 1% 1% 1% 1%;
+    width: 3.5vw;
+    height: 5.5vh;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    border: solid rgb(40, 110, 175) 2px;
+}
+
+.six-digit-box {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.gen-otp {}
+
+.gen-otp:hover {
+    cursor: pointer;
+}
+
+.register-link {
+    text-decoration: underline;
+}
+
+.register-link:hover {
+    cursor: pointer;
+}
+
+.subtxt-login-sub {
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.forgot-password {
+    color: rgb(38, 134, 189);
+    float: right;
+    padding-right: 1%;
+    font-size:medium;
+    text-decoration: underline;
+}
+
+.forgot-password:hover {
+    cursor: pointer;
+}
+
+.input-txt-password{
+   font-size: 20px;
+
+}
+
+.show-btn{
+   position:absolute;
+    background-color: white;
+    float: right;
+}
+
+.input-field-pass{
+    margin-bottom: 4%;
+    height: 5vh;
+    padding: 3%;
+    color: rgb(28, 79, 126);
+    font-weight: bold;
+    outline: none;
+    text-transform: capitalize;
+    border-radius: 12px;
+    border: solid black 2px;
+    width: 100%;
+}
+
+.password-box {
+    text-align: left;
+    margin-bottom: 2%;
+    background-color: red;
+    
+}
+
+.input-field-pass-full{
+    display: flex;
+    flex-direction: row;
+}
