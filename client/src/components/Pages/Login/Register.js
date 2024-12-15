@@ -3,12 +3,15 @@ import Logo from "../../Header/Logo";
 import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import "../style/register.css";
 import { PasswordChecker } from "./PasswordChecker";
+import { PasswordInputField } from "./PasswordInputField";
+import { useState } from "react";
 
 export const Register = () => {
   const navigate = useNavigate();
   const navigateTopath = (path) => {
     navigate(path);
   };
+  const [password, setPassword] = useState();
   return (
     <div>
       <TripPlannerHeader notshowSubHeader={true} />
@@ -33,13 +36,8 @@ export const Register = () => {
             className="input-field-email"
             placeholder="Enter your email..."
           />
-          <p className="input-txt">Password</p>
-          <input
-            className="input-field"
-            type="password"
-            placeholder="Enter your password..."
-          />
-          <PasswordChecker />
+          <PasswordInputField setPassword={setPassword} />
+          <PasswordChecker password={password} />
           <button
             className="button"
             onClick={() => navigateTopath("/validateEmail")}

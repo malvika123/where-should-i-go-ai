@@ -8,8 +8,8 @@
     display: flex;
     margin-top: 5%;
     flex-direction: column;
-    margin-right: 29%;
-    margin-left: 29%;
+    margin-right: 35%;
+    margin-left: 35%;
 }
 
 .input-txt {
@@ -19,7 +19,7 @@
 
 .input-field {
     margin-bottom: 4%;
-    height: 5vh;
+    height: 8vh;
     padding: 3%;
     color: rgb(28, 79, 126);
     font-weight: bold;
@@ -27,8 +27,8 @@
     text-transform: capitalize;
     border-radius: 12px;
     border: solid black 2px;
-
 }
+
 .input-field-email {
     margin-bottom: 4%;
     height: 5vh;
@@ -112,32 +112,41 @@
 }
 
 .show-btn{
-   position:absolute;
     background-color: white;
     float: right;
+    margin: auto;
+    padding-inline-end: 10px;
+    height: 2.5vh;
+    width: 2.5vw;
+    padding: 0;
 }
 
 .input-field-pass{
-    margin-bottom: 4%;
     height: 5vh;
     padding: 3%;
     color: rgb(28, 79, 126);
     font-weight: bold;
     outline: none;
-    text-transform: capitalize;
     border-radius: 12px;
-    border: solid black 2px;
+    border: none;
     width: 100%;
 }
 
 .password-box {
     text-align: left;
     margin-bottom: 2%;
-    background-color: red;
-    
 }
 
 .input-field-pass-full{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    border: black solid 2px;
+    padding: auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.show-btn-parent{
+    background-color: white;
 }

@@ -4,12 +4,15 @@ import TripPlannerHeader from "../../../Header/TripPlannerHeader";
 import Logo from "../../../Header/Logo";
 import { PasswordChecker } from "../PasswordChecker";
 import { PasswordInputField } from "../PasswordInputField";
+import { useState } from "react";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
   const navigateTopath = (path) => {
     navigate(path);
   };
+
+  const [password, setPassword] = useState();
 
   return (
     <div>
@@ -21,8 +24,8 @@ const ResetPassword = () => {
           Ensure your new password doesn't matches your last two
         </p>
         <div className="login-box">
-          <PasswordInputField />
-          <PasswordChecker />
+          <PasswordInputField setPassword={setPassword} />
+          <PasswordChecker password={password} />
           <button
             className="button"
             onClick={() => navigateTopath("/validateEmail")}

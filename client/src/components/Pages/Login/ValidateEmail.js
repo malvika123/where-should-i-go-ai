@@ -7,8 +7,9 @@ export const ValidateEmail = ({}) => {
   const navigate = useNavigate();
   const isFypFlow = window?.location?.search?.includes("fyp");
   const navigateTopath = (path) => {
-    if (isFypFlow) window.location.href = "/resetPassword";
-    navigate(path);
+    if (isFypFlow) {
+      window.location.href = "/resetPassword";
+    } else navigate(path);
   };
 
   return (
