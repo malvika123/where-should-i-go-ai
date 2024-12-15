@@ -11,8 +11,14 @@ const Login = () => {
   const navigateTopath = (path) => {
     navigate(path);
   };
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const [email, setEmail] = useState(userInfo?.email);
   const [password, setPassword] = useState();
 
+  const handleOnClick = () => {
+    window.location.href = "/validateEmail";
+    localStorage.setItem("userInfo", JSON.stringify({ email }));
+  };
   return (
     <div>
       <TripPlannerHeader notshowSubHeader={true} />
@@ -27,6 +33,8 @@ const Login = () => {
           <input
             className="input-field-email"
             placeholder="Enter your email..."
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
           <PasswordInputField setPassword={setPassword} />
           <a>
@@ -37,21 +45,20 @@ const Login = () => {
               Forgot password
             </span>
           </a>
-          <button
-            className="button"
-            onClick={() => navigateTopath("/validateEmail")}
-          >
+          <button className="button" onClick={() => handleOnClick()}>
             Continue
           </button>
-          <span>New to this site </span>{" "}
-          <a>
-            <span
-              onClick={() => (window.location.href = "/register")}
-              className="register-link"
-            >
-              Register
-            </span>
-          </a>
+          <span>
+            New to this site{" "}
+            <a>
+              <span
+                onClick={() => (window.location.href = "/register")}
+                className="register-link"
+              >
+                Register
+              </span>
+            </a>{" "}
+          </span>{" "}
         </div>
       </div>
     </div>

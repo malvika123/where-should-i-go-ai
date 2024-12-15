@@ -2,15 +2,20 @@ import { useNavigate } from "react-router-dom";
 import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import Logo from "../../Header/Logo";
 import { SixDigitPin } from "./SixDigitPin";
+import { useState } from "react";
 
 export const ValidateEmail = ({}) => {
   const navigate = useNavigate();
+  const [spinning, setSpinning] = useState(false);
+  const [genOtp, setGenOtp] = useState(false);
   const isFypFlow = window?.location?.search?.includes("fyp");
   const navigateTopath = (path) => {
     if (isFypFlow) {
       window.location.href = "/resetPassword";
     } else navigate(path);
   };
+
+  const genOtpAlert = () => {};
 
   return (
     <div>
@@ -32,7 +37,9 @@ export const ValidateEmail = ({}) => {
           </button>
           <span>Didn't recieve OTP </span>{" "}
           <a>
-            <span className="gen-otp">Generate otp</span>
+            <span className="gen-otp" onClick={() => genOtpAlert()}>
+              Generate otp
+            </span>
           </a>
         </div>
       </div>

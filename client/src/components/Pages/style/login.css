@@ -8,8 +8,7 @@
     display: flex;
     margin-top: 5%;
     flex-direction: column;
-    margin-right: 35%;
-    margin-left: 35%;
+    margin: auto;
 }
 
 .input-txt {
@@ -36,7 +35,6 @@
     color: rgb(28, 79, 126);
     font-weight: bold;
     outline: none;
-    text-transform: capitalize;
     border-radius: 12px;
     border: solid black 2px;
 }
@@ -149,4 +147,16 @@
 
 .show-btn-parent{
     background-color: white;
+}
+
+.login-link:hover{
+cursor: pointer;
+}
+
+.login-link{
+    text-decoration: underline;
+}
+
+.input-check::before{
+ 
 }
