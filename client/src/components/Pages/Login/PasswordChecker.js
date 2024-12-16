@@ -25,7 +25,6 @@ export const PasswordChecker = ({ password, setIsPasswordAdequate }) => {
       } else {
         setSpecialChar(false);
       }
-      console.log(password, passwordLength, alphanumeric, specialChar);
       if (passwordLength && alphanumeric && specialChar) {
         setIsPasswordAdequate(true);
       } else {

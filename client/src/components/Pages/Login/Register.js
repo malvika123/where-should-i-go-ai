@@ -6,6 +6,7 @@ import { PasswordChecker } from "./PasswordChecker";
 import { PasswordInputField } from "./PasswordInputField";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Alert } from "./Alert";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -19,30 +20,39 @@ export const Register = () => {
   const [lastName, setLastName] = useState(userInfo?.lastName);
   const [disableCntBtn, setDisableCntBtn] = useState(true);
   const [isPasswordAdequate, setIsPasswordAdequate] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
   const [alert, setAlert] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => setAlert(""), 3000);
+  }, [alert]);
 
   const handleChange = () => {
     localStorage.setItem(
       "userInfo",
       JSON.stringify({ ...userInfo, email, name, lastName })
     );
-    try {
-      const loginCall = async () => {
+
+    const registerCall = async () => {
+      try {
         const data = await axios.post("/user/register", {
           email,
           password,
           name,
           lname: lastName,
         });
-        console.log(data);
-      };
-      loginCall();
-    } catch (e) {}
-    navigateTopath("/validateEmail");
+        console.log("io", data);
+        setRegisterSuccess(true);
+      } catch (e) {
+        const error = e?.response?.data?.error || "Something went wrong !!";
+        setAlert(error);
+      }
+    };
+    registerCall();
+    if (registerSuccess) navigateTopath("/validateEmail");
   };
 
   useEffect(() => {
-    console.log("check", isPasswordAdequate);
     if (email && password && name && lastName && isPasswordAdequate) {
       setDisableCntBtn(false);
     } else {

@@ -162,11 +162,13 @@ cursor: pointer;
 }
 
 .alert{
-    background-color: rgb(125, 44, 21);
+    background-color: rgb(155, 33, 33);
     margin: auto;
     color: white;
     width: fit-content;
     padding: 1%;
     font-weight: bold;
     border-radius: 12px;
+    margin-top: 2%;
+    transition: 1s ease-in;
 }

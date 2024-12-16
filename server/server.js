@@ -1,22 +1,12 @@
 const express = require("express");
-const mongoose = require("mongoose");
 require("dotenv").config();
-
-mongoose
-  .connect(
-    "mongodb+srv://malvikasen555:SPEj3kX8DIe0qEVH@cluster0.iln8u.mongodb.net/",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("Error connecting to MongoDB:", err));
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 4100;
 
 app.use(express.json());
+app.use(cookieParser());
 
 const authzRoute = require("./routes/location/authz");
 const getStateRoute = require("./routes/location/getState");
@@ -27,6 +17,7 @@ const getImages = require("./routes/getImages/images-splash");
 const getItinerary = require("./routes/openapi/getItinerary");
 const getAdditionalInfo = require("./routes/openapi/additionalInfoItinerary");
 const postEmail = require("./routes/email/email");
+const postOtpEmail = require("./routes/email/otpEmail.js");
 const getUpdatedSuggestionInfo = require("./routes/openapi/getUpdatedSuggestion.js");
 const loginInfo = require("./routes/user/login.js");
 const registerInfo = require("./routes/user/register.js");
@@ -34,9 +25,6 @@ const forgotPasswordInfo = require("./routes/user/fyp/forgotPassword.js");
 const resetPasswordInfo = require("./routes/user/fyp/resetPassword.js");
 const genPasswordInfo = require("./routes/user/fyp/resetPassword.js");
 const valPasswordInfo = require("./routes/user/fyp/resetPassword.js");
-
-//mongodb Calls
-const getData = require("./routes/mongodb/getData.js");
 
 // Use routes
 app.use("/loc/authz", authzRoute);
@@ -47,8 +35,8 @@ app.use("/openapi/getsuggestion", getsuggestion);
 app.use("/getImages/image", getImages);
 app.use("/openapi/itinerary", getItinerary);
 app.use("/email/sendEmail", postEmail);
+app.use("/email/sendOtp", postOtpEmail);
 app.use("/openapi/extraInfo", getAdditionalInfo);
-app.use("/openapi/updatedInfo", getUpdatedSuggestionInfo);
 app.use("/openapi/updatedInfo", getUpdatedSuggestionInfo);
 app.use("/user/login", loginInfo);
 app.use("/user/register", registerInfo);

@@ -1,13 +1,43 @@
 const express = require("express");
 const router = express.Router();
+const axios = require("axios");
 
 router.post("/", async (req, res) => {
   try {
     const { email, password, name, lname } = req.body;
-    console.log("yui", email, password, name, lname);
-    res.json({});
+    const data = await axios.post("http://localhost:4200/api/addUser", {
+      email,
+      password,
+      name,
+      lname,
+    });
+    const dataObj = data?.data;
+    const otp = dataObj?.otp;
+    console.log("io");
+    await axios.post("http://localhost:4100/email/sendOtp", {
+      email,
+      name,
+      message: otp,
+    });
+    const { status, cuid, message } = dataObj;
+    const resObj = {
+      status: status,
+      id: cuid,
+      message: message,
+    };
+
+    res
+      .status(200)
+      .setHeader("Set-Cookie", [`cuid=${cuid}; path=/;`])
+      .setHeader("Content-Type", "application/json")
+      .json(resObj);
+    res.end();
   } catch (err) {
-    res.status(500).json({ error: "Failed to log user In " });
+    console.log(err);
+    res.status(500).json({
+      error: err?.response?.data?.message,
+      code: err?.response?.data?.code,
+    });
   }
 });
 
