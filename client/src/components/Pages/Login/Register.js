@@ -4,7 +4,8 @@ import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import "../style/register.css";
 import { PasswordChecker } from "./PasswordChecker";
 import { PasswordInputField } from "./PasswordInputField";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -16,14 +17,39 @@ export const Register = () => {
   const [password, setPassword] = useState();
   const [name, setName] = useState(userInfo?.name);
   const [lastName, setLastName] = useState(userInfo?.lastName);
-  console.log(userInfo);
+  const [disableCntBtn, setDisableCntBtn] = useState(true);
+  const [isPasswordAdequate, setIsPasswordAdequate] = useState(false);
+  const [alert, setAlert] = useState("");
+
   const handleChange = () => {
-    navigateTopath("/validateEmail");
     localStorage.setItem(
       "userInfo",
       JSON.stringify({ ...userInfo, email, name, lastName })
     );
+    try {
+      const loginCall = async () => {
+        const data = await axios.post("/user/register", {
+          email,
+          password,
+          name,
+          lname: lastName,
+        });
+        console.log(data);
+      };
+      loginCall();
+    } catch (e) {}
+    navigateTopath("/validateEmail");
   };
+
+  useEffect(() => {
+    console.log("check", isPasswordAdequate);
+    if (email && password && name && lastName && isPasswordAdequate) {
+      setDisableCntBtn(false);
+    } else {
+      setDisableCntBtn(true);
+    }
+  }, [email, password, name, lastName, isPasswordAdequate]);
+
   return (
     <div>
       <TripPlannerHeader notshowSubHeader={true} />
@@ -31,6 +57,7 @@ export const Register = () => {
         <Logo />
         <p>Let's create an account for you</p>
         <p className="subtxt-login">Please fill your Information below</p>
+        {alert && <Alert msg={alert} />}
         <div className="login-box">
           <p className="input-txt">First Name</p>
           <input
@@ -55,8 +82,15 @@ export const Register = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <PasswordInputField setPassword={setPassword} />
-          <PasswordChecker password={password} />
-          <button className="button" onClick={() => handleChange()}>
+          <PasswordChecker
+            password={password}
+            setIsPasswordAdequate={setIsPasswordAdequate}
+          />
+          <button
+            className="button"
+            disabled={disableCntBtn}
+            onClick={() => handleChange()}
+          >
             Continue
           </button>
           <span>

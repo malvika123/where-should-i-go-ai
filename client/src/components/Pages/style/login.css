@@ -160,3 +160,13 @@ cursor: pointer;
 .input-check::before{
  
 }
+
+.alert{
+    background-color: rgb(125, 44, 21);
+    margin: auto;
+    color: white;
+    width: fit-content;
+    padding: 1%;
+    font-weight: bold;
+    border-radius: 12px;
+}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const PasswordChecker = ({ password }) => {
+export const PasswordChecker = ({ password, setIsPasswordAdequate }) => {
   const [passwordLength, setPasswordLength] = useState(false);
   const [alphanumeric, setAlphanumeric] = useState(false);
   const [specialChar, setSpecialChar] = useState(false);
@@ -25,12 +25,19 @@ export const PasswordChecker = ({ password }) => {
       } else {
         setSpecialChar(false);
       }
+      console.log(password, passwordLength, alphanumeric, specialChar);
+      if (passwordLength && alphanumeric && specialChar) {
+        setIsPasswordAdequate(true);
+      } else {
+        setIsPasswordAdequate(false);
+      }
     } else {
       setPasswordLength(false);
       setAlphanumeric(false);
       setSpecialChar(false);
+      setIsPasswordAdequate(false);
     }
-  }, [password]);
+  }, [password, passwordLength, alphanumeric, specialChar]);
 
   return (
     <div className="password-check-box">

@@ -28,6 +28,12 @@ const getItinerary = require("./routes/openapi/getItinerary");
 const getAdditionalInfo = require("./routes/openapi/additionalInfoItinerary");
 const postEmail = require("./routes/email/email");
 const getUpdatedSuggestionInfo = require("./routes/openapi/getUpdatedSuggestion.js");
+const loginInfo = require("./routes/user/login.js");
+const registerInfo = require("./routes/user/register.js");
+const forgotPasswordInfo = require("./routes/user/fyp/forgotPassword.js");
+const resetPasswordInfo = require("./routes/user/fyp/resetPassword.js");
+const genPasswordInfo = require("./routes/user/fyp/resetPassword.js");
+const valPasswordInfo = require("./routes/user/fyp/resetPassword.js");
 
 //mongodb Calls
 const getData = require("./routes/mongodb/getData.js");
@@ -44,6 +50,12 @@ app.use("/email/sendEmail", postEmail);
 app.use("/openapi/extraInfo", getAdditionalInfo);
 app.use("/openapi/updatedInfo", getUpdatedSuggestionInfo);
 app.use("/openapi/updatedInfo", getUpdatedSuggestionInfo);
+app.use("/user/login", loginInfo);
+app.use("/user/register", registerInfo);
+app.use("/user/forgotPassword", forgotPasswordInfo);
+app.use("/user/resetPassword", resetPasswordInfo);
+app.use("/user/generateOtp", genPasswordInfo);
+app.use("/user/ValidateOtp", valPasswordInfo);
 
 app.listen(PORT, () => {
   console.log("port running on port", PORT);

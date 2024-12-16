@@ -4,7 +4,8 @@ import Logo from "../../Header/Logo";
 import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import "../style/login.css";
 import { PasswordInputField } from "./PasswordInputField";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,11 +15,31 @@ const Login = () => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const [email, setEmail] = useState(userInfo?.email);
   const [password, setPassword] = useState();
+  const [disableCntBtn, setDisableCntBtn] = useState(true);
+  const [alert, setAlert] = useState("");
 
   const handleOnClick = () => {
-    window.location.href = "/validateEmail";
     localStorage.setItem("userInfo", JSON.stringify({ email }));
+    try {
+      const loginCall = async () => {
+        const data = await axios.post("/user/login", {
+          email,
+          password,
+        });
+        console.log(data);
+      };
+      loginCall();
+    } catch (e) {}
+    window.location.href = "/validateEmail";
   };
+
+  useEffect(() => {
+    if (email && password) {
+      setDisableCntBtn(false);
+    } else {
+      setDisableCntBtn(true);
+    }
+  }, [email, password]);
   return (
     <div>
       <TripPlannerHeader notshowSubHeader={true} />
@@ -28,6 +49,7 @@ const Login = () => {
         <p className="subtxt-login">
           Welcome back , lets beign with logging in
         </p>
+        {alert && <Alert msg={alert} />}
         <div className="login-box">
           <p className="input-txt">Email</p>
           <input
@@ -45,7 +67,11 @@ const Login = () => {
               Forgot password
             </span>
           </a>
-          <button className="button" onClick={() => handleOnClick()}>
+          <button
+            className="button"
+            disabled={disableCntBtn}
+            onClick={() => handleOnClick()}
+          >
             Continue
           </button>
           <span>

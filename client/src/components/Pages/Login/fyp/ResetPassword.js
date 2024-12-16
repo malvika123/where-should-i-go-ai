@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import "../../style/login.css";
 import TripPlannerHeader from "../../../Header/TripPlannerHeader";
 import Logo from "../../../Header/Logo";
@@ -7,12 +6,26 @@ import { PasswordInputField } from "../PasswordInputField";
 import { useState } from "react";
 
 const ResetPassword = () => {
-  const navigate = useNavigate();
-  const navigateTopath = (path) => {
-    navigate(path);
-  };
+  const [newPassword, setNewPassword] = useState();
+  const [isPasswordAdequate, setIsPasswordAdequate] = useState(false);
+  const [alert, setAlert] = useState("");
 
-  const [password, setPassword] = useState();
+  const navigateTopath = () => {
+    console.log();
+    if (newPassword && isPasswordAdequate) {
+      try {
+        const loginCall = async () => {
+          const data = await axios.post("/user/resetPassword", {
+            email: userInfo?.email,
+            newPassword,
+          });
+          console.log(data);
+        };
+        loginCall();
+      } catch (e) {}
+      window.location.href = "/payment";
+    }
+  };
 
   return (
     <div>
@@ -23,13 +36,14 @@ const ResetPassword = () => {
         <p className="subtxt-login">
           Ensure your new password doesn't matches your last two
         </p>
+        {alert && <Alert msg={alert} />}
         <div className="login-box">
-          <PasswordInputField setPassword={setPassword} />
-          <PasswordChecker password={password} />
-          <button
-            className="button"
-            onClick={() => navigateTopath("/validateEmail")}
-          >
+          <PasswordInputField setPassword={setNewPassword} />
+          <PasswordChecker
+            password={newPassword}
+            setIsPasswordAdequate={setIsPasswordAdequate}
+          />
+          <button className="button" onClick={() => navigateTopath()}>
             Continue
           </button>
         </div>
