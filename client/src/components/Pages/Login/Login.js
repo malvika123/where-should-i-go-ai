@@ -6,6 +6,7 @@ import "../style/login.css";
 import { PasswordInputField } from "./PasswordInputField";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Alert } from "./Alert";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,18 +21,26 @@ const Login = () => {
 
   const handleOnClick = () => {
     localStorage.setItem("userInfo", JSON.stringify({ email }));
-    try {
-      const loginCall = async () => {
+
+    const loginCall = async () => {
+      try {
         const data = await axios.post("/user/login", {
           email,
           password,
         });
         console.log(data);
-      };
-      loginCall();
-    } catch (e) {}
-    window.location.href = "/validateEmail";
+        window.location.href = "/validateEmail";
+      } catch (e) {
+        const error = e?.response?.data?.error || "Something went wrong !!";
+        setAlert(error);
+      }
+    };
+    loginCall();
   };
+
+  useEffect(() => {
+    setTimeout(() => setAlert(""), 3000);
+  }, [alert]);
 
   useEffect(() => {
     if (email && password) {

@@ -5,20 +5,13 @@ const axios = require("axios");
 router.post("/", async (req, res) => {
   try {
     const { email, password, name, lname } = req.body;
-    const data = await axios.post("http://localhost:4200/api/addUser", {
+    const data = await axios.post("http://localhost:4200/api/register", {
       email,
       password,
       name,
       lname,
     });
     const dataObj = data?.data;
-    const otp = dataObj?.otp;
-    console.log("io");
-    await axios.post("http://localhost:4100/email/sendOtp", {
-      email,
-      name,
-      message: otp,
-    });
     const { status, cuid, message } = dataObj;
     const resObj = {
       status: status,

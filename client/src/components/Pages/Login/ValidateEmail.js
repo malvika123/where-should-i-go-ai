@@ -21,20 +21,28 @@ export const ValidateEmail = ({}) => {
 
   const navigateTopath = () => {
     if (pin.length === 6) {
-      try {
-        const loginCall = async () => {
+      const loginCall = async () => {
+        try {
           const data = await axios.post("/user/ValidateOtp", {
             pin,
             email: userInfo?.email,
           });
-          console.log(data);
-        };
-        loginCall();
-      } catch (e) {}
-
-      if (isFypFlow) {
-        window.location.href = "/resetPassword";
-      } else window.location.href = "/payment";
+          console.log("data");
+          if (isFypFlow) {
+            window.location.href = "/resetPassword";
+          } else window.location.href = "/payment";
+        } catch (e) {
+          console.log(e?.response?.data);
+          let error;
+          if (e?.response?.data?.status === 1300) {
+            error = "Entered pin is incorrect";
+          } else {
+            error = "Something went wrong !!";
+          }
+          setAlert(error);
+        }
+      };
+      loginCall();
     } else {
       setAlert("Please check the Pin you entered");
     }
@@ -70,6 +78,7 @@ export const ValidateEmail = ({}) => {
         {alert && <Alert msg={alert} />}
         <div className="login-box">
           <p className="input-txt">Type your pin here</p>
+          <p className="input-txt-email">{userInfo?.email}</p>
           <SixDigitPin count={4} setPin={setPin} />
           <button className="button" onClick={() => navigateTopath()}>
             Continue

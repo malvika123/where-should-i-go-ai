@@ -13,6 +13,7 @@ export const SixDigitPin = ({ count = 6, setPin }) => {
   ];
 
   const checkAndGetPin = () => {
+    setPin("");
     for (let i = 0; i < inputRefs.length; i++) {
       setPin((prev) => prev + inputRefs[i].current.value);
     }
@@ -48,7 +49,7 @@ export const SixDigitPin = ({ count = 6, setPin }) => {
       if (lastFilledIndex >= 0) {
         inputRefs[lastFilledIndex].current.focus();
       }
-      checkAndGetPin;
+      checkAndGetPin();
     }
   };
 

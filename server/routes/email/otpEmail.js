@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
 
   const mailOptions = {
     from: email,
-    to: "senmalvika981@gmail.com" || email, // Your recipient
+    to: email, // Your recipient
     subject: `OTP for email verification`,
     text: "",
     text: text,

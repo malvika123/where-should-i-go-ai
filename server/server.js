@@ -23,8 +23,8 @@ const loginInfo = require("./routes/user/login.js");
 const registerInfo = require("./routes/user/register.js");
 const forgotPasswordInfo = require("./routes/user/fyp/forgotPassword.js");
 const resetPasswordInfo = require("./routes/user/fyp/resetPassword.js");
-const genPasswordInfo = require("./routes/user/fyp/resetPassword.js");
-const valPasswordInfo = require("./routes/user/fyp/resetPassword.js");
+const genPasswordInfo = require("./routes/user/OTP/generateOTP.js");
+const valPasswordInfo = require("./routes/user/OTP/validateOTP.js");
 
 // Use routes
 app.use("/loc/authz", authzRoute);

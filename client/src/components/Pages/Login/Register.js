@@ -42,14 +42,13 @@ export const Register = () => {
           lname: lastName,
         });
         console.log("io", data);
-        setRegisterSuccess(true);
+        navigateTopath("/validateEmail");
       } catch (e) {
         const error = e?.response?.data?.error || "Something went wrong !!";
         setAlert(error);
       }
     };
     registerCall();
-    if (registerSuccess) navigateTopath("/validateEmail");
   };
 
   useEffect(() => {
