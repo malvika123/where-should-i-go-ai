@@ -4,26 +4,33 @@ import Logo from "../../../Header/Logo";
 import { PasswordChecker } from "../PasswordChecker";
 import { PasswordInputField } from "../PasswordInputField";
 import { useState } from "react";
+import axios from "axios";
+import { Alert } from "../Alert";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState();
   const [isPasswordAdequate, setIsPasswordAdequate] = useState(false);
   const [alert, setAlert] = useState("");
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const navigateTopath = () => {
     console.log();
     if (newPassword && isPasswordAdequate) {
-      try {
-        const loginCall = async () => {
+      const resetPasswordCall = async () => {
+        try {
           const data = await axios.post("/user/resetPassword", {
             email: userInfo?.email,
             newPassword,
           });
           console.log(data);
-        };
-        loginCall();
-      } catch (e) {}
-      window.location.href = "/payment";
+          window.location.href = "/payment";
+        } catch (e) {
+          const error = e?.response?.data?.error || "Something went wrong !!";
+          setAlert(error);
+        }
+      };
+
+      resetPasswordCall();
     }
   };
 

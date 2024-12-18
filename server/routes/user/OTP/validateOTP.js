@@ -4,11 +4,9 @@ const axios = require("axios");
 
 router.post("/", async (req, res) => {
   try {
-    console.log("meow");
     const { email, pin } = req.body;
-    console.log(email, pin);
-    console.log(req.headers.cookie.split(";")[0].split("=")[1]);
-    const cuid = req.headers.cookie.split(";")[0].split("=")[1];
+
+    const cuid = req?.headers?.cookie?.split(";")?.[0].split("=")[1];
     console.log("yui", email, pin, "kio", cuid);
     const data = await axios.post(
       `http://localhost:4200/api/checkUserOtp`,
@@ -42,7 +40,7 @@ router.post("/", async (req, res) => {
       .json(data?.data);
     res.end();
   } catch (err) {
-    console.log("this", err?.response?.data);
+    console.log("this", err);
     const errStatus = err?.status || 500;
     const errMessage = err?.response?.data || "Something went wrong";
     res.status(errStatus).json(errMessage);

@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
           `iv=""; path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;`,
         ])
         .setHeader("Content-Type", "application/json")
-        .json(resObj);
+        .json(data?.data);
       res.end();
     }
   } catch (err) {
