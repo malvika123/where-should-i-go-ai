@@ -25,6 +25,9 @@ const forgotPasswordInfo = require("./routes/user/fyp/forgotPassword.js");
 const resetPasswordInfo = require("./routes/user/fyp/resetPassword.js");
 const genPasswordInfo = require("./routes/user/OTP/generateOTP.js");
 const valPasswordInfo = require("./routes/user/OTP/validateOTP.js");
+const getUserName = require("./routes/user/getUserName.js");
+const isUserSessionValid = require("./routes/user/isUserSessionValid.js");
+const logout = require("./routes/user/logout.js");
 
 // Use routes
 app.use("/loc/authz", authzRoute);
@@ -44,6 +47,9 @@ app.use("/user/forgotPassword", forgotPasswordInfo);
 app.use("/user/resetPassword", resetPasswordInfo);
 app.use("/user/generateOtp", genPasswordInfo);
 app.use("/user/ValidateOtp", valPasswordInfo);
+app.use("/user/getUserName", getUserName);
+app.use("/user/isUserSessionValid", isUserSessionValid);
+app.use("/user/logout", logout);
 
 app.listen(PORT, () => {
   console.log("port running on port", PORT);

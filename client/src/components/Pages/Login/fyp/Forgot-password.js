@@ -20,15 +20,19 @@ const ForgotPassword = () => {
   const handleChange = () => {
     localStorage.setItem("userInfo", JSON.stringify({ ...userInfo, email }));
     try {
-      const loginCall = async () => {
+      const fypCall = async () => {
+        console.log("opopo");
         const data = await axios.post("/user/forgotPassword", {
           email,
         });
         console.log(data);
+        window.location.href = "/validateEmail?fyp=true";
       };
-      loginCall();
-    } catch (e) {}
-    window.location.href = "/validateEmail?fyp=true";
+      fypCall();
+    } catch (e) {
+    } finally {
+    }
+    //
   };
 
   return (

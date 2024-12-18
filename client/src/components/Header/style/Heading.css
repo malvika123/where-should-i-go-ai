@@ -25,17 +25,46 @@
 
 .pipe{
     color: gray;
+    margin-right: 6%;
 }
 
 .login-btn{
     font-size: 20px;
     margin-left: 20px;
 }
+.login-btn:hover{
+    cursor: pointer;
+}
 
-.about-btn:hover, .login-btn:hover {
+/* .about-btn:hover, .login-btn:hover {
  color: rgb(219, 188, 30);
  cursor: pointer;
  overflow: hidden;
+} */
+
+.user-name:hover{
+    cursor: pointer;
+}
+
+.desktop-flyout-pallet{
+    background-color: rgb(229, 224, 224);
+    position: absolute;
+    text-align: left;
+    padding: 0 0 0 10px;
+    width: 10%;
+    border-radius: 4px;
+    box-shadow: 8px 8px 8px 2px gray;
+}
+
+.pallet-elt{
+font-size: 18px;
+color: black;
+text-decoration: underline;
+text-transform: capitalize;
+}
+
+.pallet-elt:hover{
+    cursor: pointer;
 }
 
 .header-top{
@@ -52,4 +81,9 @@
 
 .logo-header{
     display: flex;
+}
+
+.user-name{
+    color: rgb(32, 137, 189);
+    font-size: 25px;
 }

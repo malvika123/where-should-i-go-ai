@@ -2,9 +2,30 @@ import { useNavigate } from "react-router-dom";
 import { landingPageHeader, POWEREDBYAI } from "../common/constants";
 import Logo from "./Logo";
 import "./style/Heading.css";
+import { useState } from "react";
+import axios from "axios";
+import { cuidCookie } from "../common/utils";
 
-const Heading = () => {
+const Heading = ({ name = "" }) => {
   const navigate = useNavigate();
+  const [showLogout, setShowLogout] = useState(false);
+
+  const logoutUser = () => {
+    console.log("user loggedout");
+
+    const logoutUser = async () => {
+      try {
+        const data = await axios.post("/user/logout", {
+          id: cuidCookie(),
+        });
+      } catch (e) {
+        console.log("something went wrong");
+      } finally {
+        window.location.href = "/";
+      }
+    };
+    logoutUser();
+  };
   return (
     <div className="heading">
       <div>
@@ -23,9 +44,27 @@ const Heading = () => {
       <div className="login-pallet">
         <h2 className="about-btn">ABOUT</h2>
         <h2 className="pipe"> | </h2>
-        <h2 className="login-btn" onClick={() => navigate("/login")}>
-          LOGIN/SIGNUP
-        </h2>
+        {name ? (
+          <div>
+            <h2
+              className="user-name"
+              onClick={() => setShowLogout((prev) => !prev)}
+            >
+              {name}
+            </h2>
+            {showLogout && (
+              <div className="desktop-flyout-pallet">
+                <h2 className="pallet-elt" onClick={() => logoutUser()}>
+                  logout
+                </h2>
+              </div>
+            )}
+          </div>
+        ) : (
+          <h2 className="login-btn" onClick={() => navigate("/login")}>
+            LOGIN/SIGNUP
+          </h2>
+        )}
       </div>
     </div>
   );

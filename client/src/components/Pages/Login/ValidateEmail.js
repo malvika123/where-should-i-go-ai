@@ -5,6 +5,7 @@ import { SixDigitPin } from "./SixDigitPin";
 import { useEffect, useState } from "react";
 import { Alert } from "./Alert";
 import axios from "axios";
+import { cuidCookie } from "../../common/utils";
 
 export const ValidateEmail = ({}) => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ export const ValidateEmail = ({}) => {
     try {
       const loginCall = async () => {
         const data = await axios.post("/user/generateOtp", {
-          email: userInfo?.email,
+          id: cuidCookie(),
         });
         console.log(data);
       };

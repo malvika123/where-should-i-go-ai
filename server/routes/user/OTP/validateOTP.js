@@ -6,6 +6,7 @@ router.post("/", async (req, res) => {
   try {
     console.log("meow");
     const { email, pin } = req.body;
+    console.log(email, pin);
     console.log(req.headers.cookie.split(";")[0].split("=")[1]);
     const cuid = req.headers.cookie.split(";")[0].split("=")[1];
     console.log("yui", email, pin, "kio", cuid);
@@ -13,6 +14,7 @@ router.post("/", async (req, res) => {
       `http://localhost:4200/api/checkUserOtp`,
       {
         pin: pin,
+        email,
       },
       {
         params: {
@@ -20,16 +22,22 @@ router.post("/", async (req, res) => {
         },
       }
     );
-    const cookie = data?.headers["set-cookie"]
+    const atknCookie = data?.headers["set-cookie"]
       .find((elt) => elt.includes("aTkn"))
       .split(";")[0];
-    const index = cookie.indexOf("=");
-    const value = cookie.slice(index + 1);
+
+    const index = atknCookie.indexOf("=");
+    const value = atknCookie.slice(index + 1);
     console.log("io", value);
 
+    const iv = data?.headers["set-cookie"]
+      .find((elt) => elt.includes("iv"))
+      .split(";")[0]
+      .split("=")[1];
+    console.log(iv);
     res
       .status(200)
-      .setHeader("Set-Cookie", [`aTkn=${cookie}; path=/;`])
+      .setHeader("Set-Cookie", [`aTkn=${value}; path=/;`, `iv=${iv}; path=/;`])
       .setHeader("Content-Type", "application/json")
       .json(data?.data);
     res.end();

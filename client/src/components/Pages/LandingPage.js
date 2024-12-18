@@ -12,13 +12,37 @@ import vid3 from "../images/3015510-hd_1920_1080_24fps.mp4";
 import { enableVideoInBackground } from "../Featureflags";
 import img from "../images/Screenshot 2024-12-04 at 1.11.21 PM.png";
 import { FaMagnifyingGlassLocation } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import {
+  getUserName,
+  isUserLoggedIn,
+  isUserSessionValid,
+} from "../common/utils";
 
 const LandingPage = () => {
   const navigate = useNavigate();
-
-  const NavigateTopath = ({ path }) => {
-    navigate(path);
+  const [userName, setUserName] = useState("");
+  const NavigateTopath = async ({ path }) => {
+    const isSessionValid = await isUserSessionValid();
+    if (isSessionValid) {
+      window.document.location.href = "/tripTailor";
+    } else {
+      window.document.location.href = "/login";
+    }
   };
+
+  useEffect(() => {
+    console.log("op");
+    if (isUserLoggedIn()) {
+      const name = async () => {
+        try {
+          const data = await getUserName();
+          setUserName(data?.name);
+        } catch (e) {}
+      };
+      name();
+    }
+  }, []);
 
   return (
     <div className="body">
@@ -30,7 +54,7 @@ const LandingPage = () => {
 
       <div className="background">
         <div className="head-sec">
-          <Heading />
+          <Heading name={userName} />
           <div className="header2">
             <Typewriter
               options={{
