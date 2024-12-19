@@ -30,6 +30,7 @@ const Itinerary = () => {
   const stateObj = useSelector((state) => state?.data?.userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   const onNavigate = ({ path }) => {
     navigate(path);
@@ -45,8 +46,8 @@ const Itinerary = () => {
 
   const SendEmail = () => {
     const formData = {
-      name: "malvika",
-      email: "malvikasen555@gmail.com",
+      name: userInfo?.name || "malvika",
+      email: userInfo?.email || "malvikasen555@gmail.com",
       message: JSON.stringify(itineraryObjData),
     };
     fetch("/email/sendEmail", {

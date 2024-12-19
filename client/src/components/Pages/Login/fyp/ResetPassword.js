@@ -23,7 +23,7 @@ const ResetPassword = () => {
             newPassword,
           });
           console.log(data);
-          window.location.href = "/payment";
+          window.location.href = "/tripTailor";
         } catch (e) {
           const error = e?.response?.data?.error || "Something went wrong !!";
           setAlert(error);

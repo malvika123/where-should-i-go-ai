@@ -12,7 +12,7 @@ const authzRoute = require("./routes/location/authz");
 const getStateRoute = require("./routes/location/getState");
 const getCountryRoute = require("./routes/location/getCountries");
 const getCurrency = require("./routes/currency/currency");
-const getsuggestion = require("./routes/openapi/getsuggestion");
+const { getsuggestion } = require("./routes/openapi/getsuggestion");
 const getImages = require("./routes/getImages/images-splash");
 const getItinerary = require("./routes/openapi/getItinerary");
 const getAdditionalInfo = require("./routes/openapi/additionalInfoItinerary");
@@ -26,7 +26,7 @@ const resetPasswordInfo = require("./routes/user/fyp/resetPassword.js");
 const genPasswordInfo = require("./routes/user/OTP/generateOTP.js");
 const valPasswordInfo = require("./routes/user/OTP/validateOTP.js");
 const getUserName = require("./routes/user/getUserName.js");
-const isUserSessionValid = require("./routes/user/isUserSessionValid.js");
+const { isUserSessionValid } = require("./routes/user/isUserSessionValid.js");
 const logout = require("./routes/user/logout.js");
 
 // Use routes

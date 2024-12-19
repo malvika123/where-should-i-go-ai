@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const { checkUserAuthnToken } = require("../user/isUserSessionValid");
+const { checkAthnTokenAndTokenCount } = require("../utils/utils");
 
-router.post("/", async (req, res) => {
+const getsuggestion = async (req, res) => {
   const url = "https://api.openai.com/v1/chat/completions";
   const headers = {
     "Content-Type": "application/json",
@@ -26,7 +28,31 @@ router.post("/", async (req, res) => {
       modifiedCurrency,
       slctdActsSet,
       text,
+      iv,
+      id,
+      token,
     } = req.body;
+
+    const { authenticated, tokenCountSufficient } =
+      await checkAthnTokenAndTokenCount({ iv, id, token });
+    if (!(authenticated && tokenCountSufficient)) {
+      console.log("in");
+      if (!authenticated) {
+        return res
+          .status(400)
+          .setHeader("Set-Cookie", [
+            `cuid=""; path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;`,
+            `aTkn=""; path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;`,
+            `iv=""; path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;`,
+          ])
+          .setHeader("Content-Type", "application/json")
+          .json({ msg: "unauthorized", authenticated, tokenCountSufficient });
+      } else {
+        return res
+          .status(400)
+          .json({ msg: "unauthorized", authenticated, tokenCountSufficient });
+      }
+    }
 
     const prompt = ` i'm looking to travel in the month of ${mnth} for ${days} days. i'm a ${gender} and i'm interested in visiting ${country} among any of these states ${selectedStates}. this is a ${tripType} ${
       pets || hasKids ? "i'll travel with" : ""
@@ -58,7 +84,7 @@ router.post("/", async (req, res) => {
       messages: [{ role: "user", content: prompt }],
       temperature: 0.7,
     };
-    const flag = true;
+    const flag = false;
     if (flag) {
       const result = await axios.post(url, data, { headers });
       const content = result?.data?.choices?.[0]?.message?.content;
@@ -110,6 +136,8 @@ router.post("/", async (req, res) => {
     console.log(error);
     return res.status(400).json({ message: "caught an error" });
   }
-});
+};
 
-module.exports = router;
+router.post("/", getsuggestion);
+
+module.exports = { getsuggestion };

@@ -8,6 +8,7 @@ import "./style/style.css";
 import Spinner from "./Spinner";
 import axios from "axios";
 import { setUserData } from "../../../store/slices/dataSlice";
+import { aTknCookie, cuidCookie, ivCookie } from "../../../common/utils";
 const ShowFinalInfo = () => {
   const navigate = useNavigate();
   const [showNextButton, setShowNextButton] = useState(false);
@@ -41,6 +42,7 @@ const ShowFinalInfo = () => {
   const NavigateTopath = ({ path }) => {
     navigate(path);
   };
+
   const processData = () => {
     setShowSpinner(true);
     setProcessData(true);
@@ -48,8 +50,12 @@ const ShowFinalInfo = () => {
 
   useEffect(() => {
     if (processingData) {
-      try {
-        const res = async () => {
+      const token = aTknCookie();
+      const id = cuidCookie();
+      const iv = ivCookie();
+
+      const res = async () => {
+        try {
           const data = await axios.post(
             "/openapi/getsuggestion",
             {
@@ -72,6 +78,9 @@ const ShowFinalInfo = () => {
                 (elt) => `${elt}, `
               )}`,
               text,
+              token,
+              id,
+              iv,
             },
             {
               headers: {
@@ -107,9 +116,20 @@ const ShowFinalInfo = () => {
           setShowSpinner(false);
           setProcessData(false);
           NavigateTopath({ path: tripRecommendationPath });
-        };
-        res();
-      } catch (e) {}
+        } catch (e) {
+          setProcessData(false);
+          console.log("meow");
+          const errData = e?.response?.data;
+          if (!errData.authenticated) {
+            window.location.href = "/login?unauthorised=true";
+            return;
+          } else if (!errData.tokenCountSufficient) {
+            window.location.href = "/payment";
+            return;
+          }
+        }
+      };
+      res();
     }
   }, [processingData]);
 

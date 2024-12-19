@@ -54,7 +54,7 @@ const TripResponse = () => {
               Discover the must-see destinations for your next unforgettable
               adventure.
             </p>
-            {area.map((elt) => {
+            {area?.map((elt) => {
               return (
                 <div className="idl-places-arr">
                   <p className="idl-name">{elt.name} </p>
@@ -76,7 +76,7 @@ const TripResponse = () => {
             <p className="idl-sub-text">
               Explore hidden gems and unique destinations off the beaten path.
             </p>
-            {underhyped.map((elt) => {
+            {underhyped?.map((elt) => {
               return (
                 <div>
                   <p className="off-name">{elt.name} </p>

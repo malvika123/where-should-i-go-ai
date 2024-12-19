@@ -21,7 +21,8 @@ const Heading = ({ name = "" }) => {
       } catch (e) {
         console.log("something went wrong");
       } finally {
-        window.location.href = "/";
+        localStorage.removeItem("userInfo");
+        window.location.reload();
       }
     };
     logoutUser();

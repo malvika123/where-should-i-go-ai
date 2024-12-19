@@ -17,6 +17,7 @@ const transporter = nodemailer.createTransport({
 
 router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
+  console.log("opop", name, email);
   function createPDF(text, callback) {
     const doc = new PDFDocument();
     const fileName = "Itinerary.pdf";
@@ -107,8 +108,8 @@ Bon voyage and safe travels! 🌟
 Warm regards,
 The WhereShouldIGo Team`;
     const mailOptions = {
-      from: email,
-      to: "senmalvika981@gmail.com", // Your recipient
+      from: "senmalvika981@gmail.com",
+      to: email || "senmalvika981@gmail.com", // Your recipient
       subject: `Your PDF is ready ${name}`,
       text: "Please find the attached PDF.",
       attachments: [

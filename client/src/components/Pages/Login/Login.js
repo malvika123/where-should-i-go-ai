@@ -17,8 +17,13 @@ const Login = () => {
   const [email, setEmail] = useState(userInfo?.email);
   const [password, setPassword] = useState();
   const [disableCntBtn, setDisableCntBtn] = useState(true);
-  const [alert, setAlert] = useState("");
+  const unauthorisedUser =
+    window.location?.search.includes("unauthorised=true");
+  const [alert, setAlert] = useState(
+    unauthorisedUser ? "Your session is expired. Please login." : ""
+  );
 
+  console.log(unauthorisedUser);
   const handleOnClick = () => {
     localStorage.setItem("userInfo", JSON.stringify({ email }));
 

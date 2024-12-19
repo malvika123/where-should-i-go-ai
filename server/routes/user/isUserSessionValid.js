@@ -2,11 +2,8 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-router.post("/", async (req, res) => {
-  try {
-    const { id, token, iv } = req.body;
-    console.log("data4", id, token);
-
+const checkUserAuthnToken = async ({ id, token, iv }) => {
+  if (iv && id && token) {
     const userTokenData = await axios.post(
       "http://localhost:4200/api/checkUserToken",
       {
@@ -15,8 +12,22 @@ router.post("/", async (req, res) => {
         iv,
       }
     );
-    console.log(userTokenData?.data?.auth);
     if (userTokenData?.data?.auth !== true) {
+      return false;
+    }
+    return true;
+  } else {
+    false;
+  }
+};
+
+const isUserSessionValid = async (req, res) => {
+  try {
+    const { id, token, iv } = req.body;
+    console.log("data4", id, token);
+
+    const userTokenDataValid = await checkUserAuthnToken({ id, token, iv });
+    if (!userTokenDataValid) {
       res
         .status(400)
         .setHeader("Set-Cookie", [
@@ -38,6 +49,8 @@ router.post("/", async (req, res) => {
       code: err?.response?.data?.code || 500,
     });
   }
-});
+};
 
-module.exports = router;
+router.post("/", isUserSessionValid);
+
+module.exports = { isUserSessionValid, checkUserAuthnToken };

@@ -20,6 +20,7 @@ import { ValidateEmail } from "./components/Pages/Login/ValidateEmail";
 import { Register } from "./components/Pages/Login/Register";
 import ForgotPassword from "./components/Pages/Login/fyp/Forgot-password";
 import ResetPassword from "./components/Pages/Login/fyp/ResetPassword";
+import Payment from "./components/Pages/payment-gateway/payment";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/validateEmail" element={<ValidateEmail />} />
         <Route exact path="/forgotPassword" element={<ForgotPassword />} />
+        <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/ResetPassword" element={<ResetPassword />} />
 
         <Route path="*" element={<PageNotFound />} />

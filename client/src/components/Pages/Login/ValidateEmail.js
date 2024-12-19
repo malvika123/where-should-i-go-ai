@@ -31,7 +31,7 @@ export const ValidateEmail = ({}) => {
           console.log("data");
           if (isFypFlow) {
             window.location.href = "/resetPassword";
-          } else window.location.href = "/payment";
+          } else window.location.href = "/tripTailor";
         } catch (e) {
           console.log(e?.response?.data);
           let error;
