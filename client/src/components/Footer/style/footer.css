@@ -1,0 +1,31 @@
+.back-footer{
+    background-color: rgb(230, 238, 66);
+    color: rgb(26, 101, 142);
+    border: 1px  rgb(35, 111, 158);
+    box-shadow: 20px gray;
+}
+
+.social-media-icons{
+    margin: 10px;
+    align-items: left;
+}
+
+.footer-header-info{
+    float: left;
+    background-color: rgb(70, 129, 187);
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.top-hdr{
+   
+}
+
+.links-footer{
+margin-left: 10px;
+}
+
+.links-footer:hover{
+    cursor: pointer;
+    background-color: white;
+}

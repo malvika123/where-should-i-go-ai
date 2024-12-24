@@ -21,6 +21,7 @@ import { Register } from "./components/Pages/Login/Register";
 import ForgotPassword from "./components/Pages/Login/fyp/Forgot-password";
 import ResetPassword from "./components/Pages/Login/fyp/ResetPassword";
 import Payment from "./components/Pages/payment-gateway/payment";
+import SomethingWentWrongPage from "./components/Pages/SomethingWentWrong";
 
 function App() {
   return (
@@ -47,7 +48,11 @@ function App() {
         <Route exact path="/forgotPassword" element={<ForgotPassword />} />
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/ResetPassword" element={<ResetPassword />} />
-
+        <Route
+          exact
+          path="/SomethingWentWrong"
+          element={<SomethingWentWrongPage />}
+        />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

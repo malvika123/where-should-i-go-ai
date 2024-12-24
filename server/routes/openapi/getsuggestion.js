@@ -72,7 +72,7 @@ const getsuggestion = async (req, res) => {
         : hasKids
         ? " also kids are involved to take that in higher consideration from the perspective of safety"
         : ""
-    } I'm confused as to where should i go. give me places as per the number of days i'm travelling. give me an JSON in response as following, field one (name: state) - state, reason(name:reason) for the choice of this state, field two (name: places_to_visit)- places to visit in this state along with description, field 3 -(name:off_beat_places) off beat places with description and last field(name: precautions) precausions to be taken in a paragraph and this data should follow all the above given data and give no more text other than the json`;
+    } I'm confused as to where should i go. give me places as per the number of days i'm travelling. give me an JSON in response as following, field one (name: state) - state, reason(name:reason) for the choice of this state, field two (name: places_to_visit)- places to visit in this state along with description, field 3 -(name:off_beat_places) off beat places(at least six) with description and last field(name: precautions) precausions to be taken in a paragraph and this data should follow all the above given data and give no more text other than the json`;
 
     const model = {
       TURBO3: "gpt-3.5-turbo",

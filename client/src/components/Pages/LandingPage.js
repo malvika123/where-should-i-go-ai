@@ -18,6 +18,8 @@ import {
   isUserLoggedIn,
   isUserSessionValid,
 } from "../common/utils";
+import SlickSlider from "./SlickSlider";
+import { Footer } from "../Footer/Footer";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -38,7 +40,9 @@ const LandingPage = () => {
         try {
           const data = await getUserName();
           setUserName(data?.name);
-        } catch (e) {}
+        } catch (e) {
+          localStorage.removeItem("userInfo");
+        }
       };
       name();
     }
@@ -51,7 +55,6 @@ const LandingPage = () => {
           <source src={vid3} type="video/mp4" />
         </video>
       )}
-
       <div className="background">
         <div className="head-sec">
           <Heading name={userName} />
@@ -81,12 +84,17 @@ const LandingPage = () => {
             GO
           </button>
         </div>
-        <div>
+        {/* <div>
           <img className="image-lp" src={img} />
+        </div> */}
+        <div className="img-slider">
+          <SlickSlider />
         </div>
+
         <div>
           <p className="footer-text">{aboutTextLandingPage}</p>
         </div>
+        <Footer />
       </div>
     </div>
   );

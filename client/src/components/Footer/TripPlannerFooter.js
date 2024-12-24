@@ -4,7 +4,7 @@ import "./style/TripPlannerFooter.css";
 import { useEffect, useState } from "react";
 
 const TripPlannerFooter = ({
-  showNext=false,
+  showNext = false,
   setNextPath,
   hideBack,
   nextPath,
@@ -12,7 +12,7 @@ const TripPlannerFooter = ({
   setProgressVal,
   backPath = "/tripTailor",
   hideNext = false,
-  resetProgressVal
+  resetProgressVal,
 }) => {
   const [styleNext, setStyleNext] = useState("next");
   const [styleBack, setStyleBack] = useState("back");
@@ -36,7 +36,7 @@ const TripPlannerFooter = ({
 
   useState(() => {
     if (hideBack) {
-      setStyleBack(prev=>prev+" hide-back");
+      setStyleBack((prev) => prev + " hide-back");
     } else {
       setStyleNext("back");
     }
@@ -44,11 +44,11 @@ const TripPlannerFooter = ({
 
   return (
     <div className="footer-top">
-      {(
+      {
         <h3 className={styleBack} onClick={backButton}>
           {BACK}
         </h3>
-      )}
+      }
       {!hideNext && (
         <h3 className="next" disabled={false} onClick={goForward}>
           {NEXT}

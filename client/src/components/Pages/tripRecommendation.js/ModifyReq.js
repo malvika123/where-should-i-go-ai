@@ -18,6 +18,7 @@ import { SendEmail } from "./SendEmail";
 import { EmailSent } from "./EmailSent";
 import { tripRecommendationPath } from "../../common/constants";
 import { useNavigate } from "react-router-dom";
+import { isUserLoggedIn } from "../../common/utils";
 
 export const ModifyReq = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -37,6 +38,10 @@ export const ModifyReq = () => {
   const [itineraryObjData, setItineraryObjData] = useState();
   const [emailSent, setEmailSent] = useState("");
   const itineraryPath = window?.location?.search?.includes("itinerary");
+
+  if (!isUserLoggedIn()) {
+    window.location.href = "/login";
+  }
 
   const navigate = useNavigate();
   const NavigateTopath = ({ path }) => {

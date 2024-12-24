@@ -1,7 +1,7 @@
-export const Alert = ({ msg }) => {
+export const Alert = ({ msg, successMsg }) => {
   return (
-    <div className="alert">
-      <span>{msg}</span>
+    <div className={successMsg ? "successAlert" : "alert"}>
+      <span>{successMsg ? successMsg : msg}</span>
     </div>
   );
 };

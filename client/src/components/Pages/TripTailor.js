@@ -12,6 +12,7 @@ import TripType from "./tripQuestions/TripActivityType/TripType";
 import { AppContext } from ".././context/AppContext";
 import ShowFinalInfo from "./tripQuestions/ShowFinalInfo/ShowFinalInfo";
 import AdditionalInfo from "./tripQuestions/ExtraInfo/AdditionalInfo";
+import { isUserLoggedIn } from "../common/utils";
 
 const TripTailor = () => {
   const [progress, setProgress] = useState(10);
@@ -34,6 +35,11 @@ const TripTailor = () => {
   const [text, setText] = useState("");
   const [states, setStates] = useState();
 
+  useEffect(() => {
+    if (!isUserLoggedIn()) {
+      window.location.href = "/login";
+    }
+  }, []);
   return (
     <AppContext.Provider
       value={{

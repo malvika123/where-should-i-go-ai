@@ -11,6 +11,7 @@ import { RiEmotionHappyLine } from "react-icons/ri";
 import { RiScissors2Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
+import { isUserLoggedIn } from "../../common/utils";
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
   const reasonState = useSelector(
@@ -19,6 +20,10 @@ const TripResponse = () => {
   const area = useSelector((state) => state?.data?.userData?.area);
   const underhyped = useSelector((state) => state?.data?.userData?.underhyped);
   const note = useSelector((state) => state?.data?.userData?.note);
+
+  if (!isUserLoggedIn()) {
+    window.location.href = "/login";
+  }
 
   const navigate = useNavigate();
   const NavigateTopath = ({ path }) => {

@@ -48,10 +48,18 @@ router.post("/", async (req, res) => {
     }
   } catch (err) {
     console.log(err);
-    res.status(500).json({
-      error: err?.response?.data?.message || "Something went wrong",
-      code: err?.response?.data?.code || 500,
-    });
+    res
+      .status(500)
+      .setHeader("Set-Cookie", [
+        `cuid=""; path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;`,
+        `aTkn=""; path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;`,
+        `iv=""; path=/;Expires=Thu, 01 Jan 1970 00:00:01 GMT;`,
+      ])
+      .setHeader("Content-Type", "application/json")
+      .json({
+        error: err?.response?.data?.message || "Something went wrong",
+        code: err?.response?.data?.code || 500,
+      });
   }
 });
 

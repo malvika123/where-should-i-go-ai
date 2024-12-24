@@ -7,6 +7,8 @@ import { PasswordInputField } from "./PasswordInputField";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert } from "./Alert";
+import { isUserLoggedIn } from "../../common/utils";
+import { Footer } from "../../Footer/Footer";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,6 +24,12 @@ const Login = () => {
   const [alert, setAlert] = useState(
     unauthorisedUser ? "Your session is expired. Please login." : ""
   );
+
+  useEffect(() => {
+    if (isUserLoggedIn()) {
+      window.location.href = "/";
+    }
+  }, []);
 
   console.log(unauthorisedUser);
   const handleOnClick = () => {
@@ -55,52 +63,62 @@ const Login = () => {
     }
   }, [email, password]);
   return (
-    <div>
-      <TripPlannerHeader notshowSubHeader={true} />
-      <div className="login">
-        <Logo />
-        <p>Log into your account</p>
-        <p className="subtxt-login">
-          Welcome back , lets beign with logging in
-        </p>
-        {alert && <Alert msg={alert} />}
-        <div className="login-box">
-          <p className="input-txt">Email</p>
-          <input
-            className="input-field-email"
-            placeholder="Enter your email..."
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-          <PasswordInputField setPassword={setPassword} />
-          <a>
-            <span
-              className="forgot-password"
-              onClick={() => (window.location.href = "/forgotPassword")}
-            >
-              Forgot password
-            </span>
-          </a>
-          <button
-            className="button"
-            disabled={disableCntBtn}
-            onClick={() => handleOnClick()}
-          >
-            Continue
-          </button>
-          <span>
-            New to this site{" "}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        minHeight: "100vh",
+      }}
+    >
+      <div>
+        <TripPlannerHeader notshowSubHeader={true} />
+        <div className="login">
+          <Logo />
+          <p>Log into your account</p>
+          <p className="subtxt-login">
+            Welcome back , lets beign with logging in
+          </p>
+          {alert && <Alert msg={alert} />}
+          <div className="login-box">
+            <p className="input-txt">Email</p>
+            <input
+              className="input-field-email"
+              placeholder="Enter your email..."
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <PasswordInputField setPassword={setPassword} />
             <a>
               <span
-                onClick={() => (window.location.href = "/register")}
-                className="register-link"
+                className="forgot-password"
+                onClick={() => (window.location.href = "/forgotPassword")}
               >
-                Register
+                Forgot password
               </span>
-            </a>{" "}
-          </span>{" "}
+            </a>
+            <button
+              className="button"
+              disabled={disableCntBtn}
+              onClick={() => handleOnClick()}
+            >
+              Continue
+            </button>
+            <span>
+              New to this site{" "}
+              <a>
+                <span
+                  onClick={() => (window.location.href = "/register")}
+                  className="register-link"
+                >
+                  Register
+                </span>
+              </a>{" "}
+            </span>{" "}
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

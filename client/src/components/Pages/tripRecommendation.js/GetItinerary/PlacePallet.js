@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FcLikePlaceholder } from "react-icons/fc";
+import { isUserLoggedIn } from "../../../common/utils";
 
 export const PlacePallet = ({
   area,
@@ -21,6 +22,9 @@ export const PlacePallet = ({
     setSelectedId(id);
   };
 
+  if (!isUserLoggedIn()) {
+    window.location.href = "/login";
+  }
   const clickAction = () => {
     if (selectedPlace) {
       setSpinning(true);

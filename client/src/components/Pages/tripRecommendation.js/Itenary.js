@@ -13,6 +13,7 @@ import { MdPlace } from "react-icons/md";
 import { EmailSent } from "./EmailSent";
 import { useNavigate } from "react-router-dom";
 import { setUserData } from "../../store/slices/dataSlice";
+import { isUserLoggedIn } from "../../common/utils";
 
 const Itinerary = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -35,6 +36,10 @@ const Itinerary = () => {
   const onNavigate = ({ path }) => {
     navigate(path);
   };
+
+  if (!isUserLoggedIn()) {
+    window.location.href = "/login";
+  }
 
   useEffect(() => {
     setTimeout(() => setError(""), 5000);

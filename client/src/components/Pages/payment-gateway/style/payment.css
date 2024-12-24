@@ -1,0 +1,15 @@
+.payment-div{
+    text-align: left;
+    float: left;
+    margin-left: 5%;
+    margin-top: 3%;
+    font-weight: lighter;
+}
+
+.heading-payment{
+    font-weight: bold;
+}
+
+.subHead-payment{
+    font-size: 30px;
+}

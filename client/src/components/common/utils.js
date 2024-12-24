@@ -16,6 +16,7 @@ export const isUserSessionValid = async () => {
     });
     return true;
   } catch (e) {
+    localStorage.removeItem("userInfo");
     return false;
   }
 };

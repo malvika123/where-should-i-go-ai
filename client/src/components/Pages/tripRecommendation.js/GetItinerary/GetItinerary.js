@@ -3,6 +3,7 @@ import ImgSlider from "../ImgSlider";
 import SpinnerItinerary from "./SpinnerItinerary";
 
 export const GetItinerary = ({ itineraryObjData, spinning }) => {
+  console.log(itineraryObjData);
   return (
     <div className="getItinerary">
       {!spinning ? (
