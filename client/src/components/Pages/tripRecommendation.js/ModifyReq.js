@@ -19,6 +19,7 @@ import { EmailSent } from "./EmailSent";
 import { tripRecommendationPath } from "../../common/constants";
 import { useNavigate } from "react-router-dom";
 import { isUserLoggedIn } from "../../common/utils";
+import { Footer } from "../../Footer/Footer";
 
 export const ModifyReq = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -114,35 +115,43 @@ export const ModifyReq = () => {
   }, [emailSent]);
 
   return (
-    <div>
-      <TripPlannerHeader notshowSubHeader={true} />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        minHeight: "100vh",
+      }}
+    >
+      <div>
+        <TripPlannerHeader notshowSubHeader={true} />
 
-      <div className="sub-div-mod">
-        <div className="modify-req-head">
-          <p className="sub-txt-res">Recommendation based on your choices</p>
-          <p className="state-name">
-            {" "}
-            <MdPlace className="icons-itnry" />
-            {state}
-          </p>
-          <p className="sub-txt-days">
-            {tripType}
-            <LuDot className="dot" />
-            {days}
-          </p>
-          <div className="line"></div>
-          <div className="image-mod">
-            {/* <p className="text-mod">
+        <div className="sub-div-mod">
+          <div className="modify-req-head">
+            <p className="sub-txt-res">Recommendation based on your choices</p>
+            <p className="state-name">
+              {" "}
+              <MdPlace className="icons-itnry" />
+              {state}
+            </p>
+            <p className="sub-txt-days">
+              {tripType}
+              <LuDot className="dot" />
+              {days}
+            </p>
+            <div className="line"></div>
+            <div className="image-mod">
+              {/* <p className="text-mod">
               Let the adventure begin! Find your perfect destination with just a
               few taps and make every journey a joy!
             </p> */}
-            {itineraryPath ? (
-              <img className="img-mod" src={img}></img>
-            ) : (
-              <img className="img-mod" src={img2}></img>
-            )}
-          </div>
-          {/* <div className="itnry-sub">
+              {itineraryPath ? (
+                <img className="img-mod" src={img}></img>
+              ) : (
+                <img className="img-mod" src={img2}></img>
+              )}
+            </div>
+            {/* <div className="itnry-sub">
             <p className="itnry-sub-txt">
               Travelling Month <TbCalendarMonth className="icons-itnry" /> :
               {month}
@@ -151,90 +160,92 @@ export const ModifyReq = () => {
               State <LuMap className="icons-itnry" />: {state}
             </p>
           </div>  */}
-          {spinning && !itineraryObjData ? (
-            <div>
-              <CommonSpinner
-                classHeaders="commonSpinner"
-                classText="commonSpinnerText"
-                text=""
-              />
-            </div>
-          ) : itineraryObjData ? (
-            <div>
-              <GetItinerary
-                itineraryObjData={itineraryObjData}
-                spinning={spinning}
-                className="getItinerary"
-              />
+            {spinning && !itineraryObjData ? (
+              <div>
+                <CommonSpinner
+                  classHeaders="commonSpinner"
+                  classText="commonSpinnerText"
+                  text=""
+                />
+              </div>
+            ) : itineraryObjData ? (
+              <div>
+                <GetItinerary
+                  itineraryObjData={itineraryObjData}
+                  spinning={spinning}
+                  className="getItinerary"
+                />
 
-              <button
-                onClick={() => {
-                  setEmailSent("Sending email ...");
-                  SendEmail({ itineraryObjData, setEmailSent });
-                }}
-                style={{
-                  marginBottom: "5%",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  color: "white",
-                  backgroundColor: "black",
-                  padding: "10px",
-                  borderRadius: "12px",
-                  fontSize: "18px",
-                  float: "right",
-                }}
-              >
-                Email me this Itinerary
-              </button>
-              {emailSent && <EmailSent text={emailSent} />}
-            </div>
-          ) : (
-            <div className="data-collection">
-              {console.log("rto", spinning)}
-              <p style={{ fontSize: "30px", color: "rgb(49, 87, 164)" }}>
-                Collecting Missing Information
-              </p>
-              <p style={{ fontSize: "20px", color: "gray" }}>
-                If any details were missed during our last update, please
-                provide them here. Your input helps us ensure accuracy and
-                deliver the best experience. Thank you!
-              </p>
-              <textarea
-                style={{
-                  marginTop: "5%",
-                  width: "70vw",
-                  margin: "auto",
-                  borderRadius: "12px",
-                  padding: "12px",
-                  fontSize: "18px",
-                  marginBottom: "5%",
-                  height: "25vh",
-                  background: "yellow",
-                  color: "rgb(49, 87, 164)",
-                  fontWeight: "bolder",
-                }}
-                placeholder="Please add your thoughts here ... "
-                onChange={(e) => setAddData(e.currentTarget.value)}
-              />
-              <button
-                onClick={() => handleClick()}
-                style={{
-                  marginBottom: "5%",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  color: "white",
-                  backgroundColor: "black",
-                  padding: "10px",
-                  borderRadius: "12px",
-                  fontSize: "18px",
-                }}
-              >
-                Process my data
-              </button>
-            </div>
-          )}
+                <button
+                  onClick={() => {
+                    setEmailSent("Sending email ...");
+                    SendEmail({ itineraryObjData, setEmailSent });
+                  }}
+                  style={{
+                    marginBottom: "5%",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    color: "white",
+                    backgroundColor: "black",
+                    padding: "10px",
+                    borderRadius: "12px",
+                    fontSize: "18px",
+                    float: "right",
+                  }}
+                >
+                  Email me this Itinerary
+                </button>
+                {emailSent && <EmailSent text={emailSent} />}
+              </div>
+            ) : (
+              <div className="data-collection">
+                {console.log("rto", spinning)}
+                <p style={{ fontSize: "30px", color: "rgb(49, 87, 164)" }}>
+                  Collecting Missing Information
+                </p>
+                <p style={{ fontSize: "20px", color: "gray" }}>
+                  If any details were missed during our last update, please
+                  provide them here. Your input helps us ensure accuracy and
+                  deliver the best experience. Thank you!
+                </p>
+                <textarea
+                  style={{
+                    marginTop: "5%",
+                    width: "70vw",
+                    margin: "auto",
+                    borderRadius: "12px",
+                    padding: "12px",
+                    fontSize: "18px",
+                    marginBottom: "5%",
+                    height: "25vh",
+                    background: "yellow",
+                    color: "rgb(49, 87, 164)",
+                    fontWeight: "bolder",
+                  }}
+                  placeholder="Please add your thoughts here ... "
+                  onChange={(e) => setAddData(e.currentTarget.value)}
+                />
+                <button
+                  onClick={() => handleClick()}
+                  style={{
+                    marginBottom: "5%",
+                    marginLeft: "auto",
+                    marginRight: "auto",
+                    color: "white",
+                    backgroundColor: "black",
+                    padding: "10px",
+                    borderRadius: "12px",
+                    fontSize: "18px",
+                  }}
+                >
+                  Process my data
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

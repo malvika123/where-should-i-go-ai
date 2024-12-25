@@ -2,7 +2,7 @@
   "scripts": {
     "client": "npm start --prefix client",
     "server": "nodemon server/server.js",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "start": "concurrently \"npm run client\""
   },
   "devDependencies": {
     "concurrently": "^9.0.1",

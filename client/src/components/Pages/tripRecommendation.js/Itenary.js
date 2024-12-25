@@ -14,6 +14,7 @@ import { EmailSent } from "./EmailSent";
 import { useNavigate } from "react-router-dom";
 import { setUserData } from "../../store/slices/dataSlice";
 import { isUserLoggedIn } from "../../common/utils";
+import { Footer } from "../../Footer/Footer";
 
 const Itinerary = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -113,66 +114,76 @@ const Itinerary = () => {
     req();
   };
   return (
-    <div>
-      <TripPlannerHeader notshowSubHeader={true} />
-      <div className="div-sub">
-        <p className="state-name">
-          <MdPlace className="icons-itnry" />
-          {state}
-        </p>
-        <p className="sub-txt-days">
-          {tripType}
-          <LuDot className="dot" />
-          {days}
-        </p>
-        <div className="line"></div>
-        <video className="bg-vid-itnry-res" autoPlay loop muted>
-          <source src={vid} type="video/mp4" />
-        </video>
-        <div className="itnry-sub">
-          <p className="itnry-sub-txt">
-            Travelling Month <TbCalendarMonth className="icons-itnry" /> :
-            {month}
-          </p>
-          <p className="itnry-sub-txt">
-            State <LuMap className="icons-itnry" />: {state}
-          </p>
-        </div>
-      </div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        minHeight: "100vh",
+      }}
+    >
       <div>
-        <PlacePallet
-          className="pallet"
-          area={area}
-          underhyped={underhyped}
-          getItineraryCall={getItineraryCall}
-          selectedPlace={selectedPlace}
-          setSelectedPlace={setSelectedPlace}
-          setItineraryObjData={setItineraryObjData}
-          setSpinning={setSpinning}
-          spinning={spinning}
-        />
-
-        <span className="err-it">{error}</span>
-        <GetItinerary
-          itineraryObjData={itineraryObjData}
-          spinning={spinning}
-          className="getItinerary"
-        />
-      </div>
-      {emailSent && <EmailSent text={emailSent} />}
-      {itineraryObjData && (
-        <div className="button-set">
-          <button className="btn" onClick={() => SendEmail()}>
-            Email me this Itinerary
-          </button>
-          <button
-            className="btn"
-            onClick={() => onNavigate({ path: "/ModifyReq?itinerary=true" })}
-          >
-            i need to add a lil more info
-          </button>
+        <TripPlannerHeader notshowSubHeader={true} />
+        <div className="div-sub">
+          <p className="state-name">
+            <MdPlace className="icons-itnry" />
+            {state}
+          </p>
+          <p className="sub-txt-days">
+            {tripType}
+            <LuDot className="dot" />
+            {days}
+          </p>
+          <div className="line"></div>
+          <video className="bg-vid-itnry-res" autoPlay loop muted>
+            <source src={vid} type="video/mp4" />
+          </video>
+          <div className="itnry-sub">
+            <p className="itnry-sub-txt">
+              Travelling Month <TbCalendarMonth className="icons-itnry" /> :
+              {month}
+            </p>
+            <p className="itnry-sub-txt">
+              State <LuMap className="icons-itnry" />: {state}
+            </p>
+          </div>
         </div>
-      )}
+        <div>
+          <PlacePallet
+            className="pallet"
+            area={area}
+            underhyped={underhyped}
+            getItineraryCall={getItineraryCall}
+            selectedPlace={selectedPlace}
+            setSelectedPlace={setSelectedPlace}
+            setItineraryObjData={setItineraryObjData}
+            setSpinning={setSpinning}
+            spinning={spinning}
+          />
+
+          <span className="err-it">{error}</span>
+          <GetItinerary
+            itineraryObjData={itineraryObjData}
+            spinning={spinning}
+            className="getItinerary"
+          />
+        </div>
+        {emailSent && <EmailSent text={emailSent} />}
+        {itineraryObjData && (
+          <div className="button-set">
+            <button className="btn" onClick={() => SendEmail()}>
+              Email me this Itinerary
+            </button>
+            <button
+              className="btn"
+              onClick={() => onNavigate({ path: "/ModifyReq?itinerary=true" })}
+            >
+              i need to add a lil more info
+            </button>
+          </div>
+        )}
+      </div>
+      <Footer />
     </div>
   );
 };

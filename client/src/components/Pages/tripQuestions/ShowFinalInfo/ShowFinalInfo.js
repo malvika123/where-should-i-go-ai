@@ -124,7 +124,7 @@ const ShowFinalInfo = () => {
             window.location.href = "/login?unauthorised=true";
             return;
           } else if (!errData.tokenCountSufficient) {
-            window.location.href = "/payment";
+            window.location.href = "/tripRecommendation";
             return;
           }
         }
