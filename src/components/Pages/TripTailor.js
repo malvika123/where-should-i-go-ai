@@ -9,7 +9,7 @@ import TripCountry from "./tripQuestions/Trip-country/TripCountry";
 import TripInfo from "./tripQuestions/TripTravelerInfo/TripInfo";
 import Budget from "./tripQuestions/TripBudget/Budget";
 import TripType from "./tripQuestions/TripActivityType/TripType";
-import { AppContext } from ".././context/AppContext";
+import { AppContext } from "../context/AppContext";
 import ShowFinalInfo from "./tripQuestions/ShowFinalInfo/ShowFinalInfo";
 import AdditionalInfo from "./tripQuestions/ExtraInfo/AdditionalInfo";
 import { isUserLoggedIn } from "../common/utils";

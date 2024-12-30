@@ -1,5 +1,5 @@
 import { RotatingLines } from "react-loader-spinner";
-import "../common/style/spinner.css";
+import "./style/spinner.css";
 const CommonSpinner = ({ color, width }) => {
   return (
     <div className="common-spinner">
