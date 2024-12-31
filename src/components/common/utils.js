@@ -30,23 +30,17 @@ export const aTknCookie = () => {
 };
 
 export const cuidCookie = () => {
-  return (
+  const cuidCookie =
     document?.cookie &&
-    document?.cookie
-      ?.split(";")
-      .filter((elt) => elt.includes("cuid"))?.[0]
-      .split("=")[1]
-  );
+    document?.cookie?.split(";").filter((elt) => elt.includes("cuid"))?.[0];
+  return cuidCookie?.split("=")[1];
 };
 
 export const ivCookie = () => {
-  return (
+  const ivCookie =
     document.cookie &&
-    document.cookie
-      ?.split(";")
-      .filter((elt) => elt.includes("iv"))?.[0]
-      .split("=")[1]
-  );
+    document.cookie?.split(";").filter((elt) => elt.includes("iv"))?.[0];
+  return ivCookie?.split("=")[1];
 };
 
 export const getUserName = async () => {
