@@ -37,10 +37,13 @@ const Login = () => {
 
     const loginCall = async () => {
       try {
-        const data = await axios.post("/api/user/login", {
-          email,
-          password,
-        });
+        const data = await axios.post(
+          "https://midware-server-wsig.onrender.com/user/login",
+          {
+            email,
+            password,
+          }
+        );
         console.log(data);
         window.location.href = "/validateEmail";
       } catch (e) {
