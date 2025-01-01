@@ -1,2 +1,4 @@
 /*    /index.html   200
 
+# Proxy API requests to backend server
+/api/*    https://midware-server-wsig.onrender.com/:splat    200
