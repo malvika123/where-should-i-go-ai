@@ -33,7 +33,7 @@ const Budget = () => {
   useEffect(() => {
     const currDataCall = async () => {
       try {
-        const currdata = await axios.post("/cur/currency");
+        const currdata = await axios.post("/api/cur/currency");
         setCurrency(currdata?.data?.cur);
       } catch (e) {
         setChangeToTextField(true);

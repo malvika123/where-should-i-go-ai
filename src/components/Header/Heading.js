@@ -15,7 +15,7 @@ const Heading = ({ name = "" }) => {
 
     const logoutUser = async () => {
       try {
-        const data = await axios.post("/user/logout", {
+        const data = await axios.post("/api/user/logout", {
           id: cuidCookie(),
         });
       } catch (e) {

@@ -43,7 +43,7 @@ const TripCountry = () => {
           if (data.status !== 200) throw data;
           const res = await data.json();
           const countryData = await axios.post(
-            "/loc/country",
+            "/api/loc/country",
             {
               authz: res,
             },
@@ -102,7 +102,7 @@ const TripCountry = () => {
           if (data.status !== 200) throw data;
           const res = await data.json();
           const stateData = await axios.post(
-            "/loc/getState",
+            "/api/loc/getState",
             {
               country: country,
               authz: res,

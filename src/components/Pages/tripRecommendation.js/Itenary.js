@@ -76,7 +76,7 @@ const Itinerary = () => {
     const req = async () => {
       try {
         const data = await axios.post(
-          "/openapi/itinerary",
+          "/api/openapi/itinerary",
           {
             days,
             tripType,

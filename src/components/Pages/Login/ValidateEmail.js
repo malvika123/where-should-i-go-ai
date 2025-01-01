@@ -32,7 +32,7 @@ export const ValidateEmail = ({}) => {
     if (pin.length === 6) {
       const loginCall = async () => {
         try {
-          const data = await axios.post("/user/ValidateOtp", {
+          const data = await axios.post("/api/user/ValidateOtp", {
             pin,
             email: userInfo?.email,
           });
@@ -64,7 +64,7 @@ export const ValidateEmail = ({}) => {
   const genOtpCall = () => {
     try {
       const loginCall = async () => {
-        const data = await axios.post("/user/generateOtp", {
+        const data = await axios.post("/api/user/generateOtp", {
           id: cuidCookie(),
         });
         console.log(data);

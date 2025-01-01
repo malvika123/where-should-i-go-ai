@@ -57,7 +57,7 @@ const ShowFinalInfo = () => {
       const res = async () => {
         try {
           const data = await axios.post(
-            "/openapi/getsuggestion",
+            "/api/openapi/getsuggestion",
             {
               days,
               mnth,

@@ -26,7 +26,7 @@ const ResetPassword = () => {
     if (newPassword && isPasswordAdequate) {
       const resetPasswordCall = async () => {
         try {
-          const data = await axios.post("/user/resetPassword", {
+          const data = await axios.post("/api/user/resetPassword", {
             email: userInfo?.email,
             newPassword,
           });

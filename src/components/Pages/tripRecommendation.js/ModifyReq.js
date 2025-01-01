@@ -56,7 +56,7 @@ export const ModifyReq = () => {
         const res = async () => {
           try {
             const data = await axios.post(
-              "/openapi/extraInfo",
+              "/api/openapi/extraInfo",
               { itinerary, newData: addData },
               {
                 headers: {
@@ -75,7 +75,7 @@ export const ModifyReq = () => {
         const res = async () => {
           try {
             const data = await axios.post(
-              "/openapi/updatedInfo",
+              "/api/openapi/updatedInfo",
               {
                 recomm,
                 newData: addData,

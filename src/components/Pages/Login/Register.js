@@ -43,7 +43,7 @@ export const Register = () => {
 
     const registerCall = async () => {
       try {
-        const data = await axios.post("/user/register", {
+        const data = await axios.post("/api/user/register", {
           email,
           password,
           name,

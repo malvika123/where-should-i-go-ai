@@ -9,7 +9,7 @@ export const isUserSessionValid = async () => {
   const id = cuidCookie();
   const iv = ivCookie();
   try {
-    const data = await axios.post("/user/isUserSessionValid", {
+    const data = await axios.post("/api/user/isUserSessionValid", {
       token,
       id,
       iv,
@@ -48,7 +48,7 @@ export const getUserName = async () => {
   const id = cuidCookie();
   const iv = ivCookie();
   try {
-    const data = await axios.post("/user/getUserName", {
+    const data = await axios.post("/api/user/getUserName", {
       token,
       id,
       iv,

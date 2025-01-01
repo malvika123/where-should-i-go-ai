@@ -25,7 +25,7 @@ const ImgSlider = ({ place, showMultipleSlides, classnm, textClassnm }) => {
   useEffect(() => {
     const res = async () => {
       const data = await axios.post(
-        "/getImages/image",
+        "/api/getImages/image",
         {
           place: place,
         },

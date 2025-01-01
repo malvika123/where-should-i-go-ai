@@ -29,7 +29,7 @@ const ForgotPassword = () => {
     try {
       const fypCall = async () => {
         console.log("opopo");
-        const data = await axios.post("/user/forgotPassword", {
+        const data = await axios.post("/api/user/forgotPassword", {
           email,
         });
         console.log(data);
