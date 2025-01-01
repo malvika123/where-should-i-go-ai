@@ -35,31 +35,23 @@ const Login = () => {
   const handleOnClick = () => {
     localStorage.setItem("userInfo", JSON.stringify({ email }));
 
-    // const loginCall = async () => {
-    //   try {
-    //     const data = await axios.post(
-    //       "https://midware-server-wsig.onrender.com/user/login",
-    //       {
-    //         email,
-    //         password,
-    //       }
-    //     );
-    //     console.log(data);
-    //     window.location.href = "/validateEmail";
-    //   } catch (e) {
-    //     const error = e?.response?.data?.error || "Something went wrong !!";
-    //     setAlert(error);
-    //   }
-    // };
-    // loginCall();
-    console.log("phew");
-    const API_URL = "https://midware-server-wsig.onrender.com/user/login";
-
-    fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: "test@example.com", password: "1234" }),
-    });
+    const loginCall = async () => {
+      try {
+        const data = await axios.post(
+          "https://midware-server-wsig.onrender.com/user/login",
+          {
+            email,
+            password,
+          }
+        );
+        console.log(data);
+        window.location.href = "/validateEmail";
+      } catch (e) {
+        const error = e?.response?.data?.error || "Something went wrong !!";
+        setAlert(error);
+      }
+    };
+    loginCall();
   };
 
   useEffect(() => {
