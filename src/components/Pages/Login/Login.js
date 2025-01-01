@@ -52,6 +52,7 @@ const Login = () => {
     //   }
     // };
     // loginCall();
+    console.log("phew");
     const API_URL = "https://midware-server-wsig.onrender.com/user/login";
 
     fetch(API_URL, {
