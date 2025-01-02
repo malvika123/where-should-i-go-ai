@@ -39,7 +39,7 @@ const TripCountry = () => {
     if (autocmpltFeatureFlg) {
       const debounce = setTimeout(async () => {
         try {
-          const data = await fetch("/loc/authz");
+          const data = await fetch("/api/loc/authz");
           if (data.status !== 200) throw data;
           const res = await data.json();
           const countryData = await axios.post(
@@ -98,7 +98,7 @@ const TripCountry = () => {
       setAutoComplete(filterList.slice(0, 4));
       delayDebounceFn = setTimeout(async () => {
         try {
-          const data = await fetch("/loc/authz");
+          const data = await fetch("/api/loc/authz");
           if (data.status !== 200) throw data;
           const res = await data.json();
           const stateData = await axios.post(
