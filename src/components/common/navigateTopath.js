@@ -1,10 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
-export const navigateTopath = (path) => {
-  const navigate = useNavigate();
-  navigate(path);
-  return;
-};
+import { isUserSessionValid } from "./utils";
 
 export const redirectToAboutPage = () => {
   window.location.href = "/about";
@@ -28,4 +23,22 @@ export const redirectToDeleteAccountPage = () => {
 
 export const redirectToDeleteAccountValidationAndConfirmation = () => {
   window.location.href = "/validateEmail?accDelFlow=true";
+};
+
+export const navigateTopath = async ({ path }) => {
+  const isSessionValid = await isUserSessionValid();
+  if (isSessionValid) {
+    window.document.location.href = "/tripTailor";
+  } else {
+    window.document.location.href = "/login";
+  }
+};
+
+export const navigateToDeleteAccountpath = async ({ path }) => {
+  const isSessionValid = await isUserSessionValid();
+  if (isSessionValid) {
+    window.document.location.href = "/deleteAccount";
+  } else {
+    window.document.location.href = "/login";
+  }
 };

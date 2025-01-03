@@ -1,5 +1,7 @@
 import { landingPageHeader, POWEREDBYAI } from "../common/constants";
 import {
+  navigateToDeleteAccountpath,
+  navigateTopath,
   redirectToAboutPage,
   redirectToDeleteAccountPage,
   redirectToFeedbackPage,
@@ -47,7 +49,7 @@ export const Footer = ({ noShowfeedback }) => {
             join us
           </span>
           <span className="links-footer">|</span>
-          <span className="links-footer" onClick={redirectToDeleteAccountPage}>
+          <span className="links-footer" onClick={navigateToDeleteAccountpath}>
             delete account
           </span>
         </div>

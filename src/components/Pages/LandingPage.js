@@ -20,21 +20,13 @@ import {
 } from "../common/utils";
 import SlickSlider from "./SlickSlider";
 import { Footer } from "../Footer/Footer";
+import { navigateTopath } from "../common/navigateTopath";
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
-  const NavigateTopath = async ({ path }) => {
-    const isSessionValid = await isUserSessionValid();
-    if (isSessionValid) {
-      window.document.location.href = "/tripTailor";
-    } else {
-      window.document.location.href = "/login";
-    }
-  };
 
   useEffect(() => {
-    console.log("op");
     if (isUserLoggedIn()) {
       const name = async () => {
         try {
@@ -79,7 +71,7 @@ const LandingPage = () => {
           />
           <button
             className="search-button"
-            onClick={() => NavigateTopath({ path: tripPlannerPath })}
+            onClick={() => navigateTopath({ path: tripPlannerPath })}
           >
             GO
           </button>
