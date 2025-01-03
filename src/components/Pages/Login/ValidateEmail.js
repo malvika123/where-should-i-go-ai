@@ -13,6 +13,7 @@ export const ValidateEmail = ({}) => {
   const [spinning, setSpinning] = useState(false);
   const [genOtp, setGenOtp] = useState(false);
   const isFypFlow = window?.location?.search?.includes("fyp");
+  const isAccDelFlow = window?.location?.search?.includes("accDelFlow");
   const [alert, setAlert] = useState("");
   const [successAlert, setSuccessAlert] = useState("");
   const [pin, setPin] = useState("");
@@ -40,6 +41,8 @@ export const ValidateEmail = ({}) => {
 
           if (isFypFlow) {
             window.location.href = "/resetPassword";
+          } else if (isAccDelFlow) {
+            window.location.href = "/deleteAccount/validationAndConfirmation";
           } else {
             setAlert("login successful");
             window.location.href = "/tripTailor";

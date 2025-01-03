@@ -1,6 +1,9 @@
-import { redirectToFeedbackPage } from "../common/navigateTopath";
-import { Footer } from "../Footer/Footer";
-import TripPlannerHeader from "../Header/TripPlannerHeader";
+import {
+  redirectToDeleteAccountValidationAndConfirmation,
+  redirectToFeedbackPage,
+} from "../../common/navigateTopath";
+import { Footer } from "../../Footer/Footer";
+import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 import "./style/deleteAccount.css";
@@ -46,7 +49,12 @@ export const DeleteAccount = () => {
           </span>
           .
         </p>
-        <button className="del-btn-continue">Continue</button>
+        <button
+          className="del-btn-continue"
+          onClick={redirectToDeleteAccountValidationAndConfirmation}
+        >
+          Continue
+        </button>
       </div>
       <Footer />
     </div>

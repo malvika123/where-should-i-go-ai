@@ -23,8 +23,9 @@ import ResetPassword from "./components/Pages/Login/fyp/ResetPassword";
 import Payment from "./components/Pages/payment-gateway/payment";
 import SomethingWentWrongPage from "./components/Pages/SomethingWentWrong";
 import Feedback from "./components/Pages/Feedback";
-import { DeleteAccount } from "./components/Pages/DeleteAccount";
+import { DeleteAccount } from "./components/Pages/deleteAccount/DeleteAccount";
 import { JoinUs } from "./components/Pages/JoinUs";
+import { DeleteAccountAndVerification } from "./components/Pages/deleteAccount/DeleteAccountAndVerification";
 
 function App() {
   return (
@@ -54,6 +55,11 @@ function App() {
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/deleteAccount" element={<DeleteAccount />} />
         <Route exact path="/joinUs" element={<JoinUs />} />
+        <Route
+          path="/deleteAccount/validationAndConfirmation"
+          element={<DeleteAccountAndVerification />}
+        />
+
         <Route
           exact
           path="/SomethingWentWrong"

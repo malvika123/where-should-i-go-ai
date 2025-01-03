@@ -25,3 +25,7 @@ export const redirectToJoinUsPage = () => {
 export const redirectToDeleteAccountPage = () => {
   window.location.href = "/deleteAccount";
 };
+
+export const redirectToDeleteAccountValidationAndConfirmation = () => {
+  window.location.href = "/validateEmail?accDelFlow=true";
+};
