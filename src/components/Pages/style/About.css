@@ -1,3 +1,27 @@
 body{
-    background-color: red;
+   
+}
+
+.about-head-div{
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    min-height: 100vh;
+}
+
+.sub-body{
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 2%;
+    flex: 1;
+}
+.about-us-header{
+    text-align: left;
+    color: rgb(33, 97, 140);
+    font-size: 40px;
+    margin-bottom: 2%;
+}
+
+.about-sub-txt{
+text-align: left;
+margin-bottom: 5%;
 }

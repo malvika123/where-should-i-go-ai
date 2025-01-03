@@ -5,6 +5,7 @@ import "./style/Heading.css";
 import { useState } from "react";
 import axios from "axios";
 import { cuidCookie } from "../common/utils";
+import { redirectToAboutPage } from "../common/navigateTopath";
 
 const Heading = ({ name = "" }) => {
   const navigate = useNavigate();
@@ -43,7 +44,9 @@ const Heading = ({ name = "" }) => {
       </div>
 
       <div className="login-pallet">
-        <h2 className="about-btn">ABOUT</h2>
+        <h2 className="about-btn" onClick={redirectToAboutPage}>
+          ABOUT
+        </h2>
         <h2 className="pipe"> | </h2>
         {name ? (
           <div>

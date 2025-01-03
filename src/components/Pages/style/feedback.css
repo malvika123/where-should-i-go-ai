@@ -1,0 +1,46 @@
+.feedback-header{
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.feedback-sub-body{
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 5%;
+    flex: 1;
+    margin-bottom: 5%;
+
+
+}
+
+.textarea-feedback-div{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: 200px;
+    margin: 7% auto;
+}
+
+.textarea-feedback{
+    width: 900px;
+    height: 200px;
+    border-radius: 15px;
+    outline: none;
+    padding: 10px;
+    border: rgb(203, 193, 193) 2px solid;
+    font-size: 20px;
+    box-shadow: rgb(150, 149, 149) 3px 3px 13px 3px;
+   
+}
+
+.btn-feedback{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+    margin-top: 2%;
+    border-radius: 12px;
+    box-shadow: gray 3px 3px 3px 3px;
+}

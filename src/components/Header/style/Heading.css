@@ -23,6 +23,11 @@
     margin-right: 20px;
 }
 
+.about-btn:hover,.login-btn:hover{
+    cursor: pointer;
+    color: rgb(26, 113, 167);
+}
+
 .pipe{
     color: gray;
     margin-right: 6%;
@@ -32,9 +37,7 @@
     font-size: 20px;
     margin-left: 20px;
 }
-.login-btn:hover{
-    cursor: pointer;
-}
+
 
 /* .about-btn:hover, .login-btn:hover {
  color: rgb(219, 188, 30);

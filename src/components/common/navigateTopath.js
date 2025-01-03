@@ -5,3 +5,15 @@ export const navigateTopath = (path) => {
   navigate(path);
   return;
 };
+
+export const redirectToAboutPage = () => {
+  window.location.href = "/about";
+};
+
+export const redirectToFeedbackPage = () => {
+  window.location.href = "/feedback";
+};
+
+export const redirectToHomePage = () => {
+  window.location.href = "/";
+};
