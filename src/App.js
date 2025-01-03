@@ -23,6 +23,8 @@ import ResetPassword from "./components/Pages/Login/fyp/ResetPassword";
 import Payment from "./components/Pages/payment-gateway/payment";
 import SomethingWentWrongPage from "./components/Pages/SomethingWentWrong";
 import Feedback from "./components/Pages/Feedback";
+import { DeleteAccount } from "./components/Pages/DeleteAccount";
+import { JoinUs } from "./components/Pages/JoinUs";
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/ResetPassword" element={<ResetPassword />} />
         <Route exact path="/feedback" element={<Feedback />} />
+        <Route exact path="/deleteAccount" element={<DeleteAccount />} />
+        <Route exact path="/joinUs" element={<JoinUs />} />
         <Route
           exact
           path="/SomethingWentWrong"

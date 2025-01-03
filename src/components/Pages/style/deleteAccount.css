@@ -1,0 +1,36 @@
+.delete-account-header {
+    text-align: left;
+    margin-top: 2%;
+    margin-left: 7%;
+    margin-right: 7%;
+    flex: 1;
+}
+
+.dlt-acc-head {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.fdbk-dlt-pg {
+    color: rgb(41, 127, 181);
+}
+
+.fdbk-dlt-pg:hover {
+    cursor: pointer;
+    background-color: yellow;
+}
+
+.text-gen-dlt {
+    font-size: 20px;
+    font-Weight: lighter;
+}
+
+.text-head-gen-dlt{
+    font-size: 25px;
+}
+
+.del-btn-continue{
+    margin-top: 5%;
+    float: center;
+}

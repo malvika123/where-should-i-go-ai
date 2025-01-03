@@ -17,3 +17,11 @@ export const redirectToFeedbackPage = () => {
 export const redirectToHomePage = () => {
   window.location.href = "/";
 };
+
+export const redirectToJoinUsPage = () => {
+  window.location.href = "/joinUs";
+};
+
+export const redirectToDeleteAccountPage = () => {
+  window.location.href = "/deleteAccount";
+};

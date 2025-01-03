@@ -1,7 +1,9 @@
 import { landingPageHeader, POWEREDBYAI } from "../common/constants";
 import {
   redirectToAboutPage,
+  redirectToDeleteAccountPage,
   redirectToFeedbackPage,
+  redirectToJoinUsPage,
 } from "../common/navigateTopath";
 import Logo from "../Header/Logo";
 import "./style/footer.css";
@@ -41,13 +43,13 @@ export const Footer = ({ noShowfeedback }) => {
             about
           </span>
           <span className="links-footer">|</span>
-          <span className="links-footer">our company</span>
+          <span className="links-footer" onClick={redirectToJoinUsPage}>
+            join us
+          </span>
           <span className="links-footer">|</span>
-          <span className="links-footer">join us</span>
-          <span className="links-footer">|</span>
-          <span className="links-footer">FAQ</span>
-          <span className="links-footer">|</span>
-          <span className="links-footer">delete account</span>
+          <span className="links-footer" onClick={redirectToDeleteAccountPage}>
+            delete account
+          </span>
         </div>
         <div>
           <span
