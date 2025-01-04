@@ -69,6 +69,7 @@ export const ValidateEmail = ({}) => {
       const loginCall = async () => {
         const data = await axios.post("/api/user/generateOtp", {
           id: cuidCookie(),
+          email: userInfo?.email,
         });
         console.log(data);
       };
