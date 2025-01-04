@@ -24,7 +24,7 @@ const Login = () => {
   const [alert, setAlert] = useState(
     unauthorisedUser ? "Your session is expired. Please login." : ""
   );
-
+  const searchParams = window.location?.search;
   useEffect(() => {
     if (isUserLoggedIn()) {
       window.location.href = "/";
@@ -42,7 +42,9 @@ const Login = () => {
           password,
         });
         console.log(data);
-        window.location.href = "/validateEmail";
+        window.location.href = `/validateEmail${
+          searchParams ? searchParams : ""
+        }`;
       } catch (e) {
         const error = e?.response?.data?.error || "Something went wrong !!";
         setAlert(error);
@@ -92,7 +94,11 @@ const Login = () => {
             <a>
               <span
                 className="forgot-password"
-                onClick={() => (window.location.href = "/forgotPassword")}
+                onClick={() =>
+                  (window.location.href = `/forgotPassword${
+                    searchParams ? searchParams : ""
+                  }`)
+                }
               >
                 Forgot password
               </span>
@@ -108,7 +114,11 @@ const Login = () => {
               New to this site{" "}
               <a>
                 <span
-                  onClick={() => (window.location.href = "/register")}
+                  onClick={() =>
+                    (window.location.href = `/register${
+                      searchParams ? searchParams : ""
+                    }`)
+                  }
                   className="register-link"
                 >
                   Register

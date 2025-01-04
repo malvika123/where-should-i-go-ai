@@ -26,6 +26,7 @@ import Feedback from "./components/Pages/Feedback";
 import { DeleteAccount } from "./components/Pages/deleteAccount/DeleteAccount";
 import { JoinUs } from "./components/Pages/JoinUs";
 import { DeleteAccountAndVerification } from "./components/Pages/deleteAccount/DeleteAccountAndVerification";
+import { PrivacyPolicy } from "./components/Pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
         <Route exact path="/feedback" element={<Feedback />} />
         <Route exact path="/deleteAccount" element={<DeleteAccount />} />
         <Route exact path="/joinUs" element={<JoinUs />} />
+        <Route exact path="/privacyPolicy" element={<PrivacyPolicy />} />
         <Route
           path="/deleteAccount/validationAndConfirmation"
           element={<DeleteAccountAndVerification />}

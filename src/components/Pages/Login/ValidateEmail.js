@@ -13,7 +13,7 @@ export const ValidateEmail = ({}) => {
   const [spinning, setSpinning] = useState(false);
   const [genOtp, setGenOtp] = useState(false);
   const isFypFlow = window?.location?.search?.includes("fyp");
-  const isAccDelFlow = window?.location?.search?.includes("accDelFlow");
+  const isAccDelFlow = window?.location?.search?.includes("deleteAccount");
   const [alert, setAlert] = useState("");
   const [successAlert, setSuccessAlert] = useState("");
   const [pin, setPin] = useState("");

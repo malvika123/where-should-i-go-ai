@@ -24,6 +24,7 @@ export const Register = () => {
   const [isPasswordAdequate, setIsPasswordAdequate] = useState(false);
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const [alert, setAlert] = useState("");
+  const searchParams = window.location?.search;
 
   useEffect(() => {
     if (isUserLoggedIn()) {
@@ -123,7 +124,11 @@ export const Register = () => {
               <a>
                 <span
                   className="login-link"
-                  onClick={() => (window.location.href = "/login")}
+                  onClick={() =>
+                    (window.location.href = `/login${
+                      searchParams ? searchParams : ""
+                    }`)
+                  }
                 >
                   Login
                 </span>

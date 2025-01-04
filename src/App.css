@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-body{
-  font-family:'Times New Roman', Times, serif;
+body {
+  font-family: "Montserrat", serif;
+  font-weight: 400;
   box-sizing: border-box;
   background-color: red;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
+
 .App {
   text-align: center;
 }
-

@@ -22,7 +22,7 @@ export const redirectToDeleteAccountPage = () => {
 };
 
 export const redirectToDeleteAccountValidationAndConfirmation = () => {
-  window.location.href = "/validateEmail?accDelFlow=true";
+  window.location.href = "/validateEmail?to=deleteAccount";
 };
 
 export const navigateTopath = async ({ path }) => {
@@ -39,6 +39,10 @@ export const navigateToDeleteAccountpath = async ({ path }) => {
   if (isSessionValid) {
     window.document.location.href = "/deleteAccount";
   } else {
-    window.document.location.href = "/login";
+    window.document.location.href = "/login?to=deleteAccount";
   }
+};
+
+export const redirectToPrivacyPolicyPage = () => {
+  window.location.href = "/privacyPolicy";
 };

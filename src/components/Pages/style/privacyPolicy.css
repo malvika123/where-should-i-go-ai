@@ -1,0 +1,45 @@
+
+
+.montserrat-class {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 90;
+  font-style: normal;
+}
+
+.about-head-div-pp{
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    min-height: 100vh;
+}
+
+.sub-body-pp{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    flex: 1;
+    text-align: left;
+    max-height: 70vh;
+    overflow-y: scroll;
+    margin-bottom: 5%;
+    padding: 2%;
+    box-shadow: 2px 3px 5px 9px rgb(188, 186, 186);
+}
+
+.heading-pp{
+    font-size: 25px;
+
+}
+
+.heading-sub-pp{
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.heading-sub-txt-pp{
+    
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 21px;
+    font-weight: lighter;
+}

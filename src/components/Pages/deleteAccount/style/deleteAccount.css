@@ -39,3 +39,20 @@
     color: white;
     border-radius: 12px;
 }
+
+.delete-btn{
+    background-color: red;
+    color: white;
+    margin: 2% 2% 2% 0%;
+    padding: 1% 2% 1% 2%;
+    border-radius: 10px;
+}
+
+.txt-optns{
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.txt-optns:hover{
+    cursor: pointer;
+}
