@@ -20,7 +20,13 @@ import {
 } from "../common/utils";
 import SlickSlider from "./SlickSlider";
 import { Footer } from "../Footer/Footer";
-import { navigateTopath } from "../common/navigateTopath";
+import {
+  navigateTopath,
+  redirectToAboutPage,
+  redirectToLoginPage,
+} from "../common/navigateTopath";
+import { CookiePolicy } from "./CookiePolicy";
+import ImgSlider from "./tripRecommendation.js/ImgSlider";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -41,13 +47,8 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <div className="body">
-      {enableVideoInBackground && (
-        <video className="bg-vid" autoPlay loop muted>
-          <source src={vid3} type="video/mp4" />
-        </video>
-      )}
-      <div className="background">
+    <div>
+      <div className="content-sec-lp">
         <div className="head-sec">
           <Heading name={userName} />
           <div className="header2">
@@ -60,34 +61,172 @@ const LandingPage = () => {
             />
           </div>
         </div>
-
-        <div className="searchbox">
+        <div
+          className="searchbox"
+          onClick={() => navigateTopath({ path: tripPlannerPath })}
+        >
           <FaMagnifyingGlassLocation className="magGlass" />
           <input
             id="txtBox"
             className=""
             placeholder={placeholderInput}
-            disabled
+            readonly="readonly"
           />
-          <button
-            className="search-button"
-            onClick={() => navigateTopath({ path: tripPlannerPath })}
-          >
-            GO
-          </button>
+          <button className="search-button">GO</button>
         </div>
-        {/* <div>
-          <img className="image-lp" src={img} />
-        </div> */}
         <div className="img-slider">
           <SlickSlider />
         </div>
-
-        <div>
-          <p className="footer-text">{aboutTextLandingPage}</p>
+        <div className="text-lp">
+          <p className="footer-text-head">
+            Welcome to Your Personal Travel Companion
+          </p>
+          <p className="footer-text-sub">
+            Say goodbye to endless hours of research and confusion while
+            planning your next trip. Where Should I Go is here to revolutionize
+            the way you explore the world. Using cutting-edge AI technology, we
+            provide you with personalized destination recommendations based on
+            your preferences, interests, and travel goals. Whether you're
+            planning a romantic getaway, a solo adventure, or a family vacation,
+            we've got you covered!
+          </p>
+          <p className="footer-text-head">How It Works</p>
+          <p className="footer-text-sub">
+            1. Share Your Preferences Tell us what you’re looking for—be it
+            sandy beaches, bustling cities, serene mountains, or historical
+            landmarks.
+          </p>
+          <p className="footer-text-sub">
+            2. Let AI Do the Magic Our AI-powered system analyzes your input to
+            curate tailored travel recommendations that align with your tastes.
+          </p>
+          <p className="footer-text-sub">
+            3.Discover Your Dream Destination Get actionable suggestions in
+            seconds, along with travel tips to make your journey unforgettable.
+          </p>
+          <p className="footer-text-head">Why Choose Us?</p>
+          <ul>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}></span>Time-Saving: No more
+                browsing through endless travel blogs or forums. Our
+                recommendations are instant.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>
+                  Personalized Results:
+                </span>{" "}
+                Your preferences, your destinations. Every suggestion is unique
+                to you.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>
+                  Stress-Free Planning:
+                </span>{" "}
+                From destination ideas to practical tips, we simplify the entire
+                process.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Expert Insights:</span> Our
+                system combines AI expertise with travel data to ensure accuracy
+                and satisfaction.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Time-Saving:</span> No more
+                browsing through endless travel blogs or forums. Our
+                recommendations are instant.
+              </p>
+            </li>
+          </ul>
+          <p className="footer-text-head">
+            Popular Destinations Our Users Love
+          </p>
+          <ImgSlider
+            place="Santorini"
+            showMultipleSlides={5}
+            classnm="res-img"
+            textClassnm="res-img-txt"
+          />
+          <p className="footer-text-sub">
+            Explore some of the top destinations frequently recommended by our
+            platform:
+          </p>
+          <ul>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Santorini, Greece:</span> A
+                romantic escape with stunning sunsets.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Kyoto, Japan:</span>
+                Traditional temples and mesmerizing cherry blossoms.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Bali, Indonesia:</span>
+                Perfect for tropical relaxation and cultural immersion.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Paris, France:</span> The
+                timeless city of love and art.
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Banff, Canada:</span> A
+                nature lover’s paradise in the Canadian Rockies.
+              </p>
+            </li>
+          </ul>
+          <p className="footer-text-head">Ready to Start Your Journey?</p>
+          <p className="footer-text-sub">
+            Stop stressing about where to go. Let us help you find the ideal
+            destination tailored just for you.{" "}
+            <span
+              onClick={redirectToLoginPage}
+              style={{
+                cursor: "pointer",
+                color: "rgb(57, 138, 192)",
+                background: "yellow",
+              }}
+            >
+              👉 Click Here to Get Started!
+            </span>
+          </p>
+          <p className="footer-text-head">About Us</p>
+          <p className="footer-text-sub">
+            At Where Should I Go, we blend the power of AI with a passion for
+            travel to create a seamless, personalized experience for every
+            traveler. Our mission is to inspire wanderlust while making travel
+            planning effortless.{" "}
+            <span
+              onClick={redirectToAboutPage}
+              style={{
+                color: "rgb(57, 138, 192)",
+                background: "yellow",
+                cursor: "pointer",
+              }}
+            >
+              Click here to read more
+            </span>
+          </p>
         </div>
-        <Footer />
       </div>
+      <Footer />
+      <CookiePolicy class="sticky-bottom" />
     </div>
   );
 };

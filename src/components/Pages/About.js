@@ -14,12 +14,12 @@ const About = () => {
         </p>
 
         <div className="about-sub-txt">
-          <p style={{ fontSize: "23px" }}>
+          <p className="about-sub-txt">
             Welcome to{" "}
             <span
+              className="about-sub-txt"
               onClick={redirectToHomePage}
               style={{
-                fontSize: "23px",
                 color: "rgb(57, 138, 192)",
                 background: "yellow",
               }}
@@ -28,15 +28,15 @@ const About = () => {
             </span>{" "}
             — the smarter way to find your next destination!
           </p>
-          <p style={{ fontSize: "23px" }}>
+          <p className="about-sub-txt">
             We understand that planning trips or finding the perfect spot can be
             overwhelming. Endless browsing, reading reviews, and comparing
             options can leave you feeling more confused than inspired. That’s
             why we built{" "}
             <span
+              className="about-sub-txt"
               onClick={redirectToHomePage}
               style={{
-                fontSize: "23px",
                 color: "rgb(57, 138, 192)",
                 background: "yellow",
               }}
@@ -47,20 +47,20 @@ const About = () => {
             amazing destinations quick, easy, and tailored to you.
           </p>
           <p
+            className="about-sub-head"
             style={{
-              fontSize: "27px",
               color: "rgb(21, 71, 105)",
               textDecoration: "underline",
             }}
           >
             How It Works
           </p>
-          <p style={{ fontSize: "23px", fontWeight: "lighter" }}>
+          <p className="about-sub-txt" style={{ fontWeight: "lighter" }}>
             Using the power of AI,{" "}
             <span
+              className="about-sub-txt"
               onClick={redirectToHomePage}
               style={{
-                fontSize: "23px",
                 color: "rgb(57, 138, 192)",
                 background: "yellow",
               }}
@@ -73,22 +73,22 @@ const About = () => {
             to deliver suggestions that feel handpicked just for you.
           </p>
           <p
+            className="about-sub-head"
             style={{
-              fontSize: "27px",
               color: "rgb(21, 71, 105)",
               textDecoration: "underline",
             }}
           >
             Why We’re Here
           </p>
-          <p style={{ fontSize: "23px", fontWeight: "lighter" }}>
+          <p className="about-sub-txt" style={{ fontWeight: "lighter" }}>
             We believe everyone deserves a seamless and enjoyable planning
             experience. Whether you're planning your next big vacation, a quick
             weekend getaway, or just looking for a local spot to explore,{" "}
             <span
+              className="about-sub-txt"
               onClick={redirectToHomePage}
               style={{
-                fontSize: "23px",
                 color: "rgb(57, 138, 192)",
                 background: "yellow",
               }}
@@ -99,21 +99,21 @@ const About = () => {
             memories.
           </p>
           <p
+            className="about-sub-head"
             style={{
-              fontSize: "27px",
               color: "rgb(21, 71, 105)",
               textDecoration: "underline",
             }}
           >
             Our Vision
           </p>
-          <p style={{ fontSize: "23px", fontWeight: "lighter" }}>
+          <p className="about-sub-txt" style={{ fontWeight: "lighter" }}>
             This is just the beginning. We’re committed to continuously
             enhancing{" "}
             <span
+              className="about-sub-txt"
               onClick={redirectToHomePage}
               style={{
-                fontSize: "23px",
                 color: "rgb(57, 138, 192)",
                 background: "yellow",
               }}
@@ -126,8 +126,8 @@ const About = () => {
             way people plan and discover.,
           </p>
           <p
+            className="about-sub-txt"
             style={{
-              fontSize: "25px",
               color: "yellow",
               backgroundColor: "rgb(57, 138, 192)",
             }}

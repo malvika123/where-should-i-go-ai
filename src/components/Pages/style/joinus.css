@@ -11,3 +11,42 @@
     margin-right: 5%;
     text-align: left;
 }
+
+.joinus-head{
+    color: rgb(33, 97, 140);
+}
+
+.joinus-head-txt{
+    font-size: 25px;
+     margin-top: 2%;
+}
+
+.joinus-head-txt-head{
+    font-size: 28px;
+}
+
+@media (max-width:900px) {
+.joinus-head-txt{
+    font-size: 20px;
+}
+   
+    .joinus-head{
+        font-size: 24px;
+    }
+    .joinus-head-txt-head{
+        font-size: 22px;
+    }
+}
+
+@media (max-width:500px) {
+    .joinus-head-txt{
+        font-size: 14px;
+    }
+       
+        .joinus-head{
+            font-size: 20px;
+        }
+        .joinus-head-txt-head{
+            font-size: 14px;
+        }
+    }

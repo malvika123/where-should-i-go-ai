@@ -24,3 +24,23 @@
     color: rgb(39, 118, 191);
     margin-top: 50px;
 }
+
+@media (max-width:900px) {
+
+   .backbutton{
+    font-size: 23px;
+   }
+    .header1{
+        font-size: 18px;
+    }
+}
+
+@media (max-width:400px) {
+    .backbutton{
+        font-size: 14px;
+       }
+   
+    .header1{
+        font-size: 14px;
+    }
+}

@@ -1,11 +1,12 @@
-.feedback-header{
+.feedback-header {
     display: flex;
-    flex-direction: column; /* Stacks children vertically */
+    flex-direction: column;
+    /* Stacks children vertically */
     min-height: 100vh;
     justify-content: center;
 }
 
-.feedback-sub-body{
+.feedback-sub-body {
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 5%;
@@ -15,7 +16,7 @@
 
 }
 
-.textarea-feedback-div{
+.textarea-feedback-div {
     display: flex;
     flex-direction: column;
     width: 900px;
@@ -23,7 +24,7 @@
     margin: 7% auto;
 }
 
-.textarea-feedback{
+.textarea-feedback {
     width: 900px;
     height: 200px;
     border-radius: 15px;
@@ -32,10 +33,10 @@
     border: rgb(203, 193, 193) 2px solid;
     font-size: 20px;
     box-shadow: rgb(150, 149, 149) 3px 3px 13px 3px;
-   
+
 }
 
-.btn-feedback{
+.btn-feedback {
     background-color: black;
     color: white;
     font-size: 20px;
@@ -43,4 +44,92 @@
     margin-top: 2%;
     border-radius: 12px;
     box-shadow: gray 3px 3px 3px 3px;
+}
+
+.feedback-txt-head {
+    color: rgb(57, 138, 192);
+    font-size: 35px;
+}
+
+.feedback-txt-sb {
+    font-size: 28px;
+}
+
+.feedback-txt-sb {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width:1000px) {
+    .feedback-txt-head {
+        font-size: 24px;
+    }
+
+    .feedback-txt-sb {
+        font-size: 13px;
+    }
+
+    .textarea-feedback,
+    .textarea-feedback-div {
+        width: 800px;
+        height: 200px;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+    }
+
+    .btn-feedback {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:870px) {
+    .feedback-txt-head {
+        font-size: 24px;
+    }
+
+    .feedback-txt-sb {
+        font-size: 13px;
+    }
+
+    .textarea-feedback,
+    .textarea-feedback-div {
+        width: 500px;
+        height: 200px;
+        font-size: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+    }
+
+    .btn-feedback {
+        font-size: 16px;
+    }
+}
+
+
+
+@media (max-width:450px) {
+    .feedback-txt-head {
+        font-size: 16px;
+    }
+
+    .feedback-txt-sb {
+        font-size: 10px;
+    }
+
+    .textarea-feedback,
+    .textarea-feedback-div {
+        width: 350px;
+        height: 140px;
+        font-size: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+    }
+
+    .btn-feedback {
+        font-size: 8px;
+    }
 }

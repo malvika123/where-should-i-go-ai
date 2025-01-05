@@ -7,16 +7,7 @@ export const PrivacyPolicy = () => {
   return (
     <div className="about-head-div-pp">
       <TripPlannerHeader notshowSubHeader />
-      <p
-        style={{
-          textAlign: "left",
-
-          marginTop: "2%",
-          color: "rgb(57, 138, 192)",
-          background: "yellow",
-          margin: "2% auto auto 10%",
-        }}
-      >
+      <p className="main-heading-pp">
         Privacy Policy <FcPrivacy />
       </p>
       <div className="sub-body-pp">

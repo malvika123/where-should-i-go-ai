@@ -8,11 +8,11 @@ export const JoinUs = () => {
     <div className="join-us-head-div">
       <TripPlannerHeader notshowSubHeader />
       <div className="join-us-sub-txt-div">
-        <p style={{ color: "rgb(33, 97, 140)" }}>
+        <p className="joinus-head">
           Join Us <MdOutlineJoinInner />
           <div style={{ backgroundColor: "gray", height: "1px" }}></div>
         </p>
-        <p style={{ fontSize: "20px", marginTop: "2%" }}>
+        <p className="joinus-head-txt">
           At Whereshouldigo, we're building a future where finding the perfect
           destination is seamless, personalized, and exciting. But we can’t do
           it alone — we need passionate individuals like you to join us on this
@@ -22,29 +22,28 @@ export const JoinUs = () => {
           world around them.
         </p>
 
-        <p style={{ fontSize: "25px" }}>Why Join Us?</p>
+        <p className="joinus-head-txt-head">Why Join Us?</p>
 
         <ul style={{ marginBottom: "2%" }}>
           <li>
-            <p style={{ fontSize: "20px", marginTop: "2%" }}>
+            <p className="joinus-head-txt">
               Be part of an innovative and dynamic team.
             </p>
           </li>
           <li>
-            <p style={{ fontSize: "20px", marginTop: "2%" }}>
+            <p className="joinus-head-txt">
               Collaborate in an environment that values creativity, growth, and
               diversity.
             </p>
           </li>
         </ul>
-        <p style={{ fontSize: "25px" }}>
+        <p className="joinus-head-txt-head">
           Let’s Create Something Amazing Together.
         </p>
-        <p style={{ fontSize: "20px", marginTop: "2%" }}>
+        <p className="joinus-head-txt">
           Send us your resume at -
           <span
             style={{
-              fontSize: "20px",
               marginTop: "2%",
               color: "rgb(21, 71, 105)",
               backgroundColor: "yellow",

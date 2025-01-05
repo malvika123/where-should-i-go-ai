@@ -27,6 +27,7 @@ import { DeleteAccount } from "./components/Pages/deleteAccount/DeleteAccount";
 import { JoinUs } from "./components/Pages/JoinUs";
 import { DeleteAccountAndVerification } from "./components/Pages/deleteAccount/DeleteAccountAndVerification";
 import { PrivacyPolicy } from "./components/Pages/PrivacyPolicy";
+import { Faq } from "./components/Pages/Faq";
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
         <Route exact path="/deleteAccount" element={<DeleteAccount />} />
         <Route exact path="/joinUs" element={<JoinUs />} />
         <Route exact path="/privacyPolicy" element={<PrivacyPolicy />} />
+        <Route exact path="/faq" element={<Faq />} />
         <Route
           path="/deleteAccount/validationAndConfirmation"
           element={<DeleteAccountAndVerification />}

@@ -40,7 +40,7 @@ const Heading = ({ name = "" }) => {
             {landingPageHeader}
           </h4>
         </div>
-        <h7> {POWEREDBYAI}</h7>
+        <h7 className="pwrd-txt"> {POWEREDBYAI}</h7>
       </div>
 
       <div className="login-pallet">

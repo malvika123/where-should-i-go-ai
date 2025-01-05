@@ -24,20 +24,25 @@ const ImgSlider = ({ place, showMultipleSlides, classnm, textClassnm }) => {
 
   useEffect(() => {
     const res = async () => {
-      const data = await axios.post(
-        "/api/getImages/image",
-        {
-          place: place,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
+      try {
+        const data = await axios.post(
+          "/api/getImages/image",
+          {
+            place: place,
           },
-        }
-      );
-      const urls = data?.data?.urls;
-      setImageArr(urls);
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const urls = data?.data?.urls;
+        setImageArr(urls);
+      } catch (e) {
+        console.log("error");
+      }
     };
+
     res();
   }, []);
 

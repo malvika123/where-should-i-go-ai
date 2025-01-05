@@ -15,6 +15,7 @@ export const ValidateEmail = ({}) => {
   const isFypFlow = window?.location?.search?.includes("fyp");
   const isAccDelFlow = window?.location?.search?.includes("deleteAccount");
   const [alert, setAlert] = useState("");
+  const [error, setError] = useState("");
   const [successAlert, setSuccessAlert] = useState("");
   const [pin, setPin] = useState("");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));

@@ -17,16 +17,15 @@ export const DeleteAccountAndVerification = () => {
         (accountDelReason === "Other (please specify):" && updatedData) ||
       accountDelReason;
     if (
-      accountDelReason &&
-      accountDelReason === "Other (please specify):" &&
-      updatedData
+      (accountDelReason && accountDelReason !== "Other (please specify):") ||
+      (accountDelReason === "Other (please specify):" && updatedData)
     ) {
       try {
         await axios.post("/api/send/sendFeedback", { data });
         await axios.post("/api/user/deleteAccount", { id: cuidCookie() });
         setAlert("Account deleted");
         localStorage.removeItem("userInfo");
-        window.location.href = "/";
+        window.location.replace("/");
       } catch (e) {
         console.log(e);
         setAlert("Something went wrong");

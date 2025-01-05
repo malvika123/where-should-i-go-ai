@@ -37,30 +37,20 @@ const Feedback = () => {
     <div>
       <TripPlannerHeader notshowSubHeader />
       <div className="feedback-header">
-        <p style={{ color: "rgb(57, 138, 192)" }}>
+        <p className="feedback-txt-head">
           Feedback <VscFeedback />
         </p>
         {alert && <Alert msg={alert} successMsg={error ? null : alert} />}
         <div className="feedback-sub-body">
-          <p
-            style={{
-              fontSize: "18px",
-              fontWeight: "bold",
-            }}
-          >
-            <span
-              style={{
-                color: "gray",
-                fontSize: "24px",
-              }}
-            >
+          <p className="feedback-txt-sb">
+            <span className="feedback-txt-sb">
               Your thoughts and suggestions are incredibly important to us!
             </span>
             <br /> At{" "}
             <span
               onClick={redirectToHomePage}
+              className="feedback-txt-sb"
               style={{
-                fontSize: "20px",
                 color: "rgb(57, 138, 192)",
                 background: "yellow",
               }}
@@ -73,8 +63,8 @@ const Feedback = () => {
             your thoughts, we’d love to hear from you. Help us make{" "}
             <span
               onClick={redirectToHomePage}
+              className="feedback-txt-sb"
               style={{
-                fontSize: "20px",
                 color: "rgb(57, 138, 192)",
                 background: "yellow",
               }}
@@ -92,8 +82,8 @@ const Feedback = () => {
               maxLength={200}
             />
             <p
+              className="feedback-txt-sb"
               style={{
-                fontSize: "15px",
                 fontWeight: "lighter",
                 textAlign: "right",
               }}

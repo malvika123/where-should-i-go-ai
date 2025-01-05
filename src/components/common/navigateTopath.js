@@ -5,6 +5,10 @@ export const redirectToAboutPage = () => {
   window.location.href = "/about";
 };
 
+export const redirectToLoginPage = () => {
+  window.location.href = "/login";
+};
+
 export const redirectToFeedbackPage = () => {
   window.location.href = "/feedback";
 };
@@ -45,4 +49,8 @@ export const navigateToDeleteAccountpath = async ({ path }) => {
 
 export const redirectToPrivacyPolicyPage = () => {
   window.location.href = "/privacyPolicy";
+};
+
+export const redirectToFAQPage = () => {
+  window.location.href = "/faq";
 };

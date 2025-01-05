@@ -1,0 +1,101 @@
+.cookie-policy-head {
+    background-color: rgb(56, 56, 56);
+    width: 450px;
+    height: 150px;
+    margin-left: 0.5%;
+    margin-bottom: 1%;
+    box-shadow: rgb(145, 144, 144) 4px 5px 5px 5px;
+    bottom: 0;
+    margin-right: 2%;
+    position: fixed;
+    /* Sticks to the viewport */
+    bottom: 0;
+    /* Aligns it to the bottom of the screen */
+    left: 0;
+    display: flex;
+
+}
+
+.cookie-icon {
+    color: white;
+    float: left;
+    margin-left: 3%;
+    width: 60%;
+    height: 60%;
+}
+
+.cp-head {
+    color: white;
+    font-size: 12px;
+    margin-right: 2%;
+    margin-top: 5%;
+}
+
+.button-cp {
+    color: black;
+    background-color: white;
+    margin-left: 3%;
+    margin: auto;
+    margin-top: 10%;
+}
+
+.sub-div-cp {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width:800px) {
+
+    .cookie-policy-head {
+        width: 350px;
+        height: 110px;
+    }
+
+    .cp-head {
+        color: white;
+        font-size: 8px;
+        margin-right: 2%;
+        margin-top: 5%;
+    }
+
+    .button-cp {
+        font-size: 8px;
+    }
+    .cookie-icon {
+       
+        width: 70%;
+        height: 70%;
+    }
+    .sub-div-cp {
+        height: 40%;
+    }
+}
+
+@media (max-width:400px) {
+
+    .cookie-policy-head {
+        width: 100%;
+        height: 70px;
+        margin-top: 2%;
+    }
+
+    .cp-head {
+        color: white;
+        font-size: 8px;
+        margin-bottom:auto;
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 2%;
+    }
+
+    .button-cp {
+        font-size: 8px;
+        background-color: white;
+        margin-top: 2%;
+    }
+    .cookie-icon {
+        width: 50%;
+        height: 50%;
+    }
+   
+}
