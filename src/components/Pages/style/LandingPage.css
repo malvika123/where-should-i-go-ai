@@ -150,6 +150,40 @@ p {
     color: rgb(0, 0, 0);
 }
 
+.lp-img{
+    width: 65px;
+    height: 65px;
+    margin-left: 5px;
+}
+
+.lp-img-mid{
+    width: 90px;
+    height: 90px;
+    margin-left: 5px;
+    background-color: red;
+}
+
+.res-img-txt-lp{
+    font-size: 12px;
+    text-wrap: wrap;
+    color: rgb(126, 123, 123);
+    font-weight: 10px;
+    margin: auto;
+    padding: 2%;
+    text-align: center;
+    width: 13vw;
+}
+.res-img-txt-lp-mid{
+    font-size: 9px;
+    text-wrap: wrap;
+    color: rgb(126, 123, 123);
+    font-weight: 10px;
+    margin: auto;
+    padding: 2%;
+    text-align: center;
+    width: 13vw;
+}
+
 @media (max-width:900px) {
 
    

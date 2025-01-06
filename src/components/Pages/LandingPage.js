@@ -27,10 +27,24 @@ import {
 } from "../common/navigateTopath";
 import { CookiePolicy } from "./CookiePolicy";
 import ImgSlider from "./tripRecommendation.js/ImgSlider";
+import { useMediaQuery } from "react-responsive";
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
+  const isMidScreen = useMediaQuery({ query: "(max-width: 1307px)" });
+  const isVerySmallScreen = useMediaQuery({ query: "(max-width: 358px)" });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 765px)" });
+  const [showCookiePolicy, setShowCookiePolicy] = useState(true);
+  const showCP = localStorage.getItem("hidePrivacyPolicyForTime");
+
+  const checkIfCookiePolicyNoShowExpired = () => {
+    const timeNow = Math.floor(Date.now() / 1000);
+    console.log(timeNow, showCP);
+    if (showCP < timeNow) {
+      setShowCookiePolicy(true);
+    } else setShowCookiePolicy(false);
+  };
 
   useEffect(() => {
     if (isUserLoggedIn()) {
@@ -44,6 +58,7 @@ const LandingPage = () => {
       };
       name();
     }
+    checkIfCookiePolicyNoShowExpired();
   }, []);
 
   return (
@@ -151,9 +166,21 @@ const LandingPage = () => {
           </p>
           <ImgSlider
             place="Santorini"
-            showMultipleSlides={5}
-            classnm="res-img"
-            textClassnm="res-img-txt"
+            showMultipleSlides={
+              isVerySmallScreen ? 2 : isSmallScreen ? 3 : isMidScreen ? 5 : 5
+            }
+            classnm={
+              isSmallScreen ? "lp-img" : isMidScreen ? "lp-img-mid" : "res-img"
+            }
+            textClassnm={
+              isVerySmallScreen
+                ? "res-img-txt-lp-mid"
+                : isSmallScreen
+                ? "res-img-txt-lp-mid"
+                : isMidScreen
+                ? "res-img-txt-lp"
+                : "res-img-txt"
+            }
           />
           <p className="footer-text-sub">
             Explore some of the top destinations frequently recommended by our
@@ -191,6 +218,7 @@ const LandingPage = () => {
               </p>
             </li>
           </ul>
+
           <p className="footer-text-head">Ready to Start Your Journey?</p>
           <p className="footer-text-sub">
             Stop stressing about where to go. Let us help you find the ideal
@@ -226,7 +254,7 @@ const LandingPage = () => {
         </div>
       </div>
       <Footer />
-      <CookiePolicy class="sticky-bottom" />
+      {showCookiePolicy && <CookiePolicy class="sticky-bottom" />}
     </div>
   );
 };
