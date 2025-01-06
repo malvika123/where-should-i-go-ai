@@ -66,7 +66,7 @@ export const SixDigitPin = ({ count = 6, setPin }) => {
           type="text"
           key={index}
           ref={ref}
-          className="pin-box"
+          className="pin-boxes"
           onInput={(e) => handleInput(index, e)}
           onKeyDown={(e) => handleKeyDown(index, e)}
           onPaste={handlePaste}

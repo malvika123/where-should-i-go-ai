@@ -12,7 +12,7 @@ margin-right: 29%;
 margin-left: 29%;
 }
 
-.input-txt{
+.input-txt,.input-txt-pin,.input-txt-pass{
     text-align: left;
     font-size: 20px;
 }
@@ -81,4 +81,80 @@ cursor: pointer;
 .subtxt-login-sub{
     font-size: 15px;
     font-weight: lighter;
+}
+
+
+
+@media (max-width:565px) {
+    .lets-create-txt{
+        font-size: 18px;
+    }
+    .subtxt-register{
+        font-size: 16px;
+    }
+    .input-txt{
+        font-size: 13px;
+    }
+    .input-txt-pass{
+        font-size: 11px;
+    }
+    .input-field,.input-field-email-reg{
+        font-size: 9px;
+        height: 30px;
+        border-radius: 11px;
+    }
+    
+    .pass-check-text{
+        font-size: 12px;
+        margin: 0px;
+    }
+    .input-check{
+        width: 13px;
+        height: 13px;
+    }
+    .button-reg-cnt{
+        font-size: 12px;
+        padding: 9px;
+    }
+    .login-link{
+        font-size: 12px;
+    }
+    }
+
+
+
+
+@media (max-width:412px) {
+.lets-create-txt{
+    font-size: 15px;
+}
+.subtxt-register{
+    font-size: 12px;
+}
+.input-txt{
+    font-size: 11px;
+}
+.input-txt-pass{
+    font-size: 8px;
+}
+.input-field,.input-field-email-reg{
+    font-size: 8px;
+    height: 25px;
+    border-radius: 9px;
+}
+.pass-check-text{
+    font-size: 8px;
+    margin: 0px;
+}
+.input-check{
+    width: 10px;
+    height: 10px;
+}
+.button-reg-cnt{
+    font-size: 8px;
+    padding: 5px;
+}
+.login-link{
+    font-size: 8px;
+}
 }

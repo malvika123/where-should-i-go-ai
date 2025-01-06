@@ -8,6 +8,7 @@ import axios from "axios";
 import { Alert } from "../Alert";
 import { isUserLoggedIn } from "../../../common/utils";
 import { Footer } from "../../../Footer/Footer";
+import "../../style/reset-pass.css";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState();
@@ -53,10 +54,10 @@ const ResetPassword = () => {
     >
       <div>
         <TripPlannerHeader notshowSubHeader={true} />
-        <div className="login">
+        <div className="login-fp">
           <Logo />
-          <p>Reset Password</p>
-          <p className="subtxt-login">
+          <p className="reset-pass-txt">Reset Password</p>
+          <p className="subtxt-login-reset">
             Ensure your new password doesn't matches your last two
           </p>
           {alert && <Alert msg={alert} />}

@@ -40,25 +40,30 @@ export const PasswordChecker = ({ password, setIsPasswordAdequate }) => {
 
   return (
     <div className="password-check-box">
-      <p className="input-txt">Password must be</p>
+      <p className="input-txt-pass">Password must be</p>
       <input
         className="input-check"
         type="checkbox"
         checked={passwordLength}
       />{" "}
-      <span>8-16 character long </span>
+      <span className="pass-check-text">8-16 character long </span>
       <br />
       <input
         style={{ color: "yellow" }}
         type="checkbox"
         checked={alphanumeric}
+        className="input-check"
       />{" "}
-      <span>
+      <span className="pass-check-text">
         containing atleast 1 uppercase, 1 number and 1 lowercase character
       </span>
       <br />
-      <input type="checkbox" checked={specialChar} />{" "}
-      <span>containing 1 special character</span>
+      <input
+        className="input-check"
+        type="checkbox"
+        checked={specialChar}
+      />{" "}
+      <span className="pass-check-text">containing 1 special character</span>
       <br />
     </div>
   );

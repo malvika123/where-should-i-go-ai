@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { isUserLoggedIn } from "../../../common/utils";
 import { Footer } from "../../../Footer/Footer";
+import "../../style/forgot-pass.css";
 
 const ForgotPassword = () => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -55,8 +56,8 @@ const ForgotPassword = () => {
         <TripPlannerHeader notshowSubHeader={true} />
         <div className="login">
           <Logo />
-          <p>Recover your Password</p>
-          <p className="subtxt-login">
+          <p className="recover-txt">Recover your Password</p>
+          <p className="subtxt-login-fyp">
             Forgot your email? Don't worry follow the steps and get in
           </p>
           {alert && <Alert msg={alert} />}
@@ -68,10 +69,10 @@ const ForgotPassword = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="button" onClick={() => handleChange()}>
+            <button className="button-fyp" onClick={() => handleChange()}>
               Continue
             </button>
-            <span>Remember your password? </span>{" "}
+            <span className="rem-pass">Remember your password? </span>{" "}
             <a>
               <span
                 onClick={() => navigateTopath("/validateEmail?fyp=true")}

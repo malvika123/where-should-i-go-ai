@@ -1,19 +1,17 @@
-.login {
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-}
+.login {}
 
-.login-box {
+.login-box,.login-box-one {
     display: flex;
     margin-top: 5%;
     flex-direction: column;
     margin: auto;
+
 }
 
-.input-txt {
+.input-txt-email-head {
     text-align: left;
     font-size: 20px;
+
 }
 
 .input-field {
@@ -28,7 +26,7 @@
     border: solid black 2px;
 }
 
-.input-field-email {
+.input-field-email,.input-field-email-reg {
     margin-bottom: 4%;
     height: 5vh;
     padding: 3%;
@@ -41,7 +39,7 @@
 
 
 
-.button {
+.ctn-button,.button-reg-cnt,.button-fyp,.button-vp {
     background-color: black;
     color: white;
     padding: 10px;
@@ -49,18 +47,23 @@
     font-weight: bolder;
 }
 
+.button-vp{
+    width: 20vw;
+    margin: auto;
+}
+
 .button:hover {
     cursor: pointer;
 }
 
-.subtxt-login {
+.subtxt-login,.subtxt-register,.subtxt-login-fyp,.subtxt-login-reset,.subtxt-login-vp {
     font-size: 20px;
 }
 
-.pin-box {
+.pin-box,.pin-boxes {
     margin: 1% 1% 1% 1%;
-    width: 3.5vw;
-    height: 5.5vh;
+    width: 40px;
+    height: 40px;
     border-radius: 12px;
     text-align: center;
     font-weight: bold;
@@ -87,7 +90,7 @@
     cursor: pointer;
 }
 
-.subtxt-login-sub {
+.subtxt-login-sub,.subtxt-login-sub-vp {
     font-size: 15px;
     font-weight: lighter;
 }
@@ -96,7 +99,7 @@
     color: rgb(38, 134, 189);
     float: right;
     padding-right: 1%;
-    font-size:medium;
+    font-size: medium;
     text-decoration: underline;
 }
 
@@ -104,12 +107,12 @@
     cursor: pointer;
 }
 
-.input-txt-password{
-   font-size: 20px;
+.input-txt-password {
+    font-size: 20px;
 
 }
 
-.show-btn{
+.show-btn {
     background-color: white;
     float: right;
     margin: auto;
@@ -119,7 +122,7 @@
     padding: 0;
 }
 
-.input-field-pass{
+.input-field-pass {
     height: 5vh;
     padding: 3%;
     color: rgb(28, 79, 126);
@@ -135,7 +138,7 @@
     margin-bottom: 2%;
 }
 
-.input-field-pass-full{
+.input-field-pass-full {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -143,25 +146,25 @@
     padding: auto;
     border-radius: 12px;
     overflow: hidden;
+
 }
 
-.show-btn-parent{
+.show-btn-parent {
     background-color: white;
 }
 
-.login-link:hover{
-cursor: pointer;
+.login-link:hover {
+    cursor: pointer;
 }
 
-.login-link{
+.login-link {
     text-decoration: underline;
 }
 
-.input-check::before{
- 
-}
+.input-check::before {}
 
-.alert,.successAlert{
+.alert,
+.successAlert {
     margin: auto;
     color: white;
     width: fit-content;
@@ -172,24 +175,142 @@ cursor: pointer;
     transition: 1s ease-in;
 }
 
-.alert{
+.alert {
     background-color: rgb(155, 33, 33);
 }
 
-.successAlert{
+.successAlert {
     background-color: rgb(50, 162, 50);
 }
 
-.input-txt-email{
+.input-txt-email {
     text-align: left;
     font-size: 16px;
     color: rgb(50, 114, 179);
 }
 
-
-
-@media (max-width:500px) {
-
-   
-   
+.new-site-txt{
+    font-size: 16px;
 }
+
+
+
+@media (max-width:800px) {
+   .subtxt-login-head{
+    font-size: 23px;
+   }
+   .subtxt-login-txt{
+    font-size: 18px;
+   }
+   .input-txt-email-head,.input-txt-password{
+    font-size: 15px;
+   }
+   .input-field-email,.input-field-pass{
+    font-size: 13px;
+   }
+   .forgot-password{
+    font-size: 12px;
+   }
+   .new-site-txt{
+    font-size: 12px;
+   }
+   .register-link{
+    font-size: 11px;
+   }
+   .ctn-button{
+    font-size: 13px;
+   }
+}
+
+@media (max-width:565px) {
+    .subtxt-login-head{
+     font-size: 18px;
+    }
+    .subtxt-login-txt{
+     font-size: 13px;
+    }
+    .input-txt-email-head,.input-txt-password{
+     font-size: 11px;
+    }
+    .input-field-email,.input-field-pass,.input-field-pass-full{
+     font-size: 11px;
+     height: 25px;
+     border-radius: 9px;
+    }
+   
+    .forgot-password{
+     font-size: 9px;
+    }
+    .new-site-txt{
+     font-size: 10px;
+    }
+    .register-link{
+     font-size: 9px;
+    }
+    .ctn-button{
+     font-size: 10px;
+    }
+ }
+
+ @media (max-width:465px) {
+    .subtxt-login-head{
+     font-size: 17px;
+    }
+    .subtxt-login-txt{
+     font-size: 11px;
+    }
+    .input-txt-email-head,.input-txt-password{
+     font-size: 10px;
+    }
+    .input-field-email,.input-field-pass,.input-field-pass-full{
+     font-size: 8px;
+     height: 25px;
+     border-radius: 9px;
+    }
+   
+    .forgot-password{
+     font-size: 8px;
+    }
+    .new-site-txt{
+     font-size: 9px;
+    }
+    .register-link{
+     font-size: 8px;
+    }
+    .ctn-button{
+     font-size: 9px;
+    }
+ }
+
+ @media (max-width:365px) {
+    .subtxt-login-head{
+     font-size: 15px;
+    }
+    .subtxt-login-txt{
+     font-size: 10px;
+    }
+    .input-txt-email-head,.input-txt-password{
+     font-size: 8px;
+    }
+    .input-field-email,.input-field-pass,.input-field-pass-full{
+     font-size: 7px;
+     height: 20px;
+     border-radius: 7px;
+    }
+   
+    .forgot-password{
+     font-size: 7px;
+    }
+    .new-site-txt{
+     font-size: 9px;
+    }
+    .register-link{
+     font-size: 8px;
+    }
+    .ctn-button{
+     font-size: 8px;
+     height: 4vh;
+     width: 20vw;
+     margin-left: 20px;
+    }
+ }

@@ -7,6 +7,7 @@ import { Alert } from "./Alert";
 import axios from "axios";
 import { cuidCookie, isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
+import "../style/validatePassword.css";
 
 export const ValidateEmail = ({}) => {
   const navigate = useNavigate();
@@ -94,22 +95,23 @@ export const ValidateEmail = ({}) => {
         <TripPlannerHeader notshowSubHeader={true} />
         <div className="login">
           <Logo />
-          <p>Let's validate your email</p>
-          <p className="subtxt-login">
+          <p className="validate-text">Let's validate your email</p>
+          <p className="subtxt-login-vp">
             Enter the 6 digit pin you received on your email
           </p>
-          <p className="subtxt-login-sub">
+          <p className="subtxt-login-sub-vp">
             This is to ensure your account security
           </p>
           {alert && <Alert msg={alert} success={successAlert} />}
-          <div className="login-box">
-            <p className="input-txt">Type your pin here</p>
+
+          <div className="login-box-one">
+            <span className="input-txt-pin-x">Enter your pin here</span>
             <p className="input-txt-email">{userInfo?.email}</p>
             <SixDigitPin count={4} setPin={setPin} />
-            <button className="button" onClick={() => navigateTopath()}>
+            <button className="button-vp" onClick={() => navigateTopath()}>
               Continue
             </button>
-            <span>Didn't recieve OTP </span>{" "}
+            <span className="didn-receive-txt">Didn't recieve OTP </span>{" "}
             <a>
               <span className="gen-otp" onClick={() => genOtpCall()}>
                 Generate otp

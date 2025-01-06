@@ -1,0 +1,22 @@
+.recover-txt{
+}
+
+@media (max-width:500px) {
+
+   
+    .recover-txt{
+        font-size: 18px;
+       
+    }
+    .subtxt-login-fyp{
+        font-size: 12px;
+    }
+    .button-fyp{
+        height: 3.5vh;
+        font-size: 12px;
+        padding: 2px;
+    }
+    .rem-pass{
+        font-size: 12px;
+    }
+}
