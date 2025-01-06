@@ -29,11 +29,9 @@ const ForgotPassword = () => {
     localStorage.setItem("userInfo", JSON.stringify({ ...userInfo, email }));
     try {
       const fypCall = async () => {
-        console.log("opopo");
         const data = await axios.post("/api/user/forgotPassword", {
           email,
         });
-        console.log(data);
         window.location.href = "/validateEmail?fyp=true";
       };
       fypCall();

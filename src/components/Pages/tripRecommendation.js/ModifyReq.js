@@ -24,7 +24,6 @@ import { Footer } from "../../Footer/Footer";
 export const ModifyReq = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
   const itinerary = useSelector((state) => {
-    console.log(state?.data?.userData);
     return state?.data?.userData?.itinerary;
   });
   const days = useSelector((state) => state?.data?.userData?.days);
@@ -97,10 +96,9 @@ export const ModifyReq = () => {
                 recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
               })
             );
-            console.log("iop");
             NavigateTopath({ path: tripRecommendationPath });
           } catch (e) {
-            console.log(e, "opo");
+            console.log(e);
           } finally {
             setSpinning(false);
           }
@@ -199,7 +197,6 @@ export const ModifyReq = () => {
               </div>
             ) : (
               <div className="data-collection">
-                {console.log("rto", spinning)}
                 <p style={{ fontSize: "30px", color: "rgb(49, 87, 164)" }}>
                   Collecting Missing Information
                 </p>

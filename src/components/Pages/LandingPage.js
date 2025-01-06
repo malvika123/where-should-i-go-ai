@@ -40,7 +40,6 @@ const LandingPage = () => {
 
   const checkIfCookiePolicyNoShowExpired = () => {
     const timeNow = Math.floor(Date.now() / 1000);
-    console.log(timeNow, showCP);
     if (showCP < timeNow) {
       setShowCookiePolicy(true);
     } else setShowCookiePolicy(false);

@@ -118,7 +118,6 @@ const ShowFinalInfo = () => {
           NavigateTopath({ path: tripRecommendationPath });
         } catch (e) {
           setProcessData(false);
-          console.log("meow");
           const errData = e?.response?.data;
           if (!errData.authenticated) {
             window.location.href = "/login?unauthorised=true";

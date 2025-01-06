@@ -31,7 +31,6 @@ const ResetPassword = () => {
             email: userInfo?.email,
             newPassword,
           });
-          console.log(data);
           window.location.href = "/tripTailor";
         } catch (e) {
           const error = e?.response?.data?.error || "Something went wrong !!";

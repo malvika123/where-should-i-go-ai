@@ -50,7 +50,6 @@ export const Register = () => {
           name,
           lname: lastName,
         });
-        console.log("io", data);
         navigateTopath("/validateEmail");
       } catch (e) {
         const error = e?.response?.data?.error || "Something went wrong !!";

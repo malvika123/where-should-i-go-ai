@@ -31,7 +31,6 @@ const Login = () => {
     }
   }, []);
 
-  console.log(unauthorisedUser);
   const handleOnClick = () => {
     localStorage.setItem("userInfo", JSON.stringify({ email }));
 
@@ -41,7 +40,6 @@ const Login = () => {
           email,
           password,
         });
-        console.log(data);
         window.location.href = `/validateEmail${
           searchParams ? searchParams : ""
         }`;

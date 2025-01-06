@@ -11,7 +11,6 @@ export const SendEmail = ({ itineraryObjData, setEmailSent }) => {
   })
     .then((response) => response.text())
     .then((data) => {
-      console.log("op");
       setEmailSent("Email sent successfully!");
     })
     .catch((error) => {

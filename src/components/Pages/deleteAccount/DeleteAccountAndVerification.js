@@ -11,7 +11,6 @@ export const DeleteAccountAndVerification = () => {
   const [updatedData, setUpdatedData] = useState("");
   const [alert, setAlert] = useState("");
   const deleteAccount = async () => {
-    console.log("opop");
     const data =
       "account deleted : " +
         (accountDelReason === "Other (please specify):" && updatedData) ||
@@ -27,7 +26,6 @@ export const DeleteAccountAndVerification = () => {
         localStorage.removeItem("userInfo");
         window.location.replace("/");
       } catch (e) {
-        console.log(e);
         setAlert("Something went wrong");
       }
     } else {

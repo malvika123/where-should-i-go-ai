@@ -63,7 +63,6 @@ const Itinerary = () => {
     })
       .then((response) => response.text())
       .then((data) => {
-        console.log("op");
         setEmailSent("Email sent successfully!");
       })
       .catch((error) => {
@@ -98,12 +97,6 @@ const Itinerary = () => {
             ...stateObj,
             itinerary: `${objStr}`,
           })
-        );
-        console.log(
-          "itineraryObjData",
-          objStr,
-          typeof objStr,
-          itineraryObjData
         );
       } catch (e) {
         setError(e?.message);

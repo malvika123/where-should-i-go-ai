@@ -39,7 +39,6 @@ export const ValidateEmail = ({}) => {
             pin,
             email: userInfo?.email,
           });
-          console.log("data");
 
           if (isFypFlow) {
             window.location.href = "/resetPassword";
@@ -73,7 +72,6 @@ export const ValidateEmail = ({}) => {
           id: cuidCookie(),
           email: userInfo?.email,
         });
-        console.log(data);
       };
       loginCall();
       setAlert("Otp generated");
