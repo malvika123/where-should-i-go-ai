@@ -83,8 +83,8 @@ export const Register = () => {
           <p className="lets-create-txt">Let's create an account for you</p>
           <p className="subtxt-register">Please fill your Information below</p>
           {alert && <Alert msg={alert} />}
-          <div className="login-box-one">
-            <div className="login-box">
+          <div className="login-box-one-reg">
+            <div className="login-box-reg">
               <p className="input-txt">First Name</p>
               <input
                 className="input-field"

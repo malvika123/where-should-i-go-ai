@@ -200,21 +200,21 @@ p {
     }
     .footer-text-sub{
         margin: 0px;
-        font-size: 18px;
+        font-size: 22px;
     }
     
     .footer-text-head{
         margin: 0px;
-        font-size: 18px;
+        font-size: 24px;
     }
 }
 
 
-@media (max-width:450px) {
+@media (max-width:500px) {
 
     .slickSlider-div-slider{
         overflow: hidden;
-        height: 200px;
+        height: 250px;
         border-radius: 30px;
     }
 
@@ -229,11 +229,11 @@ p {
        
     .footer-text-sub{
         margin: 0px;
-        font-size: 12px;
+        font-size: 20px;
     }
     
     .footer-text-head{
         margin: 0px;
-        font-size: 12px;
+        font-size: 23px;
     }
 }

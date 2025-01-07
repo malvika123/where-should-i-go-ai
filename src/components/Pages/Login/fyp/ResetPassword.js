@@ -60,7 +60,7 @@ const ResetPassword = () => {
             Ensure your new password doesn't matches your last two
           </p>
           {alert && <Alert msg={alert} />}
-          <div className="login-box">
+          <div className="login-box-reset">
             <PasswordInputField setPassword={setNewPassword} />
             <PasswordChecker
               password={newPassword}

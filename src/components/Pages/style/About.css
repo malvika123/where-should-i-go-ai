@@ -44,16 +44,16 @@ margin-bottom: 5%;
     }
 }
 
-@media (max-width:400px) {
+@media (max-width:500px) {
 
    
     .about-us-header{
-        font-size: 18px;
+        font-size: 22px;
     }
     .about-sub-txt{
-        font-size: 12px;
+        font-size: 18px;
     }
     .about-sub-head{
-        font-size: 15px;
+        font-size: 19px;
     }
 }

@@ -59,7 +59,7 @@ const ForgotPassword = () => {
             Forgot your email? Don't worry follow the steps and get in
           </p>
           {alert && <Alert msg={alert} />}
-          <div className="login-box">
+          <div className="login-box-fyp">
             <p className="input-txt">Email(Registered email)</p>
             <input
               className="input-field-email"

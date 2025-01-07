@@ -81,36 +81,33 @@ const Login = () => {
           </p>
           {alert && <Alert msg={alert} />}
           <div className="login-box-one">
-            <div className="login-box">
-              <p className="input-txt-email-head">Email</p>
-              <input
-                className="input-field-email"
-                placeholder="Enter your email..."
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-
-              <PasswordInputField setPassword={setPassword} />
-              <a>
-                <span
-                  className="forgot-password"
-                  onClick={() =>
-                    (window.location.href = `/forgotPassword${
-                      searchParams ? searchParams : ""
-                    }`)
-                  }
-                >
-                  Forgot password
-                </span>
-              </a>
-              <button
-                className="ctn-button"
-                disabled={disableCntBtn}
-                onClick={() => handleOnClick()}
+            <p className="input-txt-email-head">Email</p>
+            <input
+              className="input-field-email"
+              placeholder="Enter your email..."
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <PasswordInputField setPassword={setPassword} />
+            <a>
+              <span
+                className="forgot-password"
+                onClick={() =>
+                  (window.location.href = `/forgotPassword${
+                    searchParams ? searchParams : ""
+                  }`)
+                }
               >
-                Continue
-              </button>
-            </div>
+                Forgot password
+              </span>
+            </a>
+            <button
+              className="ctn-button"
+              disabled={disableCntBtn}
+              onClick={() => handleOnClick()}
+            >
+              Continue
+            </button>
             <span>
               <p className="new-site-txt"> New to this site </p>
               <a>

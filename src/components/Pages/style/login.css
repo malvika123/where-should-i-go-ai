@@ -1,11 +1,22 @@
-.login {}
+.login {
+}
 
 .login-box,.login-box-one {
     display: flex;
     margin-top: 5%;
     flex-direction: column;
-    margin: auto;
+   
+    margin-left: 25%;
+    margin-right: 25%;
+}
 
+.login-box-reg,.login-box-one-reg {
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+    margin: auto;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .input-txt-email-head {
@@ -184,7 +195,7 @@
 }
 
 .input-txt-email {
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     color: rgb(50, 114, 179);
 }
@@ -193,124 +204,143 @@
     font-size: 16px;
 }
 
+@media (max-width:1200px) {
+    .input-field-email,.input-field-pass,.input-field-pass-full{
+        font-size: 14px;
+       }
+}
 
-
-@media (max-width:800px) {
+@media (max-width:1000px) {
+    .login-box,.login-box-one{
+        margin: auto;
+    }
    .subtxt-login-head{
-    font-size: 23px;
+    font-size: 30px;
    }
    .subtxt-login-txt{
-    font-size: 18px;
+    font-size: 24px;
    }
-   .input-txt-email-head,.input-txt-password{
-    font-size: 15px;
+   .input-txt-email-head,.input-txt-password,.input-txt-email{
+    font-size: 23px;
    }
-   .input-field-email,.input-field-pass{
-    font-size: 13px;
+   .input-field-email,.input-field-pass,.input-field-pass-full{
+    font-size: 21px;
    }
    .forgot-password{
-    font-size: 12px;
+    font-size: 20px;
    }
    .new-site-txt{
-    font-size: 12px;
+    font-size: 20px;
    }
    .register-link{
-    font-size: 11px;
+    font-size: 20px;
    }
    .ctn-button{
-    font-size: 13px;
+    font-size: 20px;
    }
 }
 
 @media (max-width:565px) {
+    .login-box,.login-box-one{
+        margin: auto;
+    }
+    .subtxt-login-head{
+     font-size: 28px;
+    }
+    .subtxt-login-txt{
+     font-size: 24px;
+    }
+    .input-txt-email-head,.input-txt-password,.input-txt-email{
+     font-size: 16px;
+    }
+    .input-field-email,.input-field-pass,.input-field-pass-full{
+     font-size: 16px;
+     height: 30px;
+     border-radius: 9px;
+    }
+   
+    .forgot-password{
+     font-size: 20px;
+    }
+    .new-site-txt{
+     font-size: 18px;
+    }
+    .register-link{
+     font-size: 18px;
+    }
+    .ctn-button{
+     font-size: 18px;
+    }
+ }
+
+ 
+
+ @media (max-width:465px) {
+    .subtxt-login-head{
+     font-size: 25px;
+    }
+    .subtxt-login-txt{
+     font-size: 22px;
+    }
+    .input-txt-email-head,.input-txt-password,.input-txt-email{
+     font-size: 15px;
+    }
+    .input-field-email,.input-field-pass,.input-field-pass-full{
+     font-size: 15px;
+     height: 33px;
+     border-radius: 9px;
+    }
+   
+    .forgot-password{
+     font-size: 18px;
+    }
+    .new-site-txt{
+     font-size: 20px;
+    }
+    .register-link{
+     font-size: 20px;
+    }
+    .ctn-button{
+     font-size: 20px;
+    }
+    .login-box,.login-box-one{
+        margin: auto;
+    }
+ }
+
+ @media (max-width:375px) {
+    .login-box,.login-box-one{
+        margin: auto;
+    }
     .subtxt-login-head{
      font-size: 18px;
     }
     .subtxt-login-txt{
-     font-size: 13px;
+     font-size: 14px;
     }
-    .input-txt-email-head,.input-txt-password{
-     font-size: 11px;
-    }
-    .input-field-email,.input-field-pass,.input-field-pass-full{
-     font-size: 11px;
-     height: 25px;
-     border-radius: 9px;
-    }
-   
-    .forgot-password{
-     font-size: 9px;
-    }
-    .new-site-txt{
-     font-size: 10px;
-    }
-    .register-link{
-     font-size: 9px;
-    }
-    .ctn-button{
-     font-size: 10px;
-    }
- }
-
- @media (max-width:465px) {
-    .subtxt-login-head{
-     font-size: 17px;
-    }
-    .subtxt-login-txt{
-     font-size: 11px;
-    }
-    .input-txt-email-head,.input-txt-password{
-     font-size: 10px;
+    .input-txt-email-head,.input-txt-password,.input-txt-email{
+     font-size: 16px;
     }
     .input-field-email,.input-field-pass,.input-field-pass-full{
-     font-size: 8px;
-     height: 25px;
-     border-radius: 9px;
-    }
-   
-    .forgot-password{
-     font-size: 8px;
-    }
-    .new-site-txt{
-     font-size: 9px;
-    }
-    .register-link{
-     font-size: 8px;
-    }
-    .ctn-button{
-     font-size: 9px;
-    }
- }
-
- @media (max-width:365px) {
-    .subtxt-login-head{
-     font-size: 15px;
-    }
-    .subtxt-login-txt{
-     font-size: 10px;
-    }
-    .input-txt-email-head,.input-txt-password{
-     font-size: 8px;
-    }
-    .input-field-email,.input-field-pass,.input-field-pass-full{
-     font-size: 7px;
-     height: 20px;
+     font-size: 16px;
+     height: 30px;
+     width: 80vw;
      border-radius: 7px;
     }
    
     .forgot-password{
-     font-size: 7px;
+     font-size: 16px;
     }
     .new-site-txt{
-     font-size: 9px;
+     font-size: 14px;
     }
     .register-link{
-     font-size: 8px;
+     font-size: 14px;
     }
     .ctn-button{
-     font-size: 8px;
-     height: 4vh;
-     width: 20vw;
-     margin-left: 20px;
+     font-size: 14px;
+     height: 6vh;
+     width: 29vw;
+     margin-left: 90px;
     }
  }

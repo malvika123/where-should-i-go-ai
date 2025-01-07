@@ -27,26 +27,26 @@
 
 @media (max-width:900px) {
 .joinus-head-txt{
-    font-size: 20px;
+    font-size: 24px;
 }
    
     .joinus-head{
-        font-size: 24px;
+        font-size: 28px;
     }
     .joinus-head-txt-head{
-        font-size: 22px;
+        font-size: 24px;
     }
 }
 
 @media (max-width:500px) {
     .joinus-head-txt{
-        font-size: 14px;
+        font-size: 18px;
     }
        
         .joinus-head{
-            font-size: 20px;
+            font-size: 25px;
         }
         .joinus-head-txt-head{
-            font-size: 14px;
+            font-size: 18px;
         }
     }
