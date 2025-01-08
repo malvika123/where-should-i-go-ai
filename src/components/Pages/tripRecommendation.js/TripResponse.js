@@ -13,6 +13,8 @@ import { useNavigate } from "react-router-dom";
 import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
 import { isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
+import { useMediaQuery } from "react-responsive";
+
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
   const reasonState = useSelector(
@@ -21,6 +23,9 @@ const TripResponse = () => {
   const area = useSelector((state) => state?.data?.userData?.area);
   const underhyped = useSelector((state) => state?.data?.userData?.underhyped);
   const note = useSelector((state) => state?.data?.userData?.note);
+  const isMidScreen = useMediaQuery({ query: "(max-width: 1000px)" });
+  const ismidLargeScreen = useMediaQuery({ query: "(max-width: 1360px)" });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 765px)" });
 
   if (!isUserLoggedIn()) {
     window.location.href = "/login";
@@ -57,7 +62,15 @@ const TripResponse = () => {
               {state && (
                 <ImgSlider
                   place={state}
-                  showMultipleSlides={5}
+                  showMultipleSlides={
+                    isSmallScreen
+                      ? 2
+                      : isMidScreen
+                      ? 3
+                      : ismidLargeScreen
+                      ? 4
+                      : 5
+                  }
                   classnm="res-img"
                   textClassnm="res-img-txt"
                 />
@@ -79,7 +92,15 @@ const TripResponse = () => {
                     {elt.name && (
                       <ImgSlider
                         place={elt.name}
-                        showMultipleSlides={5}
+                        showMultipleSlides={
+                          isSmallScreen
+                            ? 2
+                            : isMidScreen
+                            ? 3
+                            : ismidLargeScreen
+                            ? 4
+                            : 5
+                        }
                         classnm="res-img"
                         textClassnm="res-img-txt"
                       />
@@ -101,7 +122,15 @@ const TripResponse = () => {
                     {elt.name && (
                       <ImgSlider
                         place={elt.name}
-                        showMultipleSlides={5}
+                        showMultipleSlides={
+                          isSmallScreen
+                            ? 2
+                            : isMidScreen
+                            ? 3
+                            : ismidLargeScreen
+                            ? 4
+                            : 5
+                        }
                         classnm="res-img"
                         textClassnm="res-img-txt"
                       />
