@@ -9,9 +9,4 @@
   to = "/index.html"
   status = 200
 
-[[headers]]
-# Enable Gzip and Brotli compression for all files
-for = "/*"
-[headers.values]
-  Content-Encoding = "gzip"
 
