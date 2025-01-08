@@ -6,7 +6,6 @@ import {
   redirectToJoinUsPage,
   redirectToPrivacyPolicyPage,
 } from "../common/navigateTopath";
-import Logo from "../Header/Logo";
 import "./style/footer.css";
 import { SocialIcon } from "react-social-icons";
 
@@ -76,13 +75,23 @@ export const Footer = ({ noShowfeedback }) => {
           margin: "10px 10px 10px 10px",
         }}
       >
-        <SocialIcon className="social-media-icons" url="https://twitter.com" />
-        <SocialIcon className="social-media-icons" url="https://facebook.com" />
         <SocialIcon
           className="social-media-icons"
-          url="https://instagram.com"
+          url="https://x.com/wershouldigoai"
         />
-        <SocialIcon className="social-media-icons" url="https://reddit.com" />
+        <SocialIcon
+          className="social-media-icons"
+          url="https://www.facebook.com/profile.php?id=61571602116409"
+        />
+
+        <SocialIcon
+          className="social-media-icons"
+          url="https://www.instagram.com/whereshouldigoai/"
+        />
+        <SocialIcon
+          className="social-media-icons"
+          url="https://www.reddit.com/user/EquivalentSolid6954/"
+        />
       </div>
       <div>
         <h8

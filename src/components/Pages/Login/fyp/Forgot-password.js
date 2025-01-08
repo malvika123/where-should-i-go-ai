@@ -78,7 +78,7 @@ const ForgotPassword = () => {
             <span className="rem-pass">Remember your password? </span>{" "}
             <a>
               <span
-                onClick={() => navigateTopath("/validateEmail?fyp=true")}
+                onClick={() => navigateTopath("/login")}
                 className="register-link"
               >
                 Login
