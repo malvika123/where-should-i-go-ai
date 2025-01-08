@@ -31,9 +31,10 @@ const Login = () => {
     }
   }, []);
 
-  const handleOnClick = () => {
+  const handleOnClick = (e) => {
     localStorage.setItem("userInfo", JSON.stringify({ email }));
-
+    const btn = e.target;
+    btn.classList.add("grey-btn");
     const loginCall = async () => {
       try {
         const data = await axios.post("/api/user/login", {
@@ -44,6 +45,7 @@ const Login = () => {
           searchParams ? searchParams : ""
         }`;
       } catch (e) {
+        btn.classList.remove("grey-btn");
         const error = e?.response?.data?.error || "Something went wrong !!";
         setAlert(error);
       }
@@ -104,7 +106,7 @@ const Login = () => {
             <button
               className="ctn-button"
               disabled={disableCntBtn}
-              onClick={() => handleOnClick()}
+              onClick={(e) => handleOnClick(e)}
             >
               Continue
             </button>

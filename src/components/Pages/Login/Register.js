@@ -36,7 +36,9 @@ export const Register = () => {
     setTimeout(() => setAlert(""), 3000);
   }, [alert]);
 
-  const handleChange = () => {
+  const handleChange = (e) => {
+    const btn = e.target;
+    btn.classList.add("grey-btn");
     localStorage.setItem(
       "userInfo",
       JSON.stringify({ ...userInfo, email, name, lastName })
@@ -52,6 +54,7 @@ export const Register = () => {
         });
         navigateTopath("/validateEmail");
       } catch (e) {
+        btn.classList.remove("grey-btn");
         const error = e?.response?.data?.error || "Something went wrong !!";
         setAlert(error);
       }
@@ -116,7 +119,7 @@ export const Register = () => {
               <button
                 className="button-reg-cnt"
                 disabled={disableCntBtn}
-                onClick={() => handleChange()}
+                onClick={(e) => handleChange(e)}
               >
                 Continue
               </button>

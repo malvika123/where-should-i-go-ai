@@ -31,7 +31,9 @@ export const ValidateEmail = ({}) => {
     setTimeout(() => setAlert(""), 3000);
   }, [alert]);
 
-  const navigateTopath = () => {
+  const navigateTopath = (e) => {
+    const btn = e.target;
+    btn.classList.add("grey-btn");
     if (pin.length === 6) {
       const loginCall = async () => {
         try {
@@ -49,6 +51,7 @@ export const ValidateEmail = ({}) => {
             window.location.href = "/tripTailor";
           }
         } catch (e) {
+          btn.classList.remove("grey-btn");
           console.log(e?.response?.data);
           let error;
           if (e?.response?.data?.status === 1300) {
@@ -106,7 +109,7 @@ export const ValidateEmail = ({}) => {
             <span className="input-txt-pin-x">Enter your pin here</span>
             <p className="input-txt-email">{userInfo?.email}</p>
             <SixDigitPin count={4} setPin={setPin} />
-            <button className="button-vp" onClick={() => navigateTopath()}>
+            <button className="button-vp" onClick={(e) => navigateTopath(e)}>
               Continue
             </button>
             <span className="didn-receive-txt">Didn't recieve OTP </span>{" "}

@@ -22,8 +22,13 @@ const ResetPassword = () => {
     }
   }, []);
 
-  const navigateTopath = () => {
-    console.log();
+  useEffect(() => {
+    setTimeout(() => setAlert(""), 3000);
+  }, [alert]);
+
+  const navigateTopath = (e) => {
+    const btn = e.target;
+    btn.classList.add("grey-btn");
     if (newPassword && isPasswordAdequate) {
       const resetPasswordCall = async () => {
         try {
@@ -33,6 +38,8 @@ const ResetPassword = () => {
           });
           window.location.href = "/tripTailor";
         } catch (e) {
+          btn.classList.remove("grey-btn");
+
           const error = e?.response?.data?.error || "Something went wrong !!";
           setAlert(error);
         }
@@ -66,7 +73,7 @@ const ResetPassword = () => {
               password={newPassword}
               setIsPasswordAdequate={setIsPasswordAdequate}
             />
-            <button className="button" onClick={() => navigateTopath()}>
+            <button className="button" onClick={(e) => navigateTopath(e)}>
               Continue
             </button>
           </div>

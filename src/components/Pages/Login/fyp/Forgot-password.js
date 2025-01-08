@@ -25,19 +25,24 @@ const ForgotPassword = () => {
       window.location.href = "/";
     }
   }, []);
-  const handleChange = () => {
+  const handleChange = (e) => {
+    const btn = e.target;
+    btn.classList.add("grey-btn");
     localStorage.setItem("userInfo", JSON.stringify({ ...userInfo, email }));
-    try {
-      const fypCall = async () => {
+
+    const fypCall = async () => {
+      try {
         const data = await axios.post("/api/user/forgotPassword", {
           email,
         });
         window.location.href = "/validateEmail?fyp=true";
-      };
-      fypCall();
-    } catch (e) {
-    } finally {
-    }
+      } catch (e) {
+        btn.classList.remove("grey-btn");
+      } finally {
+      }
+    };
+    fypCall();
+
     //
   };
 
@@ -67,7 +72,7 @@ const ForgotPassword = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="button-fyp" onClick={() => handleChange()}>
+            <button className="button-fyp" onClick={(e) => handleChange(e)}>
               Continue
             </button>
             <span className="rem-pass">Remember your password? </span>{" "}
