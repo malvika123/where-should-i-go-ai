@@ -79,7 +79,7 @@ const Login = () => {
           <Logo />
           <p className="subtxt-login-head">Log into your account</p>
           <p className="subtxt-login-txt">
-            Welcome back, lets beign with logging in
+            Welcome back, lets begin with logging in
           </p>
           {alert && <Alert msg={alert} />}
           <div className="login-box-one">
@@ -111,7 +111,7 @@ const Login = () => {
               Continue
             </button>
             <span>
-              <p className="new-site-txt"> New to this site </p>
+              <p className="new-site-txt"> New to this site? </p>
               <a>
                 <span
                   onClick={() =>
