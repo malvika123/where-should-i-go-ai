@@ -101,7 +101,7 @@ export const Footer = ({ noShowfeedback }) => {
             fontSize: "10px",
           }}
         >
-          © 2024 PrismaCorp. All Rights Reserved.
+          © 2025 PrismaCorp. All Rights Reserved.
         </h8>
       </div>
     </div>

@@ -22,7 +22,7 @@ export const ValidateEmail = ({}) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
   useEffect(() => {
-    if (isUserLoggedIn()) {
+    if (isUserLoggedIn() && !isAccDelFlow) {
       window.location.href = "/";
     }
   }, []);
