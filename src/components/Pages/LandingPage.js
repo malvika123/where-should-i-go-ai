@@ -65,7 +65,7 @@ const LandingPage = () => {
       <div className="content-sec-lp">
         <div className="head-sec">
           <Heading name={userName} />
-          <div className="header2">
+          <h1 className="header2">
             <Typewriter
               options={{
                 strings: [heading],
@@ -73,7 +73,7 @@ const LandingPage = () => {
                 loop: true,
               }}
             />
-          </div>
+          </h1>
         </div>
         <div
           className="searchbox"
@@ -92,9 +92,9 @@ const LandingPage = () => {
           <SlickSlider />
         </div>
         <div className="text-lp">
-          <p className="footer-text-head">
+          <h1 className="footer-text-head">
             Welcome to Your Personal Travel Companion
-          </p>
+          </h1>
           <p className="footer-text-sub">
             Say goodbye to endless hours of research and confusion while
             planning your next trip. Where Should I Go is here to revolutionize
@@ -104,7 +104,7 @@ const LandingPage = () => {
             planning a romantic getaway, a solo adventure, or a family vacation,
             we've got you covered!
           </p>
-          <p className="footer-text-head">How It Works</p>
+          <h2 className="footer-text-head">How It Works</h2>
           <p className="footer-text-sub">
             1. Share Your Preferences Tell us what you’re looking for—be it
             sandy beaches, bustling cities, serene mountains, or historical
@@ -122,7 +122,7 @@ const LandingPage = () => {
           <ul>
             <li>
               <p className="footer-text-sub">
-                <span style={{ fontWeight: "bold" }}></span>Time-Saving: No more
+                <span style={{ fontWeight: "bold" }}>Time-Saving:</span> No more
                 browsing through endless travel blogs or forums. Our
                 recommendations are instant.
               </p>
@@ -160,9 +160,9 @@ const LandingPage = () => {
               </p>
             </li>
           </ul>
-          <p className="footer-text-head">
+          <h1 className="footer-text-head">
             Popular Destinations Our Users Love
-          </p>
+          </h1>
           <ImgSlider
             place="Santorini"
             showMultipleSlides={

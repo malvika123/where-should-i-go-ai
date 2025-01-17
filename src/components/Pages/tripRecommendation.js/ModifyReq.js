@@ -144,9 +144,17 @@ export const ModifyReq = () => {
               few taps and make every journey a joy!
             </p> */}
               {itineraryPath ? (
-                <img className="img-mod" src={img}></img>
+                <img
+                  className="img-mod"
+                  src={img}
+                  alt="AI-powered travel planner recommending destinations"
+                ></img>
               ) : (
-                <img className="img-mod" src={img2}></img>
+                <img
+                  className="img-mod"
+                  src={img2}
+                  alt="AI-powered travel planner recommending destinations"
+                ></img>
               )}
             </div>
             {/* <div className="itnry-sub">

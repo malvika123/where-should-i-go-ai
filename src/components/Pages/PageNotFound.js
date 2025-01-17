@@ -27,7 +27,11 @@ const PageNotFound = () => {
         </span>{" "}
         to go back
       </p>
-      <img className="img-404" src={img} />
+      <img
+        className="img-404"
+        src={img}
+        alt="AI-powered travel planner recommending destinations"
+      />
       <Footer />
     </div>
   );
