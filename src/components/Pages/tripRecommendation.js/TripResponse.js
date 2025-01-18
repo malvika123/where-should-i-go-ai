@@ -171,6 +171,9 @@ const TripResponse = () => {
                 I need to add some more info
               </button>
             </div>
+            <h6 style={{ marginTop: "50px", color: "red" }}>
+              *some images may not belong to the place
+            </h6>
           </div>
         </div>
       </div>

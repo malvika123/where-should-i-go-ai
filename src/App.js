@@ -36,7 +36,7 @@ function App() {
         <Route exact path="/" element={<LandingPage />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="tripTailor/" element={<TripTailor />} />
+        <Route exact path="/tripTailor" element={<TripTailor />} />
         <Route exact path="/gender" element={<Gender />} />
         <Route exact path="/country" element={<TripCountry />} />
         <Route exact path="/budget" element={<Budget />} />

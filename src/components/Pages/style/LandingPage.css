@@ -30,6 +30,8 @@ body {
 .header2 {
     font-size: 6vmin;
     font-weight: 300;
+    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 p {
@@ -42,9 +44,19 @@ p {
 .footer-text-sub {
     font-size: 22px;
     font-weight: lighter;
+    color: gray;
+   
 }
 .footer-text-head{
     font-size: 25px;
+    color: black;
+    
+   
+}
+
+.lp-text-pri-head{
+    font-size: 30px;
+    color: rgb(37, 102, 158);
 }
 
 .searchbox {
@@ -173,7 +185,9 @@ p {
 
 @media (max-width:900px) {
 
-   
+    .header2{
+        margin: auto;
+    }
     .slickSlider-div-slider{
         overflow: hidden;
         height: 200px;
@@ -194,11 +208,18 @@ p {
         margin: 0px;
         font-size: 24px;
     }
+
+    .lp-text-pri-head{
+        font-size: 26px;
+    }
 }
 
 
 @media (max-width:500px) {
 
+    .header2{
+        margin: auto;
+    }
     .slickSlider-div-slider{
         overflow: hidden;
         height: 250px;

@@ -3,54 +3,106 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Discover where to go next with our AI travel planner. Personalized travel recommendations tailored to your needs!" />
+  <meta name="description" content="Plan your next trip effortlessly with Where Should I Go. Our AI-powered travel planner offers personalized destination recommendations based on your preferences. Discover your perfect destination today!" />
+  <meta name="keywords" content="trip planner, travel recommendations, AI travel planner, where to go, travel planning, personalized trips, vacation ideas" />
+  <meta name="author" content="Where Should I Go" />
 
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Where Should I Go - AI Travel Planner" />
+  <meta property="og:description" content="Discover your next travel destination with our AI-powered trip planner. Get personalized recommendations for your perfect trip." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://whereshouldigoai.com" />
+  <meta property="og:image" content="https://whereshouldigoai.com/og-image.jpg" />
+  <meta property="og:site_name" content="Where Should I Go" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Where Should I Go - AI Travel Planner" />
+  <meta name="twitter:description" content="Plan your next trip effortlessly with our AI-powered travel planner. Discover your perfect destination today!" />
+  <meta name="twitter:image" content="https://whereshouldigoai.com/twitter-image.jpg" />
+
+  <!-- Canonical Link -->
+  <link rel="canonical" href="https://whereshouldigoai.com" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Where Should I Go",
+      "url": "https://whereshouldigoai.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://whereshouldigoai.com/search?query={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
+  <!-- Favicon and Web App Metadata -->
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8107666156148401"
-    crossorigin="anonymous" defer></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XFYVL3475" defer></script>
-  <script defer>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2XFYVL3475"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-2XFYVL3475');
   </script>
-  <title>Whereshouldigo</title>
-  <title>AI Travel Planner - Find Your Dream Destination</title>
+
+  <title>Where Should I Go - AI Travel Planner</title>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://whereshouldigoai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Trip Planner",
+          "item": "https://whereshouldigoai.com/tripTailor"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Where Should I Go work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our AI-powered platform provides personalized travel recommendations based on your preferences, such as destinations, activities, and travel goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the platform free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our platform is completely free to use to get personalized travel recommendations."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 </body>
 
 </html>

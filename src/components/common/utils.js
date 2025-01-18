@@ -58,3 +58,75 @@ export const getUserName = async () => {
     const error = e?.response?.data?.error || "Something went wrong !!";
   }
 };
+
+export const getRecommendation = async () => {
+  const userInfo = JSON.parse(localStorage.getItem("collectedInfo"));
+  const {
+    days,
+    mnth,
+    gender,
+    selectedStates,
+    country,
+    tripType,
+    pets,
+    hasFemale,
+    hasKids,
+    minValue,
+    maxValue,
+    currency,
+    modifiedCurrency,
+    slctdActsSet,
+    text,
+  } = userInfo;
+
+  const token = aTknCookie();
+  const id = cuidCookie();
+  const iv = ivCookie();
+
+  const res = async () => {
+    try {
+      const data = await axios.post(
+        "/api/openapi/getsuggestion",
+        {
+          days,
+          mnth,
+          gender,
+          selectedStates: `${Array.from(selectedStates || []).map(
+            (elt) => `${elt}, `
+          )}`,
+          country,
+          tripType,
+          pets,
+          hasFemale,
+          hasKids,
+          minValue,
+          maxValue,
+          currency,
+          modifiedCurrency,
+          slctdActsSet: `${Array.from(slctdActsSet).map((elt) => `${elt}, `)}`,
+          text,
+          token,
+          id,
+          iv,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      return data;
+    } catch (e) {
+      console.log("uiui", e);
+      const errData = e?.response?.data;
+      if (!errData?.authenticated) {
+        window.location.href = "/login?unauthorised=true";
+        return;
+      } else if (!errData.tokenCountSufficient) {
+        window.location.href = "/tripRecommendation";
+        return;
+      }
+    }
+  };
+  return await res();
+};

@@ -24,9 +24,12 @@
     padding: 10px;
 }
 
+.top-hdr-tp{
+    padding: 10px
+}
 .top-hdr {
     background-color: lightblue;
-     padding: 10px
+    padding: 10px
 }
 
 .links-footer {

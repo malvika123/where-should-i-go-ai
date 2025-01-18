@@ -30,12 +30,7 @@ export const redirectToDeleteAccountValidationAndConfirmation = () => {
 };
 
 export const navigateTopath = async ({ path }) => {
-  const isSessionValid = await isUserSessionValid();
-  if (isSessionValid) {
-    window.document.location.href = "/tripTailor";
-  } else {
-    window.document.location.href = "/login";
-  }
+  window.document.location.href = "/tripTailor";
 };
 
 export const navigateToDeleteAccountpath = async ({ path }) => {

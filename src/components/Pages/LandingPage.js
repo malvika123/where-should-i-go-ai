@@ -13,6 +13,7 @@ import { enableVideoInBackground } from "../Featureflags";
 import img from "../images/Screenshot 2024-12-04 at 1.11.21 PM.png";
 import { FaMagnifyingGlassLocation } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import { IoPersonCircle } from "react-icons/io5";
 import {
   getUserName,
   isUserLoggedIn,
@@ -92,39 +93,77 @@ const LandingPage = () => {
           <SlickSlider />
         </div>
         <div className="text-lp">
-          <h1 className="footer-text-head">
-            Welcome to Your Personal Travel Companion
+          <h1 className="lp-text-pri-head">
+            Welcome to Your Ultimate Trip Planner
           </h1>
+          <h2 className="footer-text-head">Discover Your Next Destination</h2>
           <p className="footer-text-sub">
-            Say goodbye to endless hours of research and confusion while
-            planning your next trip. Where Should I Go is here to revolutionize
-            the way you explore the world. Using cutting-edge AI technology, we
-            provide you with personalized destination recommendations based on
-            your preferences, interests, and travel goals. Whether you're
-            planning a romantic getaway, a solo adventure, or a family vacation,
-            we've got you covered!
+            Confused about where to travel? Let our AI customize the perfect
+            trip based on your preferences and requirements. Say goodbye to
+            hours of endless research and confusion while planning your next
+            adventure. Where Should I Go is here to revolutionize your travel
+            experience. Powered by advanced AI travel technology, we provide
+            personalized destination recommendations based on your preferences,
+            interests, and travel goals. Whether you're planning a romantic
+            getaway, a solo adventure, or a family vacation, we’ve got you
+            covered!
           </p>
-          <h2 className="footer-text-head">How It Works</h2>
-          <p className="footer-text-sub">
-            1. Share Your Preferences Tell us what you’re looking for—be it
-            sandy beaches, bustling cities, serene mountains, or historical
-            landmarks.
-          </p>
-          <p className="footer-text-sub">
-            2. Let AI Do the Magic Our AI-powered system analyzes your input to
-            curate tailored travel recommendations that align with your tastes.
-          </p>
-          <p className="footer-text-sub">
-            3.Discover Your Dream Destination Get actionable suggestions in
-            seconds, along with travel tips to make your journey unforgettable.
-          </p>
-          <p className="footer-text-head">Why Choose Us?</p>
+          <section style={{ marginBottom: "20px", marginTop: "20px" }}>
+            <h2 className="footer-text-head">How Our Trip Planner Works</h2>
+
+            <div>
+              <h3 className="footer-text-sub" style={{ fontWeight: "bold" }}>
+                1. Share Your Preferences
+              </h3>
+              <p className="footer-text-sub">
+                Let us know what you’re dreaming of—whether it’s sandy beaches,
+                vibrant cityscapes, peaceful mountains, or iconic historical
+                landmarks.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="footer-text-sub" style={{ fontWeight: "bold" }}>
+                2. Let AI Craft Your Journey
+              </h3>
+              <p className="footer-text-sub">
+                Our AI-powered trip planner analyzes your input to curate
+                tailored travel recommendations that match your interests.
+              </p>
+            </div>
+            <div>
+              <h3 className="footer-text-sub" style={{ fontWeight: "bold" }}>
+                3.Discover Your Dream Destination
+              </h3>
+              <p className="footer-text-sub">
+                Get actionable suggestions in seconds, complete with travel tips
+                and ideas to make your journey unforgettable.
+              </p>
+            </div>
+            <div>
+              <h3 className="footer-text-sub" style={{ fontWeight: "bold" }}>
+                3. Plan with Confidence
+              </h3>
+              <p className="footer-text-sub">
+                Use our suggestions to craft a memorable journey tailored just
+                for you.
+              </p>
+            </div>
+          </section>
+
+          <p className="footer-text-head">Why Choose Where Should I Go?</p>
           <ul>
             <li>
               <p className="footer-text-sub">
-                <span style={{ fontWeight: "bold" }}>Time-Saving:</span> No more
-                browsing through endless travel blogs or forums. Our
-                recommendations are instant.
+                <span style={{ fontWeight: "bold" }}>AI-driven:</span> AI-driven
+                personalized travel recommendations
+              </p>
+            </li>
+            <li>
+              <p className="footer-text-sub">
+                <span style={{ fontWeight: "bold" }}>Save Time:</span> No need
+                to browse countless travel blogs or forums. We deliver instant
+                recommendations.
               </p>
             </li>
             <li>
@@ -132,8 +171,8 @@ const LandingPage = () => {
                 <span style={{ fontWeight: "bold" }}>
                   Personalized Results:
                 </span>{" "}
-                Your preferences, your destinations. Every suggestion is unique
-                to you.
+                Every destination is curated just for you, based on your unique
+                preferences.
               </p>
             </li>
             <li>
@@ -141,15 +180,14 @@ const LandingPage = () => {
                 <span style={{ fontWeight: "bold" }}>
                   Stress-Free Planning:
                 </span>{" "}
-                From destination ideas to practical tips, we simplify the entire
-                process.
+                From destination inspiration to practical tips, we make trip
+                planning effortless.
               </p>
             </li>
             <li>
               <p className="footer-text-sub">
-                <span style={{ fontWeight: "bold" }}>Expert Insights:</span> Our
-                system combines AI expertise with travel data to ensure accuracy
-                and satisfaction.
+                <span style={{ fontWeight: "bold" }}>Unique interests:</span>{" "}
+                Find hidden gems based on your unique interests
               </p>
             </li>
             <li>
@@ -217,6 +255,75 @@ const LandingPage = () => {
               </p>
             </li>
           </ul>
+          <section id="testimonials">
+            <div className="container">
+              <h2 className="footer-text-head">What Travelers Are Saying</h2>
+              <div className="testimonials">
+                <marquee
+                  loop="1"
+                  style={{
+                    backgroundColor: "pink",
+                    paddingTop: "20px",
+                    paddingBottom: "20px",
+                  }}
+                >
+                  <section>
+                    <span
+                      style={{
+                        marginRight: "20px",
+                        fontSize: "20px",
+                        backgroundColor: "rgb(37, 102, 158)",
+                        color: "white",
+                        padding: "10px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      "I was completely lost, but this platform guided me to the
+                      perfect destination. A game-changer!" –
+                      <IoPersonCircle
+                        style={{ marginTop: "10px", color: "yellow" }}
+                      />{" "}
+                      Emily R.
+                    </span>
+                    <span
+                      style={{
+                        marginRight: "20px",
+                        fontSize: "20px",
+                        backgroundColor: "rgb(37, 102, 158)",
+                        color: "white",
+                        padding: "10px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      "The AI suggestions were spot-on and saved me so much
+                      time." –
+                      <IoPersonCircle
+                        style={{ marginTop: "10px", color: "yellow" }}
+                      />{" "}
+                      Michael D.
+                    </span>
+                    <span
+                      style={{
+                        marginRight: "20px",
+                        fontSize: "20px",
+                        backgroundColor: "rgb(37, 102, 158)",
+                        color: "white",
+                        padding: "10px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      "I discovered places I never would have thought of thanks
+                      to this site." –
+                      <IoPersonCircle
+                        style={{ marginTop: "10px", color: "yellow" }}
+                      />{" "}
+                      Sophia L.
+                    </span>
+                  </section>
+                </marquee>
+              </div>
+            </div>
+          </section>
 
           <p className="footer-text-head">Ready to Start Your Journey?</p>
           <p className="footer-text-sub">

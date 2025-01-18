@@ -23,6 +23,8 @@ const Heading = ({ name = "" }) => {
         console.log("something went wrong");
       } finally {
         localStorage.removeItem("userInfo");
+        localStorage.removeItem("hidePrivacyPolicyForTime");
+        localStorage.removeItem("collectedInfo");
         window.location.reload();
       }
     };

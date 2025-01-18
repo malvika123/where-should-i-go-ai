@@ -4,10 +4,21 @@ import Logo from "../../Header/Logo";
 import { SixDigitPin } from "./SixDigitPin";
 import { useEffect, useState } from "react";
 import { Alert } from "./Alert";
+import { useSelector } from "react-redux";
+
 import axios from "axios";
-import { cuidCookie, isUserLoggedIn } from "../../common/utils";
+import {
+  cuidCookie,
+  GetRecommendation,
+  getRecommendation,
+  isUserLoggedIn,
+  useRecommendation,
+} from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 import "../style/validatePassword.css";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../../store/slices/dataSlice";
+import { tripRecommendationPath } from "../../common/constants";
 
 export const ValidateEmail = ({}) => {
   const navigate = useNavigate();
@@ -15,17 +26,42 @@ export const ValidateEmail = ({}) => {
   const [genOtp, setGenOtp] = useState(false);
   const isFypFlow = window?.location?.search?.includes("fyp");
   const isAccDelFlow = window?.location?.search?.includes("deleteAccount");
+  const isFromTripTailor =
+    window?.location?.search?.includes("from=tripTailor");
   const [alert, setAlert] = useState("");
   const [error, setError] = useState("");
   const [successAlert, setSuccessAlert] = useState("");
   const [pin, setPin] = useState("");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const dispatch = useDispatch();
+  const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
+  const {
+    days,
+    mnth,
+    gender,
+    selectedStates,
+    country,
+    tripType,
+    pets,
+    hasFemale,
+    hasKids,
+    minValue,
+    maxValue,
+    currency,
+    modifiedCurrency,
+    slctdActsSet,
+    text,
+  } = userInfoCollected;
 
   useEffect(() => {
     if (isUserLoggedIn() && !isAccDelFlow) {
       window.location.href = "/";
     }
   }, []);
+
+  const NavigateTopath = ({ path }) => {
+    navigate(path);
+  };
 
   useEffect(() => {
     setTimeout(() => setAlert(""), 3000);
@@ -46,6 +82,38 @@ export const ValidateEmail = ({}) => {
             window.location.href = "/resetPassword";
           } else if (isAccDelFlow) {
             window.location.href = "/deleteAccount/validationAndConfirmation";
+          } else if (isFromTripTailor) {
+            try {
+              const dataRec = await getRecommendation();
+              dispatch(
+                setUserData({
+                  state: dataRec?.data?.jsonObj?.state,
+                  reasonForStateChoice: dataRec?.data?.jsonObj?.reason,
+                  area: dataRec?.data?.jsonObj?.["places_to_visit"],
+                  underhyped: dataRec?.data?.jsonObj?.["off_beat_places"],
+                  note: dataRec?.data?.jsonObj?.["precautions"],
+                  days,
+                  mnth,
+                  gender,
+                  selectedStates,
+                  country,
+                  tripType,
+                  pets,
+                  hasFemale,
+                  hasKids,
+                  minValue,
+                  maxValue,
+                  currency,
+                  modifiedCurrency,
+                  slctdActsSet,
+                  text,
+                  recomm: `${JSON.stringify(dataRec?.data?.jsonObj)}`,
+                })
+              );
+              NavigateTopath({ path: tripRecommendationPath });
+            } catch (e) {
+              console.log("error", e);
+            }
           } else {
             setAlert("login successful");
             window.location.href = "/tripTailor";

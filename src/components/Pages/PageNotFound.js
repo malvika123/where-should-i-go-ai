@@ -31,6 +31,7 @@ const PageNotFound = () => {
         className="img-404"
         src={img}
         alt="AI-powered travel planner recommending destinations"
+        loading="lazy"
       />
       <Footer />
     </div>

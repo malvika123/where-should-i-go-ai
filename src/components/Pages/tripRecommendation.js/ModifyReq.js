@@ -148,12 +148,14 @@ export const ModifyReq = () => {
                   className="img-mod"
                   src={img}
                   alt="AI-powered travel planner recommending destinations"
+                  loading="lazy"
                 ></img>
               ) : (
                 <img
                   className="img-mod"
                   src={img2}
                   alt="AI-powered travel planner recommending destinations"
+                  loading="lazy"
                 ></img>
               )}
             </div>

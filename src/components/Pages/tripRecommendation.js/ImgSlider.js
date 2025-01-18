@@ -57,6 +57,7 @@ const ImgSlider = ({ place, showMultipleSlides, classnm, textClassnm }) => {
             className="images"
             src={currImg}
             alt="AI-powered Personalized travel destinations planner recommending destinations"
+            loading="lazy"
           ></img>
           <p onClick={() => incImgIndex()}>
             <CiCircleChevRight className="rightbutton" />
@@ -86,6 +87,7 @@ const ImgSlider = ({ place, showMultipleSlides, classnm, textClassnm }) => {
                         className={classnm ? classnm : "images2"}
                         src={imageArr[i + currIndex]?.img}
                         alt="AI-powered travel planner recommending destinations"
+                        loading="lazy"
                       ></img>
                     </a>
                     {showMultipleSlides > 1 && (
