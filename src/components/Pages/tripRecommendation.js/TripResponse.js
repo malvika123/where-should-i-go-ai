@@ -84,30 +84,31 @@ const TripResponse = () => {
                 Discover the must-see destinations for your next unforgettable
                 adventure.
               </p>
-              {area?.map((elt) => {
-                return (
-                  <div className="idl-places-arr">
-                    <p className="idl-name">{elt.name} </p>
-                    <p className="idl-desc">{elt.description}</p>
-                    {elt.name && (
-                      <ImgSlider
-                        place={elt.name}
-                        showMultipleSlides={
-                          isSmallScreen
-                            ? 2
-                            : isMidScreen
-                            ? 3
-                            : ismidLargeScreen
-                            ? 4
-                            : 5
-                        }
-                        classnm="res-img"
-                        textClassnm="res-img-txt"
-                      />
-                    )}
-                  </div>
-                );
-              })}
+              {area &&
+                area?.map((elt) => {
+                  return (
+                    <div className="idl-places-arr">
+                      <p className="idl-name">{elt.name} </p>
+                      <p className="idl-desc">{elt.description}</p>
+                      {elt.name && (
+                        <ImgSlider
+                          place={elt.name}
+                          showMultipleSlides={
+                            isSmallScreen
+                              ? 2
+                              : isMidScreen
+                              ? 3
+                              : ismidLargeScreen
+                              ? 4
+                              : 5
+                          }
+                          classnm="res-img"
+                          textClassnm="res-img-txt"
+                        />
+                      )}
+                    </div>
+                  );
+                })}
               <p className="offbeat-text">
                 Off beat places <TbLocationSearch style={{ color: "pink" }} />
               </p>

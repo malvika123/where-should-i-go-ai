@@ -76,9 +76,10 @@ const AdditionalInfo = () => {
   }, []);
 
   useEffect(() => {
-    if (!isUserLoggedIn()) {
-      window.location.href = "/login?unauthorised=true&from=tripTailor";
-    } else if (processingData) {
+    if (processingData) {
+      if (!isUserLoggedIn()) {
+        window.location.href = "/login?unauthorised=true&from=tripTailor";
+      }
       const token = aTknCookie();
       const id = cuidCookie();
       const iv = ivCookie();
