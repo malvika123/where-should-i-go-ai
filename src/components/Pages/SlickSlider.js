@@ -57,7 +57,6 @@ const SlickSlider = () => {
                   index + 1
                 }`}
                 className="slickSlider"
-                loading="lazy"
               />
             )}
           </div>

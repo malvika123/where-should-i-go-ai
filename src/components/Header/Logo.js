@@ -7,7 +7,6 @@ const Logo = () => {
       className="logo"
       src={img}
       alt="AI-powered travel planner recommending destinations"
-      loading="lazy"
     />
   );
 };
