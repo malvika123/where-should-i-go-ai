@@ -51,7 +51,7 @@ export const ValidateEmail = ({}) => {
     modifiedCurrency,
     slctdActsSet,
     text,
-  } = userInfoCollected;
+  } = userInfoCollected || {};
 
   useEffect(() => {
     if (isUserLoggedIn() && !isAccDelFlow) {
