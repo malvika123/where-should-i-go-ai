@@ -255,7 +255,7 @@ const LandingPage = () => {
               </p>
             </li>
           </ul>
-          <section id="testimonials">
+          {/* <section id="testimonials">
             <div className="container">
               <h2 className="footer-text-head">What Travelers Are Saying</h2>
               <div className="testimonials">
@@ -323,7 +323,7 @@ const LandingPage = () => {
                 </marquee>
               </div>
             </div>
-          </section>
+          </section> */}
 
           <p className="footer-text-head">Ready to Start Your Journey?</p>
           <p className="footer-text-sub">
