@@ -28,8 +28,21 @@ import { JoinUs } from "./components/Pages/JoinUs";
 import { DeleteAccountAndVerification } from "./components/Pages/deleteAccount/DeleteAccountAndVerification";
 import { PrivacyPolicy } from "./components/Pages/PrivacyPolicy";
 import { Faq } from "./components/Pages/Faq";
+import { useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  //wake up call to servers
+  useEffect(() => {
+    const wakeUser = async () => {
+      try {
+        await axios.post("api/wakeup");
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    wakeUser();
+  }, []);
   return (
     <div className="App">
       <Routes>
