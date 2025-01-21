@@ -56,7 +56,7 @@ const Itinerary = () => {
       email: userInfo?.email || "malvikasen555@gmail.com",
       message: JSON.stringify(itineraryObjData),
     };
-    fetch("/email/sendEmail", {
+    fetch("/api/email/sendEmail", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
