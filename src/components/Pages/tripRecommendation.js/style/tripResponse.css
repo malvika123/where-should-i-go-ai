@@ -148,10 +148,12 @@
     width: 20vw;
 }
 
-.prec-note {
+.prec-note,.air-qual{
     font-size: 18px;
     font-weight: lighter;
-    margin-bottom: 40px;
+}
+
+.prec-note {
     background-color: yellow;
 }
 

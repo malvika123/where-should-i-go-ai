@@ -14,6 +14,7 @@ import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
 import { isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 import { useMediaQuery } from "react-responsive";
+import axios from "axios";
 
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -26,10 +27,28 @@ const TripResponse = () => {
   const isMidScreen = useMediaQuery({ query: "(max-width: 1000px)" });
   const ismidLargeScreen = useMediaQuery({ query: "(max-width: 1360px)" });
   const isSmallScreen = useMediaQuery({ query: "(max-width: 765px)" });
+  const [aqiInfo, setAqiInfo] = useState({});
 
   if (!isUserLoggedIn()) {
     window.location.href = "/login";
   }
+
+  useEffect(() => {
+    const getAqi = async () => {
+      try {
+        const data = await axios.get("/api/loc/aqi", {
+          params: {
+            place: state,
+          },
+        });
+        console.log("hello", data?.data);
+        setAqiInfo(data?.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getAqi();
+  }, []);
 
   const navigate = useNavigate();
   const NavigateTopath = ({ path }) => {
@@ -148,6 +167,19 @@ const TripResponse = () => {
               </p>
               <span className="prec-note">{note}</span>
             </div>
+            <section style={{ marginBottom: "30px" }}>
+              <p className="prec-text">AQI information</p>
+              <p className="idl-sub-text">
+                check the air quality index of the recommended place
+              </p>
+              <p className="air-qual">AQI: {aqiInfo?.aqi}</p>
+              <p className="air-qual">
+                AQI category:{" "}
+                <span style={{ backgroundColor: "orange", color: "white" }}>
+                  {aqiInfo?.category}
+                </span>
+              </p>
+            </section>
             <div className="line"></div>
             <div>
               <p>
