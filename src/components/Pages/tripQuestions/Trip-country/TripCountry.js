@@ -98,14 +98,17 @@ const TripCountry = () => {
       setAutoComplete(filterList.slice(0, 4));
       delayDebounceFn = setTimeout(async () => {
         try {
-          const data = await fetch("/api/loc/authz");
-          if (data.status !== 200) throw data;
-          const res = await data.json();
+          const getStatev1 = false;
+          if (getStatev1) {
+            const data = await fetch("/api/loc/authz");
+            if (data.status !== 200) throw data;
+            const res = await data.json();
+          }
           const stateData = await axios.post(
             "/api/loc/getState",
             {
               country: country,
-              authz: res,
+              authz: getStatev1 ? res : "",
             },
             {
               headers: {
@@ -113,8 +116,10 @@ const TripCountry = () => {
               },
             }
           );
+
           if (stateData.data.length <= 0)
             setErr("Please enter a valid country");
+
           setStates(stateData.data);
         } catch (error) {
           setErr("Try typing the country again");
