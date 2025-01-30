@@ -14,6 +14,7 @@ import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
 import { isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 import { useMediaQuery } from "react-responsive";
+import { MdOutlineDangerous } from "react-icons/md";
 import axios from "axios";
 
 const TripResponse = () => {
@@ -23,6 +24,10 @@ const TripResponse = () => {
   );
   const area = useSelector((state) => state?.data?.userData?.area);
   const underhyped = useSelector((state) => state?.data?.userData?.underhyped);
+  const avoidPlaces = useSelector((state) => {
+    console.log(state);
+    return state?.data?.userData?.avoidPlaces;
+  });
   const note = useSelector((state) => state?.data?.userData?.note);
   const isMidScreen = useMediaQuery({ query: "(max-width: 1000px)" });
   const ismidLargeScreen = useMediaQuery({ query: "(max-width: 1360px)" });
@@ -179,6 +184,46 @@ const TripResponse = () => {
                   {aqiInfo?.category}
                 </span>
               </p>
+            </section>
+            <section>
+              <p className="offbeat-text">
+                Places to avoid{" "}
+                <MdOutlineDangerous
+                  style={{
+                    color: "red",
+                    backgroundColor: "white",
+                    borderRadius: "20px",
+                  }}
+                />
+              </p>
+              <p className="idl-sub-text">
+                Discover the places to avoid so you can travel smarter, stay
+                safe, and make the most of your adventures.
+              </p>
+              {avoidPlaces?.map((elt) => {
+                return (
+                  <div>
+                    <p className="off-name">{elt.name} </p>
+                    <p className="off-desc">{elt.reason}</p>
+                    {elt.name && (
+                      <ImgSlider
+                        place={elt.name}
+                        showMultipleSlides={
+                          isSmallScreen
+                            ? 2
+                            : isMidScreen
+                            ? 3
+                            : ismidLargeScreen
+                            ? 4
+                            : 5
+                        }
+                        classnm="res-img"
+                        textClassnm="res-img-txt"
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </section>
             <div className="line"></div>
             <div>
