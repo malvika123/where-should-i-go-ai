@@ -373,7 +373,14 @@ const TripResponse = () => {
                 Stay informed and prepared with essential safety tips for your
                 journey.
               </p>
-              <span className="prec-note">{note}</span>
+              {note.split(".").map((e) => {
+                return (
+                  <div>
+                    <span className="prec-note">{e}</span>
+                  </div>
+                );
+              })}
+              <span className="prec-note"></span>
             </div>
 
             <section>
