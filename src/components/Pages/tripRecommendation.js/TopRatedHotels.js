@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { MdOutlineLocalHotel } from "react-icons/md";
+
 import axios from "axios";
 
 export const TopRatedHotels = ({ place }) => {
@@ -41,6 +43,8 @@ export const TopRatedHotels = ({ place }) => {
                 paddingRight: "1%",
                 paddingTop: "1%",
                 paddingBottom: "1%",
+                border: "solid 1px",
+                borderRadius: "10px",
               }}
             >
               <p
@@ -51,11 +55,14 @@ export const TopRatedHotels = ({ place }) => {
               >
                 <a
                   target="_blank"
-                  href={elt?.link}
+                  href={`https://www.google.com/maps?q=${elt?.lat},${elt?.lng}`}
                   style={{
                     color: "yellow",
                   }}
                 >
+                  <MdOutlineLocalHotel />
+
+                  {"  "}
                   {elt?.name}
                 </a>
               </p>

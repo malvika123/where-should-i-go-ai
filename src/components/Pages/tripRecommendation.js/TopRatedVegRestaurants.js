@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { PiPlantDuotone } from "react-icons/pi";
+
 import axios from "axios";
 
 export const TopRatedVegRestaurants = ({ place }) => {
@@ -35,12 +37,14 @@ export const TopRatedVegRestaurants = ({ place }) => {
                 width: "230px",
                 maxHeight: "250px",
                 marginRight: "20px",
-                backgroundColor: "green",
-                color: "white",
+                backgroundColor: "rgb(165, 198, 135)",
+                color: "black",
                 paddingLeft: "1%",
                 paddingRight: "1%",
                 paddingTop: "1%",
                 paddingBottom: "1%",
+                borderRadius: "10px",
+                border: "solid green 1px",
               }}
             >
               <p
@@ -51,11 +55,13 @@ export const TopRatedVegRestaurants = ({ place }) => {
               >
                 <a
                   target="_blank"
-                  href={elt?.link}
+                  href={`https://www.google.com/maps?q=${elt?.lat},${elt?.lng}`}
                   style={{
-                    color: "yellow",
+                    color: "green",
                   }}
                 >
+                  <PiPlantDuotone />
+                  {"  "}
                   {elt?.name}
                 </a>
               </p>
@@ -63,19 +69,19 @@ export const TopRatedVegRestaurants = ({ place }) => {
                 style={{
                   width: "100%",
                   height: "1px",
-                  backgroundColor: "white",
+                  backgroundColor: "black",
                   marginBottom: "8px",
                 }}
               ></div>
               <p style={{ fontSize: "12px", flexWrap: "wrap" }}>
-                <span style={{ color: "pink" }}>Address:</span>{" "}
+                <span style={{ color: "green" }}>Address:</span>{" "}
                 {elt?.formatted_address}
               </p>
               <p style={{ fontSize: "12px" }}>
-                <span style={{ color: "pink" }}>Rating:</span> {elt?.rating}
+                <span style={{ color: "green" }}>Rating:</span> {elt?.rating}
               </p>
               <p style={{ fontSize: "12px" }}>
-                <span style={{ color: "pink" }}>Total user rating:</span>{" "}
+                <span style={{ color: "green" }}>Total user rating:</span>{" "}
                 {elt?.user_ratings_total}
               </p>
             </div>

@@ -38,6 +38,10 @@ const TripResponse = () => {
   const isSmallScreen = useMediaQuery({ query: "(max-width: 765px)" });
   const [aqiInfo, setAqiInfo] = useState({});
 
+  const [selectedAreaVideo, setSelectedAreaVideo] = useState();
+  const [selectedVideoLodge, setSelectedLodge] = useState();
+  const [selectedAreaRestaurant, setSelectedRestaurant] = useState();
+
   const [showAreaVid, setShowAreaVid] = useState(false);
   const [showunderhypedVid, setShowUnderhypedVid] = useState(false);
 
@@ -51,6 +55,42 @@ const TripResponse = () => {
   if (!isUserLoggedIn()) {
     window.location.href = "/login";
   }
+
+  const clickedArea = (e) => {
+    const name = e.target.innerText.replace(">> Show videos of ", "");
+    setSelectedAreaVideo(name);
+    setShowAreaVid((prev) => !prev);
+  };
+
+  const clickedAreaLodge = (e) => {
+    const name = e.target.innerText.replace(">> Top rated Lodge of ", "");
+    setSelectedLodge(name);
+    setShowAreaLodge((prev) => !prev);
+  };
+
+  const clickedAreaRestaurants = (e) => {
+    const name = e.target.innerText.replace(">> Top rated Restaurants of ", "");
+    setSelectedRestaurant(name);
+    setShowAreaRestaurants((prev) => !prev);
+  };
+
+  const clickedUnderHypedArea = (e) => {
+    const name = e.target.innerText.replace(">> Show videos of ", "");
+    setSelectedAreaVideo(name);
+    setShowUnderhypedVid((prev) => !prev);
+  };
+
+  const clickedUnderHypedAreaLodge = (e) => {
+    const name = e.target.innerText.replace(">> Top rated Lodge of ", "");
+    setSelectedLodge(name);
+    setShowUnderhypedLodge((prev) => !prev);
+  };
+
+  const clickedUnderHypedAreaRestaurants = (e) => {
+    const name = e.target.innerText.replace(">> Top rated Restaurants of ", "");
+    setSelectedRestaurant(name);
+    setShowUnderhypedRestaurants((prev) => !prev);
+  };
 
   useEffect(() => {
     const getAqi = async () => {
@@ -157,65 +197,73 @@ const TripResponse = () => {
                           textClassnm="res-img-txt"
                         />
                       )}
-                      <div onClick={() => setShowAreaVid((prev) => !prev)}>
+                      <div>
                         <p
                           style={{
-                            color: "brown",
+                            color: "rgb(49, 87, 164)",
                             fontSize: "17px",
                             cursor: "pointer",
                           }}
+                          onClick={(e) => clickedArea(e)}
                         >
-                          {">> "}Show videos
+                          {">> "}Show videos of {elt.name}
                         </p>
-                        {showAreaVid && elt.name && (
-                          <ShortsSlider place={elt.name}></ShortsSlider>
-                        )}
+                        {showAreaVid &&
+                          elt.name &&
+                          selectedAreaVideo === elt.name && (
+                            <ShortsSlider place={elt.name}></ShortsSlider>
+                          )}
                       </div>
 
-                      <section
-                        onClick={() => setShowAreaLodge((prev) => !prev)}
-                      >
+                      <section>
                         <p
                           style={{
-                            color: "brown",
+                            color: "rgb(49, 87, 164)",
                             fontSize: "17px",
                             cursor: "pointer",
                           }}
+                          onClick={(e) => clickedAreaLodge(e)}
                         >
-                          {">> "}Top rated Lodge
+                          {">> "}Top rated Lodge of {elt.name}
                         </p>
-                        {showAreaLodge && (
+                        {showAreaLodge && selectedVideoLodge === elt.name && (
                           <TopRatedHotels place={elt.name}></TopRatedHotels>
                         )}
                       </section>
-                      <section
-                        onClick={() => setShowAreaRestaurants((prev) => !prev)}
-                        style={{ marginBottom: "2%" }}
-                      >
+                      <section style={{ marginBottom: "2%" }}>
                         <p
                           style={{
-                            color: "brown",
+                            color: "rgb(49, 87, 164)",
                             fontSize: "17px",
                             cursor: "pointer",
                           }}
+                          onClick={(e) => clickedAreaRestaurants(e)}
                         >
-                          {">> "}Top rated Restaurants
+                          {">> "}Top rated Restaurants of {elt.name}
                         </p>
-                        {showAreaRestaurants && <span>Veg</span>}
+                        {showAreaRestaurants &&
+                          selectedAreaRestaurant === elt.name && (
+                            <span style={{ color: "green" }}>Veg</span>
+                          )}
 
-                        {showAreaRestaurants && (
-                          <TopRatedVegRestaurants
-                            place={elt.name}
-                          ></TopRatedVegRestaurants>
-                        )}
+                        {showAreaRestaurants &&
+                          selectedAreaRestaurant === elt.name && (
+                            <TopRatedVegRestaurants
+                              place={elt.name}
+                            ></TopRatedVegRestaurants>
+                          )}
 
-                        {showAreaRestaurants && <span>Non-Veg</span>}
+                        {showAreaRestaurants &&
+                          selectedAreaRestaurant === elt.name && (
+                            <span style={{ color: "red" }}>Non-Veg</span>
+                          )}
 
-                        {showAreaRestaurants && (
-                          <TopRatedNonVegRestaurants
-                            place={elt.name}
-                          ></TopRatedNonVegRestaurants>
-                        )}
+                        {showAreaRestaurants &&
+                          selectedAreaRestaurant === elt.name && (
+                            <TopRatedNonVegRestaurants
+                              place={elt.name}
+                            ></TopRatedNonVegRestaurants>
+                          )}
                       </section>
                     </div>
                   );
@@ -247,66 +295,73 @@ const TripResponse = () => {
                         textClassnm="res-img-txt"
                       />
                     )}
-                    <div onClick={() => setShowUnderhypedVid((prev) => !prev)}>
+                    <div>
                       <p
                         style={{
-                          color: "brown",
+                          color: "rgb(49, 87, 164)",
                           fontSize: "17px",
                           cursor: "pointer",
                         }}
+                        onClick={(e) => clickedUnderHypedArea(e)}
                       >
-                        {">> "}Show videos ...
+                        {">> "}Show videos of {elt.name}
                       </p>
-                      {showunderhypedVid && elt.name && (
-                        <ShortsSlider place={elt.name}></ShortsSlider>
-                      )}
+                      {showunderhypedVid &&
+                        elt.name &&
+                        selectedAreaVideo === elt.name && (
+                          <ShortsSlider place={elt.name}></ShortsSlider>
+                        )}
                     </div>
-                    <section
-                      onClick={() => setShowUnderhypedLodge((prev) => !prev)}
-                    >
+                    <section>
                       <p
                         style={{
-                          color: "brown",
+                          color: "rgb(49, 87, 164)",
                           fontSize: "17px",
                           cursor: "pointer",
                         }}
+                        onClick={(e) => clickedUnderHypedAreaLodge(e)}
                       >
-                        {">> "}Top rated Lodge
+                        {">> "}Top rated Lodge of {elt.name}
                       </p>
-                      {showunderhypedLodge && (
-                        <TopRatedHotels place={elt.name}></TopRatedHotels>
-                      )}
+                      {showunderhypedLodge &&
+                        selectedVideoLodge === elt.name && (
+                          <TopRatedHotels place={elt.name}></TopRatedHotels>
+                        )}
                     </section>
-                    <section
-                      onClick={() =>
-                        setShowUnderhypedRestaurants((prev) => !prev)
-                      }
-                      style={{ marginBottom: "2%" }}
-                    >
+                    <section style={{ marginBottom: "2%" }}>
                       <p
                         style={{
-                          color: "brown",
+                          color: "rgb(49, 87, 164)",
                           fontSize: "17px",
                           cursor: "pointer",
                         }}
+                        onClick={(e) => clickedUnderHypedAreaRestaurants(e)}
                       >
-                        {">> "}Top rated Restaurants
+                        {">> "}Top rated Restaurants of {elt.name}
                       </p>
-                      {showunderhypedRestaurants && <span>Veg</span>}
+                      {showunderhypedRestaurants &&
+                        selectedAreaRestaurant === elt.name && (
+                          <span style={{ color: "green" }}>Veg</span>
+                        )}
 
-                      {showunderhypedRestaurants && (
-                        <TopRatedVegRestaurants
-                          place={elt.name}
-                        ></TopRatedVegRestaurants>
-                      )}
+                      {showunderhypedRestaurants &&
+                        selectedAreaRestaurant === elt.name && (
+                          <TopRatedVegRestaurants
+                            place={elt.name}
+                          ></TopRatedVegRestaurants>
+                        )}
 
-                      {showunderhypedRestaurants && <span>Non-Veg</span>}
+                      {showunderhypedRestaurants &&
+                        selectedAreaRestaurant === elt.name && (
+                          <span style={{ color: "red" }}>Non-Veg</span>
+                        )}
 
-                      {showunderhypedRestaurants && (
-                        <TopRatedNonVegRestaurants
-                          place={elt.name}
-                        ></TopRatedNonVegRestaurants>
-                      )}
+                      {showunderhypedRestaurants &&
+                        selectedAreaRestaurant === elt.name && (
+                          <TopRatedNonVegRestaurants
+                            place={elt.name}
+                          ></TopRatedNonVegRestaurants>
+                        )}
                     </section>
                   </div>
                 );
