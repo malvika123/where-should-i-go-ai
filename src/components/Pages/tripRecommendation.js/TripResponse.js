@@ -51,8 +51,15 @@ const TripResponse = () => {
   const [showAreaRestaurants, setShowAreaRestaurants] = useState(false);
   const [showunderhypedRestaurants, setShowUnderhypedRestaurants] =
     useState(false);
-
-  if (!isUserLoggedIn()) {
+  const skippedLogin = localStorage.getItem("skippedLogin");
+  const isLoginSkipped = () => {
+    const timeNow = Math.floor(Date.now() / 1000)?.toString();
+    if (skippedLogin > timeNow) {
+      return true;
+    }
+    return false;
+  };
+  if (!isLoginSkipped() && !isUserLoggedIn()) {
     window.location.href = "/login";
   }
 
@@ -93,6 +100,7 @@ const TripResponse = () => {
   };
 
   useEffect(() => {
+    console.log("in");
     const getAqi = async () => {
       try {
         const data = await axios.get("/api/loc/aqi", {

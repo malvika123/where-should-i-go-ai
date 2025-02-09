@@ -7,29 +7,102 @@ import { PasswordInputField } from "./PasswordInputField";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert } from "./Alert";
-import { isUserLoggedIn } from "../../common/utils";
+import { getRecommendation, isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
+import { setUserData } from "../../store/slices/dataSlice";
+import { useDispatch } from "react-redux";
+import { tripRecommendationPath } from "../../common/constants";
 
 const Login = () => {
   const navigate = useNavigate();
   const navigateTopath = (path) => {
+    console.log("navigate", path);
     navigate(path);
   };
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState(userInfo?.email);
   const [password, setPassword] = useState();
   const [disableCntBtn, setDisableCntBtn] = useState(true);
   const unauthorisedUser =
     window.location?.search.includes("unauthorised=true");
+  const fromTripTailor = window.location?.search.includes("from=tripTailor");
   const [alert, setAlert] = useState(
     unauthorisedUser ? "Your session is expired. Please login." : ""
   );
+
+  const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
+  const {
+    days,
+    mnth,
+    gender,
+    selectedStates,
+    country,
+    tripType,
+    pets,
+    hasFemale,
+    hasKids,
+    minValue,
+    maxValue,
+    currency,
+    modifiedCurrency,
+    slctdActsSet,
+    text,
+  } = userInfoCollected || {};
   const searchParams = window.location?.search;
+
   useEffect(() => {
     if (isUserLoggedIn()) {
       window.location.href = "/";
     }
   }, []);
+
+  const clickedLoginSkip = () => {
+    if (unauthorisedUser && fromTripTailor) {
+      const now = Date.now(); // Current time in milliseconds
+      const twelveHoursLater = now + 1 * 60 * 60 * 1000; // Add 12 hours in milliseconds
+      const epochTime = Math.floor(twelveHoursLater / 1000);
+      localStorage.setItem("skippedLogin", epochTime);
+
+      const dataRec = async () => {
+        try {
+          const data = await getRecommendation();
+
+          dispatch(
+            setUserData({
+              state: data?.data?.jsonObj?.state,
+              reasonForStateChoice: data?.data?.jsonObj?.reason,
+              area: data?.data?.jsonObj?.["places_to_visit"],
+              underhyped: data?.data?.jsonObj?.["off_beat_places"],
+              note: data?.data?.jsonObj?.["precautions"],
+              days,
+              mnth,
+              gender,
+              selectedStates,
+              country,
+              tripType,
+              pets,
+              hasFemale,
+              hasKids,
+              minValue,
+              maxValue,
+              currency,
+              modifiedCurrency,
+              slctdActsSet,
+              text,
+              recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
+            })
+          );
+          console.log(data);
+          navigateTopath("/tripRecommendation");
+        } catch (e) {
+          console.log("error", e);
+        }
+      };
+      dataRec();
+    }
+  };
 
   const handleOnClick = (e) => {
     localStorage.setItem("userInfo", JSON.stringify({ email }));
@@ -125,6 +198,11 @@ const Login = () => {
                 </span>
               </a>{" "}
             </span>{" "}
+            {unauthorisedUser && fromTripTailor && (
+              <p className="skip" onClick={() => clickedLoginSkip()}>
+                Skip
+              </p>
+            )}
           </div>
         </div>
       </div>

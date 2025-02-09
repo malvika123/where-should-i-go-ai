@@ -214,6 +214,16 @@
     font-size: 16px;
 }
 
+.skip{
+    font-size: 16px;
+    color:rgb(98, 26, 26);
+    margin-top:20px;
+    margin-bottom: 2%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 @media (max-width:1200px) {
     .input-field-email,.input-field-pass,.input-field-pass-full{
         font-size: 14px;
@@ -239,7 +249,7 @@
    .forgot-password{
     font-size: 20px;
    }
-   .new-site-txt{
+   .new-site-txt,.skip{
     font-size: 20px;
    }
    .register-link{
@@ -272,7 +282,7 @@
     .forgot-password{
      font-size: 20px;
     }
-    .new-site-txt{
+    .new-site-txt,.skip{
      font-size: 18px;
     }
     .register-link{
@@ -304,7 +314,7 @@
     .forgot-password{
      font-size: 18px;
     }
-    .new-site-txt{
+    .new-site-txt,.skip{
      font-size: 20px;
     }
     .register-link{
@@ -341,7 +351,7 @@
     .forgot-password{
      font-size: 16px;
     }
-    .new-site-txt{
+    .new-site-txt,.skip{
      font-size: 14px;
     }
     .register-link{

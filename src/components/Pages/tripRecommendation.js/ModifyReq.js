@@ -39,7 +39,15 @@ export const ModifyReq = () => {
   const [emailSent, setEmailSent] = useState("");
   const itineraryPath = window?.location?.search?.includes("itinerary");
 
-  if (!isUserLoggedIn()) {
+  const skippedLogin = localStorage.getItem("skippedLogin");
+  const isLoginSkipped = () => {
+    const timeNow = Math.floor(Date.now() / 1000)?.toString();
+    if (skippedLogin > timeNow) {
+      return true;
+    }
+    return false;
+  };
+  if (!isLoginSkipped() && !isUserLoggedIn()) {
     window.location.href = "/login";
   }
 

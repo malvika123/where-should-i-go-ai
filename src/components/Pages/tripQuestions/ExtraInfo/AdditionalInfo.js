@@ -75,9 +75,19 @@ const AdditionalInfo = () => {
     setSessionValid(isUserSessionValid());
   }, []);
 
+  const skippedLogin = localStorage.getItem("skippedLogin");
+  const isLoginSkipped = () => {
+    const timeNow = Math.floor(Date.now() / 1000);
+    console.log(skippedLogin, skippedLogin < timeNow);
+    if (skippedLogin > timeNow) {
+      return true;
+    }
+    return false;
+  };
+
   useEffect(() => {
     if (processingData) {
-      if (!isUserLoggedIn()) {
+      if (!isLoginSkipped() && !isUserLoggedIn()) {
         window.location.href = "/login?unauthorised=true&from=tripTailor";
       }
       const token = aTknCookie();

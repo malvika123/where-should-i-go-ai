@@ -22,8 +22,17 @@ export const PlacePallet = ({
     setSelectedId(id);
   };
 
-  if (!isUserLoggedIn()) {
-    window.location.href = "/login";
+  const skippedLogin = localStorage.getItem("skippedLogin");
+  const isLoginSkipped = () => {
+    const timeNow = Math.floor(Date.now() / 1000)?.toString();
+    if (skippedLogin > timeNow) {
+      return true;
+    }
+    return false;
+  };
+
+  if (!isLoginSkipped() && !isUserLoggedIn()) {
+    window.location.href = "?unauthorised=true&from=tripTailor";
   }
   const clickAction = () => {
     if (selectedPlace) {
