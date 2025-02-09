@@ -14,24 +14,46 @@ import ShowFinalInfo from "./tripQuestions/ShowFinalInfo/ShowFinalInfo";
 import AdditionalInfo from "./tripQuestions/ExtraInfo/AdditionalInfo";
 
 const TripTailor = () => {
+  const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
+  const {
+    days: day,
+    mnth: month,
+    gender: gen,
+    selectedStates: selState,
+    country: cntry,
+    tripType: trpType,
+    pets: pts,
+    hasFemale: female,
+    hasKids: kids,
+    minValue: minVal,
+    maxValue: maxVal,
+    currency: cur,
+    modifiedCurrency: modCur,
+    slctdActsSet: sltActs,
+    text: txt,
+  } = userInfoCollected || {};
+
+  console.log("opo", userInfoCollected);
   const [progress, setProgress] = useState(10);
   const [nextPath, setNextPath] = useState("/tripTailor");
   const [page, setPage] = useState(0);
-  const [days, setDays] = useState(2);
-  const [mnth, setMnth] = useState("");
-  const [gender, setGender] = useState("");
-  const [country, setCountry] = useState("");
+  const [days, setDays] = useState(day || 2);
+  const [mnth, setMnth] = useState(month || "");
+  const [gender, setGender] = useState(gen || "");
+  const [country, setCountry] = useState(cntry || "");
   const [selectedStates, setSelectedStates] = useState([]);
-  const [tripType, setTripType] = useState("");
-  const [pets, setPets] = useState(false);
-  const [hasFemale, setHasFemale] = useState();
-  const [hasKids, setHasKids] = useState();
-  const [minValue, setMinValue] = useState();
-  const [maxValue, setMaxValue] = useState();
-  const [currency, setCurrency] = useState();
-  const [modifiedCurrency, setModiefiedCurrency] = useState();
-  const [slctdActsSet, setSlctdActsSet] = useState(new Set());
-  const [text, setText] = useState("");
+  const [tripType, setTripType] = useState(trpType || "");
+  const [pets, setPets] = useState(pts || false);
+  const [hasFemale, setHasFemale] = useState(female || null);
+  const [hasKids, setHasKids] = useState(kids || null);
+  const [minValue, setMinValue] = useState(minVal || null);
+  const [maxValue, setMaxValue] = useState(maxVal || null);
+  const [currency, setCurrency] = useState(cur || null);
+  const [modifiedCurrency, setModiefiedCurrency] = useState(modCur || null);
+  const [slctdActsSet, setSlctdActsSet] = useState(
+    Object.values(sltActs?.split(",") || []) || new Set()
+  );
+  const [text, setText] = useState(txt || "");
   const [states, setStates] = useState();
 
   return (

@@ -56,7 +56,9 @@ const AdditionalInfo = () => {
       days,
       mnth,
       gender,
-      selectedStates,
+      selectedStates: `${Array.from(selectedStates || []).map(
+        (elt) => `${elt}, `
+      )}`,
       country,
       tripType,
       pets,
@@ -66,7 +68,7 @@ const AdditionalInfo = () => {
       maxValue,
       currency,
       modifiedCurrency,
-      slctdActsSet,
+      slctdActsSet: `${Array.from(slctdActsSet).map((elt) => `${elt}, `)}`,
       text,
     })
   );
