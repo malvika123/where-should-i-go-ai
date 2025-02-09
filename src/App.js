@@ -35,7 +35,21 @@ function App() {
   //wake up call to servers
   useEffect(() => {
     const wakeUser = async () => {
+      const skippedLogin = localStorage.getItem("skippedLogin");
+      const hidePrivacyPolicyForTime = localStorage.getItem(
+        "hidePrivacyPolicyForTime"
+      );
+      const clearCache = () => {
+        const timeNow = Math.floor(Date.now() / 1000)?.toString();
+        if (skippedLogin < timeNow) {
+          localStorage.removeItem("skippedLogin");
+        }
+        if (hidePrivacyPolicyForTime < timeNow) {
+          localStorage.removeItem("hidePrivacyPolicyForTime");
+        }
+      };
       try {
+        clearCache();
         await axios.post("api/wakeup");
       } catch (e) {
         console.log(e);

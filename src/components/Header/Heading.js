@@ -24,6 +24,7 @@ const Heading = ({ name = "" }) => {
       } finally {
         localStorage.removeItem("userInfo");
         localStorage.removeItem("hidePrivacyPolicyForTime");
+        localStorage.removeItem("skippedLogin");
         localStorage.removeItem("collectedInfo");
         window.location.reload();
       }
