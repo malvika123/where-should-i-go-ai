@@ -33,7 +33,6 @@ const TripTailor = () => {
     text: txt,
   } = userInfoCollected || {};
 
-  console.log("opo", userInfoCollected);
   const [progress, setProgress] = useState(10);
   const [nextPath, setNextPath] = useState("/tripTailor");
   const [page, setPage] = useState(0);

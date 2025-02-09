@@ -100,7 +100,6 @@ const TripResponse = () => {
   };
 
   useEffect(() => {
-    console.log("in");
     const getAqi = async () => {
       try {
         const data = await axios.get("/api/loc/aqi", {
