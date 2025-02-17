@@ -36,7 +36,7 @@ const ShowFinalInfo = () => {
   } = useContext(AppContext);
 
   useEffect(() => {
-    setPage(8);
+    setPage(9);
   }, []);
 
   const NavigateTopath = ({ path }) => {

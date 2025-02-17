@@ -9,7 +9,7 @@ const TripInfo = () => {
   const { setProgress, setNextPath, setPage } = useContext(AppContext);
 
   useEffect(() => {
-    setPage(4);
+    setPage(5);
   }, []);
   return (
     <div>

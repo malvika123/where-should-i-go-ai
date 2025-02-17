@@ -65,7 +65,7 @@ const Gender = () => {
       <TripPlannerFooter
         showNext={showNextButton}
         setNextPath={setNextPath}
-        nextPath={"/country"}
+        nextPath={"/userPlace"}
         backPath={"/tripTailor"}
         setProgress={setProgress}
         setProgressVal={36}

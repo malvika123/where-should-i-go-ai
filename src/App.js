@@ -30,6 +30,7 @@ import { PrivacyPolicy } from "./components/Pages/PrivacyPolicy";
 import { Faq } from "./components/Pages/Faq";
 import { useEffect } from "react";
 import axios from "axios";
+import UserPlace from "./components/Pages/tripQuestions/UserPlace/UserPlace";
 
 function App() {
   //wake up call to servers
@@ -85,6 +86,7 @@ function App() {
         <Route exact path="/deleteAccount" element={<DeleteAccount />} />
         <Route exact path="/joinUs" element={<JoinUs />} />
         <Route exact path="/privacyPolicy" element={<PrivacyPolicy />} />
+        <Route exact path="/userPlace" element={<UserPlace />} />
         <Route exact path="/faq" element={<Faq />} />
         <Route
           path="/deleteAccount/validationAndConfirmation"

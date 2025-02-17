@@ -23,6 +23,7 @@ import { TopRatedNonVegRestaurants } from "./TopRatedNonVegRestaurants";
 
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
+  const userBase = useSelector((state) => state?.data?.userData?.userBase);
   const reasonState = useSelector(
     (state) => state?.data?.userData?.reasonForStateChoice
   );
@@ -59,6 +60,58 @@ const TripResponse = () => {
     }
     return false;
   };
+
+  const [calDist, setCalDistMap] = useState({});
+
+  useEffect(() => {
+    area?.map(async (elt) => {
+      try {
+        const dist = await getDistance(elt.name);
+
+        setCalDistMap((prevState) => {
+          return {
+            ...prevState,
+            [elt.name]: dist,
+          };
+        });
+        console.log("opopo", elt.name, calDist);
+      } catch (er) {}
+    });
+
+    underhyped?.map(async (elt) => {
+      try {
+        const dist = await getDistance(elt.name);
+
+        setCalDistMap((prevState) => {
+          return {
+            ...prevState,
+            [elt.name]: dist,
+          };
+        });
+        console.log("opopo1", elt.name, calDist);
+      } catch (er) {}
+    });
+  }, []);
+
+  const getDistance = async (place) => {
+    const getDist = async () => {
+      console.log(userBase, "opo");
+      try {
+        const data = await axios.post("/api/loc/caldistance", {
+          origin: "bangalore" || userBase,
+          destination: place,
+        });
+        const distance = data?.data?.distance;
+        const duration = data?.data?.duration;
+        return { distance, duration };
+      } catch (e) {
+        console.log(e, "erroru");
+      }
+    };
+    const data = getDist();
+    return data;
+  };
+
   if (!isLoginSkipped() && !isUserLoggedIn()) {
     window.location.href = "/login";
   }
@@ -186,7 +239,11 @@ const TripResponse = () => {
                 area?.map((elt) => {
                   return (
                     <div className="idl-places-arr">
-                      <p className="idl-name">{elt.name} </p>
+                      <p className="idl-name">
+                        {elt.name} (Distance from origin:{" "}
+                        {calDist?.[elt.name]?.distance}, Duration :
+                        {calDist?.[elt.name]?.duration} )
+                      </p>
                       <p className="idl-desc">{elt.description}</p>
                       {elt.name && (
                         <ImgSlider
@@ -221,7 +278,6 @@ const TripResponse = () => {
                             <ShortsSlider place={elt.name}></ShortsSlider>
                           )}
                       </div>
-
                       <section>
                         <p
                           style={{
@@ -284,7 +340,11 @@ const TripResponse = () => {
               {underhyped?.map((elt) => {
                 return (
                   <div>
-                    <p className="off-name">{elt.name} </p>
+                    <p className="off-name">
+                      {elt.name} (Distance from origin:{" "}
+                      {calDist?.[elt.name]?.distance}, Duration :
+                      {calDist?.[elt.name]?.duration} )
+                    </p>
                     <p className="off-desc">{elt.description}</p>
                     {elt.name && (
                       <ImgSlider

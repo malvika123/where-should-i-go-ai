@@ -12,6 +12,7 @@ import TripType from "./tripQuestions/TripActivityType/TripType";
 import { AppContext } from "../context/AppContext";
 import ShowFinalInfo from "./tripQuestions/ShowFinalInfo/ShowFinalInfo";
 import AdditionalInfo from "./tripQuestions/ExtraInfo/AdditionalInfo";
+import UserPlace from "./tripQuestions/UserPlace/UserPlace";
 
 const TripTailor = () => {
   const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
@@ -31,6 +32,8 @@ const TripTailor = () => {
     modifiedCurrency: modCur,
     slctdActsSet: sltActs,
     text: txt,
+    userBase: usrBase,
+    distanceRange: dstRange,
   } = userInfoCollected || {};
 
   const [progress, setProgress] = useState(10);
@@ -50,10 +53,13 @@ const TripTailor = () => {
   const [currency, setCurrency] = useState(cur || null);
   const [modifiedCurrency, setModiefiedCurrency] = useState(modCur || null);
   const [slctdActsSet, setSlctdActsSet] = useState(
-    Object.values(sltActs?.split(",") || []) || new Set()
+    (sltActs?.length > 0 && Object.values(sltActs?.split(",") || [])) ||
+      new Set()
   );
   const [text, setText] = useState(txt || "");
   const [states, setStates] = useState();
+  const [userBase, setUserBase] = useState(usrBase || null);
+  const [distanceRange, setDistanceRange] = useState(dstRange || 10);
 
   return (
     <AppContext.Provider
@@ -96,6 +102,10 @@ const TripTailor = () => {
         setText,
         states,
         setStates,
+        userBase,
+        setUserBase,
+        distanceRange,
+        setDistanceRange,
       }}
     >
       <div className="trip-planner">
@@ -113,6 +123,8 @@ const TripTailor = () => {
               <TripMonth />
             ) : nextPath === "/gender" ? (
               <Gender />
+            ) : nextPath === "/userPlace" ? (
+              <UserPlace />
             ) : nextPath === "/country" ? (
               <TripCountry />
             ) : nextPath === "/tripInfo" ? (

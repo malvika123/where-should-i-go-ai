@@ -30,7 +30,7 @@ const TripCountry = () => {
   const autocmpltFeatureFlg = enableAutoComplete;
 
   useEffect(() => {
-    setPage(3);
+    setPage(4);
     setShowNextButton(false);
   }, []);
 
@@ -193,7 +193,7 @@ const TripCountry = () => {
         setNextPath={setNextPath}
         nextPath={"/tripInfo"}
         setProgress={setProgress}
-        backPath={"/gender"}
+        backPath={"/userPlace"}
         setProgressVal={48}
         resetProgressVal={36}
       />

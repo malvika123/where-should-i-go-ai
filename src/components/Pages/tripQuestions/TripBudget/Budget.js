@@ -27,7 +27,7 @@ const Budget = () => {
   } = useContext(AppContext);
 
   useEffect(() => {
-    setPage(5);
+    setPage(6);
   }, []);
 
   useEffect(() => {

@@ -26,7 +26,7 @@ const TripType = () => {
   const { slctdActsSet } = useContext(AppContext);
 
   useEffect(() => {
-    setPage(6);
+    setPage(7);
   }, []);
 
   const checkIfSelected = (elt) => {

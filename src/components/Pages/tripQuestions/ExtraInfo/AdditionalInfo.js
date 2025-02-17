@@ -48,6 +48,8 @@ const AdditionalInfo = () => {
     currency,
     modifiedCurrency,
     slctdActsSet,
+    distanceRange,
+    userBase,
   } = useContext(AppContext);
 
   localStorage.setItem(
@@ -70,10 +72,12 @@ const AdditionalInfo = () => {
       modifiedCurrency,
       slctdActsSet: `${Array.from(slctdActsSet).map((elt) => `${elt}, `)}`,
       text,
+      distanceRange,
+      userBase,
     })
   );
   useEffect(() => {
-    setPage(7);
+    setPage(8);
     setSessionValid(isUserSessionValid());
   }, []);
 
@@ -123,6 +127,8 @@ const AdditionalInfo = () => {
               token,
               id,
               iv,
+              userBase,
+              distanceRange,
             },
             {
               headers: {
@@ -155,6 +161,8 @@ const AdditionalInfo = () => {
               slctdActsSet,
               text,
               recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
+              userBase,
+              distanceRange,
             })
           );
           setShowSpinner(false);
