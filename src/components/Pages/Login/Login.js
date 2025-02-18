@@ -80,6 +80,7 @@ const Login = () => {
               area: data?.data?.jsonObj?.["places_to_visit"],
               underhyped: data?.data?.jsonObj?.["off_beat_places"],
               note: data?.data?.jsonObj?.["precautions"],
+              avoidPlaces: data?.data?.jsonObj?.["places_to_avoid"],
               days,
               mnth,
               gender,
