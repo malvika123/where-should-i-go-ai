@@ -32,7 +32,7 @@ export const PlacePallet = ({
   };
 
   if (!isLoginSkipped() && !isUserLoggedIn()) {
-    window.location.href = "?unauthorised=true&from=tripTailor";
+    window.location.href = "/login?unauthorised=true&from=tripTailor";
   }
   const clickAction = () => {
     if (selectedPlace) {

@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { setUserData } from "../../store/slices/dataSlice";
 import { isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
+import { EmailCollectionPopUp } from "./EmailCollectionPopUp";
 
 const Itinerary = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -29,10 +30,12 @@ const Itinerary = () => {
   const [spinning, setSpinning] = useState(false);
   const [emailSent, setEmailSent] = useState("");
   const [itineraryObjData, setItineraryObjData] = useState();
+  const [showEmailScreen, setShowEmailScreen] = useState();
   const stateObj = useSelector((state) => state?.data?.userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const [guestEmail, setGuestEmail] = useState("");
 
   const onNavigate = ({ path }) => {
     navigate(path);
@@ -47,7 +50,7 @@ const Itinerary = () => {
     return false;
   };
   if (!isLoginSkipped() && !isUserLoggedIn()) {
-    window.location.href = "/login";
+    window.location.href = "/login?unauthorised=true&from=tripTailor";
   }
 
   useEffect(() => {
@@ -59,24 +62,29 @@ const Itinerary = () => {
   }, [emailSent]);
 
   const SendEmail = () => {
-    const formData = {
-      name: userInfo?.name || "malvika",
-      email: userInfo?.email || "malvikasen555@gmail.com",
-      message: JSON.stringify(itineraryObjData),
-    };
-    fetch("/api/email/sendEmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        setEmailSent("Email sent successfully!");
+    if (!isUserLoggedIn() && isLoginSkipped() && !guestEmail) {
+      setShowEmailScreen(true);
+    } else if (userInfo?.email || guestEmail) {
+      const formData = {
+        name: userInfo?.name || "user",
+        email: userInfo?.email || guestEmail || "malvikasen555@gmail.com",
+        message: JSON.stringify(itineraryObjData),
+      };
+      fetch("/api/email/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       })
-      .catch((error) => {
-        console.error("Error sending email:", error);
-        setEmailSent("Failed to send email.");
-      });
+        .then((response) => response.text())
+        .then((data) => {
+          setEmailSent("Email sent successfully!");
+          setShowEmailScreen(false);
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+          setEmailSent("Failed to send email.");
+        });
+    }
   };
 
   const getItineraryCall = () => {
@@ -169,6 +177,9 @@ const Itinerary = () => {
             className="getItinerary"
           />
         </div>
+        {showEmailScreen && (
+          <EmailCollectionPopUp setGuestEmail={setGuestEmail} />
+        )}
         {emailSent && <EmailSent text={emailSent} />}
         {itineraryObjData && (
           <div className="button-set">
