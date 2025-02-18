@@ -21,7 +21,7 @@ const UserPlace = () => {
   const [showNextButton, setShowNextButton] = useState(false);
   const [text, setText] = useState();
   const [predictedText, setPredictedText] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     setPage(3);
   }, []);
@@ -41,6 +41,7 @@ const UserPlace = () => {
           });
           console.log(data?.data);
           setPredictedText(data?.data);
+          setLoading(false);
         } catch (err) {}
       }, 1000);
     } else {
@@ -50,9 +51,8 @@ const UserPlace = () => {
   }, [text]);
   return (
     <div>
-      <h1 className="heading-place">
-        Please enter your place(your state/locality)?
-      </h1>
+      <p className="heading-place">Where are you situated right now?</p>
+      <p className="sub-heading-place">please enter your current location</p>
       <div>
         <div className="place-marker">
           <>
@@ -61,7 +61,10 @@ const UserPlace = () => {
               type="text"
               className="input-place"
               value={text}
-              onChange={(e) => setText(e.target.value)}
+              onChange={(e) => {
+                setText(e.target.value);
+                setLoading(true);
+              }}
               placeholder="Please enter you place here"
             />
           </>
@@ -70,6 +73,7 @@ const UserPlace = () => {
           <AutocompleteBox
             predictedText={predictedText}
             setUserBase={setUserBase}
+            loading={loading}
           />
         )}
       </div>

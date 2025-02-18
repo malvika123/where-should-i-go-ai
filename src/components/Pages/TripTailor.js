@@ -110,7 +110,7 @@ const TripTailor = () => {
     >
       <div className="trip-planner">
         <TripPlannerHeader />
-        <h9>Page {page}/7</h9>
+        <h9>Page {page}/8</h9>
         <div className="box">
           <Progress.Line
             percent={progress}

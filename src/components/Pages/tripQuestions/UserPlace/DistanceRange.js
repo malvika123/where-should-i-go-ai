@@ -20,7 +20,7 @@ const DistanceRange = ({ setDistanceRange, distanceRange }) => {
         </h1>
         <div className="travel-range-option">
           <p className="range-optn" onClick={(e) => selectedOption(true, e)}>
-            Yes, i need it
+            Yes, i do
           </p>
           <p className="range-optn" onClick={(e) => selectedOption(false, e)}>
             Nope, i'm good

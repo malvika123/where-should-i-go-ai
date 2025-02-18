@@ -5,3 +5,11 @@ export const Alert = ({ msg, successMsg }) => {
     </div>
   );
 };
+
+export const GreenAlert = ({ msg }) => {
+  return (
+    <div className="successAlert">
+      <span>{msg}</span>
+    </div>
+  );
+};

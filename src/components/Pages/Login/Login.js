@@ -6,7 +6,7 @@ import "../style/login.css";
 import { PasswordInputField } from "./PasswordInputField";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Alert } from "./Alert";
+import { Alert, GreenAlert } from "./Alert";
 import { getRecommendation, isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 import { setUserData } from "../../store/slices/dataSlice";
@@ -29,8 +29,9 @@ const Login = () => {
     window.location?.search.includes("unauthorised=true");
   const fromTripTailor = window.location?.search.includes("from=tripTailor");
   const [alert, setAlert] = useState(
-    unauthorisedUser ? "Your session is expired. Please login." : ""
+    unauthorisedUser ? "You are not logged in. Please login." : ""
   );
+  const [greenAlert, setGreenAlert] = useState();
 
   const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
   const {
@@ -67,6 +68,9 @@ const Login = () => {
 
       const dataRec = async () => {
         try {
+          setGreenAlert(
+            "Please wait, skipping login and getting your trip recommendation ready .... "
+          );
           const data = await getRecommendation();
 
           dispatch(
@@ -154,7 +158,8 @@ const Login = () => {
           <p className="subtxt-login-txt">
             Welcome back, lets begin with logging in
           </p>
-          {alert && <Alert msg={alert} />}
+          {alert && !greenAlert && <Alert msg={alert} />}
+          {greenAlert && <GreenAlert msg={greenAlert} />}
           <div className="login-box-one">
             <p className="input-txt-email-head">Email</p>
             <input

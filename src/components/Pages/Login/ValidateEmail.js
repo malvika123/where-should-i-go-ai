@@ -3,7 +3,7 @@ import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import Logo from "../../Header/Logo";
 import { SixDigitPin } from "./SixDigitPin";
 import { useEffect, useState } from "react";
-import { Alert } from "./Alert";
+import { Alert, GreenAlert } from "./Alert";
 import { useSelector } from "react-redux";
 
 import axios from "axios";
@@ -35,6 +35,8 @@ export const ValidateEmail = ({}) => {
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const dispatch = useDispatch();
   const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
+  const [greenAlert, setGreenAlert] = useState();
+
   const {
     days,
     mnth,
@@ -84,6 +86,10 @@ export const ValidateEmail = ({}) => {
             window.location.href = "/deleteAccount/validationAndConfirmation";
           } else if (isFromTripTailor) {
             try {
+              setGreenAlert(
+                "Getting your trip recommendation ready, please wait..."
+              );
+
               const dataRec = await getRecommendation();
               dispatch(
                 setUserData({
@@ -171,8 +177,8 @@ export const ValidateEmail = ({}) => {
           <p className="subtxt-login-sub-vp">
             This is to ensure your account security
           </p>
-          {alert && <Alert msg={alert} success={successAlert} />}
-
+          {alert && !greenAlert && <Alert msg={alert} success={successAlert} />}
+          {greenAlert && <GreenAlert msg={greenAlert} />}
           <div className="login-box-one">
             <span className="input-txt-pin-x">Enter your pin here</span>
             <p className="input-txt-email">{userInfo?.email}</p>

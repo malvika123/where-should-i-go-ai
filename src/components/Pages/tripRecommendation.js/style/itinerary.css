@@ -133,13 +133,17 @@
     align-self: center;
     margin: auto;
 }
-.it-key{
+.it-key, .it-key-war{
 font-size: 28px;
 text-transform: capitalize;
 background-color: rgb(244, 238, 238);
 padding: 1%;
 border-radius: 10px;
 margin-bottom: 1.7%;
+}
+
+.it-key-war{
+    color: red;
 }
 
 .it-After,.it-Morn{
@@ -174,8 +178,13 @@ margin-bottom: 1.7%;
     ;
 }
 
+.precaution{
+    margin-left: 20%;
+}
+
 .heading-val{
     font-weight: lighter;
+    font-size: 18px;
 }
 
 .it-headng{
