@@ -29,8 +29,8 @@ export const TopRatedHotels = ({ place }) => {
       }}
     >
       {hList &&
-        hList.length > 0 &&
-        hList.map((elt) => {
+        hList?.length > 0 &&
+        hList?.map((elt) => {
           return (
             <div
               style={{

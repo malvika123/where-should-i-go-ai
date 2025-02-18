@@ -7,7 +7,7 @@ import axios from "axios";
 const ImgSlider = ({ place, showMultipleSlides, classnm, textClassnm }) => {
   const [imageArr, setImageArr] = useState([]);
   const [currIndex, setCurrImgIndex] = useState(0);
-  const [currImg, setCurrImg] = useState(imageArr[0]);
+  const [currImg, setCurrImg] = useState(imageArr?.[0]);
 
   const incImgIndex = () => {
     const num = currIndex >= imageArr.length - 1 ? currIndex : currIndex + 1;

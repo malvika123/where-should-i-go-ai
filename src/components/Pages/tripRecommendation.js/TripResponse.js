@@ -30,7 +30,6 @@ const TripResponse = () => {
   const area = useSelector((state) => state?.data?.userData?.area);
   const underhyped = useSelector((state) => state?.data?.userData?.underhyped);
   const avoidPlaces = useSelector((state) => {
-    console.log(state);
     return state?.data?.userData?.avoidPlaces;
   });
   const note = useSelector((state) => state?.data?.userData?.note);
@@ -74,7 +73,6 @@ const TripResponse = () => {
             [elt.name]: dist,
           };
         });
-        console.log("opopo", elt.name, calDist);
       } catch (er) {}
     });
 
@@ -88,7 +86,6 @@ const TripResponse = () => {
             [elt.name]: dist,
           };
         });
-        console.log("opopo1", elt.name, calDist);
       } catch (er) {}
     });
   }, []);
@@ -113,7 +110,7 @@ const TripResponse = () => {
   };
 
   if (!isLoginSkipped() && !isUserLoggedIn()) {
-    window.location.href = "/login";
+    window.location.href = "/login?unauthorised=true&from=tripTailor";
   }
 
   const clickedArea = (e) => {
@@ -191,7 +188,19 @@ const TripResponse = () => {
               <p className="sub-txt-res">
                 Recommendation based on your choices
               </p>
-              <p className="state-name">{state}</p>
+
+              <p className="state-name">
+                <a
+                  style={{
+                    color: "inherit",
+                  }}
+                  href={`https://www.google.com/search?q=${state}`}
+                  target="_blank"
+                >
+                  {state}{" "}
+                </a>
+              </p>
+
               {/* <video className="bg-vid-itnry" autoPlay loop muted>
               <source src={vid} type="video/mp4" />
             </video> */}
@@ -214,6 +223,17 @@ const TripResponse = () => {
                 />
               )}
               <span className="state-reason">{reasonState}</span>
+              <p
+                style={{
+                  fontSize: "20px",
+                  textDecoration: "underline",
+                  color: "blue",
+                }}
+              >
+                <a href="https://www.skyscanner.com/" target="_blank">
+                  Book a flight on skyscanner
+                </a>
+              </p>
               <section style={{ marginBottom: "30px" }}>
                 <p className="prec-text">AQI information</p>
                 <p className="idl-sub-text">
@@ -240,9 +260,17 @@ const TripResponse = () => {
                   return (
                     <div className="idl-places-arr">
                       <p className="idl-name">
-                        {elt.name} (Distance from origin:{" "}
-                        {calDist?.[elt.name]?.distance}, Duration :
-                        {calDist?.[elt.name]?.duration} )
+                        <a
+                          style={{
+                            color: "inherit",
+                          }}
+                          href={`https://www.google.com/search?q=${elt.name}`}
+                          target="_blank"
+                        >
+                          {elt.name}{" "}
+                        </a>
+                        (Distance from origin: {calDist?.[elt.name]?.distance},
+                        Duration :{calDist?.[elt.name]?.duration} )
                       </p>
                       <p className="idl-desc">{elt.description}</p>
                       {elt.name && (
@@ -289,6 +317,42 @@ const TripResponse = () => {
                         >
                           {">> "}Top rated Lodge of {elt.name}
                         </p>
+                        {showAreaLodge && selectedVideoLodge === elt.name && (
+                          <div style={{ marginLeft: "5%", marginTop: "2%" }}>
+                            <p style={{ fontSize: "16px" }}>
+                              Check other hotels on the following site:
+                            </p>
+                            <p style={{ color: "Orange", fontSize: "14px" }}>
+                              <a
+                                style={{
+                                  color: "red",
+                                  backgroundColor: "yellow",
+                                }}
+                                href={`https://www.booking.com/searchresults.html?ss=${elt.name}`}
+                                target="_blank"
+                              >
+                                Find Hotels in {elt.name} on Booking.com
+                              </a>
+                            </p>
+                            <p
+                              style={{
+                                fontSize: "14px",
+                                marginBottom: "20px",
+                              }}
+                            >
+                              <a
+                                style={{
+                                  color: "red",
+                                  backgroundColor: "yellow",
+                                }}
+                                href={`https://www.hotels.com/search.do?q-destination=${elt.name}`}
+                                target="_blank"
+                              >
+                                Search Hotels in {elt.name} on Hotels.com
+                              </a>
+                            </p>
+                          </div>
+                        )}
                         {showAreaLodge && selectedVideoLodge === elt.name && (
                           <TopRatedHotels place={elt.name}></TopRatedHotels>
                         )}
@@ -341,9 +405,17 @@ const TripResponse = () => {
                 return (
                   <div>
                     <p className="off-name">
-                      {elt.name} (Distance from origin:{" "}
-                      {calDist?.[elt.name]?.distance}, Duration :
-                      {calDist?.[elt.name]?.duration} )
+                      <a
+                        style={{
+                          color: "inherit",
+                        }}
+                        href={`https://www.google.com/search?q=${elt.name}`}
+                        target="_blank"
+                      >
+                        {elt.name}{" "}
+                      </a>
+                      (Distance from origin: {calDist?.[elt.name]?.distance},
+                      Duration :{calDist?.[elt.name]?.duration} )
                     </p>
                     <p className="off-desc">{elt.description}</p>
                     {elt.name && (
@@ -390,6 +462,43 @@ const TripResponse = () => {
                       >
                         {">> "}Top rated Lodge of {elt.name}
                       </p>
+                      {showunderhypedLodge &&
+                        selectedVideoLodge === elt.name && (
+                          <div style={{ marginLeft: "5%", marginTop: "2%" }}>
+                            <p style={{ fontSize: "16px" }}>
+                              Check other hotels on the following site:
+                            </p>
+                            <p style={{ color: "Orange", fontSize: "14px" }}>
+                              <a
+                                style={{
+                                  color: "red",
+                                  backgroundColor: "yellow",
+                                }}
+                                href={`https://www.booking.com/searchresults.html?ss=${elt.name}`}
+                                target="_blank"
+                              >
+                                Find Hotels in {elt.name} on Booking.com
+                              </a>
+                            </p>
+                            <p
+                              style={{
+                                fontSize: "14px",
+                                marginBottom: "20px",
+                              }}
+                            >
+                              <a
+                                style={{
+                                  color: "red",
+                                  backgroundColor: "yellow",
+                                }}
+                                href={`https://www.hotels.com/search.do?q-destination=${elt.name}`}
+                                target="_blank"
+                              >
+                                Search Hotels in {elt.name} on Hotels.com
+                              </a>
+                            </p>
+                          </div>
+                        )}
                       {showunderhypedLodge &&
                         selectedVideoLodge === elt.name && (
                           <TopRatedHotels place={elt.name}></TopRatedHotels>
