@@ -34,7 +34,7 @@ export const ValidateEmail = ({}) => {
   const [pin, setPin] = useState("");
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
   const dispatch = useDispatch();
-  const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
+  const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const [greenAlert, setGreenAlert] = useState();
 
   const {

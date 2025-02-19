@@ -33,7 +33,7 @@ const Login = () => {
   );
   const [greenAlert, setGreenAlert] = useState();
 
-  const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
+  const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const {
     days,
     mnth,
@@ -64,7 +64,7 @@ const Login = () => {
       const now = Date.now(); // Current time in milliseconds
       const twelveHoursLater = now + 1 * 60 * 60 * 1000; // Add 12 hours in milliseconds
       const epochTime = Math.floor(twelveHoursLater / 1000);
-      localStorage.setItem("skippedLogin", epochTime);
+      sessionStorage.setItem("skippedLogin", epochTime);
 
       const dataRec = async () => {
         try {

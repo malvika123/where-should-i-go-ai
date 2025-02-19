@@ -52,7 +52,7 @@ const AdditionalInfo = () => {
     userBase,
   } = useContext(AppContext);
 
-  localStorage.setItem(
+  sessionStorage.setItem(
     "collectedInfo",
     JSON.stringify({
       days,
@@ -81,10 +81,9 @@ const AdditionalInfo = () => {
     setSessionValid(isUserSessionValid());
   }, []);
 
-  const skippedLogin = localStorage.getItem("skippedLogin");
+  const skippedLogin = sessionStorage.getItem("skippedLogin");
   const isLoginSkipped = () => {
     const timeNow = Math.floor(Date.now() / 1000);
-    console.log(skippedLogin, skippedLogin < timeNow);
     if (skippedLogin > timeNow) {
       return true;
     }

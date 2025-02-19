@@ -36,7 +36,7 @@ function App() {
   //wake up call to servers
   useEffect(() => {
     const wakeUser = async () => {
-      const skippedLogin = localStorage.getItem("skippedLogin");
+      const skippedLogin = sessionStorage.getItem("skippedLogin");
       const hidePrivacyPolicyForTime = localStorage.getItem(
         "hidePrivacyPolicyForTime"
       );

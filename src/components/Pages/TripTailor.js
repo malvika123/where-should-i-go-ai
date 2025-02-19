@@ -15,7 +15,7 @@ import AdditionalInfo from "./tripQuestions/ExtraInfo/AdditionalInfo";
 import UserPlace from "./tripQuestions/UserPlace/UserPlace";
 
 const TripTailor = () => {
-  const userInfoCollected = JSON.parse(localStorage.getItem("collectedInfo"));
+  const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const {
     days: day,
     mnth: month,

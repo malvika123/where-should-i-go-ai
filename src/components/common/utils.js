@@ -60,7 +60,7 @@ export const getUserName = async () => {
 };
 
 export const getRecommendation = async () => {
-  const userInfo = JSON.parse(localStorage.getItem("collectedInfo"));
+  const userInfo = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const {
     days,
     mnth,

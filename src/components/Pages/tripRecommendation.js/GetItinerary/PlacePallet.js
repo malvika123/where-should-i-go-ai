@@ -22,7 +22,7 @@ export const PlacePallet = ({
     setSelectedId(id);
   };
 
-  const skippedLogin = localStorage.getItem("skippedLogin");
+  const skippedLogin = sessionStorage.getItem("skippedLogin");
   const isLoginSkipped = () => {
     const timeNow = Math.floor(Date.now() / 1000)?.toString();
     if (skippedLogin > timeNow) {
