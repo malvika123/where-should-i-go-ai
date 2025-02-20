@@ -65,7 +65,7 @@ const UserPlace = () => {
                 setText(e.target.value);
                 setLoading(true);
               }}
-              placeholder="Please enter you place here"
+              placeholder="Please enter your place here"
             />
           </>
         </div>

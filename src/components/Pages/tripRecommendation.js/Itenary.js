@@ -16,6 +16,7 @@ import { setUserData } from "../../store/slices/dataSlice";
 import { isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 import { EmailCollectionPopUp } from "./EmailCollectionPopUp";
+import { PiCursorClickDuotone } from "react-icons/pi";
 
 const Itinerary = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -25,7 +26,7 @@ const Itinerary = () => {
   const tripType = useSelector((state) => state?.data?.userData?.tripType);
   const month = useSelector((state) => state?.data?.userData?.mnth);
   const gender = useSelector((state) => state?.data?.userData?.gender);
-  const [selectedPlace, setSelectedPlace] = useState("");
+  const [selectedPlace, setSelectedPlace] = useState([]);
   const [error, setError] = useState("");
   const [spinning, setSpinning] = useState(false);
   const [emailSent, setEmailSent] = useState("");
@@ -35,7 +36,9 @@ const Itinerary = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  const collectedInfo = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const [guestEmail, setGuestEmail] = useState("");
+  const [itPlaces, setItPlaces] = useState([]);
 
   const onNavigate = ({ path }) => {
     navigate(path);
@@ -87,6 +90,15 @@ const Itinerary = () => {
     }
   };
 
+  useEffect(() => {
+    if (itineraryObjData) {
+      const it = Object.keys(itineraryObjData)?.map(
+        (elt) => itineraryObjData?.[elt]?.["destination"]
+      );
+      setItPlaces(it?.join("/"));
+    }
+  }, [itineraryObjData]);
+
   const getItineraryCall = () => {
     const req = async () => {
       try {
@@ -95,10 +107,11 @@ const Itinerary = () => {
           {
             days,
             tripType,
-            area: selectedPlace,
+            area: Array.from(selectedPlace).join(","),
             state,
             month,
             gender,
+            acts: collectedInfo?.slctdActsSet,
           },
           {
             headers: {
@@ -106,7 +119,9 @@ const Itinerary = () => {
             },
           }
         );
+
         setItineraryObjData(data?.data?.itinerary);
+
         const objStr = JSON.stringify(data?.data?.itinerary);
         dispatch(
           setUserData({
@@ -171,6 +186,16 @@ const Itinerary = () => {
           />
 
           <span className="err-it">{error}</span>
+          {!spinning && itineraryObjData && (
+            <p style={{ fontSize: "20px", marginTop: "2%" }}>
+              <a
+                target="_blank"
+                href={`https://www.google.com/maps/dir/${itPlaces}`}
+              >
+                Check the places out on Google maps <PiCursorClickDuotone />
+              </a>
+            </p>
+          )}
           <GetItinerary
             itineraryObjData={itineraryObjData}
             spinning={spinning}
@@ -181,7 +206,7 @@ const Itinerary = () => {
           <EmailCollectionPopUp setGuestEmail={setGuestEmail} />
         )}
         {emailSent && <EmailSent text={emailSent} />}
-        {itineraryObjData && (
+        {!spinning && itineraryObjData && (
           <div className="button-set">
             <button className="btn" onClick={() => SendEmail()}>
               Email me this Itinerary

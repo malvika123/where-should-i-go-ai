@@ -549,7 +549,7 @@ const TripResponse = () => {
                 Stay informed and prepared with essential safety tips for your
                 journey.
               </p>
-              {note.split(".").map((e) => {
+              {note?.split(".").map((e) => {
                 return (
                   <div>
                     <span className="prec-note">{e}</span>

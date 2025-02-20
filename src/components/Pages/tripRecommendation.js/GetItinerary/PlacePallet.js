@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FcLikePlaceholder } from "react-icons/fc";
 import { isUserLoggedIn } from "../../../common/utils";
 
@@ -14,12 +14,31 @@ export const PlacePallet = ({
 }) => {
   const allPlace = area?.concat(underhyped)?.map((elt) => elt.name);
   const [place, setPlace] = useState(allPlace);
-  const [selectedId, setSelectedId] = useState();
+  const [selectedId, setSelectedId] = useState([]);
+
+  useEffect(() => {}, [selectedId]);
+
   const selectPlace = (e) => {
     const value = e.target.innerHTML;
     const id = e.target.id;
-    setSelectedPlace(value);
-    setSelectedId(id);
+    let selArr = new Set();
+    let arr = new Set();
+    if (Array.from(selectedPlace).some((elt) => elt === value)) {
+      selArr = new Set(
+        Array.from(selectedPlace).filter((elt) => elt !== value)
+      );
+    } else {
+      selArr = selectedId ? new Set(selectedPlace) : new Set();
+      selArr.add(value);
+    }
+    setSelectedPlace(selArr);
+    if (Array.from(selectedPlace).some((elt) => elt === value)) {
+      arr = new Set(Array.from(selectedId).filter((elt) => elt !== id));
+    } else {
+      arr = selectedId ? new Set(selectedId) : new Set();
+      arr.add(id);
+    }
+    setSelectedId(arr);
   };
 
   const skippedLogin = sessionStorage.getItem("skippedLogin");
@@ -54,7 +73,11 @@ export const PlacePallet = ({
             <p
               id={key}
               className={
-                selectedId == key ? "elt-pallet-selected" : "elt-pallet"
+                Array.from(selectedId).find(
+                  (elt) => elt.toString() === key.toString()
+                )
+                  ? "elt-pallet-selected"
+                  : "elt-pallet"
               }
               onClick={selectPlace}
             >
