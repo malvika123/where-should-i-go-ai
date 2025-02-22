@@ -95,10 +95,10 @@ const UserPlace = () => {
         showNext={showNextButton}
         setNextPath={setNextPath}
         nextPath={"/country"}
-        backPath={"/tripTailor"}
+        backPath={"/gender"}
         setProgress={setProgress}
-        setProgressVal={36}
-        resetProgressVal={24}
+        setProgressVal={50}
+        resetProgressVal={25}
       />
     </div>
   );

@@ -62,7 +62,6 @@ const TripType = () => {
       {/* <p>{Array.from(slctdActsSet).map((elt) => elt)}</p> */}
       {showAddInterestModal && (
         <InfoModal
-          className="modal"
           setShowAddInterestModal={setShowAddInterestModal}
           setDefaultTrip={setDefaultTrip}
         />
@@ -73,8 +72,8 @@ const TripType = () => {
         nextPath={"/expectBox"}
         setProgress={setProgress}
         backPath={"/budget"}
-        resetProgressVal={72}
-        setProgressVal={84}
+        resetProgressVal={75}
+        setProgressVal={100}
       />
     </div>
   );

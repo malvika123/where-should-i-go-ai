@@ -210,7 +210,7 @@ const ShowFinalInfo = () => {
           setProgress={setProgress}
           backPath={"/expectBox"}
           hideNext={true}
-          resetProgressVal={84}
+          resetProgressVal={87.5}
           className="back-ftr"
         />
         <button className="sbmt-btn" onClick={() => processData()}>

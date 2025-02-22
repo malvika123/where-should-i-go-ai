@@ -194,8 +194,8 @@ const TripCountry = () => {
         nextPath={"/tripInfo"}
         setProgress={setProgress}
         backPath={"/userPlace"}
-        setProgressVal={48}
-        resetProgressVal={36}
+        setProgressVal={62.5}
+        resetProgressVal={37.5}
       />
     </div>
   );

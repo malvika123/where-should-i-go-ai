@@ -109,7 +109,7 @@ const TripMonth = () => {
         nextPath={"/gender"}
         backPath={"/tripTailor"}
         setProgress={setProgress}
-        setProgressVal={24}
+        setProgressVal={25}
       />
     </div>
   );

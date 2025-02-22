@@ -68,8 +68,8 @@ const Gender = () => {
         nextPath={"/userPlace"}
         backPath={"/tripTailor"}
         setProgress={setProgress}
-        setProgressVal={36}
-        resetProgressVal={24}
+        setProgressVal={37.5}
+        resetProgressVal={12.5}
       />
     </div>
   );

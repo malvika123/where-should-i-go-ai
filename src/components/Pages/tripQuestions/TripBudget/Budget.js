@@ -104,8 +104,8 @@ const Budget = () => {
         nextPath={"/tripType"}
         setProgress={setProgress}
         backPath={"/tripInfo"}
-        setProgressVal={72}
-        resetProgressVal={48}
+        setProgressVal={87.5}
+        resetProgressVal={62.5}
       />
     </div>
   );

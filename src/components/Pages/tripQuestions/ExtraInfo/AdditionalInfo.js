@@ -214,10 +214,11 @@ const AdditionalInfo = () => {
           showNext={showNextButton}
           setNextPath={setNextPath}
           setProgress={setProgress}
-          backPath={"/expectBox"}
+          backPath={"/tripType"}
           hideNext={true}
-          resetProgressVal={100}
+          resetProgressVal={87.5}
           className="back-ftr"
+          setProgressVal={100}
         />
         <button className="sbmt-btn" onClick={() => processData()}>
           Submit

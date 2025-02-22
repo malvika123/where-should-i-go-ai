@@ -18,7 +18,7 @@ const InfoModal = ({ setShowAddInterestModal, setDefaultTrip }) => {
   return (
     <div>
       <div className="modal-background"></div>
-      <div className="modal">
+      <div className="modal-full">
         <div className="header-modal">
           <p className="">
             <RxCrossCircled onClick={() => setShowAddInterestModal(false)} />
