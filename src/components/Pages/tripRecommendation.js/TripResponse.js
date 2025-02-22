@@ -11,15 +11,20 @@ import { RiEmotionHappyLine } from "react-icons/ri";
 import { RiScissors2Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
-import { isUserLoggedIn } from "../../common/utils";
+import {
+  ismidLargeScreen,
+  isMidScreen,
+  isSmallScreen,
+  isUserLoggedIn,
+} from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
-import { useMediaQuery } from "react-responsive";
 import { MdOutlineDangerous } from "react-icons/md";
 import axios from "axios";
 import { ShortsSlider } from "./ShortsSlider";
 import { TopRatedHotels } from "./TopRatedHotels";
 import { TopRatedVegRestaurants } from "./TopRatedVegRestaurants";
 import { TopRatedNonVegRestaurants } from "./TopRatedNonVegRestaurants";
+import { useMediaQuery } from "react-responsive";
 
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -33,11 +38,13 @@ const TripResponse = () => {
     return state?.data?.userData?.avoidPlaces;
   });
   const note = useSelector((state) => state?.data?.userData?.note);
-  const isMidScreen = useMediaQuery({ query: "(max-width: 1000px)" });
-  const ismidLargeScreen = useMediaQuery({ query: "(max-width: 1360px)" });
-  const isSmallScreen = useMediaQuery({ query: "(max-width: 765px)" });
-  const [aqiInfo, setAqiInfo] = useState({});
 
+  const [aqiInfo, setAqiInfo] = useState({});
+  const isMidScreen = useMediaQuery({ query: "(max-width: 1000px)" });
+  const ismidLargeScreen = useMediaQuery({
+    query: "(max-width: 1360px)",
+  });
+  const isSmallScreen = useMediaQuery({ query: "(max-width: 765px)" });
   const [selectedAreaVideo, setSelectedAreaVideo] = useState();
   const [selectedVideoLodge, setSelectedLodge] = useState();
   const [selectedAreaRestaurant, setSelectedRestaurant] = useState();
@@ -322,7 +329,7 @@ const TripResponse = () => {
                             <p style={{ fontSize: "16px" }}>
                               Check other hotels on the following site:
                             </p>
-                            <p style={{ color: "Orange", fontSize: "14px" }}>
+                            <p className="longe-box-extra">
                               <a
                                 style={{
                                   color: "red",

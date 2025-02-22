@@ -26,6 +26,7 @@ export const TopRatedNonVegRestaurants = ({ place }) => {
       style={{
         display: "flex",
         maxWidth: "100vw",
+        flexWrap: "wrap",
       }}
     >
       {hList &&
@@ -45,6 +46,7 @@ export const TopRatedNonVegRestaurants = ({ place }) => {
                 paddingTop: "1%",
                 paddingBottom: "1%",
                 borderRadius: "10px",
+                marginBottom: "1%",
               }}
             >
               <p

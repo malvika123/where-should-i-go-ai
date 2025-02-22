@@ -22,31 +22,12 @@ export const TopRatedHotels = ({ place }) => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        maxWidth: "100vw",
-      }}
-    >
+    <div className="longe-box">
       {hList &&
         hList?.length > 0 &&
         hList?.map((elt) => {
           return (
-            <div
-              style={{
-                width: "230px",
-                maxHeight: "250px",
-                marginRight: "20px",
-                backgroundColor: "rgb(49, 87, 164)",
-                color: "white",
-                paddingLeft: "1%",
-                paddingRight: "1%",
-                paddingTop: "1%",
-                paddingBottom: "1%",
-                border: "solid 1px",
-                borderRadius: "10px",
-              }}
-            >
+            <div className="longe-box-main">
               <p
                 style={{
                   fontSize: "15px",

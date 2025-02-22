@@ -196,6 +196,31 @@
     width: 13vw;
 }
 
+.longe-box-extra{
+    color:Orange;
+    font-size: 14px;
+}
+
+.longe-box{
+    display: flex;
+    max-width: 100vw;
+    flex-wrap: wrap;
+}
+
+.longe-box-main{
+    width: 230px;
+    max-Height: 250px;
+    margin-Right: 20px;
+    background-Color: rgb(49, 87, 164);
+    color: white;
+    padding-Left: 1%;
+    padding-Right: 1%;
+    padding-Top: 1%;
+    padding-Bottom: 1%;
+    border: solid 1px;
+    border-Radius: 10px;
+   margin-bottom: 1%;
+}
 
 @media (max-width:765px){
     .res-img-txt{
