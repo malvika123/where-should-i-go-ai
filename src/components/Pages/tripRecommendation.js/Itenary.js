@@ -159,9 +159,11 @@ const Itinerary = () => {
             {days}
           </p>
           <div className="line"></div>
-          <video className="bg-vid-itnry-res" autoPlay loop muted>
-            <source src={vid} type="video/mp4" />
-          </video>
+          <div onClick={(e) => e.preventDefault()}>
+            <video className="bg-vid-itnry-res" autoPlay loop muted playsInline>
+              <source src={vid} type="video/mp4" />
+            </video>
+          </div>
           <div className="itnry-sub">
             <p className="itnry-sub-txt">
               Travelling Month <TbCalendarMonth className="icons-itnry" /> :

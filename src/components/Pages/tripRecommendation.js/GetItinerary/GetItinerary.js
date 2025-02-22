@@ -20,7 +20,18 @@ export const GetItinerary = ({ itineraryObjData, spinning }) => {
                       <p className="it-key-war">precautionary_warning</p>
                       <p className="precaution">
                         {itineraryObjData?.[key].split(".")?.map((elt) => {
-                          return <p className="heading-val">{elt}</p>;
+                          return (
+                            <div
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                              }}
+                            >
+                              <span className="heading-val">
+                                {elt ? elt + "." : ""}
+                              </span>
+                            </div>
+                          );
                         })}
                       </p>
                     </div>
@@ -43,7 +54,7 @@ export const GetItinerary = ({ itineraryObjData, spinning }) => {
                         <ImgSlider
                           place={keyDestination}
                           showMultipleSlides={1}
-                          classnm="ImgSlider-it"
+                          classnm="res-img"
                         />
                         <div className="it-sub">
                           <p className="it-Morn">

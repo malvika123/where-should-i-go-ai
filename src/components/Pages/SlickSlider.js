@@ -47,7 +47,7 @@ const SlickSlider = () => {
         {images.map((image, index) => (
           <div key={index}>
             {image.includes("mp4") ? (
-              <video className="slickSlider" autoPlay loop muted>
+              <video className="slickSlider" autoPlay loop muted playsInline>
                 <source src={image} type="video/mp4" />
               </video>
             ) : (

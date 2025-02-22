@@ -137,6 +137,7 @@ p {
     object-fit: cover !important;
     height: 450px;
     border-radius: 30px;
+    pointer-events: none;
 }
 
 .slickSlider-div {

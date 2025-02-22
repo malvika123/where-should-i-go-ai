@@ -11,6 +11,8 @@ import { RiEmotionHappyLine } from "react-icons/ri";
 import { RiScissors2Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
+import { FaPlaneCircleExclamation } from "react-icons/fa6";
+
 import {
   ismidLargeScreen,
   isMidScreen,
@@ -559,7 +561,8 @@ const TripResponse = () => {
               {note?.split(".").map((e) => {
                 return (
                   <div>
-                    <span className="prec-note">{e}</span>
+                    {e && <FaPlaneCircleExclamation />}
+                    <span className="prec-note">{e + e ? e + "." : ""}</span>
                   </div>
                 );
               })}
