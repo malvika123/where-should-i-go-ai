@@ -7,6 +7,7 @@ import CurrencyTooltip from "./CurrencyTooltip";
 import TripPlannerFooter from "../../../Footer/TripPlannerFooter";
 import { TbPigMoney } from "react-icons/tb";
 import { AppContext } from "../../../context/AppContext";
+import { sanitizeInput } from "../../../common/utils";
 
 const Budget = () => {
   const [changeToTextField, setChangeToTextField] = useState();
@@ -93,7 +94,9 @@ const Budget = () => {
             type="text"
             value={modifiedCurrency}
             className="curr1"
-            onChange={(e) => setModiefiedCurrency(e.currentTarget.value)}
+            onChange={(e) =>
+              setModiefiedCurrency(sanitizeInput(e.currentTarget.value))
+            }
             placeholder={currency || "Currency"}
           />
         )}

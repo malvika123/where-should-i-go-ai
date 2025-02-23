@@ -18,7 +18,7 @@ import { SendEmail } from "./SendEmail";
 import { EmailSent } from "./EmailSent";
 import { tripRecommendationPath } from "../../common/constants";
 import { useNavigate } from "react-router-dom";
-import { isUserLoggedIn } from "../../common/utils";
+import { isUserLoggedIn, sanitizeInput } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 
 export const ModifyReq = () => {
@@ -236,7 +236,9 @@ export const ModifyReq = () => {
                     fontWeight: "bolder",
                   }}
                   placeholder="Please add your thoughts here ... "
-                  onChange={(e) => setAddData(e.currentTarget.value)}
+                  onChange={(e) =>
+                    setAddData(sanitizeInput(e.currentTarget.value))
+                  }
                 />
                 <button
                   onClick={() => handleClick()}

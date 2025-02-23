@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./style/showModal.css";
 import { RxCrossCircled } from "react-icons/rx";
+import { sanitizeInput } from "../../../common/utils";
 
 const InfoModal = ({ setShowAddInterestModal, setDefaultTrip }) => {
   const [char, setChar] = useState(0);
@@ -33,7 +34,7 @@ const InfoModal = ({ setShowAddInterestModal, setDefaultTrip }) => {
             maxLength={50}
             onChange={(e) => {
               setChar(e.currentTarget.value.length);
-              setTextAreaText(e.currentTarget.value);
+              setTextAreaText(sanitizeInput(e.currentTarget.value));
             }}
           />
           <div className="info">

@@ -8,6 +8,7 @@ import TripPlannerFooter from "../../../Footer/TripPlannerFooter";
 import { AppContext } from "../../../context/AppContext";
 import Spinner from "../ShowFinalInfo/Spinner";
 import CommonSpinner from "../../../common/CommonSpinner";
+import { sanitizeInput } from "../../../common/utils";
 
 const TripCountry = () => {
   const [countryList, setCountryList] = useState("");
@@ -64,7 +65,7 @@ const TripCountry = () => {
   }, []);
 
   const handleChange = (e) => {
-    setCountry(e.target.value);
+    setCountry(sanitizeInput(e.target.value));
   };
 
   const handleStateClicked = (e) => {

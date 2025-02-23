@@ -7,7 +7,7 @@ import { PasswordInputField } from "./PasswordInputField";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert } from "./Alert";
-import { isUserLoggedIn } from "../../common/utils";
+import { isUserLoggedIn, sanitizeInput } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 
 export const Register = () => {

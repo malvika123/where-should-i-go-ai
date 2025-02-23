@@ -3,7 +3,7 @@ import { Footer } from "../../Footer/Footer";
 import TripPlannerHeader from "../../Header/TripPlannerHeader";
 import { ValidateEmail } from "../Login/ValidateEmail";
 import { Alert } from "../Login/Alert";
-import { cuidCookie } from "../../common/utils";
+import { cuidCookie, sanitizeInput } from "../../common/utils";
 import axios from "axios";
 
 export const DeleteAccountAndVerification = () => {
@@ -158,7 +158,7 @@ export const DeleteAccountAndVerification = () => {
           {accountDelReason === "Other (please specify):" && (
             <input
               type="input"
-              onChange={(e) => setUpdatedData(e.target.value)}
+              onChange={(e) => setUpdatedData(sanitizeInput(e.target.value))}
               style={{ width: "25vw", height: "10vh", borderRadius: "10px" }}
             />
           )}

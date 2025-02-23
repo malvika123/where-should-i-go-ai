@@ -7,6 +7,7 @@ import { redirectToHomePage } from "../common/navigateTopath";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert } from "./Login/Alert";
+import { sanitizeInput } from "../common/utils";
 
 const Feedback = () => {
   const [feedback, setFeedback] = useState("");
@@ -78,7 +79,7 @@ const Feedback = () => {
             <textarea
               className="textarea-feedback"
               placeholder="Enter your thoughts here..."
-              onChange={(e) => setFeedback(e.target.value)}
+              onChange={(e) => setFeedback(sanitizeInput(e.target.value))}
               maxLength={200}
             />
             <p

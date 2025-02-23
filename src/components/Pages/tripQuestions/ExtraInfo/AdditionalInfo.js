@@ -11,6 +11,7 @@ import {
   isUserLoggedIn,
   isUserSessionValid,
   ivCookie,
+  sanitizeInput,
 } from "../../../common/utils";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -197,7 +198,7 @@ const AdditionalInfo = () => {
           placeholder="Addition info here ..."
           onChange={(e) => {
             setChar(e.target.value.length);
-            setText(e.target.value);
+            setText(sanitizeInput(e.target.value));
           }}
           value={text}
           className="textarea"

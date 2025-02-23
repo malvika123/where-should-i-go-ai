@@ -1,4 +1,5 @@
 import axios from "axios";
+import list from "./badwords/list.json";
 
 export const isUserLoggedIn = () => {
   return aTknCookie() && cuidCookie();
@@ -129,4 +130,13 @@ export const getRecommendation = async () => {
     }
   };
   return await res();
+};
+
+export const sanitizeInput = (text) => {
+  const bannedWords = list; // Add more as needed
+
+  // Create a regex pattern dynamically to match whole words
+  const regex = new RegExp(`(${bannedWords.join("|")})`, "gi");
+
+  return text.replace(regex, (match) => "*".repeat(match.length)); // Replace with asterisks
 };

@@ -7,6 +7,7 @@ import axios from "axios";
 import AutocompleteBox from "./AutocompleteBox";
 import { RiUserLocationFill } from "react-icons/ri";
 import DistanceRange from "./DistanceRange";
+import { sanitizeInput } from "../../../common/utils";
 
 const UserPlace = () => {
   const {
@@ -62,7 +63,7 @@ const UserPlace = () => {
               className="input-place"
               value={text}
               onChange={(e) => {
-                setText(e.target.value);
+                setText(sanitizeInput(e.target.value));
                 setLoading(true);
               }}
               placeholder="Please enter your place here"
