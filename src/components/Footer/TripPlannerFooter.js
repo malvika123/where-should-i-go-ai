@@ -49,10 +49,14 @@ const TripPlannerFooter = ({
           {BACK}
         </h3>
       }
+      <h3 style={{ fontSize: "5px" }}></h3>
       {!hideNext && (
-        <h3 className="next" disabled={false} onClick={goForward}>
-          {NEXT}
-        </h3>
+        <div>
+          <p style={{ fontSize: "8px" }}>Unsure? click next to skip</p>
+          <h3 className="next" disabled={false} onClick={goForward}>
+            {NEXT}
+          </h3>
+        </div>
       )}
     </div>
   );
