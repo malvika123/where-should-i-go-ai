@@ -17,6 +17,7 @@ import { isUserLoggedIn } from "../../common/utils";
 import { Footer } from "../../Footer/Footer";
 import { EmailCollectionPopUp } from "./EmailCollectionPopUp";
 import { PiCursorClickDuotone } from "react-icons/pi";
+import { ItineraryReview } from "./Review";
 
 const Itinerary = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -221,6 +222,9 @@ const Itinerary = () => {
             </button>
           </div>
         )}
+        <div className="line"></div>
+
+        <ItineraryReview />
       </div>
       <Footer />
     </div>

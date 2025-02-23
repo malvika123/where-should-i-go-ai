@@ -1,0 +1,20 @@
+.star-empty{
+    height: 3%;
+    width: 3%;
+}
+
+.review-txt{
+    font-size: 22px;
+}
+
+.sub-review-txt,.sub-review-txt-add-review{
+    font-size: 16px;
+    font-weight: lighter;
+    margin-bottom: 2%;
+}
+
+.sub-review-txt-add-review{
+    margin-bottom: 2%;
+    color: rgb(42, 120, 189);
+    cursor: pointer;
+}

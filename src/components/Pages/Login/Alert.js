@@ -13,3 +13,11 @@ export const GreenAlert = ({ msg }) => {
     </div>
   );
 };
+
+export const GrayAlert = ({ msg }) => {
+  return (
+    <div className="grayAlert">
+      <span>{msg}</span>
+    </div>
+  );
+};

@@ -202,6 +202,19 @@
 
 .successAlert {
     background-color: rgb(50, 162, 50);
+    margin-bottom: 1%;
+}
+
+.grayAlert {
+    background-color: rgb(133, 122, 118);
+    color: white;
+    width: fit-content;
+    padding: 1%;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-top: 2%;
+    transition: 1s ease-in;
+    margin-bottom: 1%;
 }
 
 .input-txt-email {

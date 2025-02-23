@@ -140,3 +140,9 @@ export const sanitizeInput = (text) => {
 
   return text.replace(regex, (match) => "*".repeat(match.length)); // Replace with asterisks
 };
+
+export const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  console.log(emailRegex.test(email));
+  return emailRegex.test(email);
+};

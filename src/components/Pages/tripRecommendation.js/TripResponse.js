@@ -27,6 +27,7 @@ import { TopRatedHotels } from "./TopRatedHotels";
 import { TopRatedVegRestaurants } from "./TopRatedVegRestaurants";
 import { TopRatedNonVegRestaurants } from "./TopRatedNonVegRestaurants";
 import { useMediaQuery } from "react-responsive";
+import { TripResponseReview } from "./Review";
 
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
@@ -609,6 +610,8 @@ const TripResponse = () => {
                 );
               })}
             </section>
+            <TripResponseReview />
+
             <div className="line"></div>
             <div>
               <p>

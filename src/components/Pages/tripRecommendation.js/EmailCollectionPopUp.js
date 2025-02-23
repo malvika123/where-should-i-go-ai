@@ -1,4 +1,8 @@
 export const EmailCollectionPopUp = ({ setGuestEmail }) => {
+  const guestEmail = (val) => {
+    localStorage.setItem("userInfo", JSON.stringify({ ...userInfo, email }));
+    setGuestEmail(val);
+  };
   return (
     <div className="email-collection">
       <p className="email-p">Enter your email</p>
@@ -6,7 +10,7 @@ export const EmailCollectionPopUp = ({ setGuestEmail }) => {
         type="email"
         className="text-box-input"
         placeholder="Enter your email"
-        onChange={(e) => setGuestEmail(e.target.value)}
+        onChange={(e) => guestEmail(e.target.value)}
       />
     </div>
   );
