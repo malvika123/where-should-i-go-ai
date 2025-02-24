@@ -18,13 +18,13 @@ export const Budget = ({
 }) => {
   const [loading, setLoading] = useState(true);
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
-  const userBase = userBase || collectedInfo?.userBase;
+  const currPlace = userBase || collectedInfo?.userBase;
   const currency = userInfoCollected?.currency;
   useEffect(() => {
     const getData = async () => {
       try {
         const data = await axios.post("/api/tripBudget", {
-          from: userBase,
+          from: currPlace,
           to: state,
           days: days,
           currency: currency || "USD",
@@ -64,7 +64,7 @@ export const Budget = ({
               </p>
               <div className="budget-body">
                 <p className="budget-info-txt">
-                  <span style={{ fontWeight: "bold" }}>from:</span> {userBase}
+                  <span style={{ fontWeight: "bold" }}>from:</span> {currPlace}
                 </p>
                 <p className="budget-info-txt">
                   {" "}
