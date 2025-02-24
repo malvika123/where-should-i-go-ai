@@ -7,6 +7,7 @@ import axios from "axios";
 export const Budget = ({ setShowBudgetPopUp, userBase, state, days }) => {
   const [loading, setLoading] = useState(true);
   const [budget, setBudget] = useState({});
+  const [tips, setTips] = useState([]);
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const currency = userInfoCollected?.currency;
   useEffect(() => {
@@ -20,8 +21,10 @@ export const Budget = ({ setShowBudgetPopUp, userBase, state, days }) => {
         });
         setLoading(false);
         const dataRes = data?.data?.budget?.budget;
+        const dataTips = data?.data?.budget?.tips;
         console.log(data?.data?.budget?.budget);
         setBudget(dataRes);
+        setTips(dataTips);
       } catch (e) {
         setShowBudgetPopUp(false);
       }
@@ -127,6 +130,16 @@ export const Budget = ({ setShowBudgetPopUp, userBase, state, days }) => {
                   Estimated MIN cost : {budget?.total_estimated_budget?.min}{" "}
                   {currency}
                 </p>
+                <div className="line"></div>
+                <div className="line"></div>
+                <p className="budget-info-txt">
+                  {" "}
+                  <span style={{ fontWeight: "bold" }}>Tips - </span>
+                </p>
+                {console.log(tips)}
+                {tips?.map((elt) => {
+                  return <p className="budget-info-txt">{elt}</p>;
+                })}
               </div>
             </div>
           )}

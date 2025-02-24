@@ -560,7 +560,8 @@ const TripResponse = () => {
               <section style={{ marginBottom: "30px" }}>
                 <p className="prec-text">Budget Overview</p>
                 <p className="idl-sub-text">
-                  We will evaluate the budget for you
+                  We will evaluate the budget for you - (Minor variations
+                  possible.)
                 </p>
                 <button
                   className="budget-btn"
