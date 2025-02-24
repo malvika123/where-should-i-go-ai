@@ -25,6 +25,7 @@ const Budget = () => {
     setCurrency,
     modifiedCurrency,
     setModiefiedCurrency,
+    userBase,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -32,11 +33,21 @@ const Budget = () => {
   }, []);
 
   useEffect(() => {
+    console.log("opop", userBase);
     const currDataCall = async () => {
       try {
-        const currdata = await axios.post("/api/cur/currency");
-        setCurrency(currdata?.data?.cur);
+        const ipResponse = await fetch("https://api64.ipify.org?format=json");
+        const ipData = await ipResponse.json();
+        const userIP = ipData?.ip;
+        const locationResponse = await fetch(
+          `https://ipapi.co/${userIP}/json/`
+        );
+        const locationData = await locationResponse.json();
+        console.log("hello", ipData, locationData);
+
+        setCurrency(locationData?.currency);
       } catch (e) {
+        console.log("error", e);
         setChangeToTextField(true);
       }
     };
