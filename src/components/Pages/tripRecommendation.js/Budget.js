@@ -2,6 +2,21 @@ import { useEffect, useState } from "react";
 import "./style/budget.css";
 import { RxCrossCircled } from "react-icons/rx";
 import CommonSpinner from "../../common/CommonSpinner";
+import { IoIosBus } from "react-icons/io";
+
+import { IoFastFoodOutline } from "react-icons/io5";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+
+import { RiEBikeLine } from "react-icons/ri";
+import { TbMoneybag } from "react-icons/tb";
+
+import { RxHome } from "react-icons/rx";
+
+import { TiPlaneOutline } from "react-icons/ti";
+
+import { FcMoneyTransfer } from "react-icons/fc";
+import { FaCarSide } from "react-icons/fa";
+
 import axios from "axios";
 
 export const Budget = ({
@@ -18,7 +33,7 @@ export const Budget = ({
 }) => {
   const [loading, setLoading] = useState(true);
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
-  const currPlace = userBase || collectedInfo?.userBase;
+  const currPlace = userBase || userInfoCollected?.userBase;
   const currency = userInfoCollected?.currency;
   useEffect(() => {
     const getData = async () => {
@@ -61,6 +76,7 @@ export const Budget = ({
             <div>
               <p className="budget-estimates-txt">
                 Budget estimates - per person
+                <TbMoneybag />
               </p>
               <div className="budget-body">
                 <p className="budget-info-txt">
@@ -79,7 +95,9 @@ export const Budget = ({
                 <div className="line"></div>
                 <p className="budget-info-txt">
                   {" "}
-                  <span style={{ fontWeight: "bold" }}>Flight - </span>
+                  <span style={{ fontWeight: "bold" }}>
+                    Flight <TiPlaneOutline />-{" "}
+                  </span>
                 </p>
                 <p className="budget-info-txt">
                   Estimated cost of one way: {budget?.flights?.cost} {currency}
@@ -87,7 +105,7 @@ export const Budget = ({
                 <p className="budget-info-txt">
                   {" "}
                   <span style={{ fontWeight: "bold" }}>
-                    Accommodation -
+                    Accommodation <RxHome />-
                   </span>{" "}
                 </p>
                 <p className="budget-info-txt">
@@ -100,7 +118,9 @@ export const Budget = ({
                 </p>
                 <p className="budget-info-txt">
                   {" "}
-                  <span style={{ fontWeight: "bold" }}>Food -</span>{" "}
+                  <span style={{ fontWeight: "bold" }}>
+                    Food <IoFastFoodOutline />-
+                  </span>{" "}
                 </p>
                 <p className="budget-info-txt">
                   Estimated cost per day: {budget?.food?.cost_per_day}{" "}
@@ -111,7 +131,8 @@ export const Budget = ({
                 </p>
                 <p className="budget-info-txt">
                   <span style={{ fontWeight: "bold" }}>
-                    Transportation(public transport) -
+                    Transportation(public transport)
+                    <IoIosBus />-
                   </span>{" "}
                 </p>
                 <p className="budget-info-txt">
@@ -120,14 +141,18 @@ export const Budget = ({
                 </p>
                 <p className="budget-info-txt">
                   {" "}
-                  <span style={{ fontWeight: "bold" }}>Bike renting - </span>
+                  <span style={{ fontWeight: "bold" }}>
+                    Bike renting <RiEBikeLine />-{" "}
+                  </span>
                 </p>
                 <p className="budget-info-txt">
                   Estimated cost : {budget?.bike_rent?.cost} {currency}
                 </p>
                 <p className="budget-info-txt">
                   {" "}
-                  <span style={{ fontWeight: "bold" }}>Car renting - </span>
+                  <span style={{ fontWeight: "bold" }}>
+                    Car renting <FaCarSide />-{" "}
+                  </span>
                 </p>
                 <p className="budget-info-txt">
                   Estimated cost: {budget?.car_rent?.cost} {currency}
@@ -147,7 +172,9 @@ export const Budget = ({
                 <div className="line"></div>
                 <p className="budget-info-txt">
                   {" "}
-                  <span style={{ fontWeight: "bold" }}>Tips - </span>
+                  <span style={{ fontWeight: "bold" }}>
+                    Tips <MdOutlineTipsAndUpdates />-{" "}
+                  </span>
                 </p>
                 {console.log(tips)}
                 {tips?.map((elt) => {
