@@ -157,7 +157,7 @@ const Login = () => {
           <Logo />
           <p className="subtxt-login-head">Log into your account</p>
           <p className="subtxt-login-txt">
-            Welcome back, lets begin with logging in
+            Please login for best uninterupted experience
           </p>
           {alert && !greenAlert && <Alert msg={alert} />}
           {greenAlert && <GreenAlert msg={greenAlert} />}
