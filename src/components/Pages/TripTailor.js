@@ -34,6 +34,7 @@ const TripTailor = () => {
     text: txt,
     userBase: usrBase,
     distanceRange: dstRange,
+    isRangeSelected: range,
   } = userInfoCollected || {};
 
   const [progress, setProgress] = useState(10);
@@ -60,6 +61,7 @@ const TripTailor = () => {
   const [states, setStates] = useState();
   const [userBase, setUserBase] = useState(usrBase || null);
   const [distanceRange, setDistanceRange] = useState(dstRange || 10);
+  const [isRangeSelected, setRangeSelected] = useState(range ? range : false);
 
   return (
     <AppContext.Provider
@@ -106,6 +108,8 @@ const TripTailor = () => {
         setUserBase,
         distanceRange,
         setDistanceRange,
+        isRangeSelected,
+        setRangeSelected,
       }}
     >
       <div className="trip-planner">

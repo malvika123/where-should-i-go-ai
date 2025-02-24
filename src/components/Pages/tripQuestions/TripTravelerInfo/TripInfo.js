@@ -6,7 +6,8 @@ import { AppContext } from "../../../context/AppContext";
 
 const TripInfo = () => {
   const [showNextButton, setShowNextButton] = useState(false);
-  const { setProgress, setNextPath, setPage } = useContext(AppContext);
+  const { setProgress, setNextPath, setPage, isRangeSelected } =
+    useContext(AppContext);
 
   useEffect(() => {
     setPage(5);
@@ -20,7 +21,7 @@ const TripInfo = () => {
         setNextPath={setNextPath}
         nextPath={"/budget"}
         setProgress={setProgress}
-        backPath={"/country"}
+        backPath={isRangeSelected ? "/userPlace" : "/country"}
         setProgressVal={75}
         resetProgressVal={50}
       />

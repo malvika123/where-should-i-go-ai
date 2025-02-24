@@ -18,6 +18,8 @@ const UserPlace = () => {
     setUserBase,
     distanceRange,
     setDistanceRange,
+    isRangeSelected,
+    setRangeSelected,
   } = useContext(AppContext);
   const [showNextButton, setShowNextButton] = useState(false);
   const [text, setText] = useState();
@@ -89,13 +91,15 @@ const UserPlace = () => {
         <DistanceRange
           setDistanceRange={setDistanceRange}
           distanceRange={distanceRange}
+          isRangeSelected={isRangeSelected}
+          setRangeSelected={setRangeSelected}
         />
       )}
 
       <TripPlannerFooter
         showNext={showNextButton}
         setNextPath={setNextPath}
-        nextPath={"/country"}
+        nextPath={isRangeSelected ? "/tripInfo" : "/country"}
         backPath={"/gender"}
         setProgress={setProgress}
         setProgressVal={50}

@@ -1,9 +1,12 @@
 import { useState } from "react";
 
-const DistanceRange = ({ setDistanceRange, distanceRange }) => {
-  const [isRangeSelected, setRangeSelected] = useState();
+const DistanceRange = ({
+  setDistanceRange,
+  distanceRange,
+  isRangeSelected,
+  setRangeSelected,
+}) => {
   const [selectedOptionTarget, setSelectedOptionTarget] = useState();
-
   const selectedOption = (val, e) => {
     console.log(e);
     e.target.classList.add("option-checked");
@@ -19,10 +22,20 @@ const DistanceRange = ({ setDistanceRange, distanceRange }) => {
           Do you have a specific distance range in mind for your travel plans?{" "}
         </h1>
         <div className="travel-range-option">
-          <p className="range-optn" onClick={(e) => selectedOption(true, e)}>
+          <p
+            className={
+              isRangeSelected ? "range-optn option-checked" : "range-optn"
+            }
+            onClick={(e) => selectedOption(true, e)}
+          >
             Yes, i do
           </p>
-          <p className="range-optn" onClick={(e) => selectedOption(false, e)}>
+          <p
+            className={
+              !isRangeSelected ? "range-optn option-checked" : "range-optn"
+            }
+            onClick={(e) => selectedOption(false, e)}
+          >
             Nope, i'm good
           </p>
         </div>

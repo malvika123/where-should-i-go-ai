@@ -51,6 +51,7 @@ const AdditionalInfo = () => {
     slctdActsSet,
     distanceRange,
     userBase,
+    isRangeSelected,
   } = useContext(AppContext);
 
   sessionStorage.setItem(
@@ -75,6 +76,7 @@ const AdditionalInfo = () => {
       text,
       distanceRange,
       userBase,
+      isRangeSelected,
     })
   );
   useEffect(() => {
@@ -129,6 +131,7 @@ const AdditionalInfo = () => {
               iv,
               userBase,
               distanceRange,
+              range: isRangeSelected,
             },
             {
               headers: {
@@ -163,6 +166,7 @@ const AdditionalInfo = () => {
               recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
               userBase,
               distanceRange,
+              isRangeSelected,
             })
           );
           setShowSpinner(false);
