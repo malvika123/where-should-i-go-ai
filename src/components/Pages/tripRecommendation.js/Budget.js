@@ -4,10 +4,19 @@ import { RxCrossCircled } from "react-icons/rx";
 import CommonSpinner from "../../common/CommonSpinner";
 import axios from "axios";
 
-export const Budget = ({ setShowBudgetPopUp, userBase, state, days }) => {
+export const Budget = ({
+  setShowBudgetPopUp,
+  userBase,
+  state,
+  days,
+  setOpen,
+  open,
+  setBudget,
+  budget,
+  tips,
+  setTips,
+}) => {
   const [loading, setLoading] = useState(true);
-  const [budget, setBudget] = useState({});
-  const [tips, setTips] = useState([]);
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const currency = userInfoCollected?.currency;
   useEffect(() => {
@@ -22,29 +31,32 @@ export const Budget = ({ setShowBudgetPopUp, userBase, state, days }) => {
         setLoading(false);
         const dataRes = data?.data?.budget?.budget;
         const dataTips = data?.data?.budget?.tips;
-        console.log(data?.data?.budget?.budget);
         setBudget(dataRes);
         setTips(dataTips);
       } catch (e) {
         setShowBudgetPopUp(false);
+      } finally {
+        setOpen(false);
       }
     };
-    getData();
-  }, []);
+    if (open) {
+      console.log(open);
+      getData();
+    }
+  }, [open]);
 
   return (
     <div>
-      (
-      <div className="modal-background">
+      <div className="modal-background-here">
         <div className="budget-popup">
           <div className="header-modal">
             <p className="">
               <RxCrossCircled onClick={() => setShowBudgetPopUp(false)} />
             </p>
           </div>
-          {loading && <CommonSpinner color={"orange"} width={20} />}
+          {open && loading && <CommonSpinner color={"orange"} width={20} />}
 
-          {!loading && (
+          {(!open || !loading) && (
             <div>
               <p className="budget-estimates-txt">
                 Budget estimates - per person
@@ -145,7 +157,6 @@ export const Budget = ({ setShowBudgetPopUp, userBase, state, days }) => {
           )}
         </div>
       </div>
-      )
     </div>
   );
 };

@@ -64,6 +64,9 @@ const TripResponse = () => {
   const [showAreaRestaurants, setShowAreaRestaurants] = useState(false);
   const [showunderhypedRestaurants, setShowUnderhypedRestaurants] =
     useState(false);
+  const [open, setOpen] = useState(true);
+  const [budget, setBudget] = useState({});
+  const [tips, setTips] = useState([]);
 
   const [showBudgetPopUp, setShowBudgetPopUp] = useState(false);
   const skippedLogin = sessionStorage.getItem("skippedLogin");
@@ -575,6 +578,12 @@ const TripResponse = () => {
                     userBase={userBase}
                     state={state}
                     days={days}
+                    setOpen={setOpen}
+                    open={open}
+                    budget={budget}
+                    setBudget={setBudget}
+                    tips={tips}
+                    setTips={setTips}
                   />
                 )}
               </section>
