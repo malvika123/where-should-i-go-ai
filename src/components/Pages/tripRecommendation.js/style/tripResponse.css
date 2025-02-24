@@ -172,6 +172,14 @@
 
 }
 
+.budget-btn{
+    background-color: black;
+    color: white;
+    padding: 1%;
+    border-radius: 12px;
+    box-shadow: 5px 1px 3px 4px rgb(217, 215, 215);
+}
+
 .itnry:hover {
     background-color: rgb(49, 87, 164);
 }

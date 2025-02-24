@@ -33,7 +33,6 @@ const Budget = () => {
   }, []);
 
   useEffect(() => {
-    console.log("opop", userBase);
     const currDataCall = async () => {
       try {
         const ipResponse = await fetch("https://api64.ipify.org?format=json");
@@ -43,8 +42,6 @@ const Budget = () => {
           `https://ipapi.co/${userIP}/json/`
         );
         const locationData = await locationResponse.json();
-        console.log("hello", ipData, locationData);
-
         setCurrency(locationData?.currency);
       } catch (e) {
         console.log("error", e);

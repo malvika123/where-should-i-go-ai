@@ -12,6 +12,7 @@ import { RiScissors2Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import vid from "../../images/6981404-hd_1920_1080_25fps.mp4";
 import { FaPlaneCircleExclamation } from "react-icons/fa6";
+import { PiCursorClickDuotone } from "react-icons/pi";
 
 import {
   ismidLargeScreen,
@@ -28,10 +29,12 @@ import { TopRatedVegRestaurants } from "./TopRatedVegRestaurants";
 import { TopRatedNonVegRestaurants } from "./TopRatedNonVegRestaurants";
 import { useMediaQuery } from "react-responsive";
 import { TripResponseReview } from "./Review";
+import { Budget } from "./Budget";
 
 const TripResponse = () => {
   const state = useSelector((state) => state?.data?.userData?.state);
   const userBase = useSelector((state) => state?.data?.userData?.userBase);
+  const days = useSelector((state) => state?.data?.userData?.days);
   const reasonState = useSelector(
     (state) => state?.data?.userData?.reasonForStateChoice
   );
@@ -61,6 +64,8 @@ const TripResponse = () => {
   const [showAreaRestaurants, setShowAreaRestaurants] = useState(false);
   const [showunderhypedRestaurants, setShowUnderhypedRestaurants] =
     useState(false);
+
+  const [showBudgetPopUp, setShowBudgetPopUp] = useState(false);
   const skippedLogin = sessionStorage.getItem("skippedLogin");
   const isLoginSkipped = () => {
     const timeNow = Math.floor(Date.now() / 1000)?.toString();
@@ -552,6 +557,26 @@ const TripResponse = () => {
                   </div>
                 );
               })}
+              <section style={{ marginBottom: "30px" }}>
+                <p className="prec-text">Budget Overview</p>
+                <p className="idl-sub-text">
+                  We will evaluate the budget for you
+                </p>
+                <button
+                  className="budget-btn"
+                  onClick={() => setShowBudgetPopUp((prev) => !prev)}
+                >
+                  Click here to fetch your budget <PiCursorClickDuotone />
+                </button>
+                {showBudgetPopUp && (
+                  <Budget
+                    setShowBudgetPopUp={setShowBudgetPopUp}
+                    userBase={userBase}
+                    state={state}
+                    days={days}
+                  />
+                )}
+              </section>
               <p className="prec-text">
                 Precautionary Warning <TiWarning style={{ color: "yellow" }} />
               </p>
