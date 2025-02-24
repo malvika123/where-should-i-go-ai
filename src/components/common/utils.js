@@ -133,10 +133,14 @@ export const getRecommendation = async () => {
 };
 
 export const sanitizeInput = (text) => {
-  const bannedWords = list; // Add more as needed
+  const bannedWords = list.map((word) => word.trim()); // Add more as needed
 
-  // Create a regex pattern dynamically to match whole words
-  const regex = new RegExp(`(${bannedWords.join("|")})`, "gi");
+  const regex = new RegExp(
+    `\\b(?:${bannedWords
+      .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+      .join("|")})\\b`,
+    "gi"
+  );
 
   return text.replace(regex, (match) => "*".repeat(match.length)); // Replace with asterisks
 };
