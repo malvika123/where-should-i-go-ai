@@ -18,6 +18,7 @@ export const Budget = ({
 }) => {
   const [loading, setLoading] = useState(true);
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
+  const userBase = userBase || collectedInfo?.userBase;
   const currency = userInfoCollected?.currency;
   useEffect(() => {
     const getData = async () => {
