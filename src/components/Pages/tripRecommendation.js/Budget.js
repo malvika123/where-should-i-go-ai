@@ -100,7 +100,7 @@ export const Budget = ({
                   </span>
                 </p>
                 <p className="budget-info-txt">
-                  Estimated cost of one way: {budget?.flights?.cost} {currency}
+                  Estimated cost of two way: {budget?.flights?.cost} {currency}
                 </p>
                 <p className="budget-info-txt">
                   {" "}
@@ -161,12 +161,12 @@ export const Budget = ({
 
                 <p className="budget-info-txt-fin">Total estimated budget - </p>
                 <p className="budget-info-txt">
-                  Estimated MAX cost : {budget?.total_estimated_budget?.max}{" "}
-                  {currency}
+                  Estimated Average MAX cost for {days}:{" "}
+                  {budget?.total_estimated_budget?.max} {currency}
                 </p>
                 <p className="budget-info-txt">
-                  Estimated MIN cost : {budget?.total_estimated_budget?.min}{" "}
-                  {currency}
+                  Estimated Average MIN cost for {days}:{" "}
+                  {budget?.total_estimated_budget?.min} {currency}
                 </p>
                 <div className="line"></div>
                 <div className="line"></div>
