@@ -18,3 +18,29 @@
     color: rgb(42, 120, 189);
     cursor: pointer;
 }
+
+.email1 {
+    animation: 1s;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 7px 4px 7px 4px rgb(233, 219, 219);
+    margin-bottom: 20px;
+    width: 15%;
+  }
+
+@media (max-width:700px){
+    .star-empty{
+        height: 5%;
+        width: 5%;
+    }
+}
+
+@media (max-width:1000px){
+    .email1{
+      width: 45%
+    }
+  }

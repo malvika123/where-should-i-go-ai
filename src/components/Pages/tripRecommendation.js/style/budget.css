@@ -46,3 +46,11 @@
     font-size: 18px;
     color: rgb(94, 94, 195);
 }
+
+@media (max-width:1000px){
+    .budget-popup{
+        max-width: 20%;
+    max-height: 60%;
+    min-width: 80%;
+    }
+}
