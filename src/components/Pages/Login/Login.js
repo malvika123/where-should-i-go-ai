@@ -33,7 +33,7 @@ const Login = () => {
   );
   const [greenAlert, setGreenAlert] = useState();
   const showSkip = process.env.REACT_APP_SHOW_SKIP === "false" ? false : true;
-  console.log("hui", showSkip, typeof process.env.REACT_APP_SHOW_SKIP);
+  console.log("hui", showSkip, process.env.REACT_APP_SHOW_SKIP);
 
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const {
