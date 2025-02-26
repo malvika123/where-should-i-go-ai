@@ -32,6 +32,7 @@ const Login = () => {
     unauthorisedUser ? "You are not logged in. Please login." : ""
   );
   const [greenAlert, setGreenAlert] = useState();
+  const showSkip = process.env.showSkip || true;
 
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const {
@@ -50,6 +51,7 @@ const Login = () => {
     modifiedCurrency,
     slctdActsSet,
     text,
+    isRangeSelected,
   } = userInfoCollected || {};
   const searchParams = window.location?.search;
 
@@ -204,7 +206,7 @@ const Login = () => {
                 </span>
               </a>{" "}
             </span>{" "}
-            {unauthorisedUser && fromTripTailor && (
+            {showSkip && unauthorisedUser && fromTripTailor && (
               <p className="skip" onClick={() => clickedLoginSkip()}>
                 Skip
               </p>

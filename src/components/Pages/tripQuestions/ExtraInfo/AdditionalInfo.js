@@ -97,95 +97,96 @@ const AdditionalInfo = () => {
     if (processingData) {
       if (!isLoginSkipped() && !isUserLoggedIn()) {
         window.location.href = "/login?unauthorised=true&from=tripTailor";
-      }
-      const token = aTknCookie();
-      const id = cuidCookie();
-      const iv = ivCookie();
-      console.log("opopopopo");
-      const res = async () => {
-        try {
-          const data = await axios.post(
-            "/api/openapi/getsuggestion",
-            {
-              days,
-              mnth,
-              gender,
-              selectedStates: `${Array.from(selectedStates || []).map(
-                (elt) => `${elt}, `
-              )}`,
-              country,
-              tripType,
-              pets,
-              hasFemale,
-              hasKids,
-              minValue,
-              maxValue,
-              currency,
-              modifiedCurrency,
-              slctdActsSet: `${Array.from(slctdActsSet).map(
-                (elt) => `${elt}, `
-              )}`,
-              text,
-              token,
-              id,
-              iv,
-              userBase,
-              distanceRange,
-              range: isRangeSelected,
-            },
-            {
-              headers: {
-                "Content-Type": "application/json",
+      } else {
+        const token = aTknCookie();
+        const id = cuidCookie();
+        const iv = ivCookie();
+        console.log("opopopopo");
+        const res = async () => {
+          try {
+            const data = await axios.post(
+              "/api/openapi/getsuggestion",
+              {
+                days,
+                mnth,
+                gender,
+                selectedStates: `${Array.from(selectedStates || []).map(
+                  (elt) => `${elt}, `
+                )}`,
+                country,
+                tripType,
+                pets,
+                hasFemale,
+                hasKids,
+                minValue,
+                maxValue,
+                currency,
+                modifiedCurrency,
+                slctdActsSet: `${Array.from(slctdActsSet).map(
+                  (elt) => `${elt}, `
+                )}`,
+                text,
+                token,
+                id,
+                iv,
+                userBase,
+                distanceRange,
+                range: isRangeSelected,
               },
+              {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              }
+            );
+
+            dispatch(
+              setUserData({
+                state: data?.data?.jsonObj?.state,
+                reasonForStateChoice: data?.data?.jsonObj?.reason,
+                area: data?.data?.jsonObj?.["places_to_visit"],
+                underhyped: data?.data?.jsonObj?.["off_beat_places"],
+                note: data?.data?.jsonObj?.["precautions"],
+                avoidPlaces: data?.data?.jsonObj?.["places_to_avoid"],
+                days,
+                mnth,
+                gender,
+                selectedStates,
+                country,
+                tripType,
+                pets,
+                hasFemale,
+                hasKids,
+                minValue,
+                maxValue,
+                currency,
+                modifiedCurrency,
+                slctdActsSet,
+                text,
+                recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
+                userBase,
+                distanceRange,
+                isRangeSelected,
+              })
+            );
+            setShowSpinner(false);
+            setProcessData(false);
+
+            NavigateTopath({ path: tripRecommendationPath });
+          } catch (e) {
+            console.log("uiui", e);
+            setProcessData(false);
+            const errData = e?.response?.data;
+            if (!errData?.authenticated) {
+              window.location.href = "/login?unauthorised=true&from=tripTailor";
+              return;
+            } else if (!errData.tokenCountSufficient) {
+              window.location.href = "/tripRecommendation";
+              return;
             }
-          );
-
-          dispatch(
-            setUserData({
-              state: data?.data?.jsonObj?.state,
-              reasonForStateChoice: data?.data?.jsonObj?.reason,
-              area: data?.data?.jsonObj?.["places_to_visit"],
-              underhyped: data?.data?.jsonObj?.["off_beat_places"],
-              note: data?.data?.jsonObj?.["precautions"],
-              avoidPlaces: data?.data?.jsonObj?.["places_to_avoid"],
-              days,
-              mnth,
-              gender,
-              selectedStates,
-              country,
-              tripType,
-              pets,
-              hasFemale,
-              hasKids,
-              minValue,
-              maxValue,
-              currency,
-              modifiedCurrency,
-              slctdActsSet,
-              text,
-              recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
-              userBase,
-              distanceRange,
-              isRangeSelected,
-            })
-          );
-          setShowSpinner(false);
-          setProcessData(false);
-
-          NavigateTopath({ path: tripRecommendationPath });
-        } catch (e) {
-          console.log("uiui", e);
-          setProcessData(false);
-          const errData = e?.response?.data;
-          if (!errData?.authenticated) {
-            window.location.href = "/login?unauthorised=true&from=tripTailor";
-            return;
-          } else if (!errData.tokenCountSufficient) {
-            window.location.href = "/tripRecommendation";
-            return;
           }
-        }
-      };
+        };
+      }
       res();
     }
   }, [processingData]);

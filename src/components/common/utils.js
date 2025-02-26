@@ -78,6 +78,9 @@ export const getRecommendation = async () => {
     modifiedCurrency,
     slctdActsSet,
     text,
+    isRangeSelected,
+    distanceRange,
+    userBase,
   } = userInfo;
 
   const token = aTknCookie();
@@ -92,9 +95,10 @@ export const getRecommendation = async () => {
           days,
           mnth,
           gender,
-          selectedStates: `${Array.from(selectedStates || []).map(
-            (elt) => `${elt}, `
-          )}`,
+          selectedStates: `${selectedStates
+            ?.split(/\s*,\s*/)
+            .filter(Boolean)
+            .map((elt) => `${elt}, `)}`,
           country,
           tripType,
           pets,
@@ -104,11 +108,17 @@ export const getRecommendation = async () => {
           maxValue,
           currency,
           modifiedCurrency,
-          slctdActsSet: `${Array.from(slctdActsSet).map((elt) => `${elt}, `)}`,
+          slctdActsSet: `${slctdActsSet
+            ?.split(/\s*,\s*/)
+            .filter(Boolean)
+            .map((elt) => `${elt}, `)}`,
           text,
           token,
           id,
           iv,
+          userBase,
+          distanceRange,
+          range: isRangeSelected,
         },
         {
           headers: {

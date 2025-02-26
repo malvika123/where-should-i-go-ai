@@ -10,6 +10,10 @@
     margin-right: 25%;
 }
 
+.subtxt-login-txt{
+    font-size: 20px;
+}
+
 .login-box-reg,.login-box-one-reg {
     display: flex;
     margin-top: 5%;
