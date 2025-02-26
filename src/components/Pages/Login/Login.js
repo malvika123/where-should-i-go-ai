@@ -32,7 +32,7 @@ const Login = () => {
     unauthorisedUser ? "You are not logged in. Please login." : ""
   );
   const [greenAlert, setGreenAlert] = useState();
-  const showSkip = process.env.showSkip || true;
+  const showSkip = process.env.showSkip || false;
   console.log("hui", showSkip, process.env.showSkip);
 
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
