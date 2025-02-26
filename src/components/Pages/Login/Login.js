@@ -33,6 +33,7 @@ const Login = () => {
   );
   const [greenAlert, setGreenAlert] = useState();
   const showSkip = process.env.showSkip || true;
+  console.log("hui", showSkip, process.env.showSkip);
 
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const {
