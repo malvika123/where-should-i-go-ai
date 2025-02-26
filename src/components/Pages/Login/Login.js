@@ -152,6 +152,7 @@ const Login = () => {
         flexDirection: "column",
         justifyContent: "space-between",
         minHeight: "100vh",
+        marginBottom: "2%",
       }}
     >
       <div>
