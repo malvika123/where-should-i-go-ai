@@ -8,7 +8,7 @@ const DistanceRange = ({
 }) => {
   const [selectedOptionTarget, setSelectedOptionTarget] = useState();
   const selectedOption = (val, e) => {
-    console.log(e);
+    // console.log(e);
     e.target.classList.add("option-checked");
     selectedOptionTarget &&
       selectedOptionTarget.classList.remove("option-checked");

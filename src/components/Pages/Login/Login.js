@@ -16,7 +16,7 @@ import { tripRecommendationPath } from "../../common/constants";
 const Login = () => {
   const navigate = useNavigate();
   const navigateTopath = (path) => {
-    console.log("navigate", path);
+    //console.log("navigate", path);
     navigate(path);
   };
   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -33,7 +33,7 @@ const Login = () => {
   );
   const [greenAlert, setGreenAlert] = useState();
   const showSkip = process.env.REACT_APP_SHOW_SKIP === "false" ? false : true;
-  console.log("hui", showSkip, process.env.REACT_APP_SHOW_SKIP);
+  console.log(showSkip, process.env.REACT_APP_SHOW_SKIP);
 
   const userInfoCollected = JSON.parse(sessionStorage.getItem("collectedInfo"));
   const {
@@ -102,10 +102,10 @@ const Login = () => {
               recomm: `${JSON.stringify(data?.data?.jsonObj)}`,
             })
           );
-          console.log(data);
+          //console.log(data);
           navigateTopath("/tripRecommendation");
         } catch (e) {
-          console.log("error", e);
+          //console.log("error", e);
         }
       };
       dataRec();

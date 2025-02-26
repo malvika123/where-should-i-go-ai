@@ -42,7 +42,7 @@ const UserPlace = () => {
           const data = await axios.post("/api/loc/autocomplete", {
             place: text,
           });
-          console.log(data?.data);
+          // console.log(data?.data);
           setPredictedText(data?.data);
           setLoading(false);
         } catch (err) {}

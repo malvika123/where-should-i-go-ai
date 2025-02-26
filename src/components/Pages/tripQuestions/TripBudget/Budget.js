@@ -44,7 +44,7 @@ const Budget = () => {
         const locationData = await locationResponse.json();
         setCurrency(locationData?.currency);
       } catch (e) {
-        console.log("error", e);
+        // console.log("error", e);
         setChangeToTextField(true);
       }
     };

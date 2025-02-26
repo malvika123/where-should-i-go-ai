@@ -17,7 +17,7 @@ export const TripResponseReview = () => {
   const [email, setEmail] = useState(userInfo ? userInfo?.email : "");
   const handleOnclick = (i) => {
     setRating(i);
-    console.log(email);
+    //console.log(email);
     if (email) {
       setAlert(`Review recorded !!!`);
       localStorage.setItem("userInfo", JSON.stringify({ ...userInfo, email }));

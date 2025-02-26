@@ -28,7 +28,7 @@ export const ShortsSlider = ({ place }) => {
           setShowVid(true);
         }
       } catch (e) {
-        console.log(e);
+        //console.log(e);
       }
     };
     getShorts();

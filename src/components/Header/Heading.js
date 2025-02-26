@@ -12,7 +12,7 @@ const Heading = ({ name = "" }) => {
   const [showLogout, setShowLogout] = useState(false);
 
   const logoutUser = () => {
-    console.log("user loggedout");
+    //console.log("user loggedout");
 
     const logoutUser = async () => {
       try {

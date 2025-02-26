@@ -53,7 +53,7 @@ function App() {
         clearCache();
         await axios.post("api/wakeup");
       } catch (e) {
-        console.log(e);
+        //console.log(e);
       }
     };
     wakeUser();

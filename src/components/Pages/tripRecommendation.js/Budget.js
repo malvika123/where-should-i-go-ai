@@ -56,7 +56,7 @@ export const Budget = ({
       }
     };
     if (open) {
-      console.log(open);
+      // console.log(open);
       getData();
     }
   }, [open]);
@@ -176,7 +176,7 @@ export const Budget = ({
                     Tips <MdOutlineTipsAndUpdates />-{" "}
                   </span>
                 </p>
-                {console.log(tips)}
+                {/* {console.log(tips)} */}
                 {tips?.map((elt) => {
                   return <p className="budget-info-txt">{elt}</p>;
                 })}

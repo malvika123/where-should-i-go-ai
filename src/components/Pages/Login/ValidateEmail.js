@@ -119,7 +119,7 @@ export const ValidateEmail = ({}) => {
               );
               NavigateTopath({ path: tripRecommendationPath });
             } catch (e) {
-              console.log("error", e);
+              //console.log("error", e);
             }
           } else {
             setAlert("login successful");
@@ -127,7 +127,7 @@ export const ValidateEmail = ({}) => {
           }
         } catch (e) {
           btn.classList.remove("grey-btn");
-          console.log(e?.response?.data);
+          //console.log(e?.response?.data);
           let error;
           if (e?.response?.data?.status === 1300) {
             error = "Entered pin is incorrect";

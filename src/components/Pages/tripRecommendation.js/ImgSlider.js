@@ -39,7 +39,7 @@ const ImgSlider = ({ place, showMultipleSlides, classnm, textClassnm }) => {
         const urls = data?.data?.urls;
         setImageArr(urls);
       } catch (e) {
-        console.log("error");
+        //console.log("error");
       }
     };
 

@@ -14,7 +14,7 @@ export const SendEmail = ({ itineraryObjData, setEmailSent }) => {
       setEmailSent("Email sent successfully!");
     })
     .catch((error) => {
-      console.error("Error sending email:", error);
+      //console.error("Error sending email:", error);
       setEmailSent("Failed to send email.");
     });
 };

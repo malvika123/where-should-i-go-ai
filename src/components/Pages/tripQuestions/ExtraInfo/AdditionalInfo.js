@@ -101,7 +101,7 @@ const AdditionalInfo = () => {
         const token = aTknCookie();
         const id = cuidCookie();
         const iv = ivCookie();
-        console.log("opopopopo");
+        //console.log("opopopopo");
         const res = async () => {
           try {
             const data = await axios.post(
@@ -174,7 +174,7 @@ const AdditionalInfo = () => {
 
             NavigateTopath({ path: tripRecommendationPath });
           } catch (e) {
-            console.log("uiui", e);
+            //console.log("uiui", e);
             setProcessData(false);
             const errData = e?.response?.data;
             if (!errData?.authenticated) {

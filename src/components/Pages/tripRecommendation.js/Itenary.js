@@ -85,7 +85,7 @@ const Itinerary = () => {
           setShowEmailScreen(false);
         })
         .catch((error) => {
-          console.error("Error sending email:", error);
+          //console.error("Error sending email:", error);
           setEmailSent("Failed to send email.");
         });
     }

@@ -128,7 +128,7 @@ export const getRecommendation = async () => {
       );
       return data;
     } catch (e) {
-      console.log("uiui", e);
+      //console.log("uiui", e);
       const errData = e?.response?.data;
       if (!errData?.authenticated) {
         window.location.href = "/login?unauthorised=true";
@@ -157,6 +157,6 @@ export const sanitizeInput = (text) => {
 
 export const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  console.log(emailRegex.test(email));
+  //console.log(emailRegex.test(email));
   return emailRegex.test(email);
 };

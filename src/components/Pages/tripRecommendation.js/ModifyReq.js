@@ -106,7 +106,7 @@ export const ModifyReq = () => {
             );
             NavigateTopath({ path: tripRecommendationPath });
           } catch (e) {
-            console.log(e);
+            //console.log(e);
           } finally {
             setSpinning(false);
           }

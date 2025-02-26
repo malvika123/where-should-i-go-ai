@@ -15,7 +15,7 @@ export const TopRatedVegRestaurants = ({ place }) => {
         });
         setHList(data?.data);
       } catch (e) {
-        console.log(e);
+        //console.log(e);
       }
     };
     getTopRatedVegRestaurants();

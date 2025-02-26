@@ -110,7 +110,7 @@ const TripResponse = () => {
 
   const getDistance = async (place) => {
     const getDist = async () => {
-      console.log(userBase, "opo");
+      //console.log(userBase, "opo");
       try {
         const data = await axios.post("/api/loc/caldistance", {
           origin: "bangalore" || userBase,
@@ -120,7 +120,7 @@ const TripResponse = () => {
         const duration = data?.data?.duration;
         return { distance, duration };
       } catch (e) {
-        console.log(e, "erroru");
+        //console.log(e, "erroru");
       }
     };
     const data = getDist();
@@ -175,10 +175,10 @@ const TripResponse = () => {
             place: state,
           },
         });
-        console.log("hello", data?.data);
+        //console.log("hello", data?.data);
         setAqiInfo(data?.data);
       } catch (e) {
-        console.log(e);
+        //console.log(e);
       }
     };
     getAqi();
