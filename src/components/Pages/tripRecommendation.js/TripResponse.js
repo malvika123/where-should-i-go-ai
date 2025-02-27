@@ -645,10 +645,8 @@ const TripResponse = () => {
                 );
               })}
             </section>
-            <TripResponseReview />
 
-            <div className="line"></div>
-            <div>
+            <div style={{ marginBottom: "5%" }}>
               <p>
                 Happy with the Recommendation? <RiEmotionHappyLine />
               </p>
@@ -671,6 +669,9 @@ const TripResponse = () => {
                 I need to add some more info
               </button>
             </div>
+            <div className="line"></div>
+            <TripResponseReview />
+            <div className="line"></div>
             <h6 style={{ marginTop: "50px", color: "red" }}>
               *some images may not belong to the place
             </h6>

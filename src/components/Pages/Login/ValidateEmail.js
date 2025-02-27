@@ -98,7 +98,7 @@ export const ValidateEmail = ({}) => {
                   area: dataRec?.data?.jsonObj?.["places_to_visit"],
                   underhyped: dataRec?.data?.jsonObj?.["off_beat_places"],
                   note: dataRec?.data?.jsonObj?.["precautions"],
-                  avoidPlaces: data?.data?.jsonObj?.["places_to_avoid"],
+                  avoidPlaces: dataRec?.data?.jsonObj?.["places_to_avoid"],
                   days,
                   mnth,
                   gender,
