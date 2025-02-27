@@ -186,8 +186,8 @@ const AdditionalInfo = () => {
             }
           }
         };
+        res();
       }
-      res();
     }
   }, [processingData]);
   return (
