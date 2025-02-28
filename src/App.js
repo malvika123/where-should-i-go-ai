@@ -31,6 +31,8 @@ import { Faq } from "./components/Pages/Faq";
 import { useEffect } from "react";
 import axios from "axios";
 import UserPlace from "./components/Pages/tripQuestions/UserPlace/UserPlace";
+import Article from "./pages/articles/travel-insights-20250228";
+import ArticlePage from "./pages/articles/ArticlesPage";
 
 function App() {
   //wake up call to servers
@@ -87,6 +89,7 @@ function App() {
         <Route exact path="/joinUs" element={<JoinUs />} />
         <Route exact path="/privacyPolicy" element={<PrivacyPolicy />} />
         <Route exact path="/userPlace" element={<UserPlace />} />
+        <Route path="/articles/:articleId" element={<ArticlePage />} />
         <Route exact path="/faq" element={<Faq />} />
         <Route
           path="/deleteAccount/validationAndConfirmation"
