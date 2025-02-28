@@ -8,13 +8,29 @@ import "../articles/style/articlesPage.css";
 
 function ArticlesPage() {
   const { articleId } = useParams();
+  function getRandomWord() {
+    const words = [
+      "travel",
+      "adventure",
+      "destination",
+      "explore",
+      "journey",
+      "trip",
+      "vacation",
+      "escape",
+      "discover",
+      "wander",
+      "beautiful place",
+    ];
+    return words[Math.floor(Math.random() * words.length)];
+  }
   try {
     const ArticleComponent = require(`./${articleId}`).default; // Load dynamically
     return (
       <div>
         <Heading showTryourService={true} />
         <ImgSlider
-          place="beautiful place"
+          place={getRandomWord()}
           showMultipleSlides={1}
           classnm="artical-img"
         />
