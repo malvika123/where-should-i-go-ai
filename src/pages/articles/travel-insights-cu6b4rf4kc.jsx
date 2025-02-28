@@ -10,6 +10,7 @@ export default function Article() {
         marginRight: "10%",
         marginTop: "3%",
         marginBottom: "5%",
+        fontWeight: "lighter",
       }}
     >
       <div
