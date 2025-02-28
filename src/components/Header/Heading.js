@@ -5,9 +5,10 @@ import "./style/Heading.css";
 import { useState } from "react";
 import axios from "axios";
 import { cuidCookie } from "../common/utils";
-import { redirectToAboutPage } from "../common/navigateTopath";
+import { navigateTopath, redirectToAboutPage } from "../common/navigateTopath";
+import { FcIdea } from "react-icons/fc";
 
-const Heading = ({ name = "" }) => {
+const Heading = ({ name = "", showTryourService = false }) => {
   const navigate = useNavigate();
   const [showLogout, setShowLogout] = useState(false);
 
@@ -48,33 +49,41 @@ const Heading = ({ name = "" }) => {
         <h7 className="pwrd-txt"> {POWEREDBYAI}</h7>
       </div>
 
-      <div className="login-pallet">
-        <h2 className="about-btn" onClick={redirectToAboutPage}>
-          ABOUT
-        </h2>
-        <h2 className="pipe"> | </h2>
-        {name ? (
-          <div>
-            <h2
-              className="user-name"
-              onClick={() => setShowLogout((prev) => !prev)}
-            >
-              {name}
-            </h2>
-            {showLogout && (
-              <div className="desktop-flyout-pallet">
-                <h2 className="pallet-elt" onClick={() => logoutUser()}>
-                  logout
-                </h2>
-              </div>
-            )}
-          </div>
-        ) : (
-          <h2 className="login-btn" onClick={() => navigate("/login")}>
-            LOGIN/SIGNUP
+      {showTryourService ? (
+        <div>
+          <h2 className="try-btn" onClick={navigateTopath}>
+            Try AI trip suggestions <FcIdea />
           </h2>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="login-pallet">
+          <h2 className="about-btn" onClick={redirectToAboutPage}>
+            ABOUT
+          </h2>
+          <h2 className="pipe"> | </h2>
+          {name ? (
+            <div>
+              <h2
+                className="user-name"
+                onClick={() => setShowLogout((prev) => !prev)}
+              >
+                {name}
+              </h2>
+              {showLogout && (
+                <div className="desktop-flyout-pallet">
+                  <h2 className="pallet-elt" onClick={() => logoutUser()}>
+                    logout
+                  </h2>
+                </div>
+              )}
+            </div>
+          ) : (
+            <h2 className="login-btn" onClick={() => navigate("/login")}>
+              LOGIN/SIGNUP
+            </h2>
+          )}
+        </div>
+      )}
     </div>
   );
 };

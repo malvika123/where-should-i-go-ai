@@ -18,9 +18,33 @@
     margin-right: 20px;
 }
 
-.about-btn{
+.about-btn,.try-btn{
     font-size: 20px;
     margin-right: 20px;
+}
+
+.try-btn{
+    background-color: rgb(26, 113, 167);
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgb(26, 113, 167), 0 0 8px rgb(26, 113, 167) ;
+    animation: 1s size linear infinite alternate-reverse;
+    cursor: pointer;
+}
+
+.try-btn:hover{
+    animation-play-state: paused;
+    
+}
+
+@keyframes size {
+    0%{
+     scale:0.7;
+    }
+    100%{
+        scale: 0.9;
+    }
 }
 
 .about-btn:hover,.login-btn:hover{
