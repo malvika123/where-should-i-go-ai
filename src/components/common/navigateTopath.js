@@ -49,3 +49,7 @@ export const redirectToPrivacyPolicyPage = () => {
 export const redirectToFAQPage = () => {
   window.location.href = "/faq";
 };
+
+export const redirectToArticlesPage = () => {
+  window.location.href = "/travel-articles";
+};

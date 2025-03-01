@@ -7,4 +7,23 @@ margin: auto;
 margin-left: 20%;
 margin-top: 5%;
 object-fit: cover;
+
+}
+
+.video{
+    width: 70vw;
+    height: 35vh;
+    object-fit: cover !important;
+    border-radius: 25px !important;
+    align-items: center;
+}
+
+.artPageH1{
+    font-size: 30px;
+}
+
+.artPageH2{
+    font-size: 20px;
+    font-weight: lighter;
+    color: rgb(175, 175, 175);
 }

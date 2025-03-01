@@ -24,10 +24,8 @@ function ArticlesPage() {
       "AI",
       "beautiful background",
       "travel by van",
-      "car",
       "friends",
       "family",
-      "india",
     ];
     return words[Math.floor(Math.random() * words.length)];
   }

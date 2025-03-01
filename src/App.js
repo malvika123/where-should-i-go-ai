@@ -33,6 +33,7 @@ import axios from "axios";
 import UserPlace from "./components/Pages/tripQuestions/UserPlace/UserPlace";
 import Article from "./pages/articles/travel-insights-20250228";
 import ArticlePage from "./pages/articles/ArticlesPage";
+import { ArticleAssembly } from "./pages/articles/ArticleAssembly";
 
 function App() {
   //wake up call to servers
@@ -90,6 +91,8 @@ function App() {
         <Route exact path="/privacyPolicy" element={<PrivacyPolicy />} />
         <Route exact path="/userPlace" element={<UserPlace />} />
         <Route path="/articles/:articleId" element={<ArticlePage />} />
+        <Route path="/travel-articles" element={<ArticleAssembly />} />
+
         <Route exact path="/faq" element={<Faq />} />
         <Route
           path="/deleteAccount/validationAndConfirmation"

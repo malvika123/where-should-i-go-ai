@@ -1,6 +1,7 @@
 import {
   navigateToDeleteAccountpath,
   redirectToAboutPage,
+  redirectToArticlesPage,
   redirectToFAQPage,
   redirectToFeedbackPage,
   redirectToJoinUsPage,
@@ -56,6 +57,10 @@ export const Footer = ({ noShowfeedback }) => {
         <span className="links-footer">|</span>
         <span className="links-footer" onClick={redirectToFAQPage}>
           FAQ
+        </span>
+        <span className="links-footer">|</span>
+        <span className="links-footer" onClick={redirectToArticlesPage}>
+          Travel Articles
         </span>
       </div>
       <div>
