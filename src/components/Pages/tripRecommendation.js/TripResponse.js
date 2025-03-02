@@ -295,9 +295,9 @@ const TripResponse = () => {
                         </a>
                         {isRangeSelected && (
                           <span>
-                            Distance from origin:{" "}
+                            {"("}Distance from origin:{" "}
                             {calDist?.[elt.name]?.distance}, Duration:
-                            {calDist?.[elt.name]?.duration}{" "}
+                            {calDist?.[elt.name]?.duration} {")"}
                           </span>
                         )}
                       </p>
@@ -445,8 +445,9 @@ const TripResponse = () => {
                       </a>
                       {isRangeSelected && (
                         <span>
-                          Distance from origin: {calDist?.[elt.name]?.distance},
-                          Duration :{calDist?.[elt.name]?.duration}{" "}
+                          {"("}Distance from origin:{" "}
+                          {calDist?.[elt.name]?.distance}, Duration :
+                          {calDist?.[elt.name]?.duration} {")"}
                         </span>
                       )}
                     </p>

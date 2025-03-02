@@ -32,6 +32,128 @@ async function generateSitemap() {
     { url: "/deleteAccount", changefreq: "weekly", priority: 0.8 },
     { url: "/joinUs", changefreq: "weekly", priority: 0.8 },
     { url: "/privacyPolicy", changefreq: "weekly", priority: 0.8 },
+    {
+      url: "/articles/travel-insights-1d8smdeh4t",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-2lv0tk5ojz",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-2vweoam6ny",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-4o7hg04tte",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-38h9suns1o",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-39pzk9nzhz",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-56mo5ro6o3",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-20250228",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-bemhyvt05q",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-boe18ocxiw",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-cnrk6kisin",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-com2pl8s95",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-cu6b4rf4kc",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-ftdf76ok3w",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-hzyaqu6h2o",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-lb8u6d5aev",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-lbzcr2wpk9",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-p6h2193qzz",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-p8x7u04n3o",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-rql6jg1bpb",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-t8a1gg12wx",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-tt9o00bn6c",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-u1jrku4u15",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: "/articles/travel-insights-zv2pby62p9",
+      changefreq: "weekly",
+      priority: 0.8,
+    },
+
+    { url: "/travel-articles", changefreq: "weekly", priority: 0.8 },
     { url: "/faq", changefreq: "weekly", priority: 0.8 },
     {
       url: "/deleteAccount/validationAndConfirmation",
