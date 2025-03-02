@@ -68,6 +68,10 @@ const TripResponse = () => {
   const [budget, setBudget] = useState({});
   const [tips, setTips] = useState([]);
 
+  const userInfo = JSON.parse(sessionStorage.getItem("collectedInfo"));
+  const { isRangeSelected } = userInfo;
+  console.log(typeof isRangeSelected, isRangeSelected);
+
   const [showBudgetPopUp, setShowBudgetPopUp] = useState(false);
   const skippedLogin = sessionStorage.getItem("skippedLogin");
   const isLoginSkipped = () => {
@@ -81,31 +85,33 @@ const TripResponse = () => {
   const [calDist, setCalDistMap] = useState({});
 
   useEffect(() => {
-    area?.map(async (elt) => {
-      try {
-        const dist = await getDistance(elt.name);
+    if (isRangeSelected) {
+      area?.map(async (elt) => {
+        try {
+          const dist = await getDistance(elt.name);
 
-        setCalDistMap((prevState) => {
-          return {
-            ...prevState,
-            [elt.name]: dist,
-          };
-        });
-      } catch (er) {}
-    });
+          setCalDistMap((prevState) => {
+            return {
+              ...prevState,
+              [elt.name]: dist,
+            };
+          });
+        } catch (er) {}
+      });
 
-    underhyped?.map(async (elt) => {
-      try {
-        const dist = await getDistance(elt.name);
+      underhyped?.map(async (elt) => {
+        try {
+          const dist = await getDistance(elt.name);
 
-        setCalDistMap((prevState) => {
-          return {
-            ...prevState,
-            [elt.name]: dist,
-          };
-        });
-      } catch (er) {}
-    });
+          setCalDistMap((prevState) => {
+            return {
+              ...prevState,
+              [elt.name]: dist,
+            };
+          });
+        } catch (er) {}
+      });
+    }
   }, []);
 
   const getDistance = async (place) => {
@@ -287,8 +293,13 @@ const TripResponse = () => {
                         >
                           {elt.name}{" "}
                         </a>
-                        (Distance from origin: {calDist?.[elt.name]?.distance},
-                        Duration :{calDist?.[elt.name]?.duration} )
+                        {isRangeSelected && (
+                          <span>
+                            Distance from origin:{" "}
+                            {calDist?.[elt.name]?.distance}, Duration:
+                            {calDist?.[elt.name]?.duration}{" "}
+                          </span>
+                        )}
                       </p>
                       <p className="idl-desc">{elt.description}</p>
                       {elt.name && (
@@ -432,8 +443,12 @@ const TripResponse = () => {
                       >
                         {elt.name}{" "}
                       </a>
-                      (Distance from origin: {calDist?.[elt.name]?.distance},
-                      Duration :{calDist?.[elt.name]?.duration} )
+                      {isRangeSelected && (
+                        <span>
+                          Distance from origin: {calDist?.[elt.name]?.distance},
+                          Duration :{calDist?.[elt.name]?.duration}{" "}
+                        </span>
+                      )}
                     </p>
                     <p className="off-desc">{elt.description}</p>
                     {elt.name && (
