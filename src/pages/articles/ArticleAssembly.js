@@ -1,10 +1,25 @@
+import { useEffect, useState } from "react";
 import { Footer } from "../../components/Footer/Footer";
 import Heading from "../../components/Header/Heading";
 import ImgSlider from "../../components/Pages/tripRecommendation.js/ImgSlider";
 import img from "../../components/images/3577871-hd_1920_1080_25fps.mp4";
 import "../articles/style/articlesPage.css";
+import axios from "axios";
 
 export const ArticleAssembly = () => {
+  const [articles, setArticles] = useState({});
+  useEffect(() => {
+    const getArticles = async () => {
+      try {
+        const data = await axios.get("/api/get/all-article");
+        setArticles(data?.data);
+      } catch (err) {
+        console.log("error");
+      }
+    };
+
+    getArticles();
+  }, []);
   return (
     <div>
       <div>
@@ -152,8 +167,15 @@ export const ArticleAssembly = () => {
                 Discover Thailand: Trending Travel Destinations for 2024
               </a>
             </li>
+            {articles.length > 0 &&
+              articles?.map((elt) => {
+                return (
+                  <li>
+                    <a href={elt?.url}>{elt?.title}</a>
+                  </li>
+                );
+              })}
           </ul>
-          <div></div>
         </div>
         <Footer />
       </div>
