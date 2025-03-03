@@ -1,21 +1,19 @@
 .sticky-ad {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: white; /* Optional: Set background color */
-    text-align: center;
-    z-index: 9999; /* Make sure it stays on top */
-    padding: 10px 0; /* Adjust padding */
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+
 }
+
 
 @media (max-width: 768px) {
     .sticky-ad {
-        height: auto; /* Adjust if needed */
+        height: 10%;
+        /* Adjust if needed */
+        width: 100%;
+        bottom: 0;
     }
 
     body {
-        padding-bottom: 80px; /* Prevents content from being hidden */
+        padding-bottom: 80px;
+        /* Prevents content from being hidden */
     }
 }

@@ -13,7 +13,8 @@
     /* Aligns it to the bottom of the screen */
     left: 0;
     display: flex;
-
+    z-index: 999999;
+    bottom: 10%;
 }
 
 .cookie-icon {

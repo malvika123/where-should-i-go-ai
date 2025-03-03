@@ -129,19 +129,69 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div class="sticky-ad">
-    <script type="text/javascript">
-      atOptions = {
-        'key' : 'ce6d37e3ff6a92f8b21959126d983f7a',
-        'format' : 'iframe',
-        'height' : 90,
-        'width' : 728,
-        'params' : {}
-      };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/ce6d37e3ff6a92f8b21959126d983f7a/invoke.js"></script>
-    
-  </div>
+  <div id="ad-container" class="sticky-ad"></div>
+
+  <script>
+    function loadAdScript() {
+        const width = window.innerWidth;
+        console.log("Window width:", width);
+
+        const adContainer = document.getElementById("ad-container");
+        if (!adContainer) {
+            console.error("❌ Ad container not found!");
+            return;
+        }
+        adContainer.innerHTML = ""; // Clear old ads
+        console.log("✅ Cleared previous ads");
+
+        let adKey, adHeight, adWidth, adSrc;
+
+        if (width < 768) {
+            console.log("📱 Loading Mobile Ad");
+            adKey = "b669250f8078731190a25c25f3cd38e8";
+            adHeight = 50;
+            adWidth = 320;
+            adSrc = "//www.highperformanceformat.com/b669250f8078731190a25c25f3cd38e8/invoke.js";
+        } else {
+            console.log("💻 Loading Desktop Ad");
+            adKey = "ce6d37e3ff6a92f8b21959126d983f7a";
+            adHeight = 90;
+            adWidth = 728;
+            adSrc = "//www.highperformanceformat.com/ce6d37e3ff6a92f8b21959126d983f7a/invoke.js";
+        }
+        console.log("🔧 Creating atOptions script...");
+        const atScript = document.createElement("script");
+        atScript.type = "text/javascript";
+        atScript.innerHTML = `
+            var atOptions = {
+                'key': '${adKey}',
+                'format': 'iframe',
+                'height': ${adHeight},
+                'width': ${adWidth},
+                'params': {}
+            };
+        `;
+        adContainer.appendChild(atScript);
+        console.log("✅ atOptions script added");
+
+        console.log("📜 Creating ad script...");
+        const adScript = document.createElement("script");
+        adScript.type = "text/javascript";
+        adScript.src = adSrc;
+        adScript.async = true;
+        adScript.onload = () => console.log("✅ Ad script loaded successfully");
+        adScript.onerror = () => console.error("❌ Failed to load ad script:", adSrc);
+        adContainer.appendChild(adScript);
+    }
+
+    // Run on page load
+    loadAdScript();
+
+    // Run on window resize
+    window.addEventListener("resize", () => {
+        setTimeout(loadAdScript, 500);
+    });
+</script>
 
   <script type="text/javascript">
     atOptions = {
