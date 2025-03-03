@@ -90,7 +90,7 @@ function App() {
         <Route exact path="/joinUs" element={<JoinUs />} />
         <Route exact path="/privacyPolicy" element={<PrivacyPolicy />} />
         <Route exact path="/userPlace" element={<UserPlace />} />
-        <Route path="/articles/:articleId" element={<ArticlePage />} />
+        <Route exact path="/articles/:articleId" element={<ArticlePage />} />
         <Route path="/travel-articles" element={<ArticleAssembly />} />
 
         <Route exact path="/faq" element={<Faq />} />

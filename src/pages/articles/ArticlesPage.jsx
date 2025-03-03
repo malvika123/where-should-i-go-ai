@@ -5,6 +5,7 @@ import Heading from "../../components/Header/Heading";
 import { Footer } from "../../components/Footer/Footer";
 import ImgSlider from "../../components/Pages/tripRecommendation.js/ImgSlider";
 import "../articles/style/articlesPage.css";
+import AdComponent from "./AdComponent";
 
 function ArticlesPage() {
   const { articleId } = useParams();
@@ -41,6 +42,7 @@ function ArticlesPage() {
         />
         <ArticleComponent />
         <Footer />
+        {/* <AdComponent /> */}
       </div>
     );
   } catch (error) {
