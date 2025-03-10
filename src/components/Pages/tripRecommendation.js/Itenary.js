@@ -113,6 +113,7 @@ const Itinerary = () => {
             month,
             gender,
             acts: collectedInfo?.slctdActsSet,
+            text: collectedInfo?.text,
           },
           {
             headers: {
