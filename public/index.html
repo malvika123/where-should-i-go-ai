@@ -159,6 +159,7 @@
             adWidth = 728;
             adSrc = "//www.highperformanceformat.com/ce6d37e3ff6a92f8b21959126d983f7a/invoke.js";
         }
+
         console.log("🔧 Creating atOptions script...");
         const atScript = document.createElement("script");
         atScript.type = "text/javascript";
@@ -184,12 +185,18 @@
         adContainer.appendChild(adScript);
     }
 
-    // Run on page load
-    loadAdScript();
+    // Run once DOM is fully loaded
+    window.addEventListener("DOMContentLoaded", () => {
+        loadAdScript();
+    });
 
-    // Run on window resize
+    // Debounced resize handler
+    let resizeTimeout;
     window.addEventListener("resize", () => {
-        setTimeout(loadAdScript, 500);
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            loadAdScript();
+        }, 500);
     });
 </script>
 
