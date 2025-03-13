@@ -35,11 +35,11 @@ function ArticlesPage() {
     return (
       <div>
         <Heading showTryourService={true} />
-        <ImgSlider
+        {/* <ImgSlider
           place={getRandomWord()}
           showMultipleSlides={1}
           classnm="artical-img"
-        />
+        /> */}
         <ArticleComponent />
         <Footer />
         {/* <AdComponent /> */}
