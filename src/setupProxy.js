@@ -6,7 +6,7 @@ module.exports = function (app) {
     "/api", // Match the endpoint path you want to proxy
     createProxyMiddleware({
       target:
-        "https://midware-server-wsig.onrender.com" || "http://localhost:4100",
+        "http://localhost:4100" || "https://midware-server-wsig.onrender.com",
       changeOrigin: true,
     })
   );

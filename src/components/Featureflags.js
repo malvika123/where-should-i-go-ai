@@ -1,2 +1,2 @@
-export const enableAutoComplete = false;
+export const enableAutoComplete = true;
 export const enableVideoInBackground = false;

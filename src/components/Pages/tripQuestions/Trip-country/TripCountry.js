@@ -15,7 +15,11 @@ const TripCountry = () => {
   const [err, setErr] = useState("");
   const [state, setState] = useState("");
   const [autoComplete, setAutoComplete] = useState([]);
+  const [showAutoComplete, setShowAutoComplete] = useState(false);
+  const [searchingCountry, setSearchingCountry] = useState(false);
   const [showNextButton, setShowNextButton] = useState(false);
+  const [searchedState, setSearchedState] = useState("");
+  const [searchedStateList, setSearchedStateList] = useState([]);
   const {
     setProgress,
     setNextPath,
@@ -28,6 +32,13 @@ const TripCountry = () => {
     setStates,
   } = useContext(AppContext);
 
+  useEffect(() => {
+    const statesSearched = states && states?.filter((elt, index) =>
+      elt.toLowerCase().includes(searchedState?.toLowerCase()))
+    setSearchedStateList(statesSearched);
+  }
+    , [searchedState]);
+
   const autocmpltFeatureFlg = enableAutoComplete;
 
   useEffect(() => {
@@ -37,32 +48,31 @@ const TripCountry = () => {
 
   // Handle input change and update the country state immediately
   useEffect(() => {
-    if (autocmpltFeatureFlg) {
+    if (autocmpltFeatureFlg && showAutoComplete) {
       const debounce = setTimeout(async () => {
         try {
-          const data = await fetch("/api/loc/authz");
-          if (data.status !== 200) throw data;
-          const res = await data.json();
-          const countryData = await axios.post(
-            "/api/loc/country",
-            {
-              authz: res,
-            },
+
+          const countryData = await axios.get(
+            `/api/loc/countryAutoComplete?val=${country}`,
+
             {
               headers: {
                 "Content-Type": "application/json",
               },
             }
           );
+          setSearchingCountry(false);
           const countries = countryData.data;
           setCountryList(countries);
+          setAutoComplete(countries);
         } catch (error) {
           setErr("internal server error");
         }
       }, 1000);
+      setSearchingCountry(true);
       return () => clearTimeout(debounce);
     }
-  }, []);
+  }, [country]);
 
   const handleChange = (e) => {
     setCountry(sanitizeInput(e.target.value));
@@ -93,10 +103,7 @@ const TripCountry = () => {
   useEffect(() => {
     let delayDebounceFn;
     if (country) {
-      const filterList =
-        countryList &&
-        countryList.filter((elt, id) => elt.toLowerCase().startsWith(country));
-      setAutoComplete(filterList.slice(0, 4));
+
       delayDebounceFn = setTimeout(async () => {
         try {
           const getStatev1 = false;
@@ -105,6 +112,7 @@ const TripCountry = () => {
             if (data.status !== 200) throw data;
             const res = await data.json();
           }
+
           const stateData = await axios.post(
             "/api/loc/getState",
             {
@@ -122,6 +130,7 @@ const TripCountry = () => {
             setErr("Please enter a valid country");
 
           setStates(stateData.data);
+          setShowAutoComplete(false);
         } catch (error) {
           setErr("Try typing the country again");
         }
@@ -130,8 +139,10 @@ const TripCountry = () => {
       setSelectedStates();
       setStates();
       setState();
+      setSearchedState();
     }
     // Cleanup the timeout if country changes within the delay period
+    setAutoComplete([]);
     return () => clearTimeout(delayDebounceFn);
   }, [country]);
 
@@ -141,23 +152,32 @@ const TripCountry = () => {
       <h5 className="sub-txt">Enter the country you would like to visit</h5>
       {err && <h6 className="error">{err}</h6>}
 
-      <div className="search">
-        <FaMagnifyingGlass className="glass" />
-        <input
-          className="textbox"
-          value={country}
-          onChange={handleChange}
-          type="text"
-          placeholder="Type your country here"
-        />
-      </div>
-      {autocmpltFeatureFlg && (
-        <div className="autocomlt">
-          {country &&
-            autoComplete &&
-            autoComplete.map((elt, id) => <p className="auto-lst">{elt}</p>)}
+      <div className="searchbox1"
+      >
+        <div className="search">
+          <FaMagnifyingGlass className="glass" />
+          <input
+            className="textbox"
+            value={country}
+            onChange={handleChange}
+            type="text"
+            onClick={() => setShowAutoComplete(true)}
+            placeholder="Type your country here"
+          />
         </div>
-      )}
+        {autoComplete && <div className="search1">
+          {searchingCountry ? <div className="autocomlt">
+            <CommonSpinner color={"gray"} width="20" />
+          </div> : autocmpltFeatureFlg && (
+            <div className="autocomlt">
+              {country &&
+                autoComplete &&
+                autoComplete.map((elt, id) => <p className="auto-lst" onClick={(e) => { console.log("ji"); setCountry(e.target.innerText); setAutoComplete([]) }}>{elt}</p>)}
+            </div>
+          )}
+        </div>}
+
+      </div>
       {country && !(states && states.length > 0) && (
         <CommonSpinner color={"orange"} />
       )}
@@ -166,13 +186,24 @@ const TripCountry = () => {
           Please select any six states of your interest:{" "}
         </h5>
       )}
+      {states && <input type="text" placeholder="Search a state" className="findState" onChange={(e) => setSearchedState(e.target.value)}
+      />}
       <div className="state-brd">
-        {states &&
-          states.map((elt, index) => (
+        {searchedState ? searchedStateList &&
+          searchedStateList.map((elt, index) => (
+
             <p key={index} className="state" onClick={handleStateClicked}>
               {elt}
             </p>
-          ))}
+
+
+          )) : states &&
+        states.map((elt, index) => (
+          <p key={index} className="state" onClick={handleStateClicked}>
+            {elt}
+          </p>
+        ))}
+
       </div>
 
       {states && selectedStates && (

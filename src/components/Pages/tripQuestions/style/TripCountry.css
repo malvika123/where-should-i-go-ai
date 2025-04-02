@@ -5,9 +5,28 @@
     display: flex;
     align-items: center;
     overflow: hidden;
+    position: relative;
+}
+
+.search1 {
+    margin-right: 20%;
+    margin-left: 0%;
+    padding: 10px 0px 10px 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.findState {
+    border: 1px solid rgb(224, 219, 219);
+    margin: 20px 20% 0px 20%;
+    padding: 10px 0 10px 10px;
+    width: 30%;
+    border-radius: 12px;
 }
 
 .search,
+.search1,
 .glass {
     font-size: 1.2em;
     color: #999;
@@ -102,23 +121,42 @@
 }
 
 .autocomlt {
-    border: 1px solid black;
-    margin: 0px 0px 0px 10%;
-    overflow: hidden;
-    position: absolute;
-    z-index: 2;
-    background-color:whitesmoke;
-    width: 29.7%;
+    border: 1px solid rgb(237, 241, 245);
+    /* position: absolute; */
+    top: 100%;
+    /* Place it right below .search */
+    left: 0;
+    /* Align it with the .search box */
+    z-index: 1000;
+    background-color: whitesmoke;
+    width: 100%;
+    /* Match the width of .search */
+    overflow-y: scroll;
+    max-height: 200px;
+    border-radius: 15px;
+    margin-left: 25%;
+
+    /* Initially hidden */
+}
+
+
+
+.searchbox1 {
+    display: flex;
+    flex-direction: column;
 }
 
 .auto-lst {
     font-size: 15px;
     text-align: left;
     padding-left: 5.5%;
+    text-transform: capitalize;
+    color: gray;
+
 }
 
 .auto-lst:hover {
     background-color: rgb(38, 114, 202);
     color: white;
-    
+
 }

@@ -2,9 +2,9 @@
     font-size: 20px;
 }
 
-.sub-heading-place{
+.sub-heading-place {
     font-size: 16px;
-    color:rgb(188, 187, 187);
+    color: rgb(188, 187, 187);
 }
 
 .input-place {
@@ -43,7 +43,6 @@
     width: 50%;
     margin: auto;
     text-align: left;
-
 }
 
 .auto-elt {
