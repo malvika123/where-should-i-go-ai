@@ -121,7 +121,7 @@
 }
 
 .autocomlt {
-    border: 1px solid rgb(237, 241, 245);
+    /* border: 1px solid rgb(237, 241, 245); */
     /* position: absolute; */
     top: 100%;
     /* Place it right below .search */

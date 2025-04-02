@@ -48,7 +48,7 @@ const TripCountry = () => {
 
   // Handle input change and update the country state immediately
   useEffect(() => {
-    if (autocmpltFeatureFlg && showAutoComplete) {
+    if (autocmpltFeatureFlg) {
       const debounce = setTimeout(async () => {
         try {
 
@@ -165,14 +165,14 @@ const TripCountry = () => {
             placeholder="Type your country here"
           />
         </div>
-        {autoComplete && <div className="search1">
-          {searchingCountry ? <div className="autocomlt">
+        {autoComplete && !states && <div className="search1">
+          {searchingCountry && country ? <div className="autocomlt">
             <CommonSpinner color={"gray"} width="20" />
           </div> : autocmpltFeatureFlg && (
             <div className="autocomlt">
               {country &&
                 autoComplete &&
-                autoComplete.map((elt, id) => <p className="auto-lst" onClick={(e) => { console.log("ji"); setCountry(e.target.innerText); setAutoComplete([]) }}>{elt}</p>)}
+                autoComplete.map((elt, id) => <p className="auto-lst" onClick={(e) => { setCountry(e.target.innerText); setAutoComplete([]) }}>{elt}</p>)}
             </div>
           )}
         </div>}
